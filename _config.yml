@@ -16,7 +16,7 @@ defaults:
     values:
       layout: default
 
-# Don't publish editor backup files (e.g. style/oacdp.css~).
+# Don't publish editor backup files (*~).
 exclude:
   - "*~"
   - "**/*~"

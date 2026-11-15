@@ -44,6 +44,8 @@ The source stays in `src/` and output stays in `out/`.
   `src/default.template` becomes `src/_layouts/default.html`.
 - `config.yaml`, `Rakefile`, `ext/` and the webgen notes in `scripts/` are
   no longer used by the build; whether to remove them is a separate decision.
+  Update: `config.yaml`, `Rakefile`, `ext/` and the tracked `*~` editor
+  backups were removed on the `live-sync` branch.
 - The live site has content newer than this repo (e.g. `progref.html`,
   `progref61.html`, `type1.html`, a 2014 `type1part.html`). This port does not
   change that; it only replaces the build tool.
