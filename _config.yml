@@ -1,0 +1,45 @@
+# Jekyll configuration for the OACDP site.
+# Faithful port of the old webgen 0.5.10 build: see
+# docs/decisions/0001-move-build-to-jekyll.md
+
+source: src
+destination: out
+
+# Used by the layout's xml:lang attribute (was webgen's website.lang).
+lang: en
+
+# Every page uses src/_layouts/default.html, so no page needs a
+# "layout:" line in its front matter.
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: default
+
+# Don't publish editor backup files (e.g. style/oacdp.css~).
+exclude:
+  - "*~"
+  - "**/*~"
+
+# The document scans/PDFs are not in git; they are unpacked from the
+# "overlay" tarball into out/. Jekyll normally deletes anything in out/
+# that it did not build, so keep these folders between builds.
+keep_files:
+  - .git
+  - .svn
+  - 5054part
+  - 5867part
+  - ba4
+  - damage
+  - ebersp
+  - images
+  - pdfs
+  - progref4061
+  - progref6268
+  - so42
+  - solex
+  - tools
+  - type1part
+  - wog69
+  - wog72
+  - zips

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="{lang:}">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="{{ site.lang }}">
   <head>
-    <link rel="stylesheet" type="text/css" href="{relocatable: style/oacdp.css}"/>
+    <link rel="stylesheet" type="text/css" href="style/oacdp.css"/>
     <link rel="icon" type="image/x-icon" href="favicon.ico"/>
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico"/>
     <meta name="description" content="The Obsolete Air-Cooled Documentation Project presents out-of-print technical resources online for use by the air-cooled enthusist community."/>
@@ -13,7 +13,7 @@
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
     <meta http-equiv="Cache-Control" content="PUBLIC"/>
     <meta http-equiv="Content-Language" content="en"/>
-    <title>Obsolete Air-Cooled Documentation Project -- {title:}</title>
+    <title>Obsolete Air-Cooled Documentation Project -- {{ page.title }}</title>
   </head>
   <body>
     <div id="titleBackground"></div>
@@ -37,7 +37,7 @@
 	</ul>
       </div>
 
-      <webgen:block name='content' />
+      {{ content }}
 
     </div>
     <div id="footerText">
