@@ -11,14 +11,15 @@
 
 The Obsolete Air Cooled Documentation Project is focused on providing access to
 hard to find, out of print resources for air cooled automobile enthusiasts.  This 
-repository is the source for building the site.  It uses webgen, which is a ruby
-utility (I tried staticmatic, but had some wierd issues with it and in the end 
-webgen fit the bill).
+repository is the source for building the site.  It uses Jekyll, a ruby
+static site generator.  (It originally used webgen 0.5.10, which no longer
+runs on current Ruby; see docs/decisions/0001-move-build-to-jekyll.md.)
 
 ## Dependencies
 
 
-  + [webgen](http://webgen.rubyforge.org/) version 0.5.10
+  + [Ruby](https://www.ruby-lang.org) 3.x (tested with 3.4) and [Bundler](https://bundler.io)
+  + [Jekyll](https://jekyllrb.com) 4.x (installed by Bundler from the Gemfile)
   + [GNU tar w/ bzip2 support](http://www.gnu.org/software/tar/)
   + [the oacdp overlay](http://oacdp/mirroring.html)
   + [git](http://git-scm.com)
@@ -27,23 +28,58 @@ webgen fit the bill).
 
 First fetch the oacdp source:
 
-	mkdir src
-	cd src
-	git clone git://github.com/elliottjohnson/oacdp.git oacdp``
-
-Then use webgen to render the site:
-
+	git clone https://github.com/elliottjohnson/oacdp.git oacdp
 	cd oacdp
-	webgen render
 
-Then extract the overlay to install the content:
+Install Jekyll and its dependencies (once):
+
+	bundle install
+
+Then use Jekyll to render the site from src/ into out/:
+
+	bundle exec jekyll build
+
+Then extract the overlay to install the content (the scanned documents
+are not kept in git):
 
 	tar -xvvjpf /the/path/to/your/oacdp-overlay.tar.bz2
+
+The overlay folders inside out/ (5054part/, pdfs/, zips/, ...) are listed
+under `keep_files` in _config.yml, so rebuilding does not delete them.
 
 ## Viewing
 
 Use a web browser to open the "oacdp/out/index.html" file.  I've used only 
 relative url's within the site to keep things locally viewable.
+
+Or run a local preview server, which rebuilds when files in src/ change:
+
+	bundle exec jekyll serve --host 0.0.0.0 --port 4000
+
+and browse to http://localhost:4000/index.html.  In a GitHub Codespace,
+open the PORTS tab and click the globe icon next to port 4000.
+
+## Scan viewer
+
+The Type 2 Parts Manual (1958-1967), Main Group 6 (road wheels, brakes)
+has a page-by-page viewer at `5867g6-305.html` ... `5867g6-335.html`,
+linked from the Main Group 6 quick index on `5867part.html`.
+
+  + `src/_data/parts5867_g6.yml` holds each scan's page number, type and
+    description, copied from the "Main Group 6" full index table in
+    `src/5867part.html`.
+  + `src/_scans5867g6/` has one small stub file per scan; the
+    `src/_layouts/viewer.html` layout builds each page from the data file.
+  + `src/viewer/` holds the viewer's own CSS and a small script (zoom,
+    pan, arrow keys). Everything works without the script.
+
+After changing the table or the data file, check that they still agree:
+
+	ruby scripts/check-5867-g6.rb
+
+The viewer shows scans from `out/5867part/` (from the overlay). Without
+the overlay, each page shows a message with a link to the scan on
+oacdp.org instead of a broken image.
 
 ## Deploying
 

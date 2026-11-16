@@ -1,0 +1,12 @@
+{%- include viewer-find.html -%}
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" type="text/css" href="viewer/viewer.css"/>
+{%- if sv_prev %}
+    <link rel="prev" href="5867g6-{{ sv_prev.scan }}.html"/>
+{%- endif -%}
+{%- if sv_next %}
+    <link rel="next" href="5867g6-{{ sv_next.scan }}.html"/>
+    <link rel="prefetch" href="5867g6-{{ sv_next.scan }}.html"/>
+    <link rel="prefetch" href="{{ sv.scan_dir }}/{{ sv_next.scan }}.png"/>
+{%- endif %}
+    <script src="viewer/viewer.js" defer="defer"></script>

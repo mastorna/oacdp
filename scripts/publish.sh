@@ -14,7 +14,7 @@ then
     usage
     echo ""
     echo "This script should be run in the root directory of" 
-    echo "your checkout of the oacdp project after webgen has"
+    echo "your checkout of the oacdp project after 'bundle exec jekyll build' has"
     echo "been run.  I don't see an \"out\" directory, so I'm"
     echo "aborting..."
     exit 1

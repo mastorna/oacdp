@@ -1,0 +1,62 @@
+# Jekyll configuration for the OACDP site.
+# Faithful port of the old webgen 0.5.10 build: see
+# docs/decisions/0001-move-build-to-jekyll.md
+
+source: src
+destination: out
+
+# Used by the layout's xml:lang attribute (was webgen's website.lang).
+lang: en
+
+# Every page uses src/_layouts/default.html, so no page needs a
+# "layout:" line in its front matter.
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: default
+  # Scan viewer pages (see "collections" below) use the viewer layout.
+  - scope:
+      path: ""
+      type: scans5867g6
+    values:
+      layout: viewer
+      viewer: true
+
+# Scan viewer for the Type 2 Parts Manual (1958-1967), Main Group 6.
+# Each stub in src/_scans5867g6/ (named after its scan number) becomes
+# /5867g6-NNN.html; the page content comes from
+# src/_data/parts5867_g6.yml. Check both with:
+#   ruby scripts/check-5867-g6.rb
+collections:
+  scans5867g6:
+    output: true
+    permalink: /5867g6-:name.html
+
+# Don't publish editor backup files (*~).
+exclude:
+  - "*~"
+  - "**/*~"
+
+# The document scans/PDFs are not in git; they are unpacked from the
+# "overlay" tarball into out/. Jekyll normally deletes anything in out/
+# that it did not build, so keep these folders between builds.
+keep_files:
+  - .git
+  - .svn
+  - 5054part
+  - 5867part
+  - ba4
+  - damage
+  - ebersp
+  - images
+  - pdfs
+  - progref4061
+  - progref6268
+  - so42
+  - solex
+  - tools
+  - type1part
+  - wog69
+  - wog72
+  - zips
