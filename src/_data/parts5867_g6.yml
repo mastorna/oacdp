@@ -1,0 +1,65 @@
+# Scan viewer data: Type 2 Parts Manual (1958-1967), Main Group 6.
+# The "pages" list is copied from the full index table #f6 in
+# src/5867part.html. Keep the two in step; check them with:
+#   ruby scripts/check-5867-g6.rb
+manual: "Type 2 Parts Manual (1958-1967)"
+group: "Main Group 6: Road Wheels, Brakes"
+group_short: "Main Group 6"
+index_page: "5867part.html#q6"
+pdf: "pdfs/5867s6.pdf"
+scan_dir: "5867part"
+# Where the original scans live on the public site (used when a local
+# copy has no overlay installed).
+origin: "http://www.oacdp.org/"
+# Measured pixel size of every scan in this group (two-page spreads).
+scan_width: 2517
+scan_height: 1632
+pages:
+- scan: 305
+  type: list
+  description: SP Sets, Main Group 6 index
+- scan: 307
+  type: special
+  description: Blank page
+- scan: 309
+  type: diagram
+  description: Hydraulic brakes
+- scan: 311
+  type: list
+  description: Hydraulic brakes
+- scan: 313
+  type: list
+  description: Hydraulic brakes
+- scan: 315
+  type: list
+  description: Hydraulic brakes
+- scan: 317
+  type: list
+  description: Hydraulic brakes
+- scan: 319
+  type: diagram
+  description: Brake cylinders and lines
+- scan: 321
+  type: list
+  description: Brake cylinders and lines
+- scan: 323
+  type: list
+  description: Brake cylinders and lines
+- scan: 325
+  type: list
+  description: Brake cylinders and lines
+- scan: 327
+  type: list
+  description: Brake cylinders and lines
+- scan: 329
+  type: list
+  description: Brake cylinders and lines
+- scan: 331
+  type: list
+  description: Brake fluid, repair kits
+- scan: 333
+  type: list
+  description: Repair kits
+- scan: 335
+  type: list
+  description: Repair kits, SP Sets

@@ -15,6 +15,23 @@ defaults:
       path: ""
     values:
       layout: default
+  # Scan viewer pages (see "collections" below) use the viewer layout.
+  - scope:
+      path: ""
+      type: scans5867g6
+    values:
+      layout: viewer
+      viewer: true
+
+# Scan viewer for the Type 2 Parts Manual (1958-1967), Main Group 6.
+# Each stub in src/_scans5867g6/ (named after its scan number) becomes
+# /5867g6-NNN.html; the page content comes from
+# src/_data/parts5867_g6.yml. Check both with:
+#   ruby scripts/check-5867-g6.rb
+collections:
+  scans5867g6:
+    output: true
+    permalink: /5867g6-:name.html
 
 # Don't publish editor backup files (*~).
 exclude:

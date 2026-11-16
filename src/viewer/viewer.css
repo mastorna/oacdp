@@ -1,0 +1,479 @@
+/* Scan viewer (Type 2 Parts Manual 1958-1967, Main Group 6).
+   Loaded only on viewer pages; every rule is scoped to .sv, except the
+   narrow-screen #centered rule, which applies only when it holds a .sv. */
+
+.sv {
+  --sv-sheet: #ffffff;     /* the scan's paper */
+  --sv-ink: #000000;       /* matches the 1-bit scans */
+  --sv-surround: #c9d3d8;  /* light-table surround */
+  --sv-blue: #1f4e79;      /* diagram marks, controls */
+  --sv-mark: #ffffaa;      /* current item and focus (the site's table yellow) */
+  --sv-muted: #4a4a4a;     /* secondary text, 9:1 on white */
+  --sv-figures: Bahnschrift, "DIN Alternate", "DIN 1451", "Roboto Condensed", "Arial Narrow", sans-serif;
+
+  color: var(--sv-ink);
+  line-height: 1.45;
+  margin: 1em 0 2em;
+}
+
+.sv-figures {
+  font-family: var(--sv-figures);
+  font-variant-numeric: tabular-nums;
+}
+
+.sv-vh {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+.sv [hidden] {
+  display: none !important;
+}
+
+/* Links and focus */
+.sv a,
+.sv a:visited {
+  color: var(--sv-blue);
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+.sv a:hover {
+  color: var(--sv-ink);
+}
+
+.sv a:focus-visible,
+.sv button:focus-visible,
+.sv summary:focus-visible,
+.sv .sv-frame:focus-visible {
+  outline: 3px solid var(--sv-ink);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 6px var(--sv-mark);
+}
+
+.sv a:focus-visible,
+.sv summary:focus-visible {
+  background: var(--sv-mark);
+  color: var(--sv-ink);
+}
+
+/* Heading block */
+.sv-back {
+  margin: 0 0 0.75em;
+}
+
+.sv-back a {
+  display: inline-block;
+  padding: 0.6em 0;
+}
+
+.sv-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 0.75em 2em;
+  margin-bottom: 1em;
+}
+
+.sv h1 {
+  font-size: 1.75rem;
+  line-height: 1.15;
+  margin: 0 0 0.25em;
+}
+
+.sv-meta {
+  margin: 0;
+  max-width: 70ch;
+}
+
+.sv-pos {
+  color: var(--sv-muted);
+  white-space: nowrap;
+}
+
+.sv-step {
+  display: flex;
+  gap: 0.5em;
+}
+
+.sv-step-link,
+.sv-toolbar button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35em;
+  min-height: 44px;
+  min-width: 44px;
+  padding: 0 1em;
+  box-sizing: border-box;
+  border: 2px solid var(--sv-blue);
+  border-radius: 3px;
+  background: var(--sv-sheet);
+  font: inherit;
+  color: var(--sv-blue);
+}
+
+.sv a.sv-step-link {
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.sv a.sv-step-link:hover {
+  background: var(--sv-blue);
+  color: var(--sv-sheet);
+}
+
+.sv-step-off {
+  border-style: dashed;
+  border-color: var(--sv-muted);
+  color: var(--sv-muted);
+}
+
+/* The scan */
+.sv-figure {
+  margin: 0;
+  background: var(--sv-surround);
+  padding: 12px;
+  border-radius: 3px;
+}
+
+.sv-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5em;
+  margin-bottom: 12px;
+}
+
+.sv-toolbar button {
+  cursor: pointer;
+}
+
+.sv-toolbar button[aria-pressed="true"] {
+  background: var(--sv-blue);
+  color: var(--sv-sheet);
+}
+
+.sv-status {
+  margin-left: 0.25em;
+  font-size: 0.875rem;
+}
+
+.sv-frame {
+  overflow: auto;
+  max-width: 100%;
+  background: var(--sv-surround);
+}
+
+.sv-scan,
+.sv-frame img {
+  display: block;
+  width: 100%;
+  max-width: 2517px;      /* never larger than the scan's real pixels */
+  height: auto;
+  aspect-ratio: 2517 / 1632;
+  background: var(--sv-sheet);
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.45);
+}
+
+.sv-frame[data-zoom="left"] img,
+.sv-frame[data-zoom="right"] img {
+  width: 200%;
+}
+
+.sv-frame[data-zoom="actual"] {
+  max-height: 85vh;
+}
+
+.sv-frame[data-zoom="actual"] img {
+  width: 2517px;
+}
+
+.sv-frame.sv-pannable {
+  cursor: grab;
+}
+
+.sv-frame.sv-dragging {
+  cursor: grabbing;
+  user-select: none;
+}
+
+.sv-missing {
+  box-sizing: border-box;
+  height: 100%;
+  padding: 1.5em;
+  background: var(--sv-sheet);
+  border: 2px dashed var(--sv-muted);
+}
+
+.sv-missing p {
+  margin: 0 0 0.75em;
+  max-width: 60ch;
+}
+
+.sv-caption {
+  margin-top: 0.6em;
+  font-size: 0.875rem;
+}
+
+.sv-keys {
+  display: block;
+}
+
+.sv-links {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 1.5em;
+  padding: 0;
+  margin: 1em 0;
+}
+
+.sv-links a {
+  display: inline-block;
+  padding: 0.6em 0;
+}
+
+/* Thumb-index rail: one tab per scan, like the printed edge tabs of a
+   parts book. Filled = diagram, outlined = parts list, hatched = special. */
+.sv-index {
+  margin: 1.5em 0 1em;
+}
+
+.sv-rail {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(16, minmax(0, 1fr));
+  gap: 4px;
+  padding: 10px 0 0;
+  margin: 0;
+  border-bottom: 3px solid var(--sv-blue);
+}
+
+.sv-tab {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  min-height: 44px;
+  padding-bottom: 4px;
+  box-sizing: border-box;
+  border: 2px solid var(--sv-blue);
+  border-bottom: 0;
+  border-radius: 4px 4px 0 0;
+  font-family: var(--sv-figures);
+  font-variant-numeric: tabular-nums;
+  font-size: 0.875rem;
+}
+
+.sv a.sv-tab {
+  text-decoration: none;
+}
+
+.sv a.sv-tab-diagram,
+.sv .sv-key.sv-tab-diagram {
+  background: var(--sv-blue);
+  color: var(--sv-sheet);
+}
+
+.sv a.sv-tab-list,
+.sv .sv-key.sv-tab-list {
+  background: var(--sv-sheet);
+  color: var(--sv-blue);
+}
+
+.sv a.sv-tab-special,
+.sv .sv-key.sv-tab-special {
+  background: repeating-linear-gradient(45deg, var(--sv-blue) 0 2px, var(--sv-sheet) 2px 7px);
+  color: var(--sv-ink);
+}
+
+.sv a.sv-tab-special {
+  text-shadow: 0 0 3px var(--sv-sheet), 0 0 3px var(--sv-sheet), 0 0 3px var(--sv-sheet);
+  font-weight: bold;
+}
+
+/* The current scan's tab stands proud of the rail. */
+.sv a.sv-tab[aria-current="page"] {
+  margin-top: -10px;
+  min-height: 54px;
+  background: var(--sv-mark);
+  color: var(--sv-ink);
+  border-color: var(--sv-ink);
+  font-weight: bold;
+  text-shadow: none;
+}
+
+.sv a.sv-tab:hover {
+  outline: 2px solid var(--sv-ink);
+  outline-offset: -4px;
+}
+
+.sv-legend {
+  margin: 0.5em 0 0;
+  font-size: 0.875rem;
+  color: var(--sv-muted);
+}
+
+.sv-key {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  margin: 0 0.2em 0 0.8em;
+  vertical-align: -0.15em;
+  border: 2px solid var(--sv-blue);
+  box-sizing: border-box;
+}
+
+.sv-key:first-child {
+  margin-left: 0;
+}
+
+/* Contents list */
+.sv-contents {
+  margin: 1em 0;
+}
+
+.sv-contents summary {
+  display: inline-block;
+  min-height: 44px;
+  line-height: 44px;
+  cursor: pointer;
+  font-weight: bold;
+  color: var(--sv-blue);
+}
+
+.sv-contents summary::before {
+  content: "+ ";
+}
+
+.sv-contents[open] summary::before {
+  content: "− ";
+}
+
+.sv-contents ul,
+.sv-contents ol {
+  padding-left: 1.25em;
+  margin: 0.25em 0 0.75em;
+}
+
+.sv-contents ol {
+  list-style: none;
+  padding-left: 0.75em;
+}
+
+.sv-contents ol a {
+  display: inline-block;
+  padding: 0.35em 0;
+}
+
+.sv-contents a[aria-current="page"] {
+  background: var(--sv-mark);
+  color: var(--sv-ink);
+  font-weight: bold;
+  padding-left: 0.35em;
+  padding-right: 0.35em;
+}
+
+/* Phones: use the full width with a 16px gutter, stack the controls.
+   The site header and footer have fixed desktop widths; on viewer pages
+   only, and only on narrow screens, let them shrink so the page never
+   scrolls sideways. Desktop rendering is unchanged. */
+@media (max-width: 700px) {
+  #centered:has(.sv) {
+    left: 0;
+    width: auto;
+    padding: 0 16px;
+  }
+
+  body:has(.sv) #titleImage {
+    max-width: 100%;
+    height: auto;
+  }
+
+  body:has(.sv) #footerContainer,
+  body:has(.sv) #footerCopy {
+    width: auto;
+    height: auto;
+    padding: 0 16px;
+  }
+
+  body:has(.sv) #footerContainer {
+    overflow: hidden;    /* contain the floated columns */
+  }
+
+  body:has(.sv) #footerLegal {
+    width: auto;
+    max-width: 20em;
+  }
+}
+
+@media (max-width: 600px) {
+  .sv h1 {
+    font-size: 1.4rem;
+  }
+
+  .sv-pos {
+    white-space: normal;
+  }
+
+  .sv-back a,
+  .sv-links a,
+  .sv-contents ol a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  .sv-toolbar {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .sv-status {
+    grid-column: 1 / -1;
+    margin-left: 0;
+  }
+
+  .sv-step {
+    width: 100%;
+  }
+
+  .sv-step-link {
+    flex: 1 1 0;
+  }
+
+  .sv-figure {
+    padding: 8px;
+  }
+
+  .sv-toolbar button {
+    padding: 0 0.5em;
+  }
+
+  .sv-index {
+    display: none;     /* the contents list below covers it on phones */
+  }
+
+  .sv-keys {
+    display: none !important;
+  }
+}
+
+/* Restrained motion: a short crossfade between scans, only when the
+   reader hasn't asked for reduced motion. No JavaScript needed. */
+@media (prefers-reduced-motion: no-preference) {
+  @view-transition {
+    navigation: auto;
+  }
+
+  ::view-transition-group(root) {
+    animation-duration: 150ms;
+  }
+}

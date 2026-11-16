@@ -1,0 +1,24 @@
+{%- comment -%}
+  Look up the current scan in src/_data/parts5867_g6.yml.
+  Sets: sv (the data), sv_n (scan number), sv_cur (its entry),
+  sv_idx (0-based position), sv_total, sv_prev / sv_next (entries or nil).
+{%- endcomment -%}
+{%- assign sv = site.data.parts5867_g6 -%}
+{%- assign sv_n = page.slug | plus: 0 -%}
+{%- assign sv_total = sv.pages | size -%}
+{%- assign sv_prev = nil -%}
+{%- assign sv_next = nil -%}
+{%- for p in sv.pages -%}
+  {%- if p.scan == sv_n -%}
+    {%- assign sv_cur = p -%}
+    {%- assign sv_idx = forloop.index0 -%}
+  {%- endif -%}
+{%- endfor -%}
+{%- if sv_idx > 0 -%}
+  {%- assign i = sv_idx | minus: 1 -%}
+  {%- assign sv_prev = sv.pages[i] -%}
+{%- endif -%}
+{%- assign i = sv_idx | plus: 1 -%}
+{%- if i < sv_total -%}
+  {%- assign sv_next = sv.pages[i] -%}
+{%- endif -%}

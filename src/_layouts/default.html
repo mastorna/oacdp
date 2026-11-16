@@ -13,7 +13,8 @@
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
     <meta http-equiv="Cache-Control" content="PUBLIC"/>
     <meta http-equiv="Content-Language" content="en"/>
-    <title>Obsolete Air-Cooled Documentation Project -- {{ page.title }}</title>
+    <title>Obsolete Air-Cooled Documentation Project -- {{ page.title }}</title>{% if page.viewer %}
+{% include viewer-head.html %}{% endif %}
   </head>
   <body>
     <div id="titleBackground"></div>

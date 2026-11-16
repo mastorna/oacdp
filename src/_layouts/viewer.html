@@ -1,0 +1,108 @@
+---
+layout: default
+---
+{%- comment -%}
+  One page per scan of the Type 2 Parts Manual (1958-1967), Main Group 6.
+  Everything shown comes from src/_data/parts5867_g6.yml. Works fully
+  without JavaScript; src/viewer/viewer.js adds zoom/pan and keys.
+{%- endcomment -%}
+{%- include viewer-find.html -%}
+{%- capture kinds -%}diagram=parts diagram|list=parts list|special=special page{%- endcapture -%}
+{%- assign kind_map = kinds | split: "|" -%}
+{%- capture png %}{{ sv.scan_dir }}/{{ sv_n }}.png{% endcapture -%}
+{%- assign left_page = sv_n | minus: 1 -%}
+{%- for k in kind_map -%}{%- assign kv = k | split: "=" -%}{%- if kv[0] == sv_cur.type -%}{%- assign kind = kv[1] -%}{%- endif -%}{%- endfor -%}
+{%- capture alt %}Scan {{ sv_n }}: {{ kind }}, {{ sv_cur.description | strip }} (manual pages {{ left_page }} and {{ sv_n }}){% endcapture %}
+<div class="sv" data-scan-width="{{ sv.scan_width }}" data-scan-height="{{ sv.scan_height }}" data-png="{{ png }}" data-alt="{{ alt | escape }}">
+  <p class="sv-back"><a href="{{ sv.index_page }}">Back to {{ sv.group_short }}</a></p>
+
+  <div class="sv-head">
+    <div class="sv-titles">
+      <h1>{{ sv_cur.description | strip | escape }}</h1>
+      <p class="sv-meta">
+        <span class="sv-figures">Scan {{ sv_n }}</span>, manual pages
+        <span class="sv-figures">{{ left_page }}–{{ sv_n }}</span>, {{ kind }}.
+        <span class="sv-pos"><span class="sv-figures">{{ sv_idx | plus: 1 }}</span> of
+        <span class="sv-figures">{{ sv_total }}</span> in {{ sv.group | escape }}</span>
+      </p>
+    </div>
+    <nav class="sv-step" aria-label="Previous and next scan">
+      {%- if sv_prev %}
+      <a class="sv-step-link" rel="prev" href="5867g6-{{ sv_prev.scan }}.html" data-key="prev">Previous <span class="sv-figures">{{ sv_prev.scan }}</span></a>
+      {%- else %}
+      <span class="sv-step-link sv-step-off">Previous <span class="sv-vh">(this is the first scan)</span></span>
+      {%- endif %}
+      {%- if sv_next %}
+      <a class="sv-step-link" rel="next" href="5867g6-{{ sv_next.scan }}.html" data-key="next">Next <span class="sv-figures">{{ sv_next.scan }}</span></a>
+      {%- else %}
+      <span class="sv-step-link sv-step-off">Next <span class="sv-vh">(this is the last scan)</span></span>
+      {%- endif %}
+    </nav>
+  </div>
+
+  <figure class="sv-figure">
+    <div class="sv-toolbar" role="toolbar" aria-label="Zoom" hidden="hidden">
+      <button type="button" data-zoom="fit" aria-pressed="true">Fit</button>
+      <button type="button" data-zoom="left" aria-pressed="false">Left page</button>
+      <button type="button" data-zoom="right" aria-pressed="false">Right page</button>
+      <button type="button" data-zoom="actual" aria-pressed="false">Actual size</button>
+      <span class="sv-status" aria-live="polite"></span>
+    </div>
+    <div class="sv-frame">
+      <object class="sv-scan" data="{{ png }}" type="image/png" role="img" aria-label="{{ alt | escape }}">
+        <div class="sv-missing">
+          <p><strong>Scan {{ sv_n }} isn't on this copy of the site.</strong>
+            Scans come from the separate overlay download, so a local build may not have them.</p>
+          <p><a href="{{ sv.origin }}{{ png }}">Open scan {{ sv_n }} on oacdp.org</a>
+            or <a href="{{ sv.origin }}{{ sv.pdf }}">the {{ sv.group_short }} PDF on oacdp.org</a>.</p>
+        </div>
+      </object>
+    </div>
+    <figcaption class="sv-caption">
+      The left half is manual page {{ left_page }}, the right half is page {{ sv_n }}.
+      <span class="sv-keys" hidden="hidden">Keys: left and right arrows change scan, + and − zoom, 0 fits, L and R show one page.</span>
+    </figcaption>
+  </figure>
+
+  <ul class="sv-links">
+    <li><a href="{{ png }}">Open full-resolution scan ({{ sv.scan_width }} × {{ sv.scan_height }} PNG)</a></li>
+    <li><a href="{{ sv.pdf }}">{{ sv.group_short }} PDF</a></li>
+  </ul>
+
+  <nav class="sv-index" aria-label="Scans in {{ sv.group_short }}">
+    <ol class="sv-rail">
+      {%- for p in sv.pages %}
+      {%- for k in kind_map -%}{%- assign kv = k | split: "=" -%}{%- if kv[0] == p.type -%}{%- assign pk = kv[1] -%}{%- endif -%}{%- endfor %}
+      <li><a class="sv-tab sv-tab-{{ p.type }}" href="5867g6-{{ p.scan }}.html"{% if p.scan == sv_n %} aria-current="page"{% endif %} title="Scan {{ p.scan }}: {{ p.description | strip | escape }}, {{ pk }}">{{ p.scan }}<span class="sv-vh">, {{ p.description | strip | escape }}, {{ pk }}</span></a></li>
+      {%- endfor %}
+    </ol>
+    <p class="sv-legend">
+      <span class="sv-key sv-tab-diagram" aria-hidden="true"></span> diagram
+      <span class="sv-key sv-tab-list" aria-hidden="true"></span> parts list
+      <span class="sv-key sv-tab-special" aria-hidden="true"></span> special page
+    </p>
+  </nav>
+
+  <details class="sv-contents">
+    <summary>All {{ sv_total }} scans in this group</summary>
+    <ul>
+      {%- assign last = "" -%}
+      {%- for p in sv.pages -%}
+      {%- assign desc = p.description | strip -%}
+      {%- for k in kind_map -%}{%- assign kv = k | split: "=" -%}{%- if kv[0] == p.type -%}{%- assign pk = kv[1] -%}{%- endif -%}{%- endfor -%}
+      {%- if desc != last %}
+      {%- unless forloop.first %}
+        </ol>
+      </li>
+      {%- endunless %}
+      <li>{{ desc | escape }}
+        <ol>
+      {%- assign last = desc -%}
+      {%- endif %}
+          <li><a href="5867g6-{{ p.scan }}.html"{% if p.scan == sv_n %} aria-current="page"{% endif %}>Scan {{ p.scan }}, {{ pk }}</a></li>
+      {%- endfor %}
+        </ol>
+      </li>
+    </ul>
+  </details>
+</div>

@@ -59,6 +59,28 @@ Or run a local preview server, which rebuilds when files in src/ change:
 and browse to http://localhost:4000/index.html.  In a GitHub Codespace,
 open the PORTS tab and click the globe icon next to port 4000.
 
+## Scan viewer
+
+The Type 2 Parts Manual (1958-1967), Main Group 6 (road wheels, brakes)
+has a page-by-page viewer at `5867g6-305.html` ... `5867g6-335.html`,
+linked from the Main Group 6 quick index on `5867part.html`.
+
+  + `src/_data/parts5867_g6.yml` holds each scan's page number, type and
+    description, copied from the "Main Group 6" full index table in
+    `src/5867part.html`.
+  + `src/_scans5867g6/` has one small stub file per scan; the
+    `src/_layouts/viewer.html` layout builds each page from the data file.
+  + `src/viewer/` holds the viewer's own CSS and a small script (zoom,
+    pan, arrow keys). Everything works without the script.
+
+After changing the table or the data file, check that they still agree:
+
+	ruby scripts/check-5867-g6.rb
+
+The viewer shows scans from `out/5867part/` (from the overlay). Without
+the overlay, each page shows a message with a link to the scan on
+oacdp.org instead of a broken image.
+
 ## Deploying
 
 If you wish to deploy from source you can execute the publish.sh
