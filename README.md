@@ -81,6 +81,48 @@ The viewer shows scans from `out/5867part/` (from the overlay). Without
 the overlay, each page shows a message with a link to the scan on
 oacdp.org instead of a broken image.
 
+## Parts data
+
+Verified parts lists, one data file per illustration, in
+`src/_data/parts/<edition>/`. The first is Illustration 32 (Hydraulic
+brakes) of the VW Transporter Parts List 1960-1967, August 1963 edition:
+`src/_data/parts/vw-tpl-1963-08/ill32.yml`. It is not shown on the site yet.
+
+Each list row records its edition, printed and PDF page, the part number as
+printed (any leading mark such as `*` kept in its own `marker` field), the
+description, quantity and applicability text verbatim, the parsed chassis
+range, option codes as printed, three independent readings (the PDF's text
+layer, tesseract, and an AI reading), and its review status. A person
+confirms or corrects every row; nothing is "verified" until they do.
+
+The data file holds text and numbers only. The page images it was read from
+stay outside the repository (never commit scans, crops or PDFs).
+
+Check a data file (add `--final` once everything has been reviewed):
+
+	ruby scripts/check-parts.rb src/_data/parts/vw-tpl-1963-08/ill32.yml
+	ruby scripts/parts/test_parts.rb
+
+Review it in the local, dev-only review tool (never published; it lives in
+`dev/`, outside `src/`). The images folder must be outside the repository:
+
+	bundle exec ruby dev/review/server.rb \
+	  --data src/_data/parts/vw-tpl-1963-08/ill32.yml \
+	  --images /path/outside/repo/with/page-NNN.png \
+	  --reviewer yourname
+
+then open http://127.0.0.1:4001/ (in a Codespace: the PORTS tab, port 4001).
+
+To re-run the extraction, first make the page images and the two machine
+readings in a folder outside the repository, then run `extract.rb`. Rows
+that were already reviewed are kept as they are:
+
+	pdfimages -png -f 341 -l 349 ORIGINAL.pdf WORK/p     # then rename to page-341.png ...
+	pdftotext -tsv -f N -l N ORIGINAL.pdf WORK/raw/pdftext-N.tsv
+	tesseract WORK/page-N.png WORK/raw/tess-N --dpi 300 --psm 4 tsv
+	ruby scripts/parts/extract.rb --pdf ORIGINAL.pdf --work WORK \
+	  --reading READING.yml --out src/_data/parts/vw-tpl-1963-08/ill32.yml
+
 ## Deploying
 
 If you wish to deploy from source you can execute the publish.sh
