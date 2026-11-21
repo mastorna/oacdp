@@ -9,6 +9,68 @@
 
 require_relative "parts/lib/parts"
 
+# ---- whole-book machine catalog (one YAML per illustration, made by catalog.rb) ----
+#   ruby scripts/check-parts.rb --catalog DIR
+# Keys and callouts are not required here (not extracted yet). Every row must
+# have its edition, PDF page, row order, status and confidence label.
+if ARGV.delete("--catalog")
+  dir = ARGV.first or abort "usage: ruby scripts/check-parts.rb --catalog DIR"
+  files = Dir[File.join(dir, "*.yml")].sort
+  abort "no YAML files in #{dir}" if files.empty?
+  errors = []
+  warns = Hash.new(0)
+  ids = Hash.new(0)
+  n_rows = 0
+  labels = ["readings agree", "needs checking"]
+  files.each do |f|
+    d = Parts.load(f)
+    name = File.basename(f)
+    ed = d.dig("edition", "id")
+    errors << "#{name}: edition.id missing" unless ed
+    errors << "#{name}: edition.source_sha256 missing" unless d.dig("edition", "source_sha256").to_s.match?(/\A\h{64}\z/)
+    pos_ids = (d["positions"] || []).map { |x| x["id"] }
+    rows = d["rows"] || []
+    n_rows += rows.length
+    rows.each do |r|
+      id = r["id"]
+      ids[id] += 1
+      errors << "#{name} #{id}: edition #{r['edition'].inspect} differs from #{ed.inspect}" unless r["edition"] == ed && ed
+      errors << "#{name} #{id}: pdf_page missing" unless r["pdf_page"].is_a?(Integer)
+      errors << "#{name} #{id}: row_order missing" unless r["row_order"].is_a?(Integer)
+      errors << "#{name} #{id}: status #{r['status'].inspect} invalid" unless Parts::STATUSES.include?(r["status"])
+      errors << "#{name} #{id}: confidence #{r['confidence'].inspect} invalid" unless labels.include?(r["confidence"])
+      if (r["confidence"] == "readings agree") != Array(r["confidence_reasons"]).empty?
+        errors << "#{name} #{id}: confidence and confidence_reasons disagree"
+      end
+      want = r["part_no"].to_s.gsub(/\s+/, "").upcase
+      errors << "#{name} #{id}: part_no_norm #{r['part_no_norm'].inspect} should be #{want.inspect}" unless r["part_no_norm"] == want
+      errors << "#{name} #{id}: position #{r['position'].inspect} not in positions" if r["position"] && !pos_ids.include?(r["position"])
+      derived = Parts.derive!(Parts.deep_dup(r))
+      %w[chassis_from chassis_to chassis_ranges option_codes].each do |k|
+        errors << "#{name} #{id}: #{k} doesn't match the applicability text" unless derived[k] == r[k]
+      end
+      warns["printed page not found (row has PDF page only)"] += 1 if r["printed_page"].nil?
+      warns["part number shape not recognised"] += 1 unless Parts.shape_ok?(r["part_no"])
+      warns["no key"] += 1 if r["key"].nil?
+    end
+    rows.group_by { |r| r["pdf_page"] }.each do |pg, rs|
+      orders = rs.map { |r| r["row_order"] }
+      errors << "#{name} PDF #{pg}: row_order is not 1..#{rs.length}" unless orders.sort == (1..rs.length).to_a
+    end
+  end
+  dup = ids.select { |_, n| n > 1 }
+  errors << "duplicate row ids across files: #{dup.keys.first(10).inspect}#{dup.length > 10 ? ' …' : ''}" if dup.any?
+  puts "#{dir}: #{files.length} files, #{n_rows} rows"
+  warns.each { |k, v| puts "warning: #{v} rows: #{k}" }
+  if errors.empty?
+    puts "OK: every row has edition, PDF page, row order, status and confidence; derived fields match."
+    exit 0
+  end
+  errors.first(50).each { |e| warn "error: #{e}" }
+  warn "#{errors.length} error(s)."
+  exit 1
+end
+
 final = ARGV.delete("--final")
 path = ARGV.first or abort "usage: ruby scripts/check-parts.rb [--final] FILE"
 data = Parts.load(path)

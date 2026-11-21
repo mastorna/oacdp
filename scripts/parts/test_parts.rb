@@ -71,5 +71,41 @@ Dir.mktmpdir do |d|
   eq "round trip", Parts.load(path), { "a" => %w[7 9], "b" => %w[7 9] }
 end
 
+# ---- whole-book catalog helpers -------------------------------------------------------
+require_relative "lib/rows"
+require_relative "lib/book"
+require_relative "lib/sql"
+eq "canonical 9 digits + letter", Rows.canonical("311107101M"), "311 107 101 M"
+eq "canonical N-number", Rows.canonical("N136341"), "N 13 634 1"
+eq "canonical unknown shape", Rows.canonical("L680"), nil
+eq "norm shape ok", Rows.norm_shape_ok?("211609237C"), true
+eq "norm shape too short", Rows.norm_shape_ok?("21160923"), false
+eq "description after part no", Rows.description("4 211 601 139 Bolt - Wheel disc ........ 20", "211 601 139"), "Bolt - Wheel disc"
+eq "description garbled leaders", Rows.description("111 601 161 Ferrule - Hub cap ...•...••..... '. ..•", "111 601 161"), "Ferrule - Hub cap"
+r1 = { "part_no" => "211 601 139", "marker" => nil, "key" => 4, "quantity" => "20", "applicability" => nil }
+eq "confidence: both agree", Rows.confidence(r1, r1.merge("part_no" => "211601139")), ["readings agree", []]
+eq "confidence: one reading", Rows.confidence(r1, nil), ["needs checking", ["only_text_layer"]]
+eq "confidence: part differs", Rows.confidence(r1, r1.merge("part_no" => "211 601 189")).last, ["part_no_differs"]
+eq "confidence: missing qty is no opinion", Rows.confidence(r1, r1.merge("quantity" => nil)).first, "readings agree"
+eq "confidence: qty differs", Rows.confidence(r1, r1.merge("quantity" => "2")).last, ["qty_differs"]
+eq "confidence: bad shape", Rows.confidence(r1.merge("part_no" => "261264"), r1.merge("part_no" => "261264")).last, ["bad_shape"]
+eq "disagreement fields", Rows.disagreement_fields(%w[bad_shape part_no_differs qty_differs only_tesseract]), %w[part_no quantity]
+a = [{ text: "211 601 139 Bolt", box: [0, 100, 0, 0] }, { text: "111 601 151 Hub cap", box: [0, 200, 0, 0] }]
+b = [{ text: "211601139 Bolt", box: [0, 101, 0, 0] }, { text: "N 13 407 1 Rivet", box: [0, 150, 0, 0] }]
+m = Rows.merge(a, b)
+eq "merge: pairs + leftovers in page order", m.map { |x, y| [x && x[:text], y && y[:text]] },
+   [["211 601 139 Bolt", "211601139 Bolt"], [nil, "N 13 407 1 Rivet"], ["111 601 151 Hub cap", nil]]
+eq "printed page pattern", "1-10".match(Book::PRINTED_RE)&.captures, %w[1 10]
+eq "printed page section", "ST-9".match(Book::PRINTED_RE)&.captures, %w[ST 9]
+eq "printed page rejects part no", "211-216".match?(Book::PRINTED_RE), false
+eq "stamp", Book.stamp([{ text: "a Typ2 31/68 x" }]), "Typ 2 31/68"
+eq "illustration OCR variant", Book.ill_number([{ text: "Nlustration 1+A1" }]), "1+A1"
+eq "illustration split word", Book.ill_number([{ text: "tation 2" }]), "2"
+eq "illustration t for 1", Book.ill_number([{ text: "Illustration t+ A 1" }]), "1+A1"
+eq "slug", Book.slug("1+A1"), "ill1a1"
+eq "sql quote", SQL.q("O'Brien"), "'O''Brien'"
+eq "sql null/bool/int", [SQL.q(nil), SQL.q(true), SQL.q(7)], %w[NULL 1 7]
+eq "sql array as json", SQL.q(["M 215"]), %q('["M 215"]')
+
 puts "#{$count - $fails}/#{$count} passed"
 exit($fails.zero? ? 0 : 1)

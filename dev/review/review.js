@@ -16,9 +16,12 @@ const reviewed = (s) => s === "verified" || s === "corrected";
 async function load() {
   const r = await fetch("/api/data", { cache: "no-store" });
   DATA = await r.json();
+  // files without a drawing or callouts (e.g. the whole-book spot check): no Callouts mode
+  const cb = $('.tabs [data-mode="callouts"]');
+  if (cb) cb.hidden = !(DATA.illustration.drawing?.pdf_page && DATA.callouts.length);
   const pf = $("#page-filter");
   if (pf.options.length === 1) {
-    DATA.pages.filter((p) => p.pdf_page !== DATA.illustration.drawing.pdf_page).forEach((p) => {
+    DATA.pages.filter((p) => p.pdf_page !== DATA.illustration.drawing?.pdf_page).forEach((p) => {
       pf.add(new Option(`${p.printed_page} (PDF ${p.pdf_page})`, p.pdf_page));
     });
   }
@@ -103,6 +106,7 @@ function readingsHtml(row, field) {
   const srcs = [["pdf_text", "text layer"], ["tesseract", "tesseract"], ["claude", "Claude (AI)"]];
   const cur = asText(field, row[field]);
   return `<div class="readings">${srcs.map(([k, label]) => {
+    if (!(k in row.readings)) return "";   // this file has no such reading (e.g. no AI reading)
     const r = row.readings[k];
     if (!r) return `<span class="src">${label}</span><span class="missed">row not found</span>`;
     if (!(field in r)) return "";

@@ -123,6 +123,30 @@ that were already reviewed are kept as they are:
 	ruby scripts/parts/extract.rb --pdf ORIGINAL.pdf --work WORK \
 	  --reading READING.yml --out src/_data/parts/vw-tpl-1963-08/ill32.yml
 
+### Whole-book machine catalog (smoke test)
+
+The whole August 1963 book can be machine-read into the same row format
+using only the two machine readings (no AI or person reading). The output
+is **not committed**: the YAML files (the source of truth), a SQLite file and
+a JSON search index all go to a folder outside the repository. Only the
+page map (`src/_data/parts/vw-tpl-1963-08/page-map.yml`) and a 50-row
+spot-check file (`spot-check-50.yml`) are committed. Neither is used by any
+page. Every row is `unverified` and labelled `readings agree` or
+`needs checking`.
+
+	scripts/parts/run-readings.sh ORIGINAL.pdf WORK              # images + both readings, restartable (~25 min)
+	ruby scripts/parts/pagemap.rb --pdf ORIGINAL.pdf --work WORK --out src/_data/parts/vw-tpl-1963-08/page-map.yml
+	ruby scripts/parts/cross-edition.rb --scans out/5867part --work WORK --out WORK/parts-5867.txt
+	ruby scripts/parts/catalog.rb --pdf ORIGINAL.pdf --work WORK \
+	  --page-map src/_data/parts/vw-tpl-1963-08/page-map.yml --out OUT/yaml --cross-edition WORK/parts-5867.txt
+	ruby scripts/check-parts.rb --catalog OUT/yaml
+	ruby scripts/parts/build-db.rb --yaml OUT/yaml --page-map src/_data/parts/vw-tpl-1963-08/page-map.yml --out OUT
+	ruby scripts/parts/smoke-report.rb --yaml OUT/yaml --page-map src/_data/parts/vw-tpl-1963-08/page-map.yml \
+	  --work WORK --report OUT/report.md --spot-yml src/_data/parts/vw-tpl-1963-08/spot-check-50.yml \
+	  --spot-md OUT/spot-check.md [--sample AI-READING.yml ...]
+
+`catalog.db` is built with the `sqlite3` command, so no gem is needed.
+
 ## Deploying
 
 If you wish to deploy from source you can execute the publish.sh
