@@ -278,13 +278,38 @@ if opts[:samples].any?
   out << ""
   out << "- Machine rows on these pages that match none of my rows (extra or split rows): #{spurious}."
   out << "- Rows both machine readings missed: #{stats['chosen'][:rows] - stats['chosen'][:found]} of #{stats['chosen'][:rows]} (#{pct.call(stats['chosen'][:rows] - stats['chosen'][:found], stats['chosen'][:rows])})."
+  missed_share = (stats["chosen"][:rows] - stats["chosen"][:found]).to_f / [stats["chosen"][:rows], 1].max
+  out << "- At that rate, roughly **#{(rows.length * missed_share / (1 - missed_share)).round} rows** in the whole book are missed by both readings and would have to be added by a person (about #{(rows.length * missed_share / (1 - missed_share) * 60 / 3600.0).round} hours at 1 minute each)."
   out << "- **How far the label can be trusted:** of found rows labelled \"readings agree\", #{pct.call(label_ok[[:agree, :part]], label_ok[[:agree, :n]])} have the same part number as my reading and #{pct.call(label_ok[[:agree, :all]], label_ok[[:agree, :n]])} match on all four fields (#{label_ok[[:agree, :n]]} rows). For \"needs checking\": #{pct.call(label_ok[[:need, :part]], label_ok[[:need, :n]])} and #{pct.call(label_ok[[:need, :all]], label_ok[[:need, :n]])} (#{label_ok[[:need, :n]]} rows)."
   if s_pages.any?
     pmap = pages.to_h { |p| [p["pdf_page"], p] }
     cmp = ->(f, g) { s_pages.count { |sp| sp.key?(f) && pmap[sp["pdf_page"]] && pmap[sp["pdf_page"]][g].to_s == sp[f].to_s } }
     have = ->(f) { s_pages.count { |sp| sp.key?(f) && pmap[sp["pdf_page"]] } }
-    out << "- **Page map on the sample pages:** printed page #{cmp.call('printed_page', 'printed_page')}/#{have.call('printed_page')}, illustration #{cmp.call('illustration', 'illustration')}/#{have.call('illustration')}, page type #{cmp.call('page_type', 'page_type')}/#{have.call('page_type')}, stamp #{cmp.call('revision_stamp', 'revision_stamp')}/#{have.call('revision_stamp')} (stamps with an unreadable mark never match)."
+    with_stamp = s_pages.select { |sp| sp["revision_stamp"] && pmap[sp["pdf_page"]] }
+    no_stamp = s_pages.select { |sp| sp.key?("revision_stamp") && sp["revision_stamp"].nil? && pmap[sp["pdf_page"]] }
+    out << "- **Page map on the sample pages:** printed page #{cmp.call('printed_page', 'printed_page')}/#{have.call('printed_page')}, illustration #{cmp.call('illustration', 'illustration')}/#{have.call('illustration')}, page type #{cmp.call('page_type', 'page_type')}/#{have.call('page_type')}."
+    out << "- **Revision stamps:** of #{with_stamp.length} stamps I read, the map has the same text on #{with_stamp.count { |sp| pmap[sp['pdf_page']]['revision_stamp'] == sp['revision_stamp'] }} (those with an unreadable mark \"[?]\" can't match); of #{no_stamp.length} pages without a stamp, the map invents none on #{no_stamp.count { |sp| pmap[sp['pdf_page']]['revision_stamp'].nil? }}."
+    out << ""
+    out << "Page-map differences on the sample pages (mine → map):"
+    out << ""
+    s_pages.each do |sp|
+      m = pmap[sp["pdf_page"]] or next
+      diffs = %w[printed_page illustration page_type].select { |f| sp.key?(f) && m[f].to_s != sp[f].to_s }
+      next if diffs.empty?
+      out << "- PDF #{sp['pdf_page']}: " + diffs.map { |f| "#{f} #{sp[f].inspect} → #{m[f].inspect}" }.join("; ")
+    end
   end
+  out << ""
+  out << "## What the sample reading showed (recommended next fixes)"
+  out << "These were seen while reading the sample. They are not fixed in this milestone, so the figures above measure the code as it is."
+  out << ""
+  out << "1. **Inserted pages** are printed \"1-50a\", \"1-50b\", \"1-124a\", \"S-22a\". The page-number pattern doesn't accept the letter, so those pages get no printed page, and the counting around them goes wrong. That is the main source of the page-number clashes."
+  out << "2. **Inserted pages are bound out of order:** PDF 65–66 (Illustration 6, Pistons) sit between pages of Illustration 3. Filling an illustration from its neighbours therefore gives the wrong number there."
+  out << "3. **Illustration labels** can carry a letter or several parts (\"22a\", \"39a\", \"33+A33\", \"38+A38+B38+C38\"), and the current pattern keeps only the first part."
+  out << "4. **Keys with a drawing prefix** (\"A 66\", \"B 23\", \"A 18/36\") refer to the A/B/C drawings. The machine keeps only the digits."
+  out << "5. **Inline applicability** (\"Operating shaft up to Chassis No. 469 505\") and **colour lines with date ranges** in the part-number column (\"8/63 – 7/64 395 ice blue – 81\") are common in the body and special-model groups."
+  out << "6. **Some fold-out pages** are drawings printed sideways (PDF 721) and are classed as list pages because the text layer reads their callout numbers."
+  out << "7. **SP-set pages** (PDF 404) have no key column, no illustration footer and no \"Type and model\" column."
   out << ""
 else
   out << "## Accuracy against my (AI) sample reading"
