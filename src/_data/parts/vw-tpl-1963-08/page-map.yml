@@ -13,6 +13,8 @@ conventions:
   illustration: as printed after "Illustration" in the footer, e.g. "32" or "1+A1"; filled from neighbours where missing
   page_type: drawing / parts_list / contents / index / other, by rules (see lib/book.rb)
   status: unverified until a person checks the entry
+  decision: set where a person decided a value (src/_data/parts/vw-tpl-1963-08/page-decisions.yml); the machine's value is in evidence.decision
+  footer: what the page's footer prints, kept where a decision differs from it; illustrations list such pages in footer_says_this_illustration
 main_groups:
 - id: '1'
   title: Engine
@@ -63,6 +65,11 @@ illustrations:
   inserted_pages:
   - 2
   - 3
+  notes:
+  - The inserted Pistons pages PDF 65-66 (printed 1-50a, 1-50b) print "Illustration 6" in their footer, but are filed under Illustration 2, as the book's contents page (PDF 16) lists them. Illustration 6 itself is "Fuel pump, Fuel lines".
+  footer_says_this_illustration:
+  - 65
+  - 66
 - number: 1+A1
   slug: ill1a1
   main_group: '1'
@@ -92,6 +99,8 @@ illustrations:
   fold_out_drawing: true
   title_source: contents page PDF 16
   inserted_pages: []
+  notes: []
+  footer_says_this_illustration: []
 - number: '2'
   slug: ill2
   main_group: '1'
@@ -120,9 +129,16 @@ illustrations:
   - 60
   - 61
   - 62
+  - 65
+  - 66
   fold_out_drawing: true
   title_source: contents page PDF 16
-  inserted_pages: []
+  inserted_pages:
+  - 65
+  - 66
+  notes:
+  - Also includes the inserted Pistons pages PDF 65-66 (printed 1-50a, 1-50b), whose footers say "Illustration 6"; the contents page lists Pistons under Illustration 2.
+  footer_says_this_illustration: []
 - number: '3'
   slug: ill3
   main_group: '1'
@@ -138,6 +154,8 @@ illustrations:
   fold_out_drawing: false
   title_source: contents page PDF 16
   inserted_pages: []
+  notes: []
+  footer_says_this_illustration: []
 - number: '4'
   slug: ill4
   main_group: '1'
@@ -152,6 +170,8 @@ illustrations:
   fold_out_drawing: true
   title_source: contents page PDF 16
   inserted_pages: []
+  notes: []
+  footer_says_this_illustration: []
 - number: 5+A5+B5
   slug: ill5a5b5
   main_group: '1'
@@ -176,6 +196,8 @@ illustrations:
   fold_out_drawing: true
   title_source:
   inserted_pages: []
+  notes: []
+  footer_says_this_illustration: []
 - number: 7+A7
   slug: ill7a7
   main_group: '1'
@@ -209,6 +231,8 @@ illustrations:
   fold_out_drawing: true
   title_source: contents page PDF 16
   inserted_pages: []
+  notes: []
+  footer_says_this_illustration: []
 - number: '8'
   slug: ill8
   main_group: '1'
@@ -226,6 +250,8 @@ illustrations:
   fold_out_drawing: false
   title_source:
   inserted_pages: []
+  notes: []
+  footer_says_this_illustration: []
 - number: 18+A18
   slug: ill18a18
   main_group: '1'
@@ -247,6 +273,8 @@ illustrations:
   - 145
   - 146
   - 147
+  notes: []
+  footer_says_this_illustration: []
 - number: '19'
   slug: ill19
   main_group: '1'
@@ -258,6 +286,8 @@ illustrations:
   title_source:
   inserted_pages:
   - 154
+  notes: []
+  footer_says_this_illustration: []
 - number: '21'
   slug: ill21
   main_group: '2'
@@ -278,6 +308,8 @@ illustrations:
   fold_out_drawing: true
   title_source: contents page PDF 181
   inserted_pages: []
+  notes: []
+  footer_says_this_illustration: []
 - number: '22'
   slug: ill22
   main_group: '2'
@@ -305,6 +337,8 @@ illustrations:
   inserted_pages:
   - 198
   - 268
+  notes: []
+  footer_says_this_illustration: []
 - number: 22a
   slug: ill22a
   main_group: '2'
@@ -320,6 +354,8 @@ illustrations:
   fold_out_drawing: true
   title_source: contents page PDF 181
   inserted_pages: []
+  notes: []
+  footer_says_this_illustration: []
 - number: '23'
   slug: ill23
   main_group: '3'
@@ -336,6 +372,8 @@ illustrations:
   fold_out_drawing: false
   title_source:
   inserted_pages: []
+  notes: []
+  footer_says_this_illustration: []
 - number: '24'
   slug: ill24
   main_group: '3'
@@ -349,6 +387,8 @@ illustrations:
   fold_out_drawing: true
   title_source:
   inserted_pages: []
+  notes: []
+  footer_says_this_illustration: []
 - number: '25'
   slug: ill25
   main_group: '3'
@@ -362,6 +402,8 @@ illustrations:
   fold_out_drawing: false
   title_source:
   inserted_pages: []
+  notes: []
+  footer_says_this_illustration: []
 - number: '26'
   slug: ill26
   main_group: '3'
@@ -377,6 +419,8 @@ illustrations:
   fold_out_drawing: true
   title_source:
   inserted_pages: []
+  notes: []
+  footer_says_this_illustration: []
 - number: '27'
   slug: ill27
   main_group: '3'
@@ -395,6 +439,8 @@ illustrations:
   fold_out_drawing: false
   title_source:
   inserted_pages: []
+  notes: []
+  footer_says_this_illustration: []
 - number: '28'
   slug: ill28
   main_group: '4'
@@ -420,6 +466,8 @@ illustrations:
   fold_out_drawing: true
   title_source: contents page PDF 280
   inserted_pages: []
+  notes: []
+  footer_says_this_illustration: []
 - number: '29'
   slug: ill29
   main_group: '4'
@@ -434,6 +482,8 @@ illustrations:
   fold_out_drawing: true
   title_source: contents page PDF 280
   inserted_pages: []
+  notes: []
+  footer_says_this_illustration: []
 - number: '30'
   slug: ill30
   main_group: '5'
@@ -449,6 +499,8 @@ illustrations:
   fold_out_drawing: false
   title_source: contents page PDF 312
   inserted_pages: []
+  notes: []
+  footer_says_this_illustration: []
 - number: '31'
   slug: ill31
   main_group: '5'
@@ -466,6 +518,8 @@ illustrations:
   fold_out_drawing: false
   title_source: contents page PDF 312
   inserted_pages: []
+  notes: []
+  footer_says_this_illustration: []
 - number: '32'
   slug: ill32
   main_group: '6'
@@ -488,6 +542,8 @@ illustrations:
   fold_out_drawing: false
   title_source: contents page PDF 338
   inserted_pages: []
+  notes: []
+  footer_says_this_illustration: []
 - number: 33+A33
   slug: ill33a33
   main_group: '6'
@@ -499,6 +555,8 @@ illustrations:
   fold_out_drawing: false
   title_source: contents page PDF 338
   inserted_pages: []
+  notes: []
+  footer_says_this_illustration: []
 - number: '34'
   slug: ill34
   main_group: '7'
@@ -514,6 +572,8 @@ illustrations:
   fold_out_drawing: false
   title_source: contents page PDF 370
   inserted_pages: []
+  notes: []
+  footer_says_this_illustration: []
 - number: '35'
   slug: ill35
   main_group: '7'
@@ -528,6 +588,8 @@ illustrations:
   fold_out_drawing: true
   title_source: contents page PDF 370
   inserted_pages: []
+  notes: []
+  footer_says_this_illustration: []
 - number: '36'
   slug: ill36
   main_group: '7'
@@ -543,6 +605,8 @@ illustrations:
   fold_out_drawing: true
   title_source: contents page PDF 370
   inserted_pages: []
+  notes: []
+  footer_says_this_illustration: []
 - number: '37'
   slug: ill37
   main_group: '7'
@@ -559,6 +623,8 @@ illustrations:
   fold_out_drawing: true
   title_source: contents page PDF 370
   inserted_pages: []
+  notes: []
+  footer_says_this_illustration: []
 - number: 38+A38+B38
   slug: ill38a38b38
   main_group: '8'
@@ -570,6 +636,8 @@ illustrations:
   fold_out_drawing: false
   title_source:
   inserted_pages: []
+  notes: []
+  footer_says_this_illustration: []
 - number: 38+A38+B38+C38
   slug: ill38a38b38c38
   main_group: '8'
@@ -601,6 +669,8 @@ illustrations:
   fold_out_drawing: false
   title_source: contents page PDF 408
   inserted_pages: []
+  notes: []
+  footer_says_this_illustration: []
 - number: '39'
   slug: ill39
   main_group: '8'
@@ -618,6 +688,8 @@ illustrations:
   fold_out_drawing: false
   title_source: contents page PDF 408
   inserted_pages: []
+  notes: []
+  footer_says_this_illustration: []
 - number: 39a
   slug: ill39a
   main_group: '8'
@@ -635,6 +707,8 @@ illustrations:
   fold_out_drawing: false
   title_source:
   inserted_pages: []
+  notes: []
+  footer_says_this_illustration: []
 - number: '40'
   slug: ill40
   main_group: '8'
@@ -658,6 +732,8 @@ illustrations:
   fold_out_drawing: false
   title_source: contents page PDF 408
   inserted_pages: []
+  notes: []
+  footer_says_this_illustration: []
 - number: '1'
   slug: ill1
   main_group: '8'
@@ -670,6 +746,8 @@ illustrations:
   fold_out_drawing: true
   title_source:
   inserted_pages: []
+  notes: []
+  footer_says_this_illustration: []
 - number: '41'
   slug: ill41
   main_group: '8'
@@ -685,6 +763,8 @@ illustrations:
   fold_out_drawing: false
   title_source: contents page PDF 408
   inserted_pages: []
+  notes: []
+  footer_says_this_illustration: []
 - number: '42'
   slug: ill42
   main_group: '8'
@@ -701,6 +781,8 @@ illustrations:
   fold_out_drawing: true
   title_source: contents page PDF 408
   inserted_pages: []
+  notes: []
+  footer_says_this_illustration: []
 - number: 43+A43
   slug: ill43a43
   main_group: '8'
@@ -713,6 +795,8 @@ illustrations:
   fold_out_drawing: false
   title_source: contents page PDF 408
   inserted_pages: []
+  notes: []
+  footer_says_this_illustration: []
 - number: '44'
   slug: ill44
   main_group: '8'
@@ -737,6 +821,8 @@ illustrations:
   fold_out_drawing: true
   title_source: contents page PDF 408
   inserted_pages: []
+  notes: []
+  footer_says_this_illustration: []
 - number: '45'
   slug: ill45
   main_group: '8'
@@ -748,6 +834,8 @@ illustrations:
   fold_out_drawing: false
   title_source:
   inserted_pages: []
+  notes: []
+  footer_says_this_illustration: []
 - number: '46'
   slug: ill46
   main_group: '8'
@@ -762,6 +850,8 @@ illustrations:
   fold_out_drawing: true
   title_source: contents page PDF 408
   inserted_pages: []
+  notes: []
+  footer_says_this_illustration: []
 - number: 47+A47
   slug: ill47a47
   main_group: '8'
@@ -783,6 +873,8 @@ illustrations:
   fold_out_drawing: true
   title_source:
   inserted_pages: []
+  notes: []
+  footer_says_this_illustration: []
 - number: '47'
   slug: ill47
   main_group: '8'
@@ -796,6 +888,8 @@ illustrations:
   inserted_pages:
   - 550
   - 551
+  notes: []
+  footer_says_this_illustration: []
 - number: '48'
   slug: ill48
   main_group: '8'
@@ -811,6 +905,8 @@ illustrations:
   fold_out_drawing: false
   title_source: contents page PDF 408
   inserted_pages: []
+  notes: []
+  footer_says_this_illustration: []
 - number: '49'
   slug: ill49
   main_group: '9'
@@ -828,6 +924,8 @@ illustrations:
   fold_out_drawing: true
   title_source:
   inserted_pages: []
+  notes: []
+  footer_says_this_illustration: []
 - number: '50'
   slug: ill50
   main_group: '9'
@@ -844,6 +942,8 @@ illustrations:
   fold_out_drawing: true
   title_source:
   inserted_pages: []
+  notes: []
+  footer_says_this_illustration: []
 - number: '51'
   slug: ill51
   main_group: '9'
@@ -861,6 +961,8 @@ illustrations:
   fold_out_drawing: false
   title_source:
   inserted_pages: []
+  notes: []
+  footer_says_this_illustration: []
 - number: '52'
   slug: ill52
   main_group: '9'
@@ -883,6 +985,8 @@ illustrations:
   inserted_pages:
   - 608
   - 609
+  notes: []
+  footer_says_this_illustration: []
 - number: '53'
   slug: ill53
   main_group: '9'
@@ -902,6 +1006,8 @@ illustrations:
   fold_out_drawing: true
   title_source: contents page PDF 572
   inserted_pages: []
+  notes: []
+  footer_says_this_illustration: []
 - number: '5'
   slug: ill5
   main_group: '9'
@@ -913,6 +1019,8 @@ illustrations:
   fold_out_drawing: false
   title_source:
   inserted_pages: []
+  notes: []
+  footer_says_this_illustration: []
 - number: '54'
   slug: ill54
   main_group: '9'
@@ -930,6 +1038,8 @@ illustrations:
   fold_out_drawing: true
   title_source: contents page PDF 572
   inserted_pages: []
+  notes: []
+  footer_says_this_illustration: []
 - number: '55'
   slug: ill55
   main_group: '9'
@@ -946,6 +1056,8 @@ illustrations:
   title_source: contents page PDF 572
   inserted_pages:
   - 637
+  notes: []
+  footer_says_this_illustration: []
 - number: 56+A56
   slug: ill56a56
   main_group: '9'
@@ -964,6 +1076,8 @@ illustrations:
   fold_out_drawing: false
   title_source:
   inserted_pages: []
+  notes: []
+  footer_says_this_illustration: []
 - number: '57'
   slug: ill57
   main_group: '9'
@@ -978,6 +1092,8 @@ illustrations:
   fold_out_drawing: false
   title_source:
   inserted_pages: []
+  notes: []
+  footer_says_this_illustration: []
 - number: '58'
   slug: ill58
   main_group: '0'
@@ -990,6 +1106,8 @@ illustrations:
   fold_out_drawing: false
   title_source: contents page PDF 664
   inserted_pages: []
+  notes: []
+  footer_says_this_illustration: []
 - number: '59'
   slug: ill59
   main_group: S
@@ -1000,6 +1118,8 @@ illustrations:
   fold_out_drawing: false
   title_source:
   inserted_pages: []
+  notes: []
+  footer_says_this_illustration: []
 - number: '60'
   slug: ill60
   main_group: S
@@ -1012,6 +1132,8 @@ illustrations:
   fold_out_drawing: false
   title_source:
   inserted_pages: []
+  notes: []
+  footer_says_this_illustration: []
 - number: '61'
   slug: ill61
   main_group: S
@@ -1033,6 +1155,8 @@ illustrations:
   title_source:
   inserted_pages:
   - 731
+  notes: []
+  footer_says_this_illustration: []
 - number: '62'
   slug: ill62
   main_group: S
@@ -1049,6 +1173,8 @@ illustrations:
   title_source:
   inserted_pages:
   - 739
+  notes: []
+  footer_says_this_illustration: []
 - number: '63'
   slug: ill63
   main_group: S
@@ -1067,6 +1193,8 @@ illustrations:
   fold_out_drawing: false
   title_source:
   inserted_pages: []
+  notes: []
+  footer_says_this_illustration: []
 pages:
 - pdf_page: 1
   printed_page:
@@ -2711,11 +2839,11 @@ pages:
     stamp:
   status: unverified
 - pdf_page: 65
-  printed_page:
+  printed_page: 1-50a
   main_group: '1'
   main_group_title: Engine
-  illustration:
-  illustration_title:
+  illustration: '2'
+  illustration_title: Crankshaft, Connecting rods, Crankshaft bearings; Pistons
   page_type: parts_list
   layout:
   inserted: true
@@ -2736,13 +2864,19 @@ pages:
     inserted: keys 35-38, 39-42 between PDF 64 (keys to 28) and PDF 67 (keys from 29)
     illustration_title:
     stamp:
+    decision: 'pistons-inserted-pages (2026-11-21): machine had illustration nil, printed_page nil'
   status: unverified
+  footer:
+    illustration: '6'
+    printed_page: 1-50a
+    revision_stamp: Typ 2 30/68
+  decision: pistons-inserted-pages
 - pdf_page: 66
-  printed_page:
+  printed_page: 1-50b
   main_group: '1'
   main_group_title: Engine
-  illustration:
-  illustration_title:
+  illustration: '2'
+  illustration_title: Crankshaft, Connecting rods, Crankshaft bearings; Pistons
   page_type: parts_list
   layout:
   inserted: true
@@ -2763,7 +2897,13 @@ pages:
     inserted: keys 35-38, 39-42 between PDF 64 (keys to 28) and PDF 67 (keys from 29)
     illustration_title:
     stamp:
+    decision: 'pistons-inserted-pages (2026-11-21): machine had illustration nil, printed_page nil'
   status: unverified
+  footer:
+    illustration: '6'
+    printed_page: 1-50b
+    revision_stamp:
+  decision: pistons-inserted-pages
 - pdf_page: 67
   printed_page: 1-51
   main_group: '1'

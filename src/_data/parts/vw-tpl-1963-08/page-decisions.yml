@@ -1,0 +1,44 @@
+# Decisions made by a person about the page map of the August 1963 parts list.
+# scripts/parts/pagemap.rb applies them on every run (--decisions this file),
+# after the machine readings. They override the machine's guesses; the
+# machine's own reading stays in each page's evidence.
+#
+# pages:          field values to use for a PDF page, with a reason.
+# footer:         what the page's footer prints, kept for people to find even
+#                 where the decision differs from it.
+# illustration_notes: notes shown with an illustration (search index / TOC).
+
+decisions:
+  - id: pistons-inserted-pages
+    decided: 2026-11-21
+    decided_by: project owner
+    reason: >-
+      The book contradicts itself. Its Engine contents page (PDF 16) lists
+      "07 Pistons ... Illustration 2", but the two inserted Pistons pages
+      (PDF 65-66, printed 1-50a and 1-50b, bound between pages 1-50 and 1-51
+      of Illustration 3) print "Illustration 6" in their footer. Decision:
+      follow the contents page, and keep the footer details easy to find
+      under Illustration 6.
+    checked: >-
+      PDF 16 contents and the PDF 65 footer were looked at on the page images
+      (AI reading, 2026-11-21); PDF 66 from the AI sample reading. Not yet
+      confirmed by a person on the page.
+    pages:
+      - pdf_page: 65
+        illustration: "2"
+        printed_page: "1-50a"
+        footer: { illustration: "6", printed_page: "1-50a", revision_stamp: "Typ 2 30/68" }
+      - pdf_page: 66
+        illustration: "2"
+        printed_page: "1-50b"
+        footer: { illustration: "6", printed_page: "1-50b", revision_stamp: null }
+    illustration_notes:
+      "2": >-
+        Also includes the inserted Pistons pages PDF 65-66 (printed 1-50a,
+        1-50b), whose footers say "Illustration 6"; the contents page lists
+        Pistons under Illustration 2.
+      "6": >-
+        The inserted Pistons pages PDF 65-66 (printed 1-50a, 1-50b) print
+        "Illustration 6" in their footer, but are filed under Illustration 2,
+        as the book's contents page (PDF 16) lists them. Illustration 6 itself
+        is "Fuel pump, Fuel lines".

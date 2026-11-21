@@ -3,7 +3,11 @@
 # one entry per PDF page with its printed page, main group, illustration,
 # page type, fold-out flag and revision stamp. Every entry is "unverified".
 #
-#   ruby scripts/parts/pagemap.rb --pdf ORIGINAL.pdf --work WORK --out page-map.yml
+#   ruby scripts/parts/pagemap.rb --pdf ORIGINAL.pdf --work WORK --out page-map.yml \
+#        [--decisions page-decisions.yml]
+#
+# --decisions: a person's decisions (page-decisions.yml) applied after the
+# machine readings; the machine's own values stay in each page's evidence.
 #
 # WORK holds page-NNN.png and raw/{pdftext,tess}-NNN.tsv (run-readings.sh).
 # Ruby standard library only.
@@ -19,11 +23,37 @@ OptionParser.new do |o|
   o.on("--pdf PATH") { |v| opts[:pdf] = v }
   o.on("--work DIR") { |v| opts[:work] = v }
   o.on("--out PATH") { |v| opts[:out] = v }
+  o.on("--decisions PATH") { |v| opts[:decisions] = v }
 end.parse!
 %i[pdf work out].each { |k| abort "missing --#{k}" unless opts[k] }
 
 pages = Book.read_pages(opts[:work])
 map = Book.page_map(pages)
+
+# ---- a person's decisions ------------------------------------------------------
+notes = Hash.new { |h, k| h[k] = [] }
+decided = []
+if opts[:decisions]
+  (Parts.load(opts[:decisions])["decisions"] || []).each do |d|
+    (d["pages"] || []).each do |dp|
+      e = map.find { |p| p["pdf_page"] == dp["pdf_page"] } or abort "decision #{d['id']}: no PDF page #{dp['pdf_page']}"
+      machine = e.slice("illustration", "printed_page")
+      %w[illustration printed_page].each { |f| e[f] = dp[f] if dp.key?(f) }
+      e["footer"] = dp["footer"] if dp["footer"]
+      e["decision"] = d["id"]
+      e["evidence"]["decision"] = "#{d['id']} (#{d['decided']}): machine had #{machine.map { |k, v| "#{k} #{v.inspect}" }.join(', ')}"
+      decided << e["pdf_page"]
+    end
+    (d["illustration_notes"] || {}).each { |num, text| notes[num.to_s] << text.strip }
+  end
+  # titles and main group for decided pages: the same as other pages of that illustration
+  map.select { |p| p["decision"] }.each do |e|
+    other = map.find { |p| p["illustration"] == e["illustration"] && !p["decision"] && p["illustration_title"] }
+    e["illustration_title"] = other && other["illustration_title"]
+    e["main_group"] ||= e["printed_page"].to_s[/\A(ST|SP|S|L|\d)-/, 1]
+    e["main_group_title"] ||= e["main_group"] && Book::MAIN_GROUPS[e["main_group"]]
+  end
+end
 
 data = {
   "edition" => {
@@ -38,10 +68,15 @@ data = {
     "main_group" => "the prefix of the printed page; titles are the book's own list on PDF 12",
     "illustration" => "as printed after \"Illustration\" in the footer, e.g. \"32\" or \"1+A1\"; filled from neighbours where missing",
     "page_type" => "drawing / parts_list / contents / index / other, by rules (see lib/book.rb)",
-    "status" => "unverified until a person checks the entry"
+    "status" => "unverified until a person checks the entry",
+    "decision" => "set where a person decided a value (src/_data/parts/vw-tpl-1963-08/page-decisions.yml); the machine's value is in evidence.decision",
+    "footer" => "what the page's footer prints, kept where a decision differs from it; illustrations list such pages in footer_says_this_illustration"
   },
   "main_groups" => Book::MAIN_GROUPS.map { |k, v| { "id" => k, "title" => v } },
-  "illustrations" => Book.illustrations(map),
+  "illustrations" => Book.illustrations(map).map do |i|
+    footer_pages = map.select { |p| p.dig("footer", "illustration") == i["number"] && p["illustration"] != i["number"] }.map { |p| p["pdf_page"] }
+    i.merge("notes" => notes[i["number"]], "footer_says_this_illustration" => footer_pages)
+  end,
   "pages" => map
 }
 Parts.dump(opts[:out], data)
@@ -49,3 +84,4 @@ types = map.map { |p| p["page_type"] }.tally
 puts "wrote #{opts[:out]}: #{map.length} pages #{types}"
 puts "printed page found by a reading: #{map.count { |p| p['evidence']['printed_page'] =~ /reading/ }}, filled: #{map.count { |p| p['evidence']['printed_page'] == 'filled from neighbours' }}, none: #{map.count { |p| p['printed_page'].nil? }}"
 puts "illustrations: #{data['illustrations'].length}"
+puts "decisions applied to PDF pages: #{decided.join(', ')}" if decided.any?

@@ -14,16 +14,16 @@ illustration:
   lists:
     pdf_pages:
     - 38
-    - 50
-    - 55
-    - 57
+    - 51
+    - 56
+    - 58
     - 98
     - 112
     - 120
     - 131
-    - 147
+    - 148
     - 159
-    - 168
+    - 174
     - 205
     - 215
     - 234
@@ -35,8 +35,7 @@ illustration:
     - 288
     - 291
     - 327
-    - 357
-    - 358
+    - 359
     - 376
     - 394
     - 434
@@ -75,22 +74,22 @@ pages:
     pdf_text:
     tesseract:
   stamp_status: unverified
-- pdf_page: 50
-  printed_page: 1-36
+- pdf_page: 51
+  printed_page: 1-37
+  revision_stamp: Typ 2 31/68
+  stamp_readings:
+    pdf_text: Typ 2 31/68
+    tesseract: Typ 2 31/68
+  stamp_status: unverified
+- pdf_page: 56
+  printed_page: 1-42
   revision_stamp:
   stamp_readings:
     pdf_text:
     tesseract:
   stamp_status: unverified
-- pdf_page: 55
-  printed_page: 1-41
-  revision_stamp: Typ 2 31/68
-  stamp_readings:
-    pdf_text:
-    tesseract: Typ 2 31/68
-  stamp_status: unverified
-- pdf_page: 57
-  printed_page: 1-43
+- pdf_page: 58
+  printed_page: 1-44
   revision_stamp:
   stamp_readings:
     pdf_text:
@@ -124,12 +123,12 @@ pages:
     pdf_text:
     tesseract:
   stamp_status: unverified
-- pdf_page: 147
-  printed_page:
-  revision_stamp: Typ 2 23/66
+- pdf_page: 148
+  printed_page: 1-120
+  revision_stamp:
   stamp_readings:
-    pdf_text: Typ 2 23/66
-    tesseract: Typ 2 23/66
+    pdf_text:
+    tesseract:
   stamp_status: unverified
 - pdf_page: 159
   printed_page: 1-129
@@ -138,8 +137,8 @@ pages:
     pdf_text:
     tesseract:
   stamp_status: unverified
-- pdf_page: 168
-  printed_page: 1-138
+- pdf_page: 174
+  printed_page: 1-144
   revision_stamp:
   stamp_readings:
     pdf_text:
@@ -222,15 +221,8 @@ pages:
     pdf_text:
     tesseract:
   stamp_status: unverified
-- pdf_page: 357
-  printed_page: 6-18
-  revision_stamp:
-  stamp_readings:
-    pdf_text:
-    tesseract:
-  stamp_status: unverified
-- pdf_page: 358
-  printed_page: 6-19
+- pdf_page: 359
+  printed_page: 6-20
   revision_stamp:
   stamp_readings:
     pdf_text:
@@ -392,17 +384,14 @@ pages:
   stamp_status: unverified
 callouts: []
 positions:
-- id: ill1a1-ka77
-  label: ill1a1-ka77
+- id: ill1a1-ka79
+  label: ill1a1-ka79
   status: suggested
 - id: ill2-k3
   label: ill2-k3
   status: suggested
-- id: ill2-k7
-  label: ill2-k7
-  status: suggested
-- id: ill2-k40
-  label: ill2-k40
+- id: ill2-k42
+  label: ill2-k42
   status: suggested
 - id: ill6-k48
   label: ill6-k48
@@ -416,11 +405,11 @@ positions:
 - id: ill8-k39
   label: ill8-k39
   status: suggested
-- id: ill18a18-k90
-  label: ill18a18-k90
+- id: ill18a18-k91
+  label: ill18a18-k91
   status: suggested
-- id: ill18a18-k5
-  label: ill18a18-k5
+- id: ill18a18-ka75
+  label: ill18a18-ka75
   status: suggested
 - id: ill-unknown-1-k1
   label: ill-unknown-1-k1
@@ -461,11 +450,11 @@ positions:
 - id: ill31-k5
   label: ill31-k5
   status: suggested
-- id: ill-unknown-6-k22
-  label: ill-unknown-6-k22
+- id: ill-unknown-6-k3
+  label: ill-unknown-6-k3
   status: suggested
-- id: ill-unknown-6-k33
-  label: ill-unknown-6-k33
+- id: ill-unknown-6-k74
+  label: ill-unknown-6-k74
   status: suggested
 - id: ill34-k23
   label: ill34-k23
@@ -528,60 +517,60 @@ positions:
   label: ill61-k1
   status: suggested
 rows:
-- id: ill1a1-1-24-05
+- id: ill1a1-1-24-11
   edition: vw-tpl-1963-08
   printed_page: 1-24
   pdf_page: 38
-  row_order: 5
-  key:
-  key_prefix:
+  row_order: 11
+  key: A 79
+  key_prefix: A
   marker:
-  part_no: N 12 226 2
-  part_no_norm: N122262
-  description: Spring washer B 6 DIN 137 galvanized Breather
-  quantity: '4'
+  part_no: 113 101 483
+  part_no_norm: '113101483'
+  description: Gasket - Cylinder head cover
+  quantity: '2'
   applicability: from Engine No. 3 400 000
   applicability_inline: false
   chassis_from:
   chassis_to:
   chassis_ranges:
   option_codes: []
-  type_and_model: 30 bhp
-  position: ill1a1-ka77
+  type_and_model: 30-, 34-, 42-, 44 bhp
+  position: ill1a1-ka79
   position_status: suggested
   bbox_px:
-  - 221
-  - 988
+  - 216
+  - 2082
   - 2421
-  - 1124
+  - 2214
   bbox_source: tesseract
   readings:
     pdf_text:
-      key:
-      key_prefix:
+      key: A 79
+      key_prefix: A
       marker:
-      part_no: N122262
-      description: Spring washer B 6 DIN 137 galvanized Breather
-      quantity: '4'
+      part_no: 113 101 483
+      description: Gasket - Cylinder head cover
+      quantity: '2'
       applicability: from Engine No. 3 400 000
       applicability_inline: false
-      type_and_model: 30 bhp
-      text: N122262 Spring washer B 6 DIN 137 galvanized Breather 4 30 bhp
+      type_and_model: 30-, 34-, 42-, 44 bhp
+      text: A 79 113 101 483 Gasket - Cylinder head cover 2 30-, 34-, 42-, 44 bhp
       continuation: from Engine No. 3 400 000
-      min_conf: 520
+      min_conf: 259
     tesseract:
-      key:
-      key_prefix:
+      key: A 79
+      key_prefix: A
       marker:
-      part_no: N 12 226 2
-      description: Spring washer B 6 DIN 137 galvanized — Breather
-      quantity: '4'
-      applicability: ". from Engine No. 3 400 000"
+      part_no: 113 101 483
+      description: Gasket — Cylinder head cover
+      quantity: '2'
+      applicability: from Engine No. 3 400 000
       applicability_inline: false
-      type_and_model: 30 bhp
-      text: _ N 12 226 2 Spring washer B 6 DIN 137 galvanized — Breather 4. 30 bhp
-      continuation: ". from Engine No. 3 400 000"
-      min_conf: 275
+      type_and_model: 30-, 34-, 42-, 44 bhp
+      text: A79 113 101 483 Gasket — Cylinder head cover ..............4.. 2 30-, 34-, 42-, 44 bhp
+      continuation: from Engine No. 3 400 000
+      min_conf: 281
   disagreements: []
   confidence: readings agree
   confidence_reasons: []
@@ -592,20 +581,20 @@ rows:
   main_group: '1'
   illustration: 1+A1
   cross_edition: not_available
-- id: ill2-1-36-09
+- id: ill2-1-37-01
   edition: vw-tpl-1963-08
-  printed_page: 1-36
-  pdf_page: 50
-  row_order: 9
+  printed_page: 1-37
+  pdf_page: 51
+  row_order: 1
   key:
   key_prefix:
   marker:
-  part_no: 131 105 537
-  part_no_norm: '131105537'
-  description: Bearing shell No. 2, outer dia. 65.0 mm -
+  part_no: 113 105 545
+  part_no_norm: '113105545'
+  description: Bearing shell No. 2, outer dia. 65.5 mm -
   quantity: '2'
   applicability: |-
-    Crankshaft (0.25 mm u.s.)
+    Crankshaft (0.50 mm u.s.)
     from Engine No. 3 400 000
   applicability_inline: false
   chassis_from:
@@ -616,46 +605,46 @@ rows:
   position: ill2-k3
   position_status: suggested
   bbox_px:
-  - 185
-  - 1893
+  - 314
+  - 454
   - 2421
-  - 2071
+  - 646
   bbox_source: tesseract
   readings:
     pdf_text:
       key:
       key_prefix:
       marker:
-      part_no: 131 105 537
-      description: Bearing shell No. 2, outer dia. 65.0 mm -
+      part_no: 113 105 545
+      description: Bearing shell No. 2, outer dia. 65.5 mm -
       quantity: '2'
       applicability: |-
-        Crankshaft (0.25 mm u.s.)
+        Crankshaft (0.50 mm u.s.)
         from Engine No. 3 400 000
       applicability_inline: false
       type_and_model: 30-, 34-, 42-, 44 bhp
-      text: 131 105 537 Bearing shell No. 2, outer dia. 65.0 mm - 2 30-, 34-, 42-, 44 bhp
+      text: 113 105 545 Bearing shell No. 2, outer dia. 65.5 mm - ....... 2 30-, 34-, 42-, 44 bhp
       continuation: |-
-        Crankshaft (0.25 mm u.s.)
+        Crankshaft (0.50 mm u.s.)
         from Engine No. 3 400 000
-      min_conf: 401
+      min_conf: 482
     tesseract:
       key:
       key_prefix:
       marker:
-      part_no: 131 105 537
-      description: Bearing shell No. 2, outer dia. 65.0 mm —
-      quantity: '2'
+      part_no: 113105 545
+      description: Bearing shell No. 2, outer dia. 65.5 mm - ae he eae
+      quantity:
       applicability: |-
-        Crankshaft {0.25 mm us.)
-        from Engine No. 3 400 000
+        Crankshaft (0.50 mm u,s.}
+        fram Engine No. 3 400 000
       applicability_inline: false
-      type_and_model: 30-, 34-, 42-, 44 bhp.
-      text: om 131 105 537 Bearing shell No. 2, outer dia. 65.0 mm — ....... 2 30-, 34-, 42-, 44 bhp.
+      type_and_model: 30+, 34+, 42+, 44 bhp
+      text: "~ 113105 545 Bearing shell No. 2, outer dia. 65.5 mm - ae he eae 2° 30+, 34+, 42+, 44 bhp"
       continuation: |-
-        Crankshaft {0.25 mm us.)
-        from Engine No. 3 400 000
-      min_conf: 250
+        Crankshaft (0.50 mm u,s.}
+        fram Engine No. 3 400 000
+      min_conf: 354
   disagreements: []
   confidence: readings agree
   confidence_reasons: []
@@ -666,54 +655,76 @@ rows:
   main_group: '1'
   illustration: '2'
   cross_edition: not_available
-- id: ill2-1-41-02
+- id: ill2-1-42-15
   edition: vw-tpl-1963-08
-  printed_page: 1-41
-  pdf_page: 55
-  row_order: 2
-  key: 7
+  printed_page: 1-42
+  pdf_page: 56
+  row_order: 15
+  key:
   key_prefix:
   marker:
-  part_no: '003'
-  part_no_norm: '003'
-  description: pink ; _
-  quantity:
-  applicability:
+  part_no: 311 107 311
+  part_no_norm: '311107311'
+  description: Piston· ring lower 83 mm dia. {standard size)
+  quantity: '4'
+  applicability: up to Engine No. H O 703 230
   applicability_inline: false
   chassis_from:
   chassis_to:
   chassis_ranges:
   option_codes: []
-  type_and_model: a ang
-  position: ill2-k7
+  type_and_model: |-
+    44 bhp
+    -_,
+  position: ill2-k3
   position_status: suggested
   bbox_px:
-  - 54
-  - 553
-  - 2430
-  - 642
+  - 267
+  - 2151
+  - 2502
+  - 2319
   bbox_source: tesseract
   readings:
     pdf_text:
-    tesseract:
-      key: 7
+      key:
       key_prefix:
       marker:
-      part_no: '003'
-      description: pink ; _
-      quantity:
-      applicability:
+      part_no: 311107 311
+      description: Piston· ring lower 83 mm dia. {standard size)
+      quantity: '4'
+      applicability: up to Engine No. H O 703 230
       applicability_inline: false
-      type_and_model: a ang
-      text: 7 a oo 003 pink ; _ a ang
-      continuation:
-      min_conf: 90
+      type_and_model: |-
+        44 bhp
+        -_,
+      text: 311107 311 Piston· ring lower 83 mm dia. {standard size) .•... 4 44 bhp
+      continuation: |-
+        -_,
+        up to Engine No. H O 703 230
+      min_conf: 470
+    tesseract:
+      key:
+      key_prefix:
+      marker:
+      part_no: 311 107
+      description: att Biston ring lower 83 mm dia. (standard size)
+      quantity: '4'
+      applicability: "“up fo Engine No.-H 0 703 230 :"
+      applicability_inline: false
+      type_and_model: |-
+        44 bhp eee
+        Te
+      text: a 311 107 att Biston ring lower 83 mm dia. (standard size) ..... 4 44 bhp eee
+      continuation: "“up fo Engine No.-H 0 703 230 : Te"
+      min_conf: 340
   disagreements:
   - part_no
+  - applicability
   confidence: needs checking
   confidence_reasons:
-  - only_tesseract
+  - part_no_differs
   - bad_shape
+  - applicability_differs
   status: unverified
   reviewed_by:
   reviewed_at:
@@ -721,60 +732,60 @@ rows:
   main_group: '1'
   illustration: '2'
   cross_edition: not_available
-- id: ill2-1-43-17
+- id: ill2-1-44-07
   edition: vw-tpl-1963-08
-  printed_page: 1-43
-  pdf_page: 57
-  row_order: 17
-  key:
+  printed_page: 1-44
+  pdf_page: 58
+  row_order: 7
+  key: 42
   key_prefix:
   marker:
-  part_no: 111 107 379
-  part_no_norm: '111107379'
-  description: Scraper ring 78 mm dia_. (oversize)
-  quantity: '4'
+  part_no: N 12 276 1
+  part_no_norm: N122761
+  description: Lockring A 22 DIN 73 123 Piston pin
+  quantity: '8'
   applicability:
   applicability_inline: false
   chassis_from:
   chassis_to:
   chassis_ranges:
   option_codes: []
-  type_and_model: 30, bhp
-  position: ill2-k40
+  type_and_model: 42-, 44 bhp
+  position: ill2-k42
   position_status: suggested
   bbox_px:
-  - 433
-  - 2795
-  - 2421
-  - 2886
+  - 396
+  - 1081
+  - 2422
+  - 1190
   bbox_source: tesseract
   readings:
     pdf_text:
-      key:
+      key: 42
       key_prefix:
       marker:
-      part_no: 111107 379
-      description: Scraper ring 78 mm dia_. (oversize)
-      quantity: '4'
+      part_no: N 12 276 1
+      description: Lockring A 22 DIN 73 123 Piston pin
+      quantity: '8'
       applicability:
       applicability_inline: false
-      type_and_model: 30, bhp
-      text: 111107 379 Scraper ring 78 mm dia_. (oversize) ............... 4 30, bhp
+      type_and_model: 42-, 44 bhp
+      text: 42 N 12 276 1 Lockring A 22 DIN 73 123 Piston pin .......... 8 42-, 44 bhp
       continuation:
-      min_conf: 524
+      min_conf: 270
     tesseract:
       key:
       key_prefix:
       marker:
-      part_no: 111 107 379
-      description: Scraper ring 78 mm dia. (oversize)
-      quantity:
+      part_no: N 12 2761
+      description: Lockring A 22 DIN 73 123 = Piston pin
+      quantity: '8'
       applicability:
       applicability_inline: false
-      type_and_model:
-      text: 111 107 379 Scraper ring 78 mm dia. (oversize) .......
+      type_and_model: 42-, 44 bhp
+      text: N 12 2761 Lockring A 22 DIN 73 123 = Piston pin .......... 8 42-, 44 bhp
       continuation:
-      min_conf: 489
+      min_conf: 439
   disagreements: []
   confidence: readings agree
   confidence_reasons: []
@@ -1045,17 +1056,209 @@ rows:
   main_group: '1'
   illustration: '8'
   cross_edition: not_available
-- id: ill18a18-p147-15
+- id: ill18a18-1-120-02
   edition: vw-tpl-1963-08
-  printed_page:
-  pdf_page: 147
-  row_order: 15
-  key: 90
+  printed_page: 1-120
+  pdf_page: 148
+  row_order: 2
+  key:
   key_prefix:
   marker:
-  part_no: N 11 008 3
-  part_no_norm: N110083
-  description: Nut, hex. M 8 DIN 934 galvanized
+  part_no: N 13 821 1
+  part_no_norm: N138211
+  description: Sealing washer C 26X32 DIN 7603
+  quantity: '2'
+  applicability: up to Engine No. 6 914 250
+  applicability_inline: false
+  chassis_from:
+  chassis_to:
+  chassis_ranges:
+  option_codes: []
+  type_and_model: Engine 1.2 Liter
+  position: ill18a18-k91
+  position_status: suggested
+  bbox_px:
+  - 220
+  - 630
+  - 2422
+  - 769
+  bbox_source: tesseract
+  readings:
+    pdf_text:
+      key:
+      key_prefix:
+      marker:
+      part_no: N 13 821 1
+      description: Sealing washer C 26X32 DIN 7603
+      quantity: '2'
+      applicability: up to Engine No. 6 914 250
+      applicability_inline: false
+      type_and_model: Engine 1.2 Liter
+      text: N 13 821 1 Sealing washer C 26X32 DIN 7603 2 Engine 1.2 Liter
+      continuation: up to Engine No. 6 914 250
+      min_conf: 416
+    tesseract:
+      key:
+      key_prefix:
+      marker:
+      part_no: N 13 821 1
+      description: Sealing washer C 26X32 DIN 7603 whee nr nan wree
+      quantity:
+      applicability: up fo Engine No. 6 914 250
+      applicability_inline: false
+      type_and_model: "~ 1.2 Liter"
+      text: "~ N 13 821 1 Sealing washer C 26X32 DIN 7603 whee nr nan wree Engine ~ 1.2 Liter"
+      continuation: up fo Engine No. 6 914 250
+      min_conf: 259
+  disagreements: []
+  confidence: readings agree
+  confidence_reasons: []
+  status: unverified
+  reviewed_by:
+  reviewed_at:
+  corrections: []
+  main_group: '1'
+  illustration: 18+A18
+  cross_edition: not_available
+- id: ill18a18-1-120-06
+  edition: vw-tpl-1963-08
+  printed_page: 1-120
+  pdf_page: 148
+  row_order: 6
+  key: A 75
+  key_prefix: A
+  marker:
+  part_no: N 10 215 4
+  part_no_norm: N102154
+  description: Bolt, hex. head M 6 X 15 DIN 933 galvanized
+  quantity: '4'
+  applicability:
+  applicability_inline: false
+  chassis_from:
+  chassis_to:
+  chassis_ranges:
+  option_codes: []
+  type_and_model:
+  position: ill18a18-ka75
+  position_status: suggested
+  bbox_px:
+  - 169
+  - 1182
+  - 2422
+  - 1290
+  bbox_source: tesseract
+  readings:
+    pdf_text:
+      key: A 75
+      key_prefix: A
+      marker:
+      part_no: N 102154
+      description: Bolt, hex. head M 6 X 15 DIN 933 galvanized
+      quantity: '4'
+      applicability:
+      applicability_inline: false
+      type_and_model:
+      text: 93/A75 N 102154 Bolt, hex. head M 6 X 15 DIN 933 galvanized 4
+      continuation:
+      min_conf: 256
+    tesseract:
+      key: A 75
+      key_prefix: A
+      marker:
+      part_no: N 102154
+      description: Bolt, hex. head M 6X15 DIN 933 galvanized
+      quantity:
+      applicability:
+      applicability_inline: false
+      type_and_model:
+      text: 93/A75 | N 102154 Bolt, hex. head M 6X15 DIN 933 galvanized ....
+      continuation:
+      min_conf: 256
+  disagreements: []
+  confidence: readings agree
+  confidence_reasons: []
+  status: unverified
+  reviewed_by:
+  reviewed_at:
+  corrections: []
+  main_group: '1'
+  illustration: 18+A18
+  cross_edition: not_available
+- id: ill-unknown-1-1-129-22
+  edition: vw-tpl-1963-08
+  printed_page: 1-129
+  pdf_page: 159
+  row_order: 22
+  key:
+  key_prefix:
+  marker:
+  part_no: 111 129 495
+  part_no_norm: '111129495'
+  description: Union nut - Adapter' pipe
+  quantity:
+  applicability:
+  applicability_inline: false
+  chassis_from:
+  chassis_to:
+  chassis_ranges:
+  option_codes: []
+  type_and_model: "...... . 1"
+  position: ill-unknown-1-k1
+  position_status: suggested
+  bbox_px:
+  - 283
+  - 2577
+  - 2422
+  - 2704
+  bbox_source: tesseract
+  readings:
+    pdf_text:
+      key:
+      key_prefix:
+      marker:
+      part_no: 111129 495
+      description: Union nut - Adapter' pipe
+      quantity:
+      applicability:
+      applicability_inline: false
+      type_and_model: "...... . 1"
+      text: 111129 495 Union nut - Adapter' pipe ...........• · ............. · .... , ..•. '. ...... . 1
+      continuation:
+      min_conf: 373
+    tesseract:
+      key:
+      key_prefix:
+      marker:
+      part_no: '111129495'
+      description: Union nut — Adapter pipe -
+      quantity:
+      applicability:
+      applicability_inline: false
+      type_and_model:
+      text: 111129495 Union nut — Adapter pipe -
+      continuation:
+      min_conf: 441
+  disagreements: []
+  confidence: readings agree
+  confidence_reasons: []
+  status: unverified
+  reviewed_by:
+  reviewed_at:
+  corrections: []
+  main_group: '1'
+  illustration:
+  cross_edition: not_available
+- id: ill-unknown-1-1-144-04
+  edition: vw-tpl-1963-08
+  printed_page: 1-144
+  pdf_page: 174
+  row_order: 4
+  key:
+  key_prefix:
+  marker:
+  part_no: 113 105 585
+  part_no_norm: '113105585'
+  description: Bearing No. 3 - Crankshaft
   quantity: '1'
   applicability:
   applicability_inline: false
@@ -1064,254 +1267,45 @@ rows:
   chassis_ranges:
   option_codes: []
   type_and_model:
-  position: ill18a18-k90
-  position_status: suggested
-  bbox_px:
-  - 309
-  - 2355
-  - 2430
-  - 2453
-  bbox_source: tesseract
-  readings:
-    pdf_text:
-      key: 90
-      key_prefix:
-      marker:
-      part_no: N 11 008 3
-      description: Nut, hex. M 8 DIN 934 galvanized
-      quantity: '1'
-      applicability:
-      applicability_inline: false
-      type_and_model:
-      text: 90 N 11 008 3 Nut, hex. M 8 DIN 934 galvanized .•........... 1
-      continuation:
-      min_conf: 361
-    tesseract:
-      key: 90
-      key_prefix:
-      marker:
-      part_no: N 11 008 3
-      description: Nut, hex. M 8 DIN 934 galvanized
-      quantity: '1'
-      applicability:
-      applicability_inline: false
-      type_and_model:
-      text: 90 N 11 008 3 Nut, hex. M 8 DIN 934 galvanized ............. 1
-      continuation:
-      min_conf: 359
-  disagreements: []
-  confidence: readings agree
-  confidence_reasons: []
-  status: unverified
-  reviewed_by:
-  reviewed_at:
-  corrections: []
-  main_group: '1'
-  illustration: 18+A18
-  cross_edition: not_available
-- id: ill18a18-p147-20
-  edition: vw-tpl-1963-08
-  printed_page:
-  pdf_page: 147
-  row_order: 20
-  key:
-  key_prefix:
-  marker:
-  part_no: 211 129 701 C
-  part_no_norm: 211129701C
-  description: Manifold - Intake and pre-heating pipe
-  quantity: "×"
-  applicability: "(Speed limiter 211 129 551 A)"
-  applicability_inline: false
-  chassis_from:
-  chassis_to:
-  chassis_ranges:
-  option_codes: []
-  type_and_model: Engine - 1.2 Liter
-  position: ill18a18-k5
-  position_status: suggested
-  bbox_px:
-  - 331
-  - 2970
-  - 2430
-  - 3110
-  bbox_source: tesseract
-  readings:
-    pdf_text:
-      key:
-      key_prefix:
-      marker:
-      part_no: 211129 701 C
-      description: Manifold - Intake and pre-heating pipe
-      quantity: "×"
-      applicability: "(Speed limiter 211 129 551 A)"
-      applicability_inline: false
-      type_and_model: Engine - 1.2 Liter
-      text: "- 211129 701 C Manifold - Intake and pre-heating pipe ..... .. X Engine - 1.2 Liter"
-      continuation: "(Speed limiter 211 129 551 A)"
-      min_conf: 371
-    tesseract:
-      key:
-      key_prefix:
-      marker:
-      part_no: 211129701 C
-      description: "| Manifold — Intake and pre-heating pipe"
-      quantity: "×"
-      applicability: "(Speed limiter 211 129 551 A)"
-      applicability_inline: false
-      type_and_model: Engine — 1.2 Liter
-      text: "- 211129701 C | Manifold — Intake and pre-heating pipe x Engine — 1.2 Liter"
-      continuation: "(Speed limiter 211 129 551 A)"
-      min_conf: 371
-  disagreements: []
-  confidence: readings agree
-  confidence_reasons: []
-  status: unverified
-  reviewed_by:
-  reviewed_at:
-  corrections: []
-  main_group: '1'
-  illustration: 18+A18
-  cross_edition: not_available
-- id: ill-unknown-1-1-129-14
-  edition: vw-tpl-1963-08
-  printed_page: 1-129
-  pdf_page: 159
-  row_order: 14
-  key:
-  key_prefix:
-  marker:
-  part_no: N 10 719 1
-  part_no_norm: N107191
-  description: Screw, chee'se head AM 6 X20
-  quantity:
-  applicability:
-  applicability_inline: false
-  chassis_from:
-  chassis_to:
-  chassis_ranges:
-  option_codes: []
-  type_and_model: "'. ... : ; l"
-  position: ill-unknown-1-k1
-  position_status: suggested
-  bbox_px:
-  - 330
-  - 1667
-  - 2422
-  - 1765
-  bbox_source: tesseract
-  readings:
-    pdf_text:
-      key:
-      key_prefix:
-      marker:
-      part_no: N 10 7191
-      description: Screw, chee'se head AM 6 X20
-      quantity:
-      applicability:
-      applicability_inline: false
-      type_and_model: "'. ... : ; l"
-      text: 'N 10 7191 Screw, chee''se head AM 6 X20 .. : .... , .......... , ....••..•... ''. ... : ; l'
-      continuation:
-      min_conf: 374
-    tesseract:
-      key:
-      key_prefix:
-      marker:
-      part_no: N 107191
-      description: Screw, cheese head AM
-      quantity:
-      applicability:
-      applicability_inline: false
-      type_and_model:
-      text: N 107191 Screw, cheese head AM
-      continuation:
-      min_conf: 373
-  disagreements: []
-  confidence: readings agree
-  confidence_reasons: []
-  status: unverified
-  reviewed_by:
-  reviewed_at:
-  corrections: []
-  main_group: '1'
-  illustration:
-  cross_edition: not_available
-- id: ill-unknown-1-1-138-04
-  edition: vw-tpl-1963-08
-  printed_page: 1-138
-  pdf_page: 168
-  row_order: 4
-  key: B 41
-  key_prefix: B
-  marker:
-  part_no: 311 198 163
-  part_no_norm: '311198163'
-  description: 1 set of piston rings 83 mm dla. Engine - 1.5 Liter
-  quantity:
-  applicability: |-
-    up to Engine No. 1 100 000
-    comprising:
-  applicability_inline: false
-  chassis_from:
-  chassis_to:
-  chassis_ranges:
-  option_codes: []
-  type_and_model: |-
-    ,
-    Bony
   position: ill-unknown-1-kb41
   position_status: suggested
   bbox_px:
-  - 176
-  - 895
-  - 2497
-  - 1130
+  - 232
+  - 829
+  - 2430
+  - 918
   bbox_source: tesseract
   readings:
     pdf_text:
       key:
       key_prefix:
       marker:
-      part_no: '311198163'
-      description: 1 set of piston rings 83 mm dla. Engine - 1.5 Liter
+      part_no: 113105 585
+      description: Bearing No. 3 - Crankshaft
       quantity:
-      applicability: |-
-        up to Engine No. 1 100 000
-        comprising:
+      applicability:
       applicability_inline: false
       type_and_model:
-      text: ". 311198163 1 set of piston rings 83 mm dla. Engine - 1.5 Liter"
-      continuation: |-
-        up to Engine No. 1 100 000
-        comprising:
-      min_conf: 231
+      text: 113105 585 Bearing No. 3 - Crankshaft .........•................................
+      continuation:
+      min_conf: 323
     tesseract:
-      key: B 41
-      key_prefix: B
+      key:
+      key_prefix:
       marker:
-      part_no: 198 163 1
-      description: set of piston rings 83 mm dla. Engine — 1.5 Liter
-      quantity:
-      applicability: |-
-        up to Engine No. 1 100 000
-        comprising: 5
+      part_no: 113 105 585
+      description: Bearing No. 3 — Crankshaft
+      quantity: '1'
+      applicability:
       applicability_inline: false
-      type_and_model: |-
-        ,
-        Bony
-      text: B41 198 163 1 set of piston rings 83 mm dla. Engine — 1.5 Liter
-      continuation: |-
-        up to Engine No. 1 100 000
-        ,
-        comprising: 5 Bony
-      min_conf: 252
-  disagreements:
-  - part_no
+      type_and_model:
+      text: 113 105 585 Bearing No. 3 — Crankshaft ...... 0... cece cece cee terete eee eeenates 1
+      continuation:
+      min_conf: 289
+  disagreements: []
   confidence: needs checking
   confidence_reasons:
-  - part_no_differs
-  - bad_shape
+  - sp_set_layout
   status: unverified
   reviewed_by:
   reviewed_at:
@@ -1319,18 +1313,18 @@ rows:
   main_group: '1'
   illustration:
   cross_edition: not_available
-- id: ill-unknown-x-p205-20
+- id: ill-unknown-x-p205-26
   edition: vw-tpl-1963-08
   printed_page:
   pdf_page: 205
-  row_order: 20
+  row_order: 26
   key:
   key_prefix:
   marker:
-  part_no: N 12 226 2
-  part_no_norm: N122262
-  description: Spring washer B
-  quantity:
+  part_no: 113 251 263
+  part_no_norm: '113251263'
+  description: Gasket 19 mm inner dia., right - Pre-heating pipe
+  quantity: '2'
   applicability:
   applicability_inline: false
   chassis_from:
@@ -1341,38 +1335,38 @@ rows:
   position: ill-unknown-x-k74
   position_status: suggested
   bbox_px:
-  - 360
-  - 1869
+  - 313
+  - 2417
   - 2419
-  - 1957
+  - 2515
   bbox_source: tesseract
   readings:
     pdf_text:
       key:
       key_prefix:
       marker:
-      part_no: N 12 226 2
-      description: Spring washer B
-      quantity:
+      part_no: 113 251 263
+      description: Gasket 19 mm inner dia., right - Pre-heating pipe
+      quantity: '2'
       applicability:
       applicability_inline: false
       type_and_model:
-      text: N 12 226 2 Spring washer B 6 ... · ............................................ .
+      text: 113 251 263 Gasket 19 mm inner dia., right - Pre-heating pipe . . . . . . . . . . . . . . . . . . . . . 2
       continuation:
-      min_conf: 402
+      min_conf: 368
     tesseract:
       key:
       key_prefix:
       marker:
-      part_no: N 12 226 2
-      description: Spring washer B 6 oo
+      part_no: 113 251 263
+      description: Gasket 19 mm inner dia., right — Pre-heating pipe
       quantity:
       applicability:
       applicability_inline: false
       type_and_model:
-      text: N 12 226 2 Spring washer B 6 oo... ek ccc terete rete eee eee e ener e ena
+      text: 113 251 263 Gasket 19 mm inner dia., right — Pre-heating pipe ................ 0005
       continuation:
-      min_conf: 403
+      min_conf: 370
   disagreements: []
   confidence: readings agree
   confidence_reasons: []
@@ -2053,18 +2047,18 @@ rows:
   main_group: '5'
   illustration: '31'
   cross_edition: not_available
-- id: ill-unknown-6-6-18-22
+- id: ill-unknown-6-6-20-08
   edition: vw-tpl-1963-08
-  printed_page: 6-18
-  pdf_page: 357
-  row_order: 22
-  key: 22
+  printed_page: 6-20
+  pdf_page: 359
+  row_order: 8
+  key: 3
   key_prefix:
   marker:
-  part_no: N 12 464 3
-  part_no_norm: N124643
-  description: Circlip 22 DIN 9045 g'alvanized
-  quantity:
+  part_no: 413 611 755
+  part_no_norm: '413611755'
+  description: T-piece:— Brake lines
+  quantity: '1'
   applicability:
   applicability_inline: false
   chassis_from:
@@ -2072,41 +2066,41 @@ rows:
   chassis_ranges:
   option_codes: []
   type_and_model:
-  position: ill-unknown-6-k22
+  position: ill-unknown-6-k3
   position_status: suggested
   bbox_px:
-  - 643
-  - 2965
-  - 2422
-  - 3084
+  - 335
+  - 1442
+  - 2430
+  - 1548
   bbox_source: tesseract
   readings:
     pdf_text:
+      key: 3
+      key_prefix:
+      marker:
+      part_no: '611755'
+      description: T-piece - Brake lines
+      quantity: '1'
+      applicability:
+      applicability_inline: false
+      type_and_model:
+      text: 11.3 611755 T-piece - Brake lines . . . . . . . . . . . . . • . . . . . . • • • • • 1
+      continuation:
+      min_conf: 420
+    tesseract:
       key:
       key_prefix:
       marker:
-      part_no: N 12464 3
-      description: Circlip 22 DIN 9045 g'alvanized
+      part_no: 413 611755
+      description: T-piece:— Brake lines
       quantity:
       applicability:
       applicability_inline: false
       type_and_model:
-      text: N 12_464 3 Circlip 22 DIN 9045 g'alvanized
+      text: 413 611-755 T-piece:— Brake lines ...........00..
       continuation:
-      min_conf: 464
-    tesseract:
-      key: 22
-      key_prefix:
-      marker:
-      part_no: '9045'
-      description: galvanized
-      quantity:
-      applicability:
-      applicability_inline: false
-      type_and_model:
-      text: "\" Cirelip 22 DIN 9045 galvanized"
-      continuation:
-      min_conf: 680
+      min_conf: 406
   disagreements:
   - part_no
   confidence: needs checking
@@ -2120,55 +2114,66 @@ rows:
   main_group: '6'
   illustration:
   cross_edition: not_found_in_1958_67
-- id: ill-unknown-6-6-19-13
+- id: ill-unknown-6-6-20-14
   edition: vw-tpl-1963-08
-  printed_page: 6-19
-  pdf_page: 358
-  row_order: 13
-  key: 33
+  printed_page: 6-20
+  pdf_page: 359
+  row_order: 14
+  key: 74
   key_prefix:
   marker:
-  part_no: 211 611 723 A
-  part_no_norm: 211611723A
-  description: Une, left
+  part_no: 211 611 764
+  part_no_norm: '211611764'
+  description: Brake line between T-piece and brake hose, rear,
   quantity: '1'
-  applicability: from Chassis No. 20 - 117 902
+  applicability:
   applicability_inline: false
   chassis_from:
-    printed: 20 - 117 902
-    seq: 117902
-    format: 20-NNN NNN
   chassis_to:
   chassis_ranges:
   option_codes: []
-  type_and_model: 211~273
-  position: ill-unknown-6-k33
+  type_and_model:
+  position: ill-unknown-6-k74
   position_status: suggested
   bbox_px:
-  - 307
-  - 1796
-  - 2421
-  - 1928
-  bbox_source: pdf_text
+  - 351
+  - 2444
+  - 2430
+  - 2580
+  bbox_source: tesseract
   readings:
     pdf_text:
-      key: 33
+      key:
       key_prefix:
       marker:
-      part_no: 211 611 723 A
-      description: Une, left
+      part_no: 211 611764
+      description: Brake line between T-piece and brake hose, rear,
       quantity: '1'
-      applicability: from Chassis No. 20 - 117 902
+      applicability:
       applicability_inline: false
-      type_and_model: 211~273
-      text: 33 211 611 723 A Une, left:.. Front brake (LHD) (ltmgth 720-mm) •. 1 211~273
-      continuation: from Chassis No. 20 - 117 902
-      min_conf: 354
+      type_and_model:
+      text: 211 611764 Brake line between T-piece and brake hose, rear, 1
+      continuation:
+      min_conf: 418
     tesseract:
-  disagreements: []
+      key: 74
+      key_prefix:
+      marker:
+      part_no: '611764'
+      description: Brake line between Tpiece and brake hose, rear,
+      quantity:
+      applicability:
+      applicability_inline: false
+      type_and_model:
+      text: 74 ae 611764 Brake line between Tpiece and brake hose, rear,
+      continuation:
+      min_conf: 412
+  disagreements:
+  - part_no
   confidence: needs checking
   confidence_reasons:
-  - only_text_layer
+  - part_no_differs
+  - bad_shape
   status: unverified
   reviewed_by:
   reviewed_at:

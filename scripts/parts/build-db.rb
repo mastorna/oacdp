@@ -38,7 +38,8 @@ sql << <<~DDL
     illustration TEXT, illustration_title TEXT, page_type TEXT, fold_out INTEGER, revision_stamp TEXT,
     printed_page_evidence TEXT, illustration_evidence TEXT, status TEXT);
   CREATE TABLE illustrations (slug TEXT PRIMARY KEY, number TEXT, title TEXT, main_group TEXT,
-    drawing_pdf_pages TEXT, list_pdf_pages TEXT, fold_out_drawing INTEGER, rows INTEGER);
+    drawing_pdf_pages TEXT, list_pdf_pages TEXT, fold_out_drawing INTEGER, rows INTEGER,
+    notes TEXT, footer_says_this_illustration TEXT);
   CREATE TABLE rows (id TEXT PRIMARY KEY, edition TEXT, illustration TEXT, main_group TEXT, printed_page TEXT,
     pdf_page INTEGER, row_order INTEGER, key, key_prefix TEXT, marker TEXT, part_no TEXT, part_no_norm TEXT,
     description TEXT, quantity TEXT, applicability TEXT, applicability_inline INTEGER,
@@ -61,7 +62,9 @@ datas.each do |d|
                                      "main_group" => i["main_group"], "drawing_pdf_pages" => i.dig("drawing", "pdf_pages"),
                                      "list_pdf_pages" => i.dig("lists", "pdf_pages"),
                                      "fold_out_drawing" => pm["illustrations"].find { |x| x["slug"] == i["slug"] }&.dig("fold_out_drawing"),
-                                     "rows" => d["rows"].length)
+                                     "rows" => d["rows"].length,
+                                     "notes" => pm["illustrations"].find { |x| x["slug"] == i["slug"] }&.dig("notes")&.join("\n"),
+                                     "footer_says_this_illustration" => pm["illustrations"].find { |x| x["slug"] == i["slug"] }&.dig("footer_says_this_illustration"))
 end
 qty = ->(q) { q.is_a?(Array) ? q.join(" / ") : q }
 rows.each do |r|
@@ -106,7 +109,8 @@ toc = pm["main_groups"].map do |g|
   ills = pm["illustrations"].select { |i| i["main_group"] == g["id"] }
   { "main_group" => g["id"], "title" => g["title"],
     "illustrations" => ills.map { |i| { "number" => i["number"], "slug" => i["slug"], "title" => i["title"],
-                                        "drawing_pdf_pages" => i["drawing_pdf_pages"], "list_pdf_pages" => i["list_pdf_pages"] } } }
+                                        "drawing_pdf_pages" => i["drawing_pdf_pages"], "list_pdf_pages" => i["list_pdf_pages"],
+                                        "notes" => i["notes"], "footer_says_this_illustration" => i["footer_says_this_illustration"] }.compact } }
 end
 index = {
   "edition" => pm["edition"]["id"], "generated_from" => "YAML files by scripts/parts/build-db.rb; machine readings only, unverified",
