@@ -24,7 +24,7 @@ module Book
   STAMP_RE = /T[yvj]p\.?\s*2\s*(\d{1,2})\s*[\/l1|]\s*(\d{2})\b/i
   # "Illustration 32" as OCR reads it: "Nlustration", "iljustration", "IUus.tr~tion", "tation 2" ...
   # The full label is kept: "32", "22a", "33+A33", "38+A38+B38+C38".
-  ILL_RE = /(?:ust|us\.t|stra|tion)[a-z~.]*\.?\s{0,3}((?:\d{1,3}|(?<=\s)[tlI](?![a-z]))(?:[ab](?![a-z])|\s[ab](?=\s+(?:ST|SP|S|L|\d)\s?[-–—~=]\s?\d))?(?:\s*[+4]\s*[A-D]\s*[0-9lIi]{1,3}(?:[ab](?![a-z])|\s[ab](?=\s+(?:ST|SP|S|L|\d)\s?[-–—~=]\s?\d))?)*)(?![0-9])/
+  ILL_RE = /(?:ust|us\.t|stra|tion)[a-z~.]*(?:\s[a-z]{1,3}(?=\s))?\.?\s{0,3}((?:\d{1,3}|(?<=\s)[tlI](?![a-z]))(?:[ab](?![a-z])|\s[ab](?=\s+(?:ST|SP|S|L|\d)\s?[-–—~=]\s?\d))?(?:\s*[+4]\s*[A-D]\s*[0-9lIi]{1,3}(?:[ab](?![a-z])|\s[ab](?=\s+(?:ST|SP|S|L|\d)\s?[-–—~=]\s?\d))?)*)(?![0-9])/
   # A line of a main-group contents page: "17   Differential ......   31"
   CONTENTS_LINE_RE = /\A\W{0,3}(\d{2})\s+([A-Z][^\d]*?[a-z][^\d]*?)[\s.·•,_~-]*\s(\d{1,3}[a-z]?(?:\s*\+\s*[A-D]\s*\d{1,3}[a-z]?)*)\s*\z/
   PART_TOKEN_RE = /(?<![\d])(\d{3})\s?(\d{3})\s?(\d{3})(?![\d])/
@@ -62,8 +62,10 @@ module Book
       pdft = File.join(work, "raw", "pdftext-#{n}.tsv")
       next nil unless File.size?(tess) && File.size?(pdft)
       pl, geo = pdf_lines(pdft, w, h)
+      foot = File.join(work, "footer", "footer-#{n}.txt")
       { pdf_page: n.to_i, w: w, h: h, ink: File.size(png) * 8.0 / (w * h),
-        tess: Readings.tsv_lines(tess), pdf: pl, pdf_geometry: geo }
+        tess: Readings.tsv_lines(tess), pdf: pl, pdf_geometry: geo,
+        footer_text: File.exist?(foot) ? File.read(foot).gsub(/\s+/, " ").strip : nil }
     end.compact
   end
 
@@ -82,9 +84,20 @@ module Book
       v = m[1].gsub(/\s+/, "")
       v = v.sub(/\A[tlI]/, "1").gsub(/(?<=[A-D])[lIi]/, "1")
       v = v.gsub(/(?<=\d)4(?=[A-D])/, "+")   # "14A1" is "1+A1" with "+" read as "4"
-      return v
+      return v if plausible_label?(v)
     end
     nil
+  end
+
+  # The book's illustrations run 1-63; in a label like "38+A38+B38" every
+  # drawing part repeats the base number. Anything else is a misreading
+  # ("314", "220", "30+A38+B38+C38", "18+A1").
+  MAX_ILLUSTRATION = 63
+  def plausible_label?(v)
+    m = v.match(/\A(\d{1,3})([ab])?((?:\+[A-D]\d{1,3}[ab]?)*)\z/) or return false
+    base = m[1].to_i
+    return false unless base.between?(1, MAX_ILLUSTRATION)
+    m[3].scan(/\+[A-D](\d{1,3})/).all? { |(n)| n.to_i == base }
   end
 
   # [group, number, suffix] of the rightmost page number in the footer lines;
@@ -124,12 +137,31 @@ module Book
     best
   end
 
+  # The third reading: tesseract on the cleaned footer strip (footer-readings.rb).
+  # Its dashes are often lost ("Illustration 3 1 49"), so the page number is
+  # taken as what directly follows the illustration label; elsewhere a dash is
+  # required, as in the other readings.
+  FOOTER_PAGE_AFTER_LABEL_RE = /\A[\s.,:;'"`~*-]{0,4}(ST|SP|S|L|\d)\s?[-–—~=.]?\s?(\d{1,3})(?:\s?([ab]))?(?![\w])/
+  def footer_reading(text)
+    return {} if text.nil? || text.empty?
+    out = { stamp: stamp([{ text: text }]) }
+    if (m = text.match(ILL_RE))
+      out[:ill] = ill_number([{ text: m[0] }])
+      if (pm = text[m.end(0)..].match(FOOTER_PAGE_AFTER_LABEL_RE))
+        out[:printed] = [pm[1], pm[2].to_i, pm[3].to_s]
+      end
+    end
+    out[:printed] ||= printed([{ text: text, x1: 0 }], 0)
+    out
+  end
+
   def part_tokens(lines)
     lines.sum { |l| l[:text].scan(PART_TOKEN_RE).length + l[:text].scan(/\bN\s?\d{2}\s?\d{3}\s?\d\b/).length }
   end
 
   # Per-page features from both readings.
   def features(pg)
+    fr = footer_reading(pg[:footer_text])
     w, h = pg[:w], pg[:h]
     tf = footer(pg[:tess], h)
     pf = footer(pg[:pdf], h, pg[:pdf_geometry])
@@ -137,9 +169,9 @@ module Book
     head_text = (pg[:tess] + pg[:pdf]).select { |l| !pg[:pdf_geometry] || l[:y0] < h * 0.15 }.map { |l| l[:text] }.join(" ")
     upper_text = (pg[:tess] + pg[:pdf]).select { |l| l[:y0] < h * 0.4 }.map { |l| l[:text] }.join(" ")
     {
-      stamp_t: stamp(tf), stamp_p: stamp(pf),
-      ill_t: ill_number(tf), ill_p: ill_number(pf),
-      printed_t: printed(tf, w), printed_p: printed(pf, w),
+      stamp_t: stamp(tf), stamp_p: stamp(pf), stamp_f: fr[:stamp],
+      ill_t: ill_number(tf), ill_p: ill_number(pf), ill_f: fr[:ill],
+      printed_t: printed(tf, w), printed_p: printed(pf, w), printed_f: fr[:printed],
       parts_t: part_tokens(pg[:tess]), parts_p: part_tokens(pg[:pdf]),
       items_t: pg[:tess].count { |l| Readings.item_line?(l) },
       items_p: pg[:pdf].count { |l| Readings.item_line?(l) },
@@ -178,14 +210,8 @@ module Book
   def page_map(pages)
     feats = pages.map { |pg| features(pg) }
     entries = pages.zip(feats).map do |pg, f|
-      t, p = f[:printed_t], f[:printed_p]
-      cand, ev = if t && p && t == p then [t, "both readings"]
-                 elsif t && p then [nil, "readings differ (tesseract #{pstr(t)}, text layer #{pstr(p)})"]
-                 elsif t then [t, "tesseract reading"]
-                 elsif p then [p, "text-layer reading"]
-                 else [nil, nil]
-                 end
-      { pg: pg, f: f, cand: cand, ev: ev, alt: [t, p].compact.uniq, type: page_type(pg, f) }
+      cand, ev, agreed, alts = vote({ "text layer" => f[:printed_p], "footer" => f[:printed_f], "tesseract" => f[:printed_t] }, ->(v) { pstr(v) })
+      { pg: pg, f: f, cand: cand, ev: ev, agreed: agreed, alt: alts, type: page_type(pg, f) }
     end
     n = entries.length
     pdf = ->(i) { entries[i][:pg][:pdf_page] }
@@ -234,13 +260,22 @@ module Book
         end
       end
     end
-    entries.each_with_index { |e, i| e[:ok] = e[:cand] && (e[:ev] == "both readings" || confirmed.call(i, e[:cand])) }
-    entries.each_with_index do |e, i|
-      next if e[:ok]
-      if (good = e[:alt].find { |v| confirmed.call(i, v) })
+    entries.each_with_index { |e, i| e[:ok] = e[:cand] && (e[:agreed] || confirmed.call(i, e[:cand])) }
+    # repeat until nothing changes, so pages can confirm each other in any order
+    # (PDF 731 "S-22b" is confirmed only after its own neighbour; then it confirms PDF 730 "S-22a")
+    4.times do
+      changed = false
+      entries.each_with_index do |e, i|
+        next if e[:ok]
+        next unless (good = e[:alt].find { |v| confirmed.call(i, v) })
         e[:cand], e[:ok], e[:ev] = good, true, "#{e[:ev] || 'one reading'}; confirmed by neighbouring pages"
-        next
+        changed = true
       end
+      break unless changed
+    end
+    entries.each do |e|
+      next if e[:ok]
+      e[:cand] = nil
       e[:ev] = e[:alt].any? ? "unconfirmed reading #{e[:alt].map { |v| pstr(v) }.join(' / ')}" : "none found"
     end
 
@@ -285,6 +320,12 @@ module Book
       end
     end
     entries.each { |e| e[:val] = e[:ok] ? e[:cand] : e[:fill] }
+    # front matter (scanner's notes and example copies of book pages, PDF 1-15)
+    entries.each do |e|
+      next unless e[:pg][:pdf_page] <= 15 && e[:val]
+      e[:ev] = "front matter: not a page of the book itself (reads #{pstr(e[:val])}, an example copy)"
+      e[:val] = nil
+    end
 
     # -- clashes: a number on two PDF pages; drop the filled/counted ones --
     entries.group_by { |e| pstr(e[:val]) }.each do |v, es|
@@ -296,17 +337,20 @@ module Book
         e[:ev] = "dropped #{v}: also given to PDF #{others.join(', ')} (#{e[:ev]})"
         e[:val] = nil
       end
+      next if read.length < 2
+      # several pages read with the same number: kept, and flagged (the PDF
+      # may hold a section twice, e.g. Main Group 2 at PDF 181... and 251...)
+      read.each do |e|
+        others = (read - [e]).map { |x| pdf.call(entries.index(x)) }
+        e[:ev] = "#{e[:ev]}; the same printed page is also read on PDF #{others.join(', ')}"
+        e[:duplicate_of] = others
+      end
     end
 
     entries.each do |e|
       e[:printed] = pstr(e[:val])
       e[:group] = e[:val] && e[:val][0]
-      tl, pl = e[:f][:ill_t], e[:f][:ill_p]
-      e[:ill] = pl || tl
-      e[:ill_ev] = if tl && pl && tl != pl then "readings differ (tesseract #{tl}, text layer #{pl}); text layer kept"
-                   elsif tl && pl then "both readings"
-                   elsif e[:ill] then pl ? "text-layer reading" : "tesseract reading"
-                   end
+      e[:ill], e[:ill_ev], = vote({ "text layer" => e[:f][:ill_p], "footer" => e[:f][:ill_f], "tesseract" => e[:f][:ill_t] }, ->(v) { v }, keep_first: true)
     end
     # illustration clean-up, before filling:
     #  - a shortened label ("1", "38+A38") is completed from a page within 4
@@ -364,6 +408,7 @@ module Book
     titles = contents_titles(entries)
     entries.map do |e|
       f = e[:f]
+      stamp_vote = vote({ "tesseract" => f[:stamp_t], "footer" => f[:stamp_f], "text layer" => f[:stamp_p] }, ->(v) { v }, keep_first: true)
       t = e[:ill] && titles[e[:ill]]
       {
         "pdf_page" => e[:pg][:pdf_page],
@@ -375,20 +420,50 @@ module Book
         "page_type" => e[:type],
         "layout" => f[:sp_set] ? "sp_set" : nil,
         "inserted" => e[:inserted] ? true : false,
+        "same_printed_page_as" => e[:duplicate_of],
         "fold_out" => e[:pg][:w] > e[:pg][:h],
         "image_px" => [e[:pg][:w], e[:pg][:h]],
         "keys_first_last" => f[:keys],
-        "revision_stamp" => f[:stamp_t] || f[:stamp_p],
-        "stamp_readings" => { "pdf_text" => f[:stamp_p], "tesseract" => f[:stamp_t] },
+        "revision_stamp" => stamp_vote[0],
+        "stamp_readings" => { "pdf_text" => f[:stamp_p], "tesseract" => f[:stamp_t], "footer" => f[:stamp_f] },
         "evidence" => { "printed_page" => e[:ev], "illustration" => e[:ill_ev], "inserted" => e[:inserted],
                         "illustration_title" => t && "contents page PDF #{t[:pdf]}",
-                        "stamp" => if f[:stamp_t] && f[:stamp_p] && f[:stamp_t] != f[:stamp_p] then "readings differ; tesseract kept"
-                                   elsif f[:stamp_t] && f[:stamp_p] then "both readings"
-                                   elsif f[:stamp_t] || f[:stamp_p] then "one reading"
-                                   end },
+                        "stamp" => stamp_vote[1] },
         "status" => "unverified"
       }
     end
+  end
+
+  # Combine up to three readings of one value. A value two readings agree on
+  # wins ("agreed"). Otherwise the first reading present is taken (order of
+  # the hash = preference); for printed pages a lone reading is only a
+  # candidate that a neighbouring page must confirm (keep_first: false keeps
+  # disagreeing readings as alternatives only when exactly one is present).
+  # Returns [value, evidence, agreed, alternatives].
+  def vote(readings, show, keep_first: false)
+    present = readings.compact
+    alts = present.values.uniq
+    return [nil, nil, false, []] if present.empty?
+    counts = present.values.tally
+    best, nb = counts.max_by { |_v, c| c }
+    who = present.select { |_k, v| v == best }.keys
+    # the footer and full-page readings are both tesseract and can share a
+    # mistake; agreement counts only when an independent reader is in it
+    independent = who.include?("text layer") || readings.keys.none? { |k| k == "text layer" }
+    if nb >= 2 && independent
+      others = present.reject { |_k, v| v == best }
+      ev = "#{who.join(' and ')} agree" + (others.any? ? " (#{others.map { |k, v| "#{k} #{show.call(v)}" }.join(', ')})" : "")
+      return [best, ev, true, alts]
+    end
+    if nb >= 2 && !independent && !keep_first
+      return [best, "#{who.join(' and ')} agree (both tesseract; needs a neighbouring page to confirm)", false, alts]
+    end
+    if present.length == 1 || keep_first
+      k, v = present.first
+      ev = present.length == 1 ? "#{k} reading" : "readings differ (#{present.map { |kk, vv| "#{kk} #{show.call(vv)}" }.join(', ')}); #{k} kept"
+      return [v, ev, false, alts]
+    end
+    [nil, "readings differ (#{present.map { |kk, vv| "#{kk} #{show.call(vv)}" }.join(', ')})", false, alts]
   end
 
   # Illustration titles from the book's own contents pages (fix 5). Lines read

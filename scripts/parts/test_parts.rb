@@ -129,5 +129,18 @@ eq "prefix dropped when no such drawing", Rows.check_prefix!({ "key" => "B 65", 
 eq "colour/date line stays a continuation", "8/63 – 7/64 395 ice blue – 81".match?(Rows::COLOUR_START_RE), true
 eq "item line is not a colour line", "12 111 905 223 Safety screen".match?(Rows::COLOUR_START_RE), false
 
+# ---- footer round: the cleaned-footer reading and the vote --------------------------------
+fr = Book.footer_reading("N Typ 2 31/68 ui Ilustration 3 1 49 oo")
+eq "footer: page number after the label, dash lost", fr[:printed], ["1", 49, ""]
+eq "footer: illustration", fr[:ill], "3"
+eq "footer: suffix page after a split word", Book.footer_reading("Hiustrat on 61 S 22a")[:printed], ["S", 22, "a"]
+eq "footer: dash required away from the label", Book.footer_reading("junk 3-7 more")[:printed], ["3", 7, ""]
+eq "footer: empty", Book.footer_reading(""), {}
+show = ->(v) { v.to_s }
+eq "vote: two agree", Book.vote({ "a" => 1, "b" => 2, "c" => 1 }, show)[0, 3], [1, "a and c agree (b 2)", true]
+eq "vote: lone reading", Book.vote({ "a" => nil, "b" => 2, "c" => nil }, show)[0, 3], [2, "b reading", false]
+eq "vote: all differ, no keep", Book.vote({ "a" => 1, "b" => 2 }, show)[0], nil
+eq "vote: all differ, keep first", Book.vote({ "a" => 1, "b" => 2 }, show, keep_first: true)[0], 1
+
 puts "#{$count - $fails}/#{$count} passed"
 exit($fails.zero? ? 0 : 1)

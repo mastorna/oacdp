@@ -135,7 +135,9 @@ page. Every row is `unverified` and labelled `readings agree` or
 `needs checking`.
 
 	scripts/parts/run-readings.sh ORIGINAL.pdf WORK              # images + both readings, restartable (~25 min)
-	ruby scripts/parts/pagemap.rb --pdf ORIGINAL.pdf --work WORK --out src/_data/parts/vw-tpl-1963-08/page-map.yml
+	ruby scripts/parts/footer-readings.rb --pdf ORIGINAL.pdf --work WORK   # cleaned footer strips, 3rd reading (~13 min)
+	ruby scripts/parts/pagemap.rb --pdf ORIGINAL.pdf --work WORK --out src/_data/parts/vw-tpl-1963-08/page-map.yml \
+	  --decisions src/_data/parts/vw-tpl-1963-08/page-decisions.yml
 	ruby scripts/parts/cross-edition.rb --scans out/5867part --work WORK --out WORK/parts-5867.txt
 	ruby scripts/parts/catalog.rb --pdf ORIGINAL.pdf --work WORK \
 	  --page-map src/_data/parts/vw-tpl-1963-08/page-map.yml --out OUT/yaml --cross-edition WORK/parts-5867.txt

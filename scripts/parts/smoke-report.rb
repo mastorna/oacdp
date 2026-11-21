@@ -31,6 +31,7 @@ OptionParser.new do |o|
   o.on("--sample PATH") { |v| opts[:samples] << v }
   o.on("--metrics-out PATH") { |v| opts[:metrics_out] = v }
   o.on("--before PATH") { |v| opts[:before] = v }
+  o.on("--mid PATH") { |v| opts[:mid] = v }
 end.parse!
 %i[yaml map work report].each { |k| abort "missing --#{k}" unless opts[k] }
 
@@ -346,6 +347,15 @@ if opts[:samples].any?
   out << ""
   out << "Sample caveat: for PDF 721 (a sideways fold-out drawing) I looked only at the top half, so \"no printed page\" in my sample may be wrong; a fold-out counts as one numbered page (counting through PDF 19, 21 and 42 gives PDF 33 = 1-19, as printed)."
   out << ""
+  out << "## Footer round: a third reading of the footer only"
+  out << "The footer (stamp, \"Illustration N\", printed page) is printed large but sits in dark speckle. `scripts/parts/footer-readings.rb` renders the bottom 13% of each page, keeps only letter-sized ink (dropping speckle dots and edge smears), and reads it with tesseract (about 1 s per page, 13 min for the book)."
+  out << ""
+  out << "- **How it is used:** it is a third reader in the page map. Two readings agreeing settles a value only when the text layer is one of them: the footer and full-page readings are both tesseract and can share a mistake (PDF 121 \"1-99\" read as \"1-9\" by both)."
+  out << "- **Impossible labels are rejected:** a label is accepted only if the number is 1–63 (the book's range) and every drawing part repeats it (\"38+A38+B38+C38\"). That rejected \"314\", \"220\", \"30+A38+B38+C38\" and \"18+A1\"."
+  out << "- **Front matter (PDF 1–15)** gets no printed page. PDF 2–4 are the scanner's example copies of book pages and repeated real numbers."
+  out << "- **The PDF seems to hold part of Main Group 2 twice.** Its contents page appears on PDF 181 and PDF 251, and pages such as 2-7 are read on both PDF 187 and PDF 257. Pages read with the same number are kept and flagged `same_printed_page_as`; a person should decide which copy the site uses."
+  out << "- **What's left blank on purpose:** between PDF 28 (read \"1-13\") and PDF 33 (\"1-19\" on the page), counting from the two sides disagrees by one. The book seems to skip a number there, so those pages stay blank instead of guessed."
+  out << ""
   out << "Not in this round: 3-digit keys (\"113\" on PDF 463) are still read as the start of the part number."
   out << ""
 else
@@ -358,6 +368,7 @@ File.write(opts[:metrics_out], JSON.pretty_generate(M) + "\n") if opts[:metrics_
 table = []
 if opts[:before]
   b = JSON.parse(File.read(opts[:before]))
+  mid = opts[:mid] && JSON.parse(File.read(opts[:mid]))
   fmt = ->(v) { v.is_a?(Float) ? format("%.1f", v) : v.to_s }
   labels = {
     "rows" => "List rows", "agree_pct" => "% \"readings agree\"", "shape_pct" => "% part numbers with a recognised shape",
@@ -372,12 +383,18 @@ if opts[:before]
     "ill_titles" => "Illustrations with a title from the contents pages", "ill_with_drawing" => "Illustrations with a drawing page",
     "pages_list" => "List pages", "pages_drawing" => "Drawing pages"
   }
-  table << "## Before and after the fix round"
-  table << "Same AI sample, same comparison rules; \"before\" is the first full run (commit 2bbbb64)."
+  table << "## Before and after"
+  table << "Same AI sample, same comparison rules. \"First run\" is commit 2bbbb64#{mid ? '; "fix round" is commit 7a80588; "now" adds the cleaned-footer reading' : ''}."
   table << ""
-  table << "| | Before | After |"
-  table << "|---|---|---|"
-  labels.each { |k, l| table << "| #{l} | #{fmt.call(b[k])} | #{fmt.call(M[k])} |" if b.key?(k) || M.key?(k) }
+  if mid
+    table << "| | First run | Fix round | Now |"
+    table << "|---|---|---|---|"
+    labels.each { |k, l| table << "| #{l} | #{fmt.call(b[k])} | #{fmt.call(mid[k])} | #{fmt.call(M[k])} |" if b.key?(k) || M.key?(k) }
+  else
+    table << "| | Before | After |"
+    table << "|---|---|---|"
+    labels.each { |k, l| table << "| #{l} | #{fmt.call(b[k])} | #{fmt.call(M[k])} |" if b.key?(k) || M.key?(k) }
+  end
   table << ""
 end
 out = out.flat_map { |l| l == "<!-- BEFORE-AFTER -->" ? table : [l] }
