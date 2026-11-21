@@ -95,8 +95,8 @@ b = [{ text: "211601139 Bolt", box: [0, 101, 0, 0] }, { text: "N 13 407 1 Rivet"
 m = Rows.merge(a, b)
 eq "merge: pairs + leftovers in page order", m.map { |x, y| [x && x[:text], y && y[:text]] },
    [["211 601 139 Bolt", "211601139 Bolt"], [nil, "N 13 407 1 Rivet"], ["111 601 151 Hub cap", nil]]
-eq "printed page pattern", "1-10".match(Book::PRINTED_RE)&.captures, %w[1 10]
-eq "printed page section", "ST-9".match(Book::PRINTED_RE)&.captures, %w[ST 9]
+eq "printed page pattern", "1-10".match(Book::PRINTED_RE)&.captures, ["1", "10", nil]
+eq "printed page section", "ST-9".match(Book::PRINTED_RE)&.captures, ["ST", "9", nil]
 eq "printed page rejects part no", "211-216".match?(Book::PRINTED_RE), false
 eq "stamp", Book.stamp([{ text: "a Typ2 31/68 x" }]), "Typ 2 31/68"
 eq "illustration OCR variant", Book.ill_number([{ text: "Nlustration 1+A1" }]), "1+A1"
@@ -106,6 +106,28 @@ eq "slug", Book.slug("1+A1"), "ill1a1"
 eq "sql quote", SQL.q("O'Brien"), "'O''Brien'"
 eq "sql null/bool/int", [SQL.q(nil), SQL.q(true), SQL.q(7)], %w[NULL 1 7]
 eq "sql array as json", SQL.q(["M 215"]), %q('["M 215"]')
+
+# ---- fix round: suffix pages, labels, keys, colour lines, contents --------------------
+pr = ->(t) { Book.printed([{ text: t, x1: 100 }], 2500) }
+eq "printed page with suffix", pr.call("Illustration 61 S ~22a"), ["S", 22, "a"]
+eq "printed page with spaced suffix", pr.call("1-124 a"), ["1", 124, "a"]
+eq "printed page plain", pr.call("Typ 2 31/68 Illustration 3 1-51"), ["1", 51, ""]
+eq "printed page string", Book.pstr(["1", 50, "b"]), "1-50b"
+eq "full label with letter", Book.ill_number([{ text: "Illustration 39 a 8-50" }]), "39a"
+eq "spaced letter without page number is noise", Book.ill_number([{ text: "iustration 32 a . ; ." }]), "32"
+eq "full label with parts", Book.ill_number([{ text: "Illustration 38 + A 38 + B 38 + C 38" }]), "38+A38+B38+C38"
+eq "letter inside the word is not a number", Book.ill_number([{ text: "Illustration ]2 6-12" }]), nil
+eq "longest rising run drops stray keys", Book.longest_rising([20, 21, 3, 22, 24, 12, 25]), [20, 21, 22, 24, 25]
+eq "contents line", "17   Differential .......   31".match(Book::CONTENTS_LINE_RE)&.captures, ["17", "Differential", "31"]
+eq "contents line with label", "11 Brake cylinders and lines   33+A33".match(Book::CONTENTS_LINE_RE)&.captures&.last, "33+A33"
+eq "key with drawing letter", Rows.key_as_printed("A 66 311 101 301 D Cylinder", "66"), ["A 66", "A"]
+eq "key with slash", Rows.key_as_printed("A 18/36 . 211 611 741 B Brake", nil), ["A 18/36", "A"]
+eq "plain key stays a number", Rows.key_as_printed("35 311 107 101 M Piston", "35"), [35, nil]
+eq "date in key column is not a key", Rows.key_as_printed("8/64 211 881 031 Seat", nil), [nil, nil]
+eq "prefix kept when the drawing exists", Rows.check_prefix!({ "key" => "A 66", "key_prefix" => "A" }, "1+A1")["key"], "A 66"
+eq "prefix dropped when no such drawing", Rows.check_prefix!({ "key" => "B 65", "key_prefix" => "B" }, "44")["key"], 65
+eq "colour/date line stays a continuation", "8/63 – 7/64 395 ice blue – 81".match?(Rows::COLOUR_START_RE), true
+eq "item line is not a colour line", "12 111 905 223 Safety screen".match?(Rows::COLOUR_START_RE), false
 
 puts "#{$count - $fails}/#{$count} passed"
 exit($fails.zero? ? 0 : 1)

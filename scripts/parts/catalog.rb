@@ -44,7 +44,7 @@ cross_base = cross&.to_h { |x| [x[0, 9], true] }
 dup_printed = pm["pages"].map { |p| p["printed_page"] }.compact.tally.select { |_k, v| v > 1 }.keys
 list_pages = pm["pages"].select { |p| p["page_type"] == "parts_list" }
                         .map { |p| dup_printed.include?(p["printed_page"]) ? p.merge("_id_page" => "p#{p['pdf_page']}") : p }
-by_ill = list_pages.group_by { |p| p["illustration"] ? Book.slug(p["illustration"]) : "ill-unknown-#{p['main_group'] || 'x'}" }
+by_ill = list_pages.group_by { |p| p["illustration"] ? Book.slug(p["illustration"]) : "ill-unknown-#{(p['main_group'] || 'x').downcase}" }
 
 FileUtils.mkdir_p(opts[:out])
 Dir[File.join(opts[:out], "*.yml")].each { |f| File.delete(f) }   # generated output: rebuilt every run

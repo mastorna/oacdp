@@ -55,11 +55,17 @@ def coerce(field, value)
   case field
   when "key"
     return nil if v.nil? || v.to_s.strip.empty? || v.to_s.strip == "-"
-    Integer(v.to_s.strip, 10)
+    k = v.to_s.strip
+    # a key with a drawing letter is kept as printed: "A 66", "A 18/36"
+    if (m = k.match(%r{\A([A-D])\s*(\d{1,3}(?:\s*/\s*\d{1,3})?)\z}))
+      return "#{m[1]} #{m[2].gsub(/\s+/, '')}"
+    end
+    Integer(k, 10)
   when "marker", "type_and_model"
     v.to_s.empty? ? nil : v
   when "quantity"
     parts = v.to_s.split(%r{\s*/\s*|\n}).map(&:strip).reject(&:empty?)
+    return nil if parts.empty?   # no quantity read (machine rows can have none)
     parts.length > 1 ? parts : parts.first.to_s
   when "applicability"
     v.to_s.empty? ? nil : v
@@ -177,12 +183,17 @@ server.mount_proc("/api/row") do |req, res|
         row[c["field"]] = c["to"]
         row["corrections"] << c.merge("by" => opts[:reviewer], "at" => t, "note" => body["note"].to_s.strip.empty? ? nil : body["note"].to_s.strip)
       end
+      row["key_prefix"] = row["key"].is_a?(String) ? row["key"][/\A[A-D]/] : nil if row.key?("key_prefix")
       Parts.derive!(row) if changes.any?
       # position (addition A): confirming keeps it, editing marks it changed
       new_pos = body["position"].to_s.strip
       new_pos = row["position"].to_s if new_pos.empty?
-      raise ArgumentError, "position id must be lower-case words joined by dashes" unless new_pos.match?(/\A[a-z0-9]+(?:-[a-z0-9]+)*\z/)
-      if new_pos != row["position"]
+      if new_pos.empty?
+        # the row has no suggested position (e.g. above the first key on a
+        # machine-read page) and none was given: nothing to confirm
+      elsif !new_pos.match?(/\A[a-z0-9]+(?:-[a-z0-9]+)*\z/)
+        raise ArgumentError, "position id must be lower-case words joined by dashes"
+      elsif new_pos != row["position"]
         unless data["positions"].any? { |p| p["id"] == new_pos }
           data["positions"] << { "id" => new_pos, "label" => body["position_label"].to_s.strip.empty? ? new_pos.tr("-", " ") : body["position_label"].to_s.strip,
                                  "key" => nil, "status" => "changed" }

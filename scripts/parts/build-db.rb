@@ -40,7 +40,7 @@ sql << <<~DDL
   CREATE TABLE illustrations (slug TEXT PRIMARY KEY, number TEXT, title TEXT, main_group TEXT,
     drawing_pdf_pages TEXT, list_pdf_pages TEXT, fold_out_drawing INTEGER, rows INTEGER);
   CREATE TABLE rows (id TEXT PRIMARY KEY, edition TEXT, illustration TEXT, main_group TEXT, printed_page TEXT,
-    pdf_page INTEGER, row_order INTEGER, key INTEGER, marker TEXT, part_no TEXT, part_no_norm TEXT,
+    pdf_page INTEGER, row_order INTEGER, key, key_prefix TEXT, marker TEXT, part_no TEXT, part_no_norm TEXT,
     description TEXT, quantity TEXT, applicability TEXT, applicability_inline INTEGER,
     chassis_from TEXT, chassis_from_seq INTEGER, chassis_to TEXT, chassis_to_seq INTEGER,
     chassis_ranges TEXT, option_codes TEXT, type_and_model TEXT, position TEXT,
@@ -65,7 +65,7 @@ datas.each do |d|
 end
 qty = ->(q) { q.is_a?(Array) ? q.join(" / ") : q }
 rows.each do |r|
-  sql << SQL.insert("rows", r.slice("id", "edition", "main_group", "printed_page", "pdf_page", "row_order", "key", "marker",
+  sql << SQL.insert("rows", r.slice("id", "edition", "main_group", "printed_page", "pdf_page", "row_order", "key", "key_prefix", "marker",
                                     "part_no", "part_no_norm", "description", "applicability", "applicability_inline",
                                     "chassis_ranges", "option_codes", "type_and_model", "position", "confidence",
                                     "confidence_reasons", "cross_edition", "status")

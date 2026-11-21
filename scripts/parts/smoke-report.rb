@@ -5,12 +5,16 @@
 #
 #   ruby scripts/parts/smoke-report.rb --yaml DIR --page-map page-map.yml --work WORK \
 #        --report report.md --spot-yml spot-check-50.yml --spot-md spot-check.md \
-#        [--sample claude-sample.yml ...]
+#        [--sample claude-sample.yml ...] [--metrics-out m.json] [--before before.json]
+#
+# --metrics-out writes the headline figures as JSON; --before reads such a
+# file from an earlier run and puts a before/after table at the top.
 #
 # Ruby standard library only.
 
 require "optparse"
 require "date"
+require "json"
 require_relative "lib/parts"
 require_relative "lib/readings"
 require_relative "lib/rows"
@@ -25,6 +29,8 @@ OptionParser.new do |o|
   o.on("--spot-yml PATH") { |v| opts[:spot_yml] = v }
   o.on("--spot-md PATH") { |v| opts[:spot_md] = v }
   o.on("--sample PATH") { |v| opts[:samples] << v }
+  o.on("--metrics-out PATH") { |v| opts[:metrics_out] = v }
+  o.on("--before PATH") { |v| opts[:before] = v }
 end.parse!
 %i[yaml map work report].each { |k| abort "missing --#{k}" unless opts[k] }
 
@@ -35,6 +41,7 @@ rows = datas.flat_map { |d| d["rows"].map { |r| r.merge("_slug" => d["illustrati
 agree = ->(r) { r["confidence"] == "readings agree" }
 pct = ->(a, b) { b.zero? ? "–" : format("%.1f%%", 100.0 * a / b) }
 out = []
+M = {}   # headline figures for --metrics-out / --before
 groups = Book::MAIN_GROUPS.keys
 pages = pm["pages"]
 
@@ -47,6 +54,7 @@ out << "- **Readings:** the PDF's text layer and tesseract 5.3.4 (native 300 dpi
 out << "- **Status of everything here:** machine output, **unverified**. Nothing is on the public site."
 out << "- **Tesseract time:** #{times.length} pages, average #{times.empty? ? '–' : (times.sum / times.length / 1000.0).round(1)} s per page per job, 2 jobs in parallel (about #{(times.sum / 2 / 60000.0).round} min in total)."
 out << ""
+out << "<!-- BEFORE-AFTER -->"
 out << "## Summary"
 types = pages.map { |p| p["page_type"] }.tally
 out << "| | |"
@@ -59,6 +67,11 @@ out << "| \"readings agree\" | #{rows.count(&agree)} (#{pct.call(rows.count(&agr
 out << "| \"needs checking\" | #{rows.count { |r| !agree.call(r) }} |"
 out << "| Rows whose part number has a recognised shape | #{rows.count { |r| Rows.norm_shape_ok?(r['part_no_norm']) }} (#{pct.call(rows.count { |r| Rows.norm_shape_ok?(r['part_no_norm']) }, rows.length)}) |"
 out << ""
+M["pages_list"] = types["parts_list"].to_i
+M["pages_drawing"] = types["drawing"].to_i
+M["rows"] = rows.length
+M["agree_pct"] = 100.0 * rows.count(&agree) / [rows.length, 1].max
+M["shape_pct"] = 100.0 * rows.count { |r| Rows.norm_shape_ok?(r["part_no_norm"]) } / [rows.length, 1].max
 
 # ---- per main group ---------------------------------------------------------------------
 out << "## Per main group"
@@ -88,6 +101,8 @@ out << ""
 ev.sort_by { |_k, v| -v }.each { |k, v| out << "- #{k.empty? ? '(none)' : k}: #{v}" }
 out << ""
 clash = pages.map { |p| p["printed_page"] }.compact.tally.select { |_k, v| v > 1 }
+M["clashes"] = clash.length
+M["printed_none"] = pages.count { |p| %w[parts_list drawing].include?(p["page_type"]) && p["printed_page"].nil? }
 out << "- **Clashes:** #{clash.length} printed page numbers are given to more than one PDF page (#{clash.values.sum} pages), so at least one of each pair is wrong. Rows on those pages use the PDF page in their id. Examples: #{clash.keys.first(8).join(', ')}."
 out << "- Revision stamps found: #{pages.count { |p| p['revision_stamp'] }} pages (both readings agree on #{pages.count { |p| p.dig('evidence', 'stamp') == 'both readings' }})."
 ill_ev = pages.map { |p| p.dig("evidence", "illustration").to_s.split(";").first.to_s.sub(/ \(.*/, "").sub(/".*"/, "") }.reject(&:empty?).tally
@@ -101,6 +116,9 @@ out << "- Illustrations found: #{ills.length} (by footer number)."
 out << "- With at least one drawing page: #{ills.count { |i| i['drawing_pdf_pages'].any? }}; with a fold-out drawing: #{ills.count { |i| i['fold_out_drawing'] }}; with list pages but no drawing page found: #{ills.count { |i| i['drawing_pdf_pages'].empty? && i['list_pdf_pages'].any? }}."
 out << "- Drawing pages in the book: #{pages.count { |p| p['page_type'] == 'drawing' }}, of which fold-outs: #{pages.count { |p| p['page_type'] == 'drawing' && p['fold_out'] }}."
 out << "- Titles from the book's contents pages: #{ills.count { |i| i['title'] }} of #{ills.length}."
+M["illustrations"] = ills.length
+M["ill_titles"] = ills.count { |i| i["title"] }
+M["ill_with_drawing"] = ills.count { |i| i["drawing_pdf_pages"].any? }
 out << ""
 
 # ---- worst pages -----------------------------------------------------------------------------
@@ -186,6 +204,11 @@ rng = Random.new(SEED)
 pick_a = rows.select(&agree).sample(30, random: rng)
 pick_n = rows.reject(&agree).sample(20, random: rng)
 spot = (pick_a + pick_n).sort_by { |r| [r["pdf_page"], r["row_order"]] }
+if opts[:spot_yml] && File.exist?(opts[:spot_yml]) &&
+   Parts.load(opts[:spot_yml])["rows"].any? { |r| %w[verified corrected].include?(r["status"]) }
+  warn "#{opts[:spot_yml]} already has reviewed rows: not overwritten"
+  opts[:spot_yml] = nil
+end
 if opts[:spot_yml]
   spot_pages = spot.map { |r| r["pdf_page"] }.uniq
   sdata = {
@@ -230,6 +253,8 @@ if opts[:samples].any?
   stats = Hash.new { |h, k| h[k] = Hash.new(0) }
   spurious = 0
   label_ok = Hash.new(0)
+  # keys compared as printed, without spaces ("A 66" = "A66"; 66 != "A 66")
+  key_s = ->(k) { k.nil? ? nil : k.to_s.gsub(/\s+/, "").upcase }
   pages_in.each do |pg|
     mine = s_rows.select { |r| r["page"] == pg }
     mach = rows.select { |r| r["pdf_page"] == pg }.sort_by { |r| r["row_order"] }
@@ -239,7 +264,7 @@ if opts[:samples].any?
     mine.each_with_index do |c, i|
       m = idx[i] && mach[idx[i]]
       cn = Parts.norm_part(c["part"])
-      ck = c["key"]&.to_i
+      ck = key_s.call(c["key"])
       cq = Rows.qty_s(c["qty"].is_a?(Array) ? c["qty"].map(&:to_s) : c["qty"]&.to_s)
       cd = Readings.digits(c["appl"]).to_s
       { "pdf_text" => m && m.dig("readings", "pdf_text"), "tesseract" => m && m.dig("readings", "tesseract"), "chosen" => m }.each do |name, x|
@@ -248,7 +273,7 @@ if opts[:samples].any?
         next unless x
         st[:found] += 1
         pn = Parts.norm_part(x["part_no"]) == cn
-        ky = (x["key"]&.to_i) == ck
+        ky = key_s.call(x["key"]) == ck
         qy = Rows.qty_s(x["quantity"]) == cq
         ap = Readings.digits(x["applicability"]).to_s == cd
         st[:part] += 1 if pn
@@ -276,6 +301,13 @@ if opts[:samples].any?
     out << "| #{n == 'chosen' ? 'Chosen value (catalog)' : n} | #{pct.call(st[:found], st[:rows])} | #{pct.call(st[:part], st[:rows])} | #{pct.call(st[:key], st[:rows])} | #{pct.call(st[:qty], st[:rows])} | #{pct.call(st[:appl], st[:rows])} | #{pct.call(st[:all], st[:rows])} |"
   end
   out << ""
+  ch = stats["chosen"]
+  %i[found part key qty appl all].each { |k| M["s_#{k}_pct"] = 100.0 * ch[k] / [ch[:rows], 1].max }
+  M["s_missed"] = ch[:rows] - ch[:found]
+  M["s_rows"] = ch[:rows]
+  M["agree_part_prec"] = 100.0 * label_ok[[:agree, :part]] / [label_ok[[:agree, :n]], 1].max
+  M["agree_all_prec"] = 100.0 * label_ok[[:agree, :all]] / [label_ok[[:agree, :n]], 1].max
+  M["s_spurious"] = spurious
   out << "- Machine rows on these pages that match none of my rows (extra or split rows): #{spurious}."
   out << "- Rows both machine readings missed: #{stats['chosen'][:rows] - stats['chosen'][:found]} of #{stats['chosen'][:rows]} (#{pct.call(stats['chosen'][:rows] - stats['chosen'][:found], stats['chosen'][:rows])})."
   missed_share = (stats["chosen"][:rows] - stats["chosen"][:found]).to_f / [stats["chosen"][:rows], 1].max
@@ -285,6 +317,7 @@ if opts[:samples].any?
     pmap = pages.to_h { |p| [p["pdf_page"], p] }
     cmp = ->(f, g) { s_pages.count { |sp| sp.key?(f) && pmap[sp["pdf_page"]] && pmap[sp["pdf_page"]][g].to_s == sp[f].to_s } }
     have = ->(f) { s_pages.count { |sp| sp.key?(f) && pmap[sp["pdf_page"]] } }
+    %w[printed_page illustration page_type].each { |f| M["pm_#{f}"] = "#{cmp.call(f, f)}/#{have.call(f)}" }
     with_stamp = s_pages.select { |sp| sp["revision_stamp"] && pmap[sp["pdf_page"]] }
     no_stamp = s_pages.select { |sp| sp.key?("revision_stamp") && sp["revision_stamp"].nil? && pmap[sp["pdf_page"]] }
     out << "- **Page map on the sample pages:** printed page #{cmp.call('printed_page', 'printed_page')}/#{have.call('printed_page')}, illustration #{cmp.call('illustration', 'illustration')}/#{have.call('illustration')}, page type #{cmp.call('page_type', 'page_type')}/#{have.call('page_type')}."
@@ -300,16 +333,20 @@ if opts[:samples].any?
     end
   end
   out << ""
-  out << "## What the sample reading showed (recommended next fixes)"
-  out << "These were seen while reading the sample. They are not fixed in this milestone, so the figures above measure the code as it is."
+  out << "## Fix round: status of the issues the sample showed"
+  out << "The AI sample is unchanged from the first run, so the before/after table at the top compares like with like."
   out << ""
-  out << "1. **Inserted pages** are printed \"1-50a\", \"1-50b\", \"1-124a\", \"S-22a\". The page-number pattern doesn't accept the letter, so those pages get no printed page, and the counting around them goes wrong. That is the main source of the page-number clashes."
-  out << "2. **Inserted pages are bound out of order:** PDF 65–66 (Illustration 6, Pistons) sit between pages of Illustration 3. Filling an illustration from its neighbours therefore gives the wrong number there."
-  out << "3. **Illustration labels** can carry a letter or several parts (\"22a\", \"39a\", \"33+A33\", \"38+A38+B38+C38\"), and the current pattern keeps only the first part."
-  out << "4. **Keys with a drawing prefix** (\"A 66\", \"B 23\", \"A 18/36\") refer to the A/B/C drawings. The machine keeps only the digits."
-  out << "5. **Inline applicability** (\"Operating shaft up to Chassis No. 469 505\") and **colour lines with date ranges** in the part-number column (\"8/63 – 7/64 395 ice blue – 81\") are common in the body and special-model groups."
-  out << "6. **Some fold-out pages** are drawings printed sideways (PDF 721) and are classed as list pages because the text layer reads their callout numbers."
-  out << "7. **SP-set pages** (PDF 404) have no key column, no illustration footer and no \"Type and model\" column."
+  out << "1. **Printed pages with a letter (\"1-50a\", \"S-22a\")**: read when a footer shows them. Most footers can't be read at all (dark, speckled margins), so inserted pages are also found from **key numbers that rewind** (PDF 64 keys to 28 → PDF 65–66 keys 35–42 → PDF 67 keys from 29). Page counting never runs through an inserted page or a fold-out, and when one number lands on two PDF pages, the filled or counted one is dropped. Clashes: see the table. More pages now have no printed page, by design: a blank is better than a wrong number."
+  out << "2. **Out-of-order inserted pages**: an illustration is never filled across a key boundary, an inserted page or an SP-set page. PDF 65–66 now have no illustration instead of the wrong \"3\"."
+  out << "3. **Full illustration labels** (\"22a\", \"39a\", \"33+A33\", \"38+A38+B38+C38\") are kept whole. A shortened reading is completed from a neighbouring page that shows the longer label. A loose letter after the number only counts when a page number follows it (\"39 a 8-50\"), not speckle (\"32 a . ;\")."
+  out << "4. **Keys with a drawing letter** are kept as printed (\"A 66\", \"A 18/36\") with `key_prefix`. The letter is kept only when the page's illustration has that drawing (\"1+A1\" has A); otherwise it is speckle read as a letter. A date in the key column (\"8/64\") is not a key. Remaining key misses are mostly OCR: the letter or the key isn't read at all (PDF 33 \"A 66\" is read as \"66\")."
+  out << "5. **Titles from the book's contents pages**: contents pages are found by their \"NN Title … Illustration\" lines, and the title is attached to the illustration. Sub-groups that share an illustration are joined with \"; \". Some groups' contents pages are not read well enough yet. **The book contradicts itself once:** its Engine contents page (PDF 16) lists \"07 Pistons … 2\" and \"27 Fuel pump, Fuel lines … 6\", but the inserted Pistons pages (PDF 65–66, \"1-50a\", \"1-50b\") print \"Illustration 6\". Both were checked on the page. This is for a person to decide."
+  out << "6. **Sideways fold-out drawings**: on fold-out pages the text layer is rotated against the image, so only tesseract decides whether the page is a list. PDF 721 is now a drawing."
+  out << "7. **SP-set pages and colour/date lines** are kept verbatim and labelled \"needs checking\" with `sp_set_layout` or `colour_date_lines`. A colour/date line (\"8/63 – 7/64 395 ice blue – 81\", \"001 blue\") no longer starts a row of its own: it stays with the row above. That removed about 300 false rows."
+  out << ""
+  out << "Sample caveat: for PDF 721 (a sideways fold-out drawing) I looked only at the top half, so \"no printed page\" in my sample may be wrong; a fold-out counts as one numbered page (counting through PDF 19, 21 and 42 gives PDF 33 = 1-19, as printed)."
+  out << ""
+  out << "Not in this round: 3-digit keys (\"113\" on PDF 463) are still read as the start of the part number."
   out << ""
 else
   out << "## Accuracy against my (AI) sample reading"
@@ -317,5 +354,32 @@ else
   out << ""
 end
 
+File.write(opts[:metrics_out], JSON.pretty_generate(M) + "\n") if opts[:metrics_out]
+table = []
+if opts[:before]
+  b = JSON.parse(File.read(opts[:before]))
+  fmt = ->(v) { v.is_a?(Float) ? format("%.1f", v) : v.to_s }
+  labels = {
+    "rows" => "List rows", "agree_pct" => "% \"readings agree\"", "shape_pct" => "% part numbers with a recognised shape",
+    "s_found_pct" => "Sample: % rows found", "s_part_pct" => "Sample: % part number right",
+    "s_key_pct" => "Sample: % key right (as printed)", "s_qty_pct" => "Sample: % quantity right",
+    "s_appl_pct" => "Sample: % applicability digits right", "s_all_pct" => "Sample: % all four right",
+    "s_missed" => "Sample: rows missed by both readings", "s_spurious" => "Sample: extra or split machine rows",
+    "agree_part_prec" => "\"readings agree\" rows: % part number right", "agree_all_prec" => "\"readings agree\" rows: % all four right",
+    "pm_printed_page" => "Page map: printed page right (sample pages)", "pm_illustration" => "Page map: illustration right (sample pages)",
+    "pm_page_type" => "Page map: page type right (sample pages)", "clashes" => "Printed page numbers given to 2+ PDF pages",
+    "printed_none" => "Drawing/list pages with no printed page", "illustrations" => "Illustrations found",
+    "ill_titles" => "Illustrations with a title from the contents pages", "ill_with_drawing" => "Illustrations with a drawing page",
+    "pages_list" => "List pages", "pages_drawing" => "Drawing pages"
+  }
+  table << "## Before and after the fix round"
+  table << "Same AI sample, same comparison rules; \"before\" is the first full run (commit 2bbbb64)."
+  table << ""
+  table << "| | Before | After |"
+  table << "|---|---|---|"
+  labels.each { |k, l| table << "| #{l} | #{fmt.call(b[k])} | #{fmt.call(M[k])} |" if b.key?(k) || M.key?(k) }
+  table << ""
+end
+out = out.flat_map { |l| l == "<!-- BEFORE-AFTER -->" ? table : [l] }
 File.write(opts[:report], out.join("\n") + "\n")
 puts "wrote #{opts[:report]}"

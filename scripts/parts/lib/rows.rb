@@ -63,6 +63,41 @@ module Rows
     d.strip.empty? ? nil : d.strip
   end
 
+  # The key as printed, from the text before the part number: 35, "A 66",
+  # "B 23", "A 18/36". Returns [key, prefix]; key is an Integer for a plain
+  # key (as in ill32.yml), a String when it carries a drawing letter or "/".
+  def key_as_printed(text, parsed_key)
+    t = text.gsub(/(?<!\d)(\d{1,2})[-–—](\d{3})/, '\\1 \\2')
+    toks = t.split(/\s+/)
+    start = toks.index { |x| x =~ Readings::PART_START } || 0
+    pre = toks[0...start].join(" ").gsub(%r{[^A-Za-z0-9/ ]}, " ").squeeze(" ").strip
+    m = pre.match(%r{(?:(?<![A-Za-z])([A-D])\s*)?(\d{1,3}(?:\s*/\s*\d{1,3})?)\z})
+    return [parsed_key&.to_i, nil] unless m
+    num = m[2].gsub(/\s+/, "")
+    return ["#{m[1]} #{num}", m[1]] if m[1]
+    return [nil, nil] if num.include?("/")   # "8/64" in the key column is a date, not a key
+    [num.to_i, nil]
+  end
+
+  # Lines that need a person: colour codes with date ranges ("8/63 – 7/64 395
+  # ice blue – 81") or bare colour lines ("395 ice blue"). Kept verbatim.
+  COLOUR_DATE_RE = %r{\b\d{1,2}/\d{2}\s*[-–—~]|^\W{0,2}\d{3}\s+[a-z]{3,}}
+
+  # a colour/date line that must stay with the row above, not start a row
+  COLOUR_START_RE = %r{\A\W{0,2}(?:\d{1,2}/\d{2}\s*[-–—~]|\d{3}\s+[a-z]{3,})}
+
+  # A drawing letter on a key ("A 66") is kept only when the page's
+  # illustration label has that drawing ("1+A1" has A); otherwise it is
+  # speckle read as a letter and only the number is kept.
+  def check_prefix!(r, ill)
+    return r unless r && r["key_prefix"] && ill
+    return r if ill.include?("+#{r['key_prefix']}")
+    num = r["key"].to_s.sub(/\A[A-D]\s*/, "")
+    r["key"] = num.include?("/") ? num : num.to_i
+    r["key_prefix"] = nil
+    r
+  end
+
   INLINE_RE = /\s*\b((?:up\s+to|from)\s+(?:Chassis|Engine|Gearbox|Transmission)\b.*)\z/i
 
   def fields(it, colx)
@@ -80,9 +115,9 @@ module Rows
     appl_lines = cont.map { |l| words_text(l[:words].select { |_t, _c, xc| xc < colx - COL }) }.reject(&:empty?)
     tm_lines = [words_text(right), *cont.map { |l| words_text(l[:words].select { |_t, _c, xc| xc > colx + COL }) }].reject(&:empty?)
     appl = inline || (appl_lines.empty? ? nil : appl_lines.join("\n"))
-    key = p["key"]
+    key, prefix = key_as_printed(it[:text], p["key"])
     {
-      "key" => key && key.to_i, "marker" => p["marker"], "part_no" => p["part_no"],
+      "key" => key, "key_prefix" => prefix, "marker" => p["marker"], "part_no" => p["part_no"],
       "description" => desc, "quantity" => Readings.qty_from(it, colx),
       "applicability" => appl, "applicability_inline" => !inline.nil?,
       "type_and_model" => tm_lines.empty? ? nil : tm_lines.join("\n"),
@@ -139,6 +174,7 @@ module Rows
       # (all words right of the description), or applicability text near the start
       not_item = lambda do |l|
         l[:words].all? { |_t, _c, xc| xc > cx - COL } ||
+          l[:text].match?(COLOUR_START_RE) ||
           l[:text].match?(/\A\W*(?:\S\W+)?(?:up\s?to|from|Chassis\s+No|Engine\s+No)\b/i)
       end
       [name, Readings.items_for(body_lines(ls, h), h, not_item: not_item)]
@@ -147,7 +183,14 @@ module Rows
     printed = page["_id_page"] || page["printed_page"] || "p#{page['pdf_page']}"
     merge(items["pdf_text"], items["tesseract"]).each_with_index.map do |(pi, ti), n|
       rd = { "pdf_text" => pi && fields(pi, colx["pdf_text"]), "tesseract" => ti && fields(ti, colx["tesseract"]) }
+      rd.each_value { |x| check_prefix!(x, page["illustration"]) }
       label, reasons = confidence(rd["pdf_text"], rd["tesseract"])
+      # layouts the machine does not parse yet: kept verbatim, always checked by a person
+      extra = []
+      extra << "sp_set_layout" if page["layout"] == "sp_set"
+      extra << "colour_date_lines" if rd.values.compact.any? { |x| x["applicability"].to_s.match?(COLOUR_DATE_RE) }
+      reasons += extra
+      label = "needs checking" if extra.any?
       ok = ->(r) { r && norm_shape_ok?(Parts.norm_part(r["part_no"])) }
       primary, other = if ok.call(rd["pdf_text"]) || !ok.call(rd["tesseract"])
                          [rd["pdf_text"] || rd["tesseract"], rd["pdf_text"] && rd["tesseract"]]
@@ -161,7 +204,7 @@ module Rows
       row = {
         "id" => format("%s-%s-%02d", slug, printed, n + 1),
         "edition" => Book::EDITION, "printed_page" => page["printed_page"], "pdf_page" => page["pdf_page"],
-        "row_order" => n + 1, "key" => pick.call("key"), "marker" => primary["marker"],
+        "row_order" => n + 1, "key" => pick.call("key"), "key_prefix" => pick.call("key_prefix"), "marker" => primary["marker"],
         "part_no" => canonical(norm) || primary["part_no"], "part_no_norm" => norm,
         "description" => pick.call("description"), "quantity" => pick.call("quantity"),
         "applicability" => pick.call("applicability"), "applicability_inline" => primary["applicability_inline"],
@@ -194,7 +237,7 @@ module Rows
     current = nil
     rows.each do |r|
       if r["key"]
-        current = "#{slug}-k#{r['key']}"
+        current = "#{slug}-k#{r['key'].to_s.gsub(/[^0-9A-Za-z]/, '')}".downcase
         out[current] ||= { "id" => current, "label" => "Key #{r['key']}", "key" => r["key"], "status" => "suggested" }
       end
       r["position"] = current
