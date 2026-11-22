@@ -69,7 +69,7 @@ Contrast: never put white text on flat Mouse Grey (too faint); on the bus band u
    - Fine grain overlay: SVG `feTurbulence` noise as a data-URI background, opacity about 0.22, `mix-blend-mode: overlay`.
    - Soft Pearl White radial glow at the top right.
    - Text Pearl White; eyebrow "YOUR BUS"; title "Type 2 Transporter, 1958 to 1967"; help text "The chassis number is on the M-plate in the cab and stamped in the engine bay."
-   - Chassis field: translucent (Pearl White at 10%), 1px Pearl White border at 45% (80% on hover), backdrop blur, Pearl White focus outline.
+   - Chassis field: darkened (black at 15%; the concept's Pearl White 10% tint drops Pearl White text to 4.0:1 on the `#62645F` stop, this keeps 6.2:1 or better), Pearl White text, 1px Pearl White border at 45% (80% on hover), backdrop blur, Pearl White focus outline.
    - Status chip: dark translucent pill with a coloured dot (Mango Green = fits, amber = use another part, Pearl White = neutral), `aria-live="polite"`.
 3. **Main-group navigation** (Lincoln likes this one).
    - A strip between hairlines, no pills. Each tab: large light number (30px/300) above the group name (14px).
