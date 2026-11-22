@@ -42,3 +42,22 @@ decisions:
         "Illustration 6" in their footer, but are filed under Illustration 2,
         as the book's contents page (PDF 16) lists them. Illustration 6 itself
         is "Fuel pump, Fuel lines".
+
+  - id: group-2-scanned-twice
+    decided: 2026-11-21
+    decided_by: Claude, asked by the project owner to fix it
+    reason: >-
+      Main Group 2 is in the PDF twice. PDF 251-279 are a second scan of
+      PDF 181-209 (page N is the same page as N-70): the text layer agrees
+      89-100% page by page, the image sizes are within 1-2%, and the revision
+      stamps match (e.g. Typ 2 27/67 on PDF 187 and 257). The first copy is
+      used because it is in book order (between Main Groups 1 and 3); for the
+      three fold-out drawings the second copy is used, because the first copy
+      scanned them only in part (PDF 184, 190, 200 are 3528-3548 px wide;
+      PDF 254, 260, 270 are 4907-4940 px, the whole fold-out).
+    checked: >-
+      Machine comparison of text and images (scripts in the data-catalog
+      report); no page was looked at for this decision.
+    duplicates:
+      - { pdf_pages: [251, 279], same_as_offset: -70 }   # 251 = 181 ... 279 = 209
+    prefer_copy: [254, 260, 270]                         # full fold-outs: 184, 190, 200 become the duplicates

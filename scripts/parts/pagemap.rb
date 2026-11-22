@@ -45,6 +45,27 @@ if opts[:decisions]
       decided << e["pdf_page"]
     end
     (d["illustration_notes"] || {}).each { |num, text| notes[num.to_s] << text.strip }
+    # pages scanned twice: the copy is kept in the map, marked duplicate_of the
+    # page that is used, and left out of illustrations, rows and clash counts
+    (d["duplicates"] || []).each do |dup|
+      a, b = dup["pdf_pages"]
+      (a..b).each do |n|
+        copy = map.find { |p| p["pdf_page"] == n }
+        orig = map.find { |p| p["pdf_page"] == n + dup["same_as_offset"] } or abort "decision #{d['id']}: no PDF page #{n + dup['same_as_offset']}"
+        used, dupl = Array(d["prefer_copy"]).include?(n) ? [copy, orig] : [orig, copy]
+        dupl["duplicate_of"] = used["pdf_page"]
+        dupl["decision"] = d["id"]
+        dupl["evidence"]["decision"] = "#{d['id']} (#{d['decided']}): same page as PDF #{used['pdf_page']}, which is used"
+        [used, dupl].each { |p| p["same_printed_page_as"] = nil }
+        # the same page: what one scan read and the other missed is filled in (PDF 260 <- 190: Illustration 22)
+        %w[printed_page main_group main_group_title illustration illustration_title].each do |f|
+          next unless used[f].nil? && dupl[f]
+          used[f] = dupl[f]
+          used["evidence"]["#{f}_from_copy"] = "from PDF #{dupl['pdf_page']}, another scan of the same page"
+        end
+        decided << dupl["pdf_page"]
+      end
+    end
   end
   # titles and main group for decided pages: the same as other pages of that illustration
   map.select { |p| p["decision"] }.each do |e|
@@ -70,10 +91,11 @@ data = {
     "page_type" => "drawing / parts_list / contents / index / other, by rules (see lib/book.rb)",
     "status" => "unverified until a person checks the entry",
     "decision" => "set where a person decided a value (src/_data/parts/vw-tpl-1963-08/page-decisions.yml); the machine's value is in evidence.decision",
+    "duplicate_of" => "this PDF page is another scan of that PDF page, which is the one used (page-decisions.yml); duplicates are left out of illustrations and rows",
     "footer" => "what the page's footer prints, kept where a decision differs from it; illustrations list such pages in footer_says_this_illustration"
   },
   "main_groups" => Book::MAIN_GROUPS.map { |k, v| { "id" => k, "title" => v } },
-  "illustrations" => Book.illustrations(map).map do |i|
+  "illustrations" => Book.illustrations(map.reject { |p| p["duplicate_of"] }).map do |i|
     footer_pages = map.select { |p| p.dig("footer", "illustration") == i["number"] && p["illustration"] != i["number"] }.map { |p| p["pdf_page"] }
     i.merge("notes" => notes[i["number"]], "footer_says_this_illustration" => footer_pages)
   end,

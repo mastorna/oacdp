@@ -14,6 +14,7 @@ conventions:
   page_type: drawing / parts_list / contents / index / other, by rules (see lib/book.rb)
   status: unverified until a person checks the entry
   decision: set where a person decided a value (src/_data/parts/vw-tpl-1963-08/page-decisions.yml); the machine's value is in evidence.decision
+  duplicate_of: this PDF page is another scan of that PDF page, which is the one used (page-decisions.yml); duplicates are left out of illustrations and rows
   footer: what the page's footer prints, kept where a decision differs from it; illustrations list such pages in footer_says_this_illustration
 main_groups:
 - id: '1'
@@ -308,20 +309,16 @@ illustrations:
   main_group: '2'
   title: Fuel tank; Fuel tap
   drawing_pdf_pages:
-  - 252
-  - 253
+  - 182
+  - 183
   - 254
   list_pdf_pages:
   - 185
   - 186
   - 187
   - 188
-  - 255
-  - 256
-  - 257
-  - 258
   fold_out_drawing: true
-  title_source: contents page PDF 181
+  title_source:
   inserted_pages:
   - 188
   notes: []
@@ -331,7 +328,7 @@ illustrations:
   main_group: '2'
   title: Exhaust system; Heater system
   drawing_pdf_pages:
-  - 190
+  - 260
   list_pdf_pages:
   - 191
   - 192
@@ -342,20 +339,10 @@ illustrations:
   - 197
   - 198
   - 203
-  - 261
-  - 262
-  - 263
-  - 264
-  - 265
-  - 266
-  - 267
-  - 268
   fold_out_drawing: true
   title_source: contents page PDF 181
   inserted_pages:
   - 198
-  - 261
-  - 268
   notes: []
   footer_says_this_illustration: []
 - number: 22a
@@ -363,19 +350,14 @@ illustrations:
   main_group: '2'
   title: Eberspacher stationary heater
   drawing_pdf_pages:
-  - 200
   - 270
   list_pdf_pages:
   - 201
   - 202
   - 204
-  - 271
-  - 272
-  - 273
-  - 274
-  - 275
-  - 276
-  - 277
+  - 205
+  - 206
+  - 207
   fold_out_drawing: true
   title_source: contents page PDF 181
   inserted_pages: []
@@ -6234,9 +6216,9 @@ pages:
     stamp:
   status: unverified
 - pdf_page: 181
-  printed_page:
-  main_group:
-  main_group_title:
+  printed_page: 2-1
+  main_group: '2'
+  main_group_title: Fuel tank, Exhaust, Heating system
   illustration:
   illustration_title:
   page_type: contents
@@ -6259,13 +6241,16 @@ pages:
     inserted:
     illustration_title:
     stamp: footer reading
+    printed_page_from_copy: from PDF 251, another scan of the same page
+    main_group_from_copy: from PDF 251, another scan of the same page
+    main_group_title_from_copy: from PDF 251, another scan of the same page
   status: unverified
 - pdf_page: 182
-  printed_page:
-  main_group:
-  main_group_title:
-  illustration:
-  illustration_title:
+  printed_page: 2-2
+  main_group: '2'
+  main_group_title: Fuel tank, Exhaust, Heating system
+  illustration: '21'
+  illustration_title: Fuel tank; Fuel tap
   page_type: drawing
   layout:
   inserted: false
@@ -6286,13 +6271,18 @@ pages:
     inserted:
     illustration_title:
     stamp:
+    printed_page_from_copy: from PDF 252, another scan of the same page
+    main_group_from_copy: from PDF 252, another scan of the same page
+    main_group_title_from_copy: from PDF 252, another scan of the same page
+    illustration_from_copy: from PDF 252, another scan of the same page
+    illustration_title_from_copy: from PDF 252, another scan of the same page
   status: unverified
 - pdf_page: 183
-  printed_page:
-  main_group:
-  main_group_title:
-  illustration:
-  illustration_title:
+  printed_page: 2-3
+  main_group: '2'
+  main_group_title: Fuel tank, Exhaust, Heating system
+  illustration: '21'
+  illustration_title: Fuel tank; Fuel tap
   page_type: drawing
   layout:
   inserted: false
@@ -6313,6 +6303,11 @@ pages:
     inserted:
     illustration_title:
     stamp:
+    printed_page_from_copy: from PDF 253, another scan of the same page
+    main_group_from_copy: from PDF 253, another scan of the same page
+    main_group_title_from_copy: from PDF 253, another scan of the same page
+    illustration_from_copy: from PDF 253, another scan of the same page
+    illustration_title_from_copy: from PDF 253, another scan of the same page
   status: unverified
 - pdf_page: 184
   printed_page:
@@ -6340,7 +6335,10 @@ pages:
     inserted:
     illustration_title:
     stamp:
+    decision: 'group-2-scanned-twice (2026-11-21): same page as PDF 254, which is used'
   status: unverified
+  duplicate_of: 254
+  decision: group-2-scanned-twice
 - pdf_page: 185
   printed_page: 2-5
   main_group: '2'
@@ -6407,7 +6405,6 @@ pages:
   layout:
   inserted: false
   same_printed_page_as:
-  - 257
   fold_out: false
   image_px:
   - 2543
@@ -6466,7 +6463,6 @@ pages:
   layout:
   inserted: false
   same_printed_page_as:
-  - 259
   fold_out: false
   image_px:
   - 2536
@@ -6510,7 +6506,10 @@ pages:
     inserted:
     illustration_title: contents page PDF 181
     stamp:
+    decision: 'group-2-scanned-twice (2026-11-21): same page as PDF 260, which is used'
   status: unverified
+  duplicate_of: 260
+  decision: group-2-scanned-twice
 - pdf_page: 191
   printed_page: 2-11
   main_group: '2'
@@ -6550,7 +6549,6 @@ pages:
   layout:
   inserted: false
   same_printed_page_as:
-  - 262
   fold_out: false
   image_px:
   - 2536
@@ -6580,7 +6578,6 @@ pages:
   layout:
   inserted: false
   same_printed_page_as:
-  - 263
   fold_out: false
   image_px:
   - 2546
@@ -6610,7 +6607,6 @@ pages:
   layout:
   inserted: false
   same_printed_page_as:
-  - 264
   fold_out: false
   image_px:
   - 2550
@@ -6669,7 +6665,6 @@ pages:
   layout:
   inserted: false
   same_printed_page_as:
-  - 266
   fold_out: false
   image_px:
   - 2550
@@ -6728,7 +6723,6 @@ pages:
   layout:
   inserted: true
   same_printed_page_as:
-  - 268
   fold_out: false
   image_px:
   - 2539
@@ -6758,7 +6752,6 @@ pages:
   layout:
   inserted: false
   same_printed_page_as:
-  - 269
   fold_out: false
   image_px:
   - 2550
@@ -6802,7 +6795,10 @@ pages:
     inserted:
     illustration_title: contents page PDF 181
     stamp:
+    decision: 'group-2-scanned-twice (2026-11-21): same page as PDF 270, which is used'
   status: unverified
+  duplicate_of: 270
+  decision: group-2-scanned-twice
 - pdf_page: 201
   printed_page: 2-19
   main_group: '2'
@@ -6813,7 +6809,6 @@ pages:
   layout:
   inserted: false
   same_printed_page_as:
-  - 271
   fold_out: false
   image_px:
   - 2550
@@ -6843,7 +6838,6 @@ pages:
   layout:
   inserted: false
   same_printed_page_as:
-  - 272
   fold_out: false
   image_px:
   - 2546
@@ -6925,8 +6919,8 @@ pages:
   printed_page:
   main_group:
   main_group_title:
-  illustration:
-  illustration_title:
+  illustration: 22a
+  illustration_title: Eberspacher stationary heater
   page_type: parts_list
   layout:
   inserted: false
@@ -6947,13 +6941,15 @@ pages:
     inserted:
     illustration_title:
     stamp: tesseract reading
+    illustration_from_copy: from PDF 275, another scan of the same page
+    illustration_title_from_copy: from PDF 275, another scan of the same page
   status: unverified
 - pdf_page: 206
   printed_page:
   main_group:
   main_group_title:
-  illustration:
-  illustration_title:
+  illustration: 22a
+  illustration_title: Eberspacher stationary heater
   page_type: parts_list
   layout:
   inserted: false
@@ -6974,13 +6970,15 @@ pages:
     inserted:
     illustration_title:
     stamp: footer reading
+    illustration_from_copy: from PDF 276, another scan of the same page
+    illustration_title_from_copy: from PDF 276, another scan of the same page
   status: unverified
 - pdf_page: 207
   printed_page:
   main_group:
   main_group_title:
-  illustration:
-  illustration_title:
+  illustration: 22a
+  illustration_title: Eberspacher stationary heater
   page_type: parts_list
   layout:
   inserted: false
@@ -7001,6 +6999,8 @@ pages:
     inserted:
     illustration_title:
     stamp:
+    illustration_from_copy: from PDF 277, another scan of the same page
+    illustration_title_from_copy: from PDF 277, another scan of the same page
   status: unverified
 - pdf_page: 208
   printed_page:
@@ -8227,7 +8227,10 @@ pages:
     inserted:
     illustration_title:
     stamp:
+    decision: 'group-2-scanned-twice (2026-11-21): same page as PDF 181, which is used'
   status: unverified
+  duplicate_of: 181
+  decision: group-2-scanned-twice
 - pdf_page: 252
   printed_page: 2-2
   main_group: '2'
@@ -8254,7 +8257,10 @@ pages:
     inserted:
     illustration_title: contents page PDF 181
     stamp:
+    decision: 'group-2-scanned-twice (2026-11-21): same page as PDF 182, which is used'
   status: unverified
+  duplicate_of: 182
+  decision: group-2-scanned-twice
 - pdf_page: 253
   printed_page: 2-3
   main_group: '2'
@@ -8281,7 +8287,10 @@ pages:
     inserted:
     illustration_title: contents page PDF 181
     stamp:
+    decision: 'group-2-scanned-twice (2026-11-21): same page as PDF 183, which is used'
   status: unverified
+  duplicate_of: 183
+  decision: group-2-scanned-twice
 - pdf_page: 254
   printed_page: 2-4
   main_group: '2'
@@ -8337,7 +8346,10 @@ pages:
     inserted:
     illustration_title: contents page PDF 181
     stamp: readings differ (tesseract Typ 2 29/67, footer Typ 2 29/67); tesseract kept
+    decision: 'group-2-scanned-twice (2026-11-21): same page as PDF 185, which is used'
   status: unverified
+  duplicate_of: 185
+  decision: group-2-scanned-twice
 - pdf_page: 256
   printed_page:
   main_group: '2'
@@ -8364,7 +8376,10 @@ pages:
     inserted:
     illustration_title: contents page PDF 181
     stamp:
+    decision: 'group-2-scanned-twice (2026-11-21): same page as PDF 186, which is used'
   status: unverified
+  duplicate_of: 186
+  decision: group-2-scanned-twice
 - pdf_page: 257
   printed_page: 2-7
   main_group: '2'
@@ -8375,7 +8390,6 @@ pages:
   layout:
   inserted: false
   same_printed_page_as:
-  - 187
   fold_out: false
   image_px:
   - 2541
@@ -8394,7 +8408,10 @@ pages:
     inserted:
     illustration_title: contents page PDF 181
     stamp: tesseract reading
+    decision: 'group-2-scanned-twice (2026-11-21): same page as PDF 187, which is used'
   status: unverified
+  duplicate_of: 187
+  decision: group-2-scanned-twice
 - pdf_page: 258
   printed_page: 2-8
   main_group: '2'
@@ -8423,7 +8440,10 @@ pages:
     inserted:
     illustration_title: contents page PDF 181
     stamp:
+    decision: 'group-2-scanned-twice (2026-11-21): same page as PDF 188, which is used'
   status: unverified
+  duplicate_of: 188
+  decision: group-2-scanned-twice
 - pdf_page: 259
   printed_page: 2-9
   main_group: '2'
@@ -8434,7 +8454,6 @@ pages:
   layout:
   inserted: false
   same_printed_page_as:
-  - 189
   fold_out: false
   image_px:
   - 2533
@@ -8451,13 +8470,16 @@ pages:
     inserted:
     illustration_title:
     stamp: readings differ (tesseract Typ 2 26/68, text layer Typ 2 26/66); tesseract kept
+    decision: 'group-2-scanned-twice (2026-11-21): same page as PDF 189, which is used'
   status: unverified
+  duplicate_of: 189
+  decision: group-2-scanned-twice
 - pdf_page: 260
-  printed_page:
+  printed_page: 2-10
   main_group: '2'
   main_group_title: Fuel tank, Exhaust, Heating system
-  illustration:
-  illustration_title:
+  illustration: '22'
+  illustration_title: Exhaust system; Heater system
   page_type: drawing
   layout:
   inserted: false
@@ -8478,6 +8500,9 @@ pages:
     inserted:
     illustration_title:
     stamp:
+    printed_page_from_copy: from PDF 190, another scan of the same page
+    illustration_from_copy: from PDF 190, another scan of the same page
+    illustration_title_from_copy: from PDF 190, another scan of the same page
   status: unverified
 - pdf_page: 261
   printed_page:
@@ -8507,7 +8532,10 @@ pages:
     inserted: printed page has a letter
     illustration_title: contents page PDF 181
     stamp: readings differ (footer Typ 2 30/68, text layer Typ 2 30/88); footer kept
+    decision: 'group-2-scanned-twice (2026-11-21): same page as PDF 191, which is used'
   status: unverified
+  duplicate_of: 191
+  decision: group-2-scanned-twice
 - pdf_page: 262
   printed_page: 2-12
   main_group: '2'
@@ -8518,7 +8546,6 @@ pages:
   layout:
   inserted: false
   same_printed_page_as:
-  - 192
   fold_out: false
   image_px:
   - 2533
@@ -8537,7 +8564,10 @@ pages:
     inserted:
     illustration_title: contents page PDF 181
     stamp:
+    decision: 'group-2-scanned-twice (2026-11-21): same page as PDF 192, which is used'
   status: unverified
+  duplicate_of: 192
+  decision: group-2-scanned-twice
 - pdf_page: 263
   printed_page: 2-13
   main_group: '2'
@@ -8548,7 +8578,6 @@ pages:
   layout:
   inserted: false
   same_printed_page_as:
-  - 193
   fold_out: false
   image_px:
   - 2542
@@ -8567,7 +8596,10 @@ pages:
     inserted:
     illustration_title: contents page PDF 181
     stamp: tesseract and text layer agree
+    decision: 'group-2-scanned-twice (2026-11-21): same page as PDF 193, which is used'
   status: unverified
+  duplicate_of: 193
+  decision: group-2-scanned-twice
 - pdf_page: 264
   printed_page: 2-14
   main_group: '2'
@@ -8578,7 +8610,6 @@ pages:
   layout:
   inserted: false
   same_printed_page_as:
-  - 194
   fold_out: false
   image_px:
   - 2550
@@ -8597,7 +8628,10 @@ pages:
     inserted:
     illustration_title: contents page PDF 181
     stamp:
+    decision: 'group-2-scanned-twice (2026-11-21): same page as PDF 194, which is used'
   status: unverified
+  duplicate_of: 194
+  decision: group-2-scanned-twice
 - pdf_page: 265
   printed_page:
   main_group: '2'
@@ -8626,7 +8660,10 @@ pages:
     inserted:
     illustration_title: contents page PDF 181
     stamp: footer reading
+    decision: 'group-2-scanned-twice (2026-11-21): same page as PDF 195, which is used'
   status: unverified
+  duplicate_of: 195
+  decision: group-2-scanned-twice
 - pdf_page: 266
   printed_page: 2-16
   main_group: '2'
@@ -8637,7 +8674,6 @@ pages:
   layout:
   inserted: false
   same_printed_page_as:
-  - 196
   fold_out: false
   image_px:
   - 2550
@@ -8656,7 +8692,10 @@ pages:
     inserted:
     illustration_title: contents page PDF 181
     stamp:
+    decision: 'group-2-scanned-twice (2026-11-21): same page as PDF 196, which is used'
   status: unverified
+  duplicate_of: 196
+  decision: group-2-scanned-twice
 - pdf_page: 267
   printed_page:
   main_group: '2'
@@ -8685,7 +8724,10 @@ pages:
     inserted:
     illustration_title: contents page PDF 181
     stamp: readings differ (tesseract Typ 2 28/87, footer Typ 2 28/67); tesseract kept
+    decision: 'group-2-scanned-twice (2026-11-21): same page as PDF 197, which is used'
   status: unverified
+  duplicate_of: 197
+  decision: group-2-scanned-twice
 - pdf_page: 268
   printed_page: 2-16b
   main_group: '2'
@@ -8696,7 +8738,6 @@ pages:
   layout:
   inserted: true
   same_printed_page_as:
-  - 198
   fold_out: false
   image_px:
   - 2533
@@ -8715,7 +8756,10 @@ pages:
     inserted: printed page has a letter
     illustration_title: contents page PDF 181
     stamp:
+    decision: 'group-2-scanned-twice (2026-11-21): same page as PDF 198, which is used'
   status: unverified
+  duplicate_of: 198
+  decision: group-2-scanned-twice
 - pdf_page: 269
   printed_page: 2-17
   main_group: '2'
@@ -8726,7 +8770,6 @@ pages:
   layout:
   inserted: false
   same_printed_page_as:
-  - 199
   fold_out: false
   image_px:
   - 2543
@@ -8743,7 +8786,10 @@ pages:
     inserted:
     illustration_title:
     stamp: tesseract and text layer agree
+    decision: 'group-2-scanned-twice (2026-11-21): same page as PDF 199, which is used'
   status: unverified
+  duplicate_of: 199
+  decision: group-2-scanned-twice
 - pdf_page: 270
   printed_page:
   main_group: '2'
@@ -8781,7 +8827,6 @@ pages:
   layout:
   inserted: false
   same_printed_page_as:
-  - 201
   fold_out: false
   image_px:
   - 2550
@@ -8800,7 +8845,10 @@ pages:
     inserted:
     illustration_title: contents page PDF 181
     stamp: tesseract and text layer agree
+    decision: 'group-2-scanned-twice (2026-11-21): same page as PDF 201, which is used'
   status: unverified
+  duplicate_of: 201
+  decision: group-2-scanned-twice
 - pdf_page: 272
   printed_page: 2-20
   main_group: '2'
@@ -8811,7 +8859,6 @@ pages:
   layout:
   inserted: false
   same_printed_page_as:
-  - 202
   fold_out: false
   image_px:
   - 2542
@@ -8830,7 +8877,10 @@ pages:
     inserted:
     illustration_title: contents page PDF 181
     stamp:
+    decision: 'group-2-scanned-twice (2026-11-21): same page as PDF 202, which is used'
   status: unverified
+  duplicate_of: 202
+  decision: group-2-scanned-twice
 - pdf_page: 273
   printed_page:
   main_group:
@@ -8859,7 +8909,10 @@ pages:
     inserted:
     illustration_title: contents page PDF 181
     stamp: footer reading
+    decision: 'group-2-scanned-twice (2026-11-21): same page as PDF 203, which is used'
   status: unverified
+  duplicate_of: 203
+  decision: group-2-scanned-twice
 - pdf_page: 274
   printed_page:
   main_group:
@@ -8888,7 +8941,10 @@ pages:
     inserted:
     illustration_title: contents page PDF 181
     stamp:
+    decision: 'group-2-scanned-twice (2026-11-21): same page as PDF 204, which is used'
   status: unverified
+  duplicate_of: 204
+  decision: group-2-scanned-twice
 - pdf_page: 275
   printed_page:
   main_group:
@@ -8915,7 +8971,10 @@ pages:
     inserted:
     illustration_title: contents page PDF 181
     stamp: readings differ (tesseract Typ 2 28/67, footer Typ 2 78/87); tesseract kept
+    decision: 'group-2-scanned-twice (2026-11-21): same page as PDF 205, which is used'
   status: unverified
+  duplicate_of: 205
+  decision: group-2-scanned-twice
 - pdf_page: 276
   printed_page:
   main_group:
@@ -8942,7 +9001,10 @@ pages:
     inserted:
     illustration_title: contents page PDF 181
     stamp: footer reading
+    decision: 'group-2-scanned-twice (2026-11-21): same page as PDF 206, which is used'
   status: unverified
+  duplicate_of: 206
+  decision: group-2-scanned-twice
 - pdf_page: 277
   printed_page:
   main_group:
@@ -8969,7 +9031,10 @@ pages:
     inserted:
     illustration_title: contents page PDF 181
     stamp:
+    decision: 'group-2-scanned-twice (2026-11-21): same page as PDF 207, which is used'
   status: unverified
+  duplicate_of: 207
+  decision: group-2-scanned-twice
 - pdf_page: 278
   printed_page:
   main_group:
@@ -8996,7 +9061,10 @@ pages:
     inserted:
     illustration_title:
     stamp:
+    decision: 'group-2-scanned-twice (2026-11-21): same page as PDF 208, which is used'
   status: unverified
+  duplicate_of: 208
+  decision: group-2-scanned-twice
 - pdf_page: 279
   printed_page:
   main_group:
@@ -9023,7 +9091,10 @@ pages:
     inserted:
     illustration_title:
     stamp:
+    decision: 'group-2-scanned-twice (2026-11-21): same page as PDF 209, which is used'
   status: unverified
+  duplicate_of: 209
+  decision: group-2-scanned-twice
 - pdf_page: 280
   printed_page: 4-1
   main_group: '4'

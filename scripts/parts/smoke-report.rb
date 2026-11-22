@@ -101,7 +101,7 @@ out << "Printed page numbers are large and bold and sit in the dark, speckled bo
 out << ""
 ev.sort_by { |_k, v| -v }.each { |k, v| out << "- #{k.empty? ? '(none)' : k}: #{v}" }
 out << ""
-clash = pages.map { |p| p["printed_page"] }.compact.tally.select { |_k, v| v > 1 }
+clash = pages.reject { |p| p["duplicate_of"] }.map { |p| p["printed_page"] }.compact.tally.select { |_k, v| v > 1 }
 M["clashes"] = clash.length
 M["printed_none"] = pages.count { |p| %w[parts_list drawing].include?(p["page_type"]) && p["printed_page"].nil? }
 out << "- **Clashes:** #{clash.length} printed page numbers are given to more than one PDF page (#{clash.values.sum} pages), so at least one of each pair is wrong. Rows on those pages use the PDF page in their id. Examples: #{clash.keys.first(8).join(', ')}."
@@ -353,7 +353,7 @@ if opts[:samples].any?
   out << "- **How it is used:** it is a third reader in the page map. Two readings agreeing settles a value only when the text layer is one of them: the footer and full-page readings are both tesseract and can share a mistake (PDF 121 \"1-99\" read as \"1-9\" by both)."
   out << "- **Impossible labels are rejected:** a label is accepted only if the number is 1–63 (the book's range) and every drawing part repeats it (\"38+A38+B38+C38\"). That rejected \"314\", \"220\", \"30+A38+B38+C38\" and \"18+A1\"."
   out << "- **Front matter (PDF 1–15)** gets no printed page. PDF 2–4 are the scanner's example copies of book pages and repeated real numbers."
-  out << "- **The PDF seems to hold part of Main Group 2 twice.** Its contents page appears on PDF 181 and PDF 251, and pages such as 2-7 are read on both PDF 187 and PDF 257. Pages read with the same number are kept and flagged `same_printed_page_as`; a person should decide which copy the site uses."
+  out << "- **Main Group 2 is in the PDF twice (fixed).** PDF 251–279 are a second scan of PDF 181–209: the text agrees 89–100% page by page, image sizes are within 1–2% and the stamps match. The first copy is used (book order). For three fold-out drawings the second copy is used instead, because the first copy scanned them only in part (PDF 184/190/200 are 3528–3548 px wide, PDF 254/260/270 4907–4940 px). Copies stay in the page map marked `duplicate_of`, and are left out of rows, illustrations and clash counts. Before this, every Group 2 row was counted twice. Recorded in `page-decisions.yml`. Other pages read with the same number are still flagged `same_printed_page_as`."
   out << "- **What's left blank on purpose:** between PDF 28 (read \"1-13\") and PDF 33 (\"1-19\" on the page), counting from the two sides disagrees by one. The book seems to skip a number there, so those pages stay blank instead of guessed."
   out << ""
   out << "Not in this round: 3-digit keys (\"113\" on PDF 463) are still read as the start of the part number."

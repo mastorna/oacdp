@@ -13,53 +13,55 @@ illustration:
   drawing:
   lists:
     pdf_pages:
-    - 29
-    - 64
-    - 97
+    - 34
+    - 85
     - 112
-    - 119
-    - 130
+    - 114
     - 165
-    - 174
-    - 187
-    - 188
-    - 234
-    - 243
-    - 246
-    - 266
-    - 271
-    - 273
+    - 168
+    - 195
+    - 196
+    - 220
+    - 232
+    - 235
+    - 285
     - 292
-    - 293
-    - 328
-    - 344
-    - 348
-    - 383
-    - 398
-    - 444
-    - 452
-    - 487
-    - 489
-    - 494
-    - 495
-    - 496
+    - 298
+    - 303
+    - 317
+    - 321
+    - 322
+    - 354
+    - 356
+    - 358
+    - 378
+    - 392
+    - 401
+    - 434
+    - 466
+    - 468
     - 500
-    - 519
+    - 511
+    - 512
+    - 513
     - 523
     - 526
+    - 530
     - 539
     - 540
+    - 543
+    - 563
     - 564
-    - 565
     - 579
-    - 584
-    - 588
-    - 606
-    - 618
-    - 625
+    - 581
+    - 587
+    - 596
+    - 597
+    - 605
+    - 628
     - 644
-    - 655
-    - 723
+    - 650
+    - 730
 conventions:
   made_by: 'scripts/parts/catalog.rb: machine readings only (pdf_text = the PDF''s built-in OCR text layer; tesseract = tesseract 5 at native ~300 dpi, psm 4). No AI or person reading.'
   part_no: the chosen reading's part number with the book's usual spacing ("211 609 237 C") when its shape is recognised, otherwise as read; each reading's raw text is in readings
@@ -69,7 +71,7 @@ conventions:
   status: unverified until a person confirms or corrects the row
   spot_check: Mark a row verified if every field matches the page, corrected if you had to change anything. Accuracy = verified / checked, per confidence label.
 pages:
-- pdf_page: 29
+- pdf_page: 34
   printed_page:
   revision_stamp:
   stamp_readings:
@@ -77,20 +79,12 @@ pages:
     tesseract:
     footer:
   stamp_status: unverified
-- pdf_page: 64
-  printed_page: 1-50
-  revision_stamp:
-  stamp_readings:
-    pdf_text:
-    tesseract:
-    footer:
-  stamp_status: unverified
-- pdf_page: 97
-  printed_page: 1-79
+- pdf_page: 85
+  printed_page: 1-69
   revision_stamp: Typ 2 31/68
   stamp_readings:
-    pdf_text: Typ 2 31/88
-    tesseract: Typ 2 31/68
+    pdf_text: Typ 2 31/68
+    tesseract:
     footer: Typ 2 31/68
   stamp_status: unverified
 - pdf_page: 112
@@ -101,16 +95,8 @@ pages:
     tesseract:
     footer:
   stamp_status: unverified
-- pdf_page: 119
-  printed_page: 1-97
-  revision_stamp: Typ 2 31/88
-  stamp_readings:
-    pdf_text: Typ 2 31/88
-    tesseract: Typ 2 31/88
-    footer: Typ 2 31/68
-  stamp_status: unverified
-- pdf_page: 130
-  printed_page: 1-108
+- pdf_page: 114
+  printed_page: 1-92
   revision_stamp:
   stamp_readings:
     pdf_text:
@@ -125,55 +111,23 @@ pages:
     tesseract:
     footer:
   stamp_status: unverified
-- pdf_page: 174
-  printed_page: 1-144
+- pdf_page: 168
+  printed_page: 1-138
   revision_stamp:
   stamp_readings:
     pdf_text:
     tesseract:
     footer:
   stamp_status: unverified
-- pdf_page: 187
-  printed_page: 2-7
+- pdf_page: 195
+  printed_page: 2-15
   revision_stamp: Typ 2 27/67
   stamp_readings:
-    pdf_text: Typ 2 27/67
-    tesseract: Typ 2 27/67
+    pdf_text:
+    tesseract:
     footer: Typ 2 27/67
   stamp_status: unverified
-- pdf_page: 188
-  printed_page: 2-8a
-  revision_stamp:
-  stamp_readings:
-    pdf_text:
-    tesseract:
-    footer:
-  stamp_status: unverified
-- pdf_page: 234
-  printed_page: 3-25
-  revision_stamp:
-  stamp_readings:
-    pdf_text:
-    tesseract:
-    footer:
-  stamp_status: unverified
-- pdf_page: 243
-  printed_page: 3-32
-  revision_stamp:
-  stamp_readings:
-    pdf_text:
-    tesseract:
-    footer:
-  stamp_status: unverified
-- pdf_page: 246
-  printed_page: 3-35
-  revision_stamp: Typ 2 14/65
-  stamp_readings:
-    pdf_text: Typ 2 14/65
-    tesseract: Typ 2 14/65
-    footer: Typ 2 14/65
-  stamp_status: unverified
-- pdf_page: 266
+- pdf_page: 196
   printed_page: 2-16
   revision_stamp:
   stamp_readings:
@@ -181,21 +135,37 @@ pages:
     tesseract:
     footer:
   stamp_status: unverified
-- pdf_page: 271
-  printed_page: 2-19
-  revision_stamp: Typ 2 23/66
+- pdf_page: 220
+  printed_page: 3-11
+  revision_stamp: Typ 2 28/67
   stamp_readings:
-    pdf_text: Typ 2 23/66
-    tesseract: Typ 2 23/66
-    footer:
+    pdf_text: Typ 2 28/67
+    tesseract: Typ 2 28/67
+    footer: Typ 2 28/67
   stamp_status: unverified
-- pdf_page: 273
-  printed_page:
-  revision_stamp: Typ 2 29/67
+- pdf_page: 232
+  printed_page: 3-23
+  revision_stamp: Typ 2 4/64
+  stamp_readings:
+    pdf_text: Typ 2 4/64
+    tesseract: Typ 2 4/64
+    footer: Typ 2 4/64
+  stamp_status: unverified
+- pdf_page: 235
+  printed_page: 3-26
+  revision_stamp:
   stamp_readings:
     pdf_text:
     tesseract:
-    footer: Typ 2 29/67
+    footer:
+  stamp_status: unverified
+- pdf_page: 285
+  printed_page: 4-6
+  revision_stamp:
+  stamp_readings:
+    pdf_text:
+    tesseract:
+    footer:
   stamp_status: unverified
 - pdf_page: 292
   printed_page: 4-13
@@ -205,107 +175,115 @@ pages:
     tesseract: Typ 2 27/67
     footer: Typ 2 2/67
   stamp_status: unverified
-- pdf_page: 293
-  printed_page: 4-14
-  revision_stamp:
-  stamp_readings:
-    pdf_text:
-    tesseract:
-    footer:
-  stamp_status: unverified
-- pdf_page: 328
-  printed_page: 5-17
-  revision_stamp: Typ 2 23/66
-  stamp_readings:
-    pdf_text: Typ 2 23/66
-    tesseract: Typ 2 23/66
-    footer:
-  stamp_status: unverified
-- pdf_page: 344
-  printed_page: 6-7
-  revision_stamp:
-  stamp_readings:
-    pdf_text:
-    tesseract:
-    footer:
-  stamp_status: unverified
-- pdf_page: 348
-  printed_page: 6-11
-  revision_stamp: Typ 2 11/85
-  stamp_readings:
-    pdf_text: Typ 2 11/85
-    tesseract: Typ 2 11/85
-    footer:
-  stamp_status: unverified
-- pdf_page: 383
-  printed_page: 7-14
-  revision_stamp:
-  stamp_readings:
-    pdf_text:
-    tesseract:
-    footer:
-  stamp_status: unverified
-- pdf_page: 398
-  printed_page: 7-29
-  revision_stamp: Typ 2 24/66
-  stamp_readings:
-    pdf_text: Typ 2 24/66
-    tesseract: Typ 2 24/66
-    footer: Typ 2 24/66
-  stamp_status: unverified
-- pdf_page: 444
-  printed_page: 8-35
-  revision_stamp: Typ 2 28/67
-  stamp_readings:
-    pdf_text: Typ 2 28/87
-    tesseract: Typ 2 28/67
-    footer:
-  stamp_status: unverified
-- pdf_page: 452
-  printed_page:
-  revision_stamp: Typ 2 30/68
-  stamp_readings:
-    pdf_text:
-    tesseract: Typ 2 30/68
-    footer: Typ 2 20/63
-  stamp_status: unverified
-- pdf_page: 487
-  printed_page: 8-72
-  revision_stamp:
-  stamp_readings:
-    pdf_text:
-    tesseract:
-    footer:
-  stamp_status: unverified
-- pdf_page: 489
-  printed_page: 8-74
-  revision_stamp:
-  stamp_readings:
-    pdf_text:
-    tesseract:
-    footer:
-  stamp_status: unverified
-- pdf_page: 494
-  printed_page: 8-79
+- pdf_page: 298
+  printed_page: 4-19
   revision_stamp: Typ 2 29/67
   stamp_readings:
     pdf_text:
     tesseract:
     footer: Typ 2 29/67
   stamp_status: unverified
-- pdf_page: 495
-  printed_page: 8-80
+- pdf_page: 303
+  printed_page: 4-24
   revision_stamp:
   stamp_readings:
     pdf_text:
     tesseract:
     footer:
   stamp_status: unverified
-- pdf_page: 496
-  printed_page: 8-81
-  revision_stamp: Typ 2 20/67
+- pdf_page: 317
+  printed_page: 5-7
+  revision_stamp:
   stamp_readings:
     pdf_text:
+    tesseract:
+    footer:
+  stamp_status: unverified
+- pdf_page: 321
+  printed_page: 5-10
+  revision_stamp:
+  stamp_readings:
+    pdf_text:
+    tesseract:
+    footer:
+  stamp_status: unverified
+- pdf_page: 322
+  printed_page: 5-1
+  revision_stamp: Typ 2 27/87
+  stamp_readings:
+    pdf_text:
+    tesseract: Typ 2 27/87
+    footer:
+  stamp_status: unverified
+- pdf_page: 354
+  printed_page: 6-15
+  revision_stamp: Typ 2 29/67
+  stamp_readings:
+    pdf_text:
+    tesseract:
+    footer: Typ 2 29/67
+  stamp_status: unverified
+- pdf_page: 356
+  printed_page: 6-17
+  revision_stamp: Typ 2 29/87
+  stamp_readings:
+    pdf_text:
+    tesseract:
+    footer: Typ 2 29/87
+  stamp_status: unverified
+- pdf_page: 358
+  printed_page: 6-19
+  revision_stamp: Typ 2 2/67
+  stamp_readings:
+    pdf_text:
+    tesseract:
+    footer: Typ 2 2/67
+  stamp_status: unverified
+- pdf_page: 378
+  printed_page: 7-9
+  revision_stamp:
+  stamp_readings:
+    pdf_text:
+    tesseract:
+    footer:
+  stamp_status: unverified
+- pdf_page: 392
+  printed_page: 7-23
+  revision_stamp: Typ 2 23/66
+  stamp_readings:
+    pdf_text: Typ 2 23/88
+    tesseract: Typ 2 23/66
+    footer: Typ 2 23/86
+  stamp_status: unverified
+- pdf_page: 401
+  printed_page: 7-32
+  revision_stamp:
+  stamp_readings:
+    pdf_text:
+    tesseract:
+    footer:
+  stamp_status: unverified
+- pdf_page: 434
+  printed_page: 8-25
+  revision_stamp: Typ 2 28/87
+  stamp_readings:
+    pdf_text: Typ 2 28/87
+    tesseract: Typ 2 28/87
+    footer: Typ 2 26/87
+  stamp_status: unverified
+- pdf_page: 466
+  printed_page: 8-53
+  revision_stamp: Typ 2 25/67
+  stamp_readings:
+    pdf_text:
+    tesseract: Typ 2 25/67
+    footer: Typ 2 28/67
+  stamp_status: unverified
+- pdf_page: 468
+  printed_page: 8-55
+  revision_stamp: Typ 2 20/67
+  stamp_readings:
+    pdf_text: Typ 2 28/67
     tesseract: Typ 2 20/67
     footer: Typ 2 26/67
   stamp_status: unverified
@@ -317,8 +295,24 @@ pages:
     tesseract:
     footer:
   stamp_status: unverified
-- pdf_page: 519
-  printed_page:
+- pdf_page: 511
+  printed_page: 8-94
+  revision_stamp:
+  stamp_readings:
+    pdf_text:
+    tesseract:
+    footer:
+  stamp_status: unverified
+- pdf_page: 512
+  printed_page: 8-95
+  revision_stamp: Typ 2 25/68
+  stamp_readings:
+    pdf_text: Typ 2 25/66
+    tesseract: Typ 2 25/68
+    footer:
+  stamp_status: unverified
+- pdf_page: 513
+  printed_page: 8-96
   revision_stamp:
   stamp_readings:
     pdf_text:
@@ -341,6 +335,14 @@ pages:
     tesseract: Typ 2 26/86
     footer:
   stamp_status: unverified
+- pdf_page: 530
+  printed_page: 8-109
+  revision_stamp: Typ 2 23/66
+  stamp_readings:
+    pdf_text: Typ 2 23/66
+    tesseract: Typ 2 23/66
+    footer:
+  stamp_status: unverified
 - pdf_page: 539
   printed_page: 8-118
   revision_stamp:
@@ -357,16 +359,24 @@ pages:
     tesseract:
     footer: Typ 2 28/67
   stamp_status: unverified
-- pdf_page: 564
-  printed_page: 8-139
+- pdf_page: 543
+  printed_page: 8-121
   revision_stamp:
   stamp_readings:
     pdf_text:
     tesseract:
     footer:
   stamp_status: unverified
-- pdf_page: 565
-  printed_page: 8-140
+- pdf_page: 563
+  printed_page: 8-138
+  revision_stamp:
+  stamp_readings:
+    pdf_text:
+    tesseract:
+    footer:
+  stamp_status: unverified
+- pdf_page: 564
+  printed_page: 8-139
   revision_stamp:
   stamp_readings:
     pdf_text:
@@ -381,45 +391,53 @@ pages:
     tesseract:
     footer:
   stamp_status: unverified
-- pdf_page: 584
-  printed_page: 9-13
-  revision_stamp: Typ 2 28/67
-  stamp_readings:
-    pdf_text:
-    tesseract: Typ 2 28/67
-    footer: Typ 2 28/67
-  stamp_status: unverified
-- pdf_page: 588
-  printed_page: 9-17
-  revision_stamp: Typ 2 20/67
-  stamp_readings:
-    pdf_text:
-    tesseract: Typ 2 20/67
-    footer: Typ 2 20/67
-  stamp_status: unverified
-- pdf_page: 606
-  printed_page: 9-35
-  revision_stamp: Typ 2 28/67
-  stamp_readings:
-    pdf_text:
-    tesseract: Typ 2 28/67
-    footer: Typ 2 20/87
-  stamp_status: unverified
-- pdf_page: 618
-  printed_page: 9-45
-  revision_stamp: Typ 2 28/67
-  stamp_readings:
-    pdf_text: Typ 2 28/67
-    tesseract: Typ 2 28/67
-    footer: Typ 2 20/87
-  stamp_status: unverified
-- pdf_page: 625
-  printed_page: 9-52
+- pdf_page: 581
+  printed_page: 9-10
   revision_stamp:
   stamp_readings:
     pdf_text:
     tesseract:
     footer:
+  stamp_status: unverified
+- pdf_page: 587
+  printed_page: 9-16
+  revision_stamp:
+  stamp_readings:
+    pdf_text:
+    tesseract:
+    footer:
+  stamp_status: unverified
+- pdf_page: 596
+  printed_page: 9-25
+  revision_stamp: Typ 2 28/67
+  stamp_readings:
+    pdf_text:
+    tesseract: Typ 2 28/67
+    footer:
+  stamp_status: unverified
+- pdf_page: 597
+  printed_page: 9-26
+  revision_stamp:
+  stamp_readings:
+    pdf_text:
+    tesseract:
+    footer:
+  stamp_status: unverified
+- pdf_page: 605
+  printed_page: 9-34
+  revision_stamp:
+  stamp_readings:
+    pdf_text:
+    tesseract:
+    footer:
+  stamp_status: unverified
+- pdf_page: 628
+  printed_page: 9-55
+  revision_stamp: Typ 2 28/67
+  stamp_readings:
+    pdf_text:
+    tesseract: Typ 2 28/67
+    footer: Typ 2 2/87
   stamp_status: unverified
 - pdf_page: 644
   printed_page: 9-67
@@ -429,41 +447,38 @@ pages:
     tesseract: Typ 2 23/66
     footer:
   stamp_status: unverified
-- pdf_page: 655
-  printed_page: 9-74
-  revision_stamp:
+- pdf_page: 650
+  printed_page:
+  revision_stamp: Typ 2 20/67
   stamp_readings:
     pdf_text:
     tesseract:
-    footer:
+    footer: Typ 2 20/67
   stamp_status: unverified
-- pdf_page: 723
-  printed_page: S-16
-  revision_stamp:
+- pdf_page: 730
+  printed_page: S-22a
+  revision_stamp: Typ 2 23/66
   stamp_readings:
-    pdf_text:
-    tesseract:
+    pdf_text: Typ 2 23/66
+    tesseract: Typ 2 23/66
     footer:
   stamp_status: unverified
 callouts: []
 positions:
-- id: ill1a1-k3
-  label: ill1a1-k3
+- id: ill1a1-ka68
+  label: ill1a1-ka68
   status: suggested
-- id: ill3-k24
-  label: ill3-k24
+- id: ill5a5b5-kb30
+  label: ill5a5b5-kb30
   status: suggested
-- id: ill6-k36
-  label: ill6-k36
+- id: ill5a5b5-kb32
+  label: ill5a5b5-kb32
   status: suggested
-- id: ill7a7-ka8
-  label: ill7a7-ka8
+- id: ill7a7-ka13
+  label: ill7a7-ka13
   status: suggested
-- id: ill7a7-k78
-  label: ill7a7-k78
-  status: suggested
-- id: ill8-k10
-  label: ill8-k10
+- id: ill7a7-k37
+  label: ill7a7-k37
   status: suggested
 - id: ill-unknown-1-k14
   label: ill-unknown-1-k14
@@ -471,184 +486,184 @@ positions:
 - id: ill-unknown-1-kb41
   label: ill-unknown-1-kb41
   status: suggested
-- id: ill21-k27
-  label: ill21-k27
+- id: ill22-k43
+  label: ill22-k43
   status: suggested
-- id: ill21-k30
-  label: ill21-k30
+- id: ill22-k44
+  label: ill22-k44
   status: suggested
-- id: ill26-k33
-  label: ill26-k33
+- id: ill26-k6
+  label: ill26-k6
   status: suggested
-- id: ill27-k32
-  label: ill27-k32
+- id: ill26-k52
+  label: ill26-k52
   status: suggested
-- id: ill27-k73
-  label: ill27-k73
+- id: ill28-k18
+  label: ill28-k18
   status: suggested
-- id: ill22-k51
-  label: ill22-k51
+- id: ill28-k63
+  label: ill28-k63
   status: suggested
-- id: ill22a-k1
-  label: ill22a-k1
+- id: ill29-k27
+  label: ill29-k27
   status: suggested
-- id: ill22a-k40
-  label: ill22a-k40
+- id: ill29-k79
+  label: ill29-k79
   status: suggested
-- id: ill28-k57
-  label: ill28-k57
+- id: ill30-k20
+  label: ill30-k20
   status: suggested
-- id: ill28-k69
-  label: ill28-k69
+- id: ill30-k45
+  label: ill30-k45
   status: suggested
-- id: ill28-k75
-  label: ill28-k75
+- id: ill30-k61
+  label: ill30-k61
   status: suggested
-- id: ill31-k23
-  label: ill31-k23
+- id: ill33a33-k3
+  label: ill33a33-k3
   status: suggested
-- id: ill32-k1
-  label: ill32-k1
+- id: ill33a33-k16
+  label: ill33a33-k16
   status: suggested
-- id: ill32-k28
-  label: ill32-k28
+- id: ill33a33-k34
+  label: ill33a33-k34
   status: suggested
-- id: ill35-k19
-  label: ill35-k19
+- id: ill34-k34
+  label: ill34-k34
   status: suggested
-- id: ill37-k11
-  label: ill37-k11
+- id: ill36-k31
+  label: ill36-k31
   status: suggested
-- id: ill38a38b38c38-ka67
-  label: ill38a38b38c38-ka67
+- id: ill37-k37
+  label: ill37-k37
   status: suggested
-- id: ill39-k38
-  label: ill39-k38
+- id: ill38a38b38c38-kb24
+  label: ill38a38b38c38-kb24
   status: suggested
-- id: ill40-k1
-  label: ill40-k1
+- id: ill40-k3
+  label: ill40-k3
   status: suggested
-- id: ill41-k27
-  label: ill41-k27
+- id: ill40-k20
+  label: ill40-k20
   status: suggested
-- id: ill41-k6
-  label: ill41-k6
+- id: ill42-k49
+  label: ill42-k49
   status: suggested
-- id: ill42-k15
-  label: ill42-k15
+- id: ill44-k4
+  label: ill44-k4
   status: suggested
-- id: ill42-k24
-  label: ill42-k24
+- id: ill44-k8
+  label: ill44-k8
   status: suggested
-- id: ill42-k56
-  label: ill42-k56
-  status: suggested
-- id: ill44-k21
-  label: ill44-k21
+- id: ill44-k10
+  label: ill44-k10
   status: suggested
 - id: ill44-k65
   label: ill44-k65
   status: suggested
-- id: ill45-k17
-  label: ill45-k17
+- id: ill45-k20
+  label: ill45-k20
   status: suggested
-- id: ill45-k19
-  label: ill45-k19
+- id: ill46-k2
+  label: ill46-k2
   status: suggested
-- id: ill47a47-k1
-  label: ill47a47-k1
+- id: ill47a47-k2
+  label: ill47a47-k2
   status: suggested
-- id: ill47a47-ka4
-  label: ill47a47-ka4
+- id: ill47a47-k65
+  label: ill47a47-k65
   status: suggested
-- id: ill-unknown-8-k11
-  label: ill-unknown-8-k11
+- id: ill47a47-k63
+  label: ill47a47-k63
   status: suggested
-- id: ill49-k33
-  label: ill49-k33
+- id: ill-unknown-8-k5
+  label: ill-unknown-8-k5
   status: suggested
-- id: ill50-k4
-  label: ill50-k4
+- id: ill49-k30
+  label: ill49-k30
   status: suggested
-- id: ill50-k46
-  label: ill50-k46
+- id: ill49-k57
+  label: ill49-k57
   status: suggested
-- id: ill52-k71
-  label: ill52-k71
+- id: ill50-k38
+  label: ill50-k38
   status: suggested
-- id: ill53-k47
-  label: ill53-k47
+- id: ill51-k76
+  label: ill51-k76
   status: suggested
-- id: ill54-k21
-  label: ill54-k21
+- id: ill51-k99
+  label: ill51-k99
   status: suggested
-- id: ill56a56-k20
-  label: ill56a56-k20
+- id: ill52-k63
+  label: ill52-k63
   status: suggested
-- id: ill56a56-k23
-  label: ill56a56-k23
+- id: ill54-k44
+  label: ill54-k44
   status: suggested
-- id: ill57-k1
-  label: ill57-k1
+- id: ill56a56-k25
+  label: ill56a56-k25
   status: suggested
-- id: ill61-k11
-  label: ill61-k11
+- id: ill56a56-k58
+  label: ill56a56-k58
+  status: suggested
+- id: ill61-k96
+  label: ill61-k96
   status: suggested
 rows:
-- id: ill1a1-p29-11
+- id: ill1a1-p34-16
   edition: vw-tpl-1963-08
   printed_page:
-  pdf_page: 29
-  row_order: 11
+  pdf_page: 34
+  row_order: 16
   key:
   key_prefix:
   marker:
-  part_no: N 12 241 2
-  part_no_norm: N122412
-  description: Spring washer B 8X15 DIN 137 galvanized -
-  quantity: '1'
-  applicability: Distributor
+  part_no: 111 101 387
+  part_no_norm: '111101387'
+  description: Shim 1.0 mm - Cylinder head
+  quantity: "×"
+  applicability:
   applicability_inline: false
   chassis_from:
   chassis_to:
   chassis_ranges:
   option_codes: []
-  type_and_model:
-  position: ill1a1-k3
+  type_and_model: 25 bhp
+  position: ill1a1-ka68
   position_status: suggested
   bbox_px:
-  - 399
-  - 1607
-  - 2418
-  - 1738
+  - 272
+  - 2999
+  - 2422
+  - 3094
   bbox_source: tesseract
   readings:
     pdf_text:
       key:
       key_prefix:
       marker:
-      part_no: N 12 241 2
-      description: Spring washer B 8X15 DIN 137 galvanized -
-      quantity: '1'
-      applicability: Distributor
+      part_no: 111 101 387
+      description: Shim 1.0 mm - Cylinder head
+      quantity: "×"
+      applicability:
       applicability_inline: false
-      type_and_model:
-      text: N 12 241 2 Spring washer B 8X15 DIN 137 galvanized - ..•. 1
-      continuation: Distributor
-      min_conf: 452
+      type_and_model: 25 bhp
+      text: 111 101 387 Shim 1.0 mm - Cylinder head ............ ' .... X 25 bhp
+      continuation:
+      min_conf: 437
     tesseract:
       key:
       key_prefix:
       marker:
-      part_no: N122412
-      description: ", Spring Distributor washer B 8X15 DIN 137 galvanized meee -"
-      quantity: '1'
+      part_no: 111 101 387
+      description: Shim 1.0 mm — Cylinder head
+      quantity: "×"
       applicability:
       applicability_inline: false
-      type_and_model:
-      text: N122412 , Spring Distributor washer B 8X15 DIN 137 galvanized meee - 1
+      type_and_model: "-25 bhp"
+      text: "~ 111 101 387 Shim 1.0 mm — Cylinder head ............,.05. x -25 bhp"
       continuation:
-      min_conf: 521
+      min_conf: 312
   disagreements: []
   confidence: readings agree
   confidence_reasons: []
@@ -659,18 +674,82 @@ rows:
   main_group: '1'
   illustration: 1+A1
   cross_edition: not_available
-- id: ill3-1-50-12
+- id: ill5a5b5-1-69-10
   edition: vw-tpl-1963-08
-  printed_page: 1-50
-  pdf_page: 64
-  row_order: 12
+  printed_page: 1-69
+  pdf_page: 85
+  row_order: 10
   key:
   key_prefix:
   marker:
-  part_no: 111 109 451
-  part_no_norm: '111109451'
-  description: Adjusting screw - Valve
-  quantity: '8'
+  part_no: 113 119 304 D
+  part_no_norm: 113119304D
+  description: Cover plate - Cylinder right
+  quantity: '1'
+  applicability: from Engine No. 8 785 398
+  applicability_inline: false
+  chassis_from:
+  chassis_to:
+  chassis_ranges:
+  option_codes: []
+  type_and_model: 34 bhp
+  position: ill5a5b5-kb30
+  position_status: suggested
+  bbox_px:
+  - 303
+  - 1850
+  - 2422
+  - 1984
+  bbox_source: tesseract
+  readings:
+    pdf_text:
+      key:
+      key_prefix:
+      marker:
+      part_no: 113119 304 D
+      description: Cover plate - Cylinder right
+      quantity:
+      applicability: from Engine No. 8 785 398
+      applicability_inline: false
+      type_and_model: 34 bhp
+      text: 113119 304 D Cover plate - Cylinder right 34 bhp
+      continuation: from Engine No. 8 785 398
+      min_conf: 504
+    tesseract:
+      key:
+      key_prefix:
+      marker:
+      part_no: 113119304D
+      description: Cover plate ~ Cylinder right
+      quantity: '1'
+      applicability: trom Engine No. 8 785 398
+      applicability_inline: false
+      type_and_model: 34 bhp
+      text: "- —' 113119304D Cover plate ~ Cylinder right...............-... 1 34 bhp"
+      continuation: trom Engine No. 8 785 398
+      min_conf: 343
+  disagreements: []
+  confidence: readings agree
+  confidence_reasons: []
+  status: unverified
+  reviewed_by:
+  reviewed_at:
+  corrections: []
+  main_group: '1'
+  illustration: 5+A5+B5
+  cross_edition: not_available
+- id: ill5a5b5-1-69-16
+  edition: vw-tpl-1963-08
+  printed_page: 1-69
+  pdf_page: 85
+  row_order: 16
+  key: B 32
+  key_prefix: B
+  marker:
+  part_no: N 10 710 1
+  part_no_norm: N107101
+  description: Screw, cheese head AM 6X10 DIN 84 galvanized
+  quantity: '12'
   applicability:
   applicability_inline: false
   chassis_from:
@@ -678,105 +757,41 @@ rows:
   chassis_ranges:
   option_codes: []
   type_and_model:
-  position: ill3-k24
+  position: ill5a5b5-kb32
   position_status: suggested
   bbox_px:
-  - 360
-  - 2305
-  - 2418
-  - 2406
-  bbox_source: tesseract
-  readings:
-    pdf_text:
-      key:
-      key_prefix:
-      marker:
-      part_no: 111109 451
-      description: Adjusting screw - Valve
-      quantity: '8'
-      applicability:
-      applicability_inline: false
-      type_and_model:
-      text: 2S 111109 451 Adjusting screw - Valve •••••••••••••••••••••• 8
-      continuation:
-      min_conf: 279
-    tesseract:
-      key:
-      key_prefix:
-      marker:
-      part_no: 111 109 451
-      description: Adjusting screw — Valve
-      quantity:
-      applicability:
-      applicability_inline: false
-      type_and_model:
-      text: '111 109 451 Adjusting screw — Valve ......: scence ee seneee'
-      continuation:
-      min_conf: 415
-  disagreements: []
-  confidence: readings agree
-  confidence_reasons: []
-  status: unverified
-  reviewed_by:
-  reviewed_at:
-  corrections: []
-  main_group: '1'
-  illustration: '3'
-  cross_edition: not_available
-- id: ill6-1-79-13
-  edition: vw-tpl-1963-08
-  printed_page: 1-79
-  pdf_page: 97
-  row_order: 13
-  key: 36
-  key_prefix:
-  marker:
-  part_no: N 12 005 1
-  part_no_norm: N120051
-  description: ".Lock washer B 5 DIN 127 galvanized"
-  quantity: '6'
-  applicability: from Engine No. 3 400 000
-  applicability_inline: false
-  chassis_from:
-  chassis_to:
-  chassis_ranges:
-  option_codes: []
-  type_and_model: 30-, 34-, 42-, 44 bhp
-  position: ill6-k36
-  position_status: suggested
-  bbox_px:
-  - 311
-  - 2217
+  - 213
+  - 2575
   - 2422
-  - 2350
+  - 2662
   bbox_source: tesseract
   readings:
     pdf_text:
-      key: 36
-      key_prefix:
+      key: B 32
+      key_prefix: B
       marker:
-      part_no: N 12 0051
-      description: ".Lock washer B 5 DIN 127 galvanized"
-      quantity: '6'
-      applicability: from Engine No. 3 400 000
+      part_no: N 107101
+      description: Screw, cheese head AM 6X10 DIN 84 galvanized
+      quantity: '12'
+      applicability:
       applicability_inline: false
-      type_and_model: 30-, 34-, 42-, 44 bhp
-      text: 36 N 12 0051 .Lock washer B 5 DIN 127 galvanized 6 30-, 34-, 42-, 44 bhp
-      continuation: from Engine No. 3 400 000
-      min_conf: 359
+      type_and_model:
+      text: 36/A34/B32 N 107101 Screw, cheese head AM 6X10 DIN 84 galvanized 12
+      continuation:
+      min_conf: 342
     tesseract:
-      key: 36
-      key_prefix:
+      key: B 32
+      key_prefix: B
       marker:
-      part_no: N120051
-      description: Lock washer B 5 DIN 127 galvanized
-      quantity: '6'
-      applicability: from Engine No. 3 400 000
+      part_no: N107101
+      description: Screw, cheese head AM 6X10 DIN 84 galvanized
+      quantity: '12'
+      applicability:
       applicability_inline: false
-      type_and_model: 30-, 34-, 42-, 44 bhp
-      text: 36 N120051 Lock washer B 5 DIN 127 galvanized 6 30-, 34-, 42-, 44 bhp
-      continuation: from Engine No. 3 400 000
-      min_conf: 359
+      type_and_model:
+      text: 36/A34/B32 N107101 Screw, cheese head AM 6X10 DIN 84 galvanized 12
+      continuation:
+      min_conf: 342
   disagreements: []
   confidence: readings agree
   confidence_reasons: []
@@ -785,147 +800,19 @@ rows:
   reviewed_at:
   corrections: []
   main_group: '1'
-  illustration: '6'
+  illustration: 5+A5+B5
   cross_edition: not_available
-- id: ill7a7-1-90-03
+- id: ill7a7-1-90-23
   edition: vw-tpl-1963-08
   printed_page: 1-90
   pdf_page: 112
-  row_order: 3
-  key: A 8
+  row_order: 23
+  key: A 13
   key_prefix: A
   marker:
-  part_no: 113 129 185
-  part_no_norm: '113129185'
-  description: Plastic cap -
-  quantity: '1'
-  applicability:
-  applicability_inline: false
-  chassis_from:
-  chassis_to:
-  chassis_ranges:
-  option_codes: []
-  type_and_model: 34-, 42-, 44 bh p
-  position: ill7a7-ka8
-  position_status: suggested
-  bbox_px:
-  - 227
-  - 687
-  - 2405
-  - 787
-  bbox_source: tesseract
-  readings:
-    pdf_text:
-      key:
-      key_prefix:
-      marker:
-      part_no: '113129185'
-      description: Plastic cap -
-      quantity:
-      applicability:
-      applicability_inline: false
-      type_and_model: 34-, 42-, 44 bh p
-      text: AS 113129185 Plastic cap - .......................•......... 34-, 42-, 44 bh p
-      continuation:
-      min_conf: 283
-    tesseract:
-      key: A 8
-      key_prefix: A
-      marker:
-      part_no: 113129 185
-      description: Plastic cap —
-      quantity: '1'
-      applicability:
-      applicability_inline: false
-      type_and_model: 34-, 42-, 44 bhp -
-      text: A8 113129 185 Plastic cap — 6... ei eee cette eee eee eee 1 34-, 42-, 44 bhp -
-      continuation:
-      min_conf: 284
-  disagreements: []
-  confidence: readings agree
-  confidence_reasons: []
-  status: unverified
-  reviewed_by:
-  reviewed_at:
-  corrections: []
-  main_group: '1'
-  illustration: 7+A7
-  cross_edition: not_available
-- id: ill7a7-1-97-07
-  edition: vw-tpl-1963-08
-  printed_page: 1-97
-  pdf_page: 119
-  row_order: 7
-  key:
-  key_prefix:
-  marker:
-  part_no: 111 129 435 D
-  part_no_norm: 111129435D
-  description: Air ~orrection jet 200
-  quantity: '1'
-  applicability: "'---"
-  applicability_inline: false
-  chassis_from:
-  chassis_to:
-  chassis_ranges:
-  option_codes: []
-  type_and_model: 25-, 30 bhp
-  position: ill7a7-k78
-  position_status: suggested
-  bbox_px:
-  - 315
-  - 1165
-  - 2413
-  - 1265
-  bbox_source: tesseract
-  readings:
-    pdf_text:
-      key:
-      key_prefix:
-      marker:
-      part_no: 111129 435 D
-      description: Air ~orrection jet 200
-      quantity: '1'
-      applicability: "'---"
-      applicability_inline: false
-      type_and_model: 25-, 30 bhp
-      text: 111129 435 D Air ~orrection jet 200 .............................. 1 25-, 30 bhp
-      continuation: "'---"
-      min_conf: 515
-    tesseract:
-      key:
-      key_prefix:
-      marker:
-      part_no: 111129435D
-      description: "= Air correction jet 200"
-      quantity: '1'
-      applicability:
-      applicability_inline: false
-      type_and_model: 25-, 30 bhp
-      text: _ 111129435D = Air correction jet 200 ......... cece ees cece ee 1 25-, 30 bhp
-      continuation:
-      min_conf: 356
-  disagreements: []
-  confidence: readings agree
-  confidence_reasons: []
-  status: unverified
-  reviewed_by:
-  reviewed_at:
-  corrections: []
-  main_group: '1'
-  illustration: 7+A7
-  cross_edition: not_available
-- id: ill8-1-108-03
-  edition: vw-tpl-1963-08
-  printed_page: 1-108
-  pdf_page: 130
-  row_order: 3
-  key:
-  key_prefix:
-  marker:
-  part_no: 211 141 111
-  part_no_norm: '211141111'
-  description: B. Clutch cover for 211 141 025 C
+  part_no: 113 129 200
+  part_no_norm: '113129200'
+  description: Cover
   quantity: '1'
   applicability:
   applicability_inline: false
@@ -934,41 +821,41 @@ rows:
   chassis_ranges:
   option_codes: []
   type_and_model: 34-, 42-, 44 bhp
-  position: ill8-k10
+  position: ill7a7-ka13
   position_status: suggested
   bbox_px:
-  - 255
-  - 684
-  - 2413
-  - 789
+  - 212
+  - 2980
+  - 2405
+  - 3070
   bbox_source: tesseract
   readings:
     pdf_text:
-      key:
-      key_prefix:
+      key: A 13
+      key_prefix: A
       marker:
-      part_no: 211 141 111
-      description: B. Clutch cover for 211 141 025 C
-      quantity: '1'
+      part_no: '113129200'
+      description: Cover
+      quantity:
       applicability:
       applicability_inline: false
       type_and_model: 34-, 42-, 44 bhp
-      text: 211 141 111 B. Clutch cover for 211 141 025 C ................. 1 34-, 42-, 44 bhp
+      text: A13 113129200 Cover ..................................... . 34-, 42-, 44 bhp
       continuation:
-      min_conf: 420
+      min_conf: 276
     tesseract:
-      key:
-      key_prefix:
+      key: A 13
+      key_prefix: A
       marker:
-      part_no: 211 141111
-      description: B.. Clutch cover for 211 141 025 c teen e eae cneenaee
+      part_no: 113 129 200
+      description: Cover
       quantity: '1'
       applicability:
       applicability_inline: false
       type_and_model: 34-, 42-, 44 bhp
-      text: "- 211 141111 B.. Clutch cover for 211 141 025 c teen e eae cneenaee 1 34-, 42-, 44 bhp"
+      text: 'A13 113 129 200 Cover ........... peer rene eee e nena ennees : 1 34-, 42-, 44 bhp'
       continuation:
-      min_conf: 296
+      min_conf: 277
   disagreements: []
   confidence: readings agree
   confidence_reasons: []
@@ -977,7 +864,71 @@ rows:
   reviewed_at:
   corrections: []
   main_group: '1'
-  illustration: '8'
+  illustration: 7+A7
+  cross_edition: not_available
+- id: ill7a7-1-92-12
+  edition: vw-tpl-1963-08
+  printed_page: 1-92
+  pdf_page: 114
+  row_order: 12
+  key:
+  key_prefix:
+  marker:
+  part_no: N 13 818 1
+  part_no_norm: N138181
+  description: Sealing washer A 12 X 16 DIN 7603
+  quantity: "×"
+  applicability: up to Engine No. 20 - 518 652
+  applicability_inline: false
+  chassis_from:
+  chassis_to:
+  chassis_ranges:
+  option_codes: []
+  type_and_model: 25 bhp
+  position: ill7a7-k37
+  position_status: suggested
+  bbox_px:
+  - 245
+  - 1984
+  - 2413
+  - 2120
+  bbox_source: tesseract
+  readings:
+    pdf_text:
+      key:
+      key_prefix:
+      marker:
+      part_no: N 13 8181
+      description: Sealing washer A 12 X 16 DIN 7603
+      quantity: "×"
+      applicability: up to Engine No. 20 - 518 652
+      applicability_inline: false
+      type_and_model: 25 bhp
+      text: N 13 8181 Sealing washer A 12 X 16 DIN 7603 ....•.....•.. X 25 bhp
+      continuation: up to Engine No. 20 - 518 652
+      min_conf: 444
+    tesseract:
+      key:
+      key_prefix:
+      marker:
+      part_no: N 13 8181
+      description: Sealing washer A 12X16 DIN 7603
+      quantity: "×"
+      applicability: up to Engine No. 20~518 652
+      applicability_inline: false
+      type_and_model: 25 bhp
+      text: "~ N 13 8181 Sealing washer A 12X16 DIN 7603 ............. x 25 bhp"
+      continuation: up to Engine No. 20~518 652
+      min_conf: 286
+  disagreements: []
+  confidence: readings agree
+  confidence_reasons: []
+  status: unverified
+  reviewed_by:
+  reviewed_at:
+  corrections: []
+  main_group: '1'
+  illustration: 7+A7
   cross_edition: not_available
 - id: ill-unknown-1-1-135-02
   edition: vw-tpl-1963-08
@@ -1043,18 +994,18 @@ rows:
   main_group: '1'
   illustration:
   cross_edition: not_available
-- id: ill-unknown-1-1-144-23
+- id: ill-unknown-1-1-138-11
   edition: vw-tpl-1963-08
-  printed_page: 1-144
-  pdf_page: 174
-  row_order: 23
+  printed_page: 1-138
+  pdf_page: 168
+  row_order: 11
   key:
   key_prefix:
   marker:
-  part_no: 113 127 313
-  part_no_norm: '113127313'
-  description: Gasket below fuel pump
-  quantity: '1'
+  part_no: 311 107 331 A
+  part_no_norm: 311107331A
+  description: Scraper .ring
+  quantity: '4'
   applicability:
   applicability_inline: false
   chassis_from:
@@ -1065,42 +1016,41 @@ rows:
   position: ill-unknown-1-kb41
   position_status: suggested
   bbox_px:
-  - 236
-  - 2927
+  - 202
+  - 1809
   - 2430
-  - 3017
+  - 1940
   bbox_source: tesseract
   readings:
     pdf_text:
       key:
       key_prefix:
       marker:
-      part_no: 113127 313
-      description: Gasket below fuel pump
-      quantity: '1'
+      part_no: 311107 331 A
+      description: Scraper .ring
+      quantity: '4'
       applicability:
       applicability_inline: false
       type_and_model:
-      text: 113127 313 Gasket below fuel pump ...•......•............................ , .. . 1
+      text: 311107 331 A Scraper .ring ~ ...•...••.••••••..••.•.•.••••••••.•••.••••.•..••...••• 4
       continuation:
-      min_conf: 327
+      min_conf: 309
     tesseract:
       key:
       key_prefix:
       marker:
-      part_no: 113 127 313
-      description: Gasket below fuel pump
-      quantity: '1'
+      part_no: 311107331 A
+      description: Scraper ring
+      quantity: '4'
       applicability:
       applicability_inline: false
       type_and_model:
-      text: 113 127 313 Gasket below fuel pump ......... 0... cece cece eee eee n eee en ee eenees 1
+      text: "‘311107331 A Scraper ring ....ccccescceeeeeesee eee seen ee ee ee ese eeseesseeeenees 4"
       continuation:
-      min_conf: 293
+      min_conf: 353
   disagreements: []
-  confidence: needs checking
-  confidence_reasons:
-  - sp_set_layout
+  confidence: readings agree
+  confidence_reasons: []
   status: unverified
   reviewed_by:
   reviewed_at:
@@ -1108,426 +1058,60 @@ rows:
   main_group: '1'
   illustration:
   cross_edition: not_available
-- id: ill21-p187-17
+- id: ill22-2-15-17
   edition: vw-tpl-1963-08
-  printed_page: 2-7
-  pdf_page: 187
+  printed_page: 2-15
+  pdf_page: 195
   row_order: 17
-  key: 27
-  key_prefix:
-  marker: "*"
-  part_no: 211 209 147
-  part_no_norm: '211209147'
-  description: Fuel filter
-  quantity: '1'
-  applicability: "-"
-  applicability_inline: false
-  chassis_from:
-  chassis_to:
-  chassis_ranges:
-  option_codes: []
-  type_and_model:
-  position: ill21-k27
-  position_status: suggested
-  bbox_px:
-  - 292
-  - 2992
-  - 2423
-  - 3075
-  bbox_source: tesseract
-  readings:
-    pdf_text:
-      key: 27
-      key_prefix:
-      marker: "*"
-      part_no: 211 209147
-      description: Fuel filter
-      quantity: '1'
-      applicability: "-"
-      applicability_inline: false
-      type_and_model:
-      text: 27 *211 209147 Fuel filter •.•.•..........•.............•..... 1
-      continuation: "-"
-      min_conf: 339
-    tesseract:
-      key: 27
-      key_prefix:
-      marker: "*"
-      part_no: 211 209 147
-      description: Fuel filter 2.2.0.0. cece e eee ee eee eee
-      quantity: '1'
-      applicability:
-      applicability_inline: false
-      type_and_model:
-      text: 27 *211 209 147 Fuel filter 2.2.0.0. cece e eee ee eee eee 1
-      continuation:
-      min_conf: 340
-  disagreements: []
-  confidence: readings agree
-  confidence_reasons: []
-  status: unverified
-  reviewed_by:
-  reviewed_at:
-  corrections: []
-  main_group: '2'
-  illustration: '21'
-  cross_edition: not_available
-- id: ill21-2-8a-04
-  edition: vw-tpl-1963-08
-  printed_page: 2-8a
-  pdf_page: 188
-  row_order: 4
-  key:
+  key: 43
   key_prefix:
   marker:
-  part_no: 261 209 163
-  part_no_norm: '261209163'
-  description: Operating rod - Fuel tap
-  quantity: '1'
-  applicability:
-  applicability_inline: false
-  chassis_from:
-  chassis_to:
-  chassis_ranges:
-  option_codes: []
-  type_and_model: 261-264
-  position: ill21-k30
-  position_status: suggested
-  bbox_px:
-  - 272
-  - 856
-  - 2419
-  - 955
-  bbox_source: tesseract
-  readings:
-    pdf_text:
-      key:
-      key_prefix:
-      marker:
-      part_no: 261 209163
-      description: Operating rod - Fuel tap
-      quantity: '1'
-      applicability:
-      applicability_inline: false
-      type_and_model: 261-264
-      text: 261 209163 Operating rod - Fuel tap .......•.••....••••.. 1 261-264
-      continuation:
-      min_conf: 436
-    tesseract:
-      key:
-      key_prefix:
-      marker:
-      part_no: '261209163'
-      description: ". Operating rod ~ Fuel tap"
-      quantity: '1'
-      applicability:
-      applicability_inline: false
-      type_and_model: 261-264
-      text: "~ 261209163 . Operating rod ~ Fuel tap ..............0e. 005s 1 261-264"
-      continuation:
-      min_conf: 313
-  disagreements: []
-  confidence: readings agree
-  confidence_reasons: []
-  status: unverified
-  reviewed_by:
-  reviewed_at:
-  corrections: []
-  main_group: '2'
-  illustration: '21'
-  cross_edition: not_available
-- id: ill26-3-25-07
-  edition: vw-tpl-1963-08
-  printed_page: 3-25
-  pdf_page: 234
-  row_order: 7
-  key: 33
-  key_prefix:
-  marker: "*"
-  part_no: 113 309 381 A
-  part_no_norm: 113309381A
-  description: Lock plate
-  quantity: '1'
-  applicability:
+  part_no: 111 298 101
+  part_no_norm: '111298101'
+  description: 1 set up of to fixing Engine components No. 216 054 for 821 heater control cable
+  quantity: "×"
+  applicability: ": up to Engine No. 216 054 821"
   applicability_inline: false
   chassis_from:
   chassis_to:
   chassis_ranges:
   option_codes: []
   type_and_model:
-  position: ill26-k33
+  position: ill22-k43
   position_status: suggested
   bbox_px:
-  - 307
-  - 1228
-  - 2422
-  - 1327
+  - 75
+  - 2795
+  - 2426
+  - 2927
   bbox_source: tesseract
   readings:
     pdf_text:
-      key: 33
+      key: 43
       key_prefix:
-      marker: "*"
-      part_no: 113 309 381 A
-      description: Lock plate
-      quantity:
+      marker:
+      part_no: 111 298101
+      description: 1 set up of to fixing Engine components No. 216 054 for 821 heater control cable
+      quantity: "×"
       applicability:
       applicability_inline: false
       type_and_model:
-      text: 33 *113 309 381 A Lock plate ····· Drive pinion
+      text: "' ;f 43 111 298101 1 set up of to fixing Engine components No. 216 054 for 821 heater control cable X"
       continuation:
-      min_conf: 354
+      min_conf: 114
     tesseract:
-      key: 33
-      key_prefix:
-      marker: "*"
-      part_no: 113 309381
-      description: A] Lock plate — Drive pinion
-      quantity: '1'
-      applicability:
-      applicability_inline: false
-      type_and_model:
-      text: 33. | *113 309381 A] Lock plate — Drive pinion ...............0.05- 1
-      continuation:
-      min_conf: 354
-  disagreements:
-  - part_no
-  confidence: needs checking
-  confidence_reasons:
-  - part_no_differs
-  status: unverified
-  reviewed_by:
-  reviewed_at:
-  corrections: []
-  main_group: '3'
-  illustration: '26'
-  cross_edition: not_available
-- id: ill27-3-32-05
-  edition: vw-tpl-1963-08
-  printed_page: 3-32
-  pdf_page: 243
-  row_order: 5
-  key:
-  key_prefix:
-  marker:
-  part_no: 211 311 275
-  part_no_norm: '211311275'
-  description: Gear train (3•d speed)
-  quantity: '1'
-  applicability: from Chassis No. 614 456 up to 216 190 000
-  applicability_inline: false
-  chassis_from:
-    printed: 614 456
-    seq: 614456
-    format: 6-digit
-  chassis_to:
-    printed: 216 190 000
-    seq:
-    format: 9-digit
-    note: outside the stated sequence rule (20-NNN NNN or 6/7 digits); not parsed
-  chassis_ranges:
-  option_codes: []
-  type_and_model:
-  position: ill27-k32
-  position_status: suggested
-  bbox_px:
-  - 250
-  - 1018
-  - 2430
-  - 1155
-  bbox_source: tesseract
-  readings:
-    pdf_text:
-      key:
+      key: 43
       key_prefix:
       marker:
-      part_no: 211 311 275
-      description: Gear train (3•d speed)
-      quantity:
-      applicability: from Chassis No. 614 456 up to 216 190 000
+      part_no: '111298101'
+      description: "= 1 set of fixing components for heater control cable"
+      quantity: "×"
+      applicability: ": up to Engine No. 216 054 821"
       applicability_inline: false
       type_and_model:
-      text: 211 311 275 Gear train (3•d speed) ....................... .
-      continuation: from Chassis No. 614 456 up to 216 190 000
-      min_conf: 415
-    tesseract:
-      key:
-      key_prefix:
-      marker:
-      part_no: 211 311 275
-      description: Gear train (3'¢ speed)
-      quantity: '1'
-      applicability: from Chassis No. 614 456 up to 216 190 000
-      applicability_inline: false
-      type_and_model:
-      text: "- 211 311 275 Gear train (3'¢ speed) .......... 0. ee eee eee ee 1"
-      continuation: from Chassis No. 614 456 up to 216 190 000
-      min_conf: 290
-  disagreements: []
-  confidence: readings agree
-  confidence_reasons: []
-  status: unverified
-  reviewed_by:
-  reviewed_at:
-  corrections: []
-  main_group: '3'
-  illustration: '27'
-  cross_edition: not_available
-- id: ill27-3-35-13
-  edition: vw-tpl-1963-08
-  printed_page: 3-35
-  pdf_page: 246
-  row_order: 13
-  key: 73
-  key_prefix:
-  marker: "*"
-  part_no: 111 307 629
-  part_no_norm: '111307629'
-  description: Plunger - Gear lock
-  quantity: '2'
-  applicability: |-
-    C,
-    l. . N
-    i:!
-    >,
-    ., C
-    E
-    t
-    Cl
-    ~
-    "Cl i: .
-    ;f
-  applicability_inline: false
-  chassis_from:
-  chassis_to:
-  chassis_ranges:
-  option_codes: []
-  type_and_model:
-  position: ill27-k73
-  position_status: suggested
-  bbox_px:
-  - 313
-  - 2031
-  - 2413
-  - 2127
-  bbox_source: tesseract
-  readings:
-    pdf_text:
-      key: 73
-      key_prefix:
-      marker: "*"
-      part_no: '111307629'
-      description: Plunger - Gear lock
-      quantity:
-      applicability: |-
-        C,
-        l. . N
-        i:!
-        >,
-        ., C
-        E
-        t
-        Cl
-        ~
-        "Cl i: .
-        ;f
-      applicability_inline: false
-      type_and_model:
-      text: 73 *111307629 Plunger - Gear lock ........................ . l
-      continuation: |-
-        C,
-        l. . N
-        i:!
-        >,
-        ., C
-        E
-        t
-        Cl
-        ~
-        "Cl i: .
-        ;f
-      min_conf: 361
-    tesseract:
-      key: 73
-      key_prefix:
-      marker: "*"
-      part_no: 111 307 629
-      description: Plunger -- Gear lock
-      quantity: '2'
-      applicability:
-      applicability_inline: false
-      type_and_model:
-      text: 73 | *111 307 629 Plunger -- Gear lock 1... 0. ce ee ce cee es 2
-      continuation:
-      min_conf: 361
-  disagreements: []
-  confidence: readings agree
-  confidence_reasons: []
-  status: unverified
-  reviewed_by:
-  reviewed_at:
-  corrections: []
-  main_group: '3'
-  illustration: '27'
-  cross_edition: not_available
-- id: ill22-p266-15
-  edition: vw-tpl-1963-08
-  printed_page: 2-16
-  pdf_page: 266
-  row_order: 15
-  key:
-  key_prefix:
-  marker:
-  part_no: 211 255 431 D
-  part_no_norm: 211255431D
-  description: Muffle-r - Heater
-  quantity: '2'
-  applicability: up to Chassis No. 215 036 650
-  applicability_inline: false
-  chassis_from:
-  chassis_to:
-    printed: 215 036 650
-    seq:
-    format: 9-digit
-    note: outside the stated sequence rule (20-NNN NNN or 6/7 digits); not parsed
-  chassis_ranges:
-  option_codes: []
-  type_and_model:
-  position: ill22-k51
-  position_status: suggested
-  bbox_px:
-  - 361
-  - 2755
-  - 2430
-  - 2908
-  bbox_source: tesseract
-  readings:
-    pdf_text:
-      key:
-      key_prefix:
-      marker:
-      part_no: 211255431 D
-      description: Muffle-r - Heater
-      quantity: '2'
-      applicability: up to Chassis No. 215 036 650
-      applicability_inline: false
-      type_and_model:
-      text: 211255431 D Muffle-r - Heater ..........................•.. 2
-      continuation: up to Chassis No. 215 036 650
-      min_conf: 483
-    tesseract:
-      key:
-      key_prefix:
-      marker:
-      part_no: 211255431D
-      description: Muffler — Heater
-      quantity: '2'
-      applicability: up to Chassis No. 215 036 650
-      applicability_inline: false
-      type_and_model:
-      text: 211.255431D Muffler — Heater ........00.. cece cee eeeee eee 2
-      continuation: up to Chassis No. 215 036 650
-      min_conf: 505
+      text: o 43 111298101 = 1 set of fixing components for heater control cable x
+      continuation: ": up to Engine No. 216 054 821"
+      min_conf: 116
   disagreements: []
   confidence: readings agree
   confidence_reasons: []
@@ -1538,60 +1122,60 @@ rows:
   main_group: '2'
   illustration: '22'
   cross_edition: not_available
-- id: ill22a-p271-01
+- id: ill22-p196-02
   edition: vw-tpl-1963-08
-  printed_page: 2-19
-  pdf_page: 271
-  row_order: 1
-  key: 1
+  printed_page: 2-16
+  pdf_page: 196
+  row_order: 2
+  key:
   key_prefix:
-  marker:
-  part_no: 211 261 125
-  part_no_norm: '211261125'
-  description: Combustion air pipe
+  marker: "•"
+  part_no: 113 255 292 A
+  part_no_norm: 113255292A
+  description: Hose, right - Fan hou~ing to heat exchanger
   quantity: '1'
-  applicability:
+  applicability: from Engine No. 7 336 420
   applicability_inline: false
   chassis_from:
   chassis_to:
   chassis_ranges:
   option_codes: []
   type_and_model:
-  position: ill22a-k1
+  position: ill22-k44
   position_status: suggested
   bbox_px:
-  - 336
-  - 713
+  - 260
+  - 648
   - 2430
-  - 809
+  - 785
   bbox_source: tesseract
   readings:
     pdf_text:
       key:
       key_prefix:
-      marker:
-      part_no: 211 261125
-      description: Combustion air pipe
-      quantity:
-      applicability:
-      applicability_inline: false
-      type_and_model:
-      text: 211 261125 Combustion air pipe ........................ .
-      continuation:
-      min_conf: 498
-    tesseract:
-      key: 1
-      key_prefix:
-      marker:
-      part_no: 211 261 125
-      description: Combustion air pipe
+      marker: "•"
+      part_no: 113 255 292 A
+      description: Hose, right - Fan hou~ing to heat exchanger
       quantity: '1'
-      applicability:
+      applicability: from Engine No. 7 336 420
       applicability_inline: false
       type_and_model:
-      text: 1 211 261 125 Combustion air pipe ......... 0. cece ee eee eee ee 1
-      continuation:
-      min_conf: 372
+      text: "•113 255 292 A Hose, right - Fan hou~ing to heat exchanger ..... 1"
+      continuation: from Engine No. 7 336 420
+      min_conf: 417
+    tesseract:
+      key:
+      key_prefix:
+      marker: "*"
+      part_no: 113255292A
+      description: "—_ Hose, right — Fan housing to heat exchanger"
+      quantity: '1'
+      applicability: from Engine No. 7 336 420
+      applicability_inline: false
+      type_and_model:
+      text: "- *113255292A —_ Hose, right — Fan housing to heat exchanger ..... 1"
+      continuation: from Engine No. 7 336 420
+      min_conf: 300
   disagreements: []
   confidence: readings agree
   confidence_reasons: []
@@ -1600,223 +1184,66 @@ rows:
   reviewed_at:
   corrections: []
   main_group: '2'
-  illustration: 22a
+  illustration: '22'
   cross_edition: not_available
-- id: ill22a-p273-03
+- id: ill24-3-11-06
   edition: vw-tpl-1963-08
-  printed_page:
-  pdf_page: 273
-  row_order: 3
-  key: 40
-  key_prefix:
-  marker:
-  part_no: 311 261 467
-  part_no_norm: '311261467'
-  description: Fuel ·pump 12 V
-  quantity:
-  applicability: from Chassis No. 217 000 001
-  applicability_inline: false
-  chassis_from:
-    printed: 217 000 001
-    seq:
-    format: 9-digit
-    note: outside the stated sequence rule (20-NNN NNN or 6/7 digits); not parsed
-  chassis_to:
-  chassis_ranges:
-  option_codes: []
-  type_and_model:
-  position: ill22a-k40
-  position_status: suggested
-  bbox_px:
-  - 425
-  - 726
-  - 2430
-  - 858
-  bbox_source: tesseract
-  readings:
-    pdf_text:
-      key: 40
-      key_prefix:
-      marker:
-      part_no: 311 261 467
-      description: Fuel ·pump 12 V
-      quantity:
-      applicability: from Chassis No. 217 000 001
-      applicability_inline: false
-      type_and_model:
-      text: 40 311 261 467 Fuel ·pump 12 V ............................ .
-      continuation: from Chassis No. 217 000 001
-      min_conf: 345
-    tesseract:
-      key:
-      key_prefix:
-      marker:
-      part_no: 311 261 467
-      description: Fuel pump 12 V
-      quantity:
-      applicability: from Chassis No. 217 000 001
-      applicability_inline: false
-      type_and_model:
-      text: 311 261 467 Fuel pump 12 V .............6065-
-      continuation: from Chassis No. 217 000 001
-      min_conf: 479
-  disagreements: []
-  confidence: readings agree
-  confidence_reasons: []
-  status: unverified
-  reviewed_by:
-  reviewed_at:
-  corrections: []
-  main_group:
-  illustration: 22a
-  cross_edition: not_available
-- id: ill28-4-13-03
-  edition: vw-tpl-1963-08
-  printed_page: 4-13
-  pdf_page: 292
-  row_order: 3
-  key: 57
-  key_prefix:
-  marker:
-  part_no: 211 411 033
-  part_no_norm: '211411033'
-  description: Tors ion spring (nine leaves)
-  quantity: '2'
-  applicability: from Chassis No. 20 - 117 902
-  applicability_inline: false
-  chassis_from:
-    printed: 20 - 117 902
-    seq: 117902
-    format: 20-NNN NNN
-  chassis_to:
-  chassis_ranges:
-  option_codes: []
-  type_and_model:
-  position: ill28-k57
-  position_status: suggested
-  bbox_px:
-  - 311
-  - 897
-  - 2413
-  - 1024
-  bbox_source: tesseract
-  readings:
-    pdf_text:
-      key: 57
-      key_prefix:
-      marker:
-      part_no: 211 411 033
-      description: Tors ion spring (nine leaves)
-      quantity: '2'
-      applicability: from Chassis No. 20 - 117 902
-      applicability_inline: false
-      type_and_model:
-      text: 57 211 411 033 Tors ion spring (nine leaves) .•...•• , .....•••••• 2
-      continuation: from Chassis No. 20 - 117 902
-      min_conf: 360
-    tesseract:
-      key: 57
-      key_prefix:
-      marker:
-      part_no: 211 411 033
-      description: Torsion spring (nine leaves)
-      quantity: '2'
-      applicability: from Chassis No. 20 - 117 902
-      applicability_inline: false
-      type_and_model:
-      text: 57 211 411 033 Torsion spring (nine leaves) ....... pace eeeeees 2
-      continuation: 'from Chassis No. 20 - 117 902 :'
-      min_conf: 360
-  disagreements: []
-  confidence: readings agree
-  confidence_reasons: []
-  status: unverified
-  reviewed_by:
-  reviewed_at:
-  corrections: []
-  main_group: '4'
-  illustration: '28'
-  cross_edition: not_available
-- id: ill28-4-14-09
-  edition: vw-tpl-1963-08
-  printed_page: 4-14
-  pdf_page: 293
-  row_order: 9
+  printed_page: 3-11
+  pdf_page: 220
+  row_order: 6
   key:
   key_prefix:
   marker:
-  part_no: 271 513 031 A
-  part_no_norm: 271513031A
-  description: Shock absorber, front
-  quantity: '2'
-  applicability: |-
-    · from Chassis No. 20 - 117 902
-    (replace only in pairs
-    up to Chassis No. 276 190 000)
+  part_no: 211 300 043 C
+  part_no_norm: 211300043C
+  description: Transmission
+  quantity: '1'
+  applicability: up to Chassis No. 216 190 000
   applicability_inline: false
   chassis_from:
-    printed: 20 - 117 902
-    seq: 117902
-    format: 20-NNN NNN
   chassis_to:
-    printed: 276 190 000
+    printed: 216 190 000
     seq:
     format: 9-digit
     note: outside the stated sequence rule (20-NNN NNN or 6/7 digits); not parsed
   chassis_ranges:
   option_codes: []
-  type_and_model: '271,274'
-  position: ill28-k69
+  type_and_model: Engine-1.5 Liter
+  position:
   position_status: suggested
   bbox_px:
-  - 359
-  - 1524
-  - 2498
-  - 1760
+  - 343
+  - 1581
+  - 2430
+  - 1717
   bbox_source: tesseract
   readings:
     pdf_text:
       key:
       key_prefix:
       marker:
-      part_no: 271 513 031 A
-      description: Shock absorber, front
-      quantity: '2'
-      applicability: |-
-        · from Chassis No. 20 - 117 902
-        (replace only in pairs
-        up to Chassis No. 276 190 000)
+      part_no: 211 300 043 C
+      description: Transmission
+      quantity: '1'
+      applicability: up to Chassis No. 216 190 000
       applicability_inline: false
-      type_and_model: '271,274'
-      text: 271 513 031 A Shock absorber, front ........................ 2 271,274
-      continuation: |-
-        · from Chassis No. 20 - 117 902
-        (replace only in pairs
-        up to Chassis No. 276 190 000)
-      min_conf: 414
+      type_and_model: Engine-1.5 Liter
+      text: 211 300 043 C Transmission ................................ . 1 Engine-1.5 Liter
+      continuation: up to Chassis No. 216 190 000
+      min_conf: 507
     tesseract:
       key:
       key_prefix:
       marker:
-      part_no: 271513031A
-      description: "= Shock absorber, front"
-      quantity: '2'
-      applicability: |-
-        ‘
-        from Chassis No. 20 — 117 902
-        (replace only in pairs
-        up te Chassis No. 276 190 000)
+      part_no: 211 300043 C
+      description: "= Transmission"
+      quantity: '1'
+      applicability: up to Chassis No. 216 190 000
       applicability_inline: false
-      type_and_model: |-
-        274
-        ~
-      text: 271513031A = Shock absorber, front .........secceceeeeeeees 2 271, 274
-      continuation: |-
-        ‘
-        from Chassis No. 20 — 117 902 ~
-        (replace only in pairs
-        up te Chassis No. 276 190 000)
-      min_conf: 501
+      type_and_model: Engine-1.5 Liter
+      text: "- 211 300043 C = Transmission ............0.e eee c cece eer eeees 1 Engine-1.5 Liter"
+      continuation: up to Chassis No. 216 190 000
+      min_conf: 383
   disagreements: []
   confidence: readings agree
   confidence_reasons: []
@@ -1824,63 +1251,650 @@ rows:
   reviewed_by:
   reviewed_at:
   corrections: []
-  main_group: '4'
-  illustration: '28'
+  main_group: '3'
+  illustration: '24'
   cross_edition: not_available
-- id: ill28-4-14-20
+- id: ill26-3-23-09
   edition: vw-tpl-1963-08
-  printed_page: 4-14
-  pdf_page: 293
-  row_order: 20
-  key: 75
+  printed_page: 3-23
+  pdf_page: 232
+  row_order: 9
+  key: 6
   key_prefix:
-  marker:
-  part_no: N 12 112 1
-  part_no_norm: N121121
-  description: Spring washer J 12.5 DIN 6798
-  quantity: '2'
-  applicability: "\\"
+  marker: "*"
+  part_no: 113 309 125
+  part_no_norm: '113309125'
+  description: Needle bearing - Main drive shaft
+  quantity: '1'
+  applicability:
   applicability_inline: false
   chassis_from:
   chassis_to:
   chassis_ranges:
   option_codes: []
   type_and_model:
-  position: ill28-k75
+  position: ill26-k6
   position_status: suggested
   bbox_px:
-  - 216
-  - 2591
-  - 2430
-  - 2693
+  - 315
+  - 1761
+  - 2413
+  - 1859
   bbox_source: tesseract
   readings:
     pdf_text:
-      key: 75
+      key: 6
       key_prefix:
-      marker:
-      part_no: N 121121
-      description: Spring washer J 12.5 DIN 6798
-      quantity: '2'
-      applicability: "\\"
+      marker: "*"
+      part_no: 113 309 125
+      description: Needle bearing - Main drive shaft
+      quantity:
+      applicability:
       applicability_inline: false
       type_and_model:
-      text: 75 N 121121 Spring washer J 12.5 DIN 6798 ................ 2
-      continuation: "\\"
-      min_conf: 275
+      text: 6 *113 309 125 Needle bearing - Main drive shaft
+      continuation:
+      min_conf: 354
     tesseract:
-      key: 15
+      key: 6
       key_prefix:
-      marker:
-      part_no: N 121121
-      description: Spring washer J 12.5 DIN 6798
+      marker: "*"
+      part_no: 113 309125
+      description: Needle bearing — Main drive shaft
+      quantity: '1'
+      applicability:
+      applicability_inline: false
+      type_and_model:
+      text: 6 | *113 309125 Needle bearing — Main drive shaft ............. 1
+      continuation:
+      min_conf: 354
+  disagreements: []
+  confidence: readings agree
+  confidence_reasons: []
+  status: unverified
+  reviewed_by:
+  reviewed_at:
+  corrections: []
+  main_group: '3'
+  illustration: '26'
+  cross_edition: not_available
+- id: ill26-3-26-10
+  edition: vw-tpl-1963-08
+  printed_page: 3-26
+  pdf_page: 235
+  row_order: 10
+  key: 52
+  key_prefix:
+  marker: "*"
+  part_no: 111 307 629
+  part_no_norm: '111307629'
+  description: Plunger - Gear lock
+  quantity: '2'
+  applicability:
+  applicability_inline: false
+  chassis_from:
+  chassis_to:
+  chassis_ranges:
+  option_codes: []
+  type_and_model:
+  position: ill26-k52
+  position_status: suggested
+  bbox_px:
+  - 241
+  - 1711
+  - 2422
+  - 1808
+  bbox_source: tesseract
+  readings:
+    pdf_text:
+      key: 52
+      key_prefix:
+      marker: "*"
+      part_no: 111 307 629
+      description: Plunger - Gear lock
       quantity: '2'
       applicability:
       applicability_inline: false
       type_and_model:
-      text: 15 N 121121 Spring washer J 12.5 DIN 6798 ............022. 2
+      text: 52 *111 307 629 Plunger - Gear lock ........................ . 2
       continuation:
-      min_conf: 271
+      min_conf: 288
+    tesseract:
+      key: 52
+      key_prefix:
+      marker: "*"
+      part_no: 111 307 629
+      description: Plunger — Gear lock
+      quantity: '2'
+      applicability:
+      applicability_inline: false
+      type_and_model:
+      text: 52 *111 307 629 Plunger — Gear lock ......... 0... cere ee eee 2
+      continuation:
+      min_conf: 288
+  disagreements: []
+  confidence: readings agree
+  confidence_reasons: []
+  status: unverified
+  reviewed_by:
+  reviewed_at:
+  corrections: []
+  main_group: '3'
+  illustration: '26'
+  cross_edition: not_available
+- id: ill28-4-6-05
+  edition: vw-tpl-1963-08
+  printed_page: 4-6
+  pdf_page: 285
+  row_order: 5
+  key: 18
+  key_prefix:
+  marker:
+  part_no: N 18 510 1
+  part_no_norm: N185101
+  description: Grease nipple C
+  quantity: '1'
+  applicability:
+  applicability_inline: false
+  chassis_from:
+  chassis_to:
+  chassis_ranges:
+  option_codes: []
+  type_and_model:
+  position: ill28-k18
+  position_status: suggested
+  bbox_px:
+  - 236
+  - 1027
+  - 2413
+  - 1115
+  bbox_source: tesseract
+  readings:
+    pdf_text:
+      key:
+      key_prefix:
+      marker:
+      part_no: N 185101
+      description: Grease nipple C
+      quantity:
+      applicability:
+      applicability_inline: false
+      type_and_model:
+      text: N 185101 Grease nipple C 10 .................••......•
+      continuation:
+      min_conf: 432
+    tesseract:
+      key: 18
+      key_prefix:
+      marker:
+      part_no: '5101'
+      description: Grease nipple C 10 2.0.6
+      quantity: '1'
+      applicability:
+      applicability_inline: false
+      type_and_model:
+      text: "- N18 5101 Grease nipple C 10 2.0.6... cece eee : 1"
+      continuation:
+      min_conf: 276
+  disagreements:
+  - part_no
+  confidence: needs checking
+  confidence_reasons:
+  - part_no_differs
+  - bad_shape
+  status: unverified
+  reviewed_by:
+  reviewed_at:
+  corrections: []
+  main_group: '4'
+  illustration: '28'
+  cross_edition: not_available
+- id: ill28-4-13-14
+  edition: vw-tpl-1963-08
+  printed_page: 4-13
+  pdf_page: 292
+  row_order: 14
+  key:
+  key_prefix:
+  marker:
+  part_no: 211 411 334
+  part_no_norm: '211411334'
+  description: Spring dip - large, right - Stabilizer
+  quantity: '1'
+  applicability: "... 1:1"
+  applicability_inline: false
+  chassis_from:
+  chassis_to:
+  chassis_ranges:
+  option_codes: []
+  type_and_model:
+  position: ill28-k63
+  position_status: suggested
+  bbox_px:
+  - 69
+  - 2298
+  - 2413
+  - 2444
+  bbox_source: tesseract
+  readings:
+    pdf_text:
+      key:
+      key_prefix:
+      marker:
+      part_no: 211 411 334
+      description: Spring dip - large, right - Stabilizer
+      quantity: '1'
+      applicability: "... 1:1"
+      applicability_inline: false
+      type_and_model:
+      text: fil . 211 411 334 Spring dip - large, right - Stabilizer .....•...... 1
+      continuation: "... 1:1"
+      min_conf: 105
+    tesseract:
+      key:
+      key_prefix:
+      marker:
+      part_no: 211 441 334
+      description: Spring clip — large, right — Stabilizer
+      quantity: '1'
+      applicability: RI
+      applicability_inline: false
+      type_and_model:
+      text: a ~ 211 441 334 Spring clip — large, right — Stabilizer ............ 1
+      continuation: RI
+      min_conf: 110
+  disagreements:
+  - part_no
+  - applicability
+  confidence: needs checking
+  confidence_reasons:
+  - part_no_differs
+  - applicability_differs
+  status: unverified
+  reviewed_by:
+  reviewed_at:
+  corrections: []
+  main_group: '4'
+  illustration: '28'
+  cross_edition: not_available
+- id: ill29-4-19-02
+  edition: vw-tpl-1963-08
+  printed_page: 4-19
+  pdf_page: 298
+  row_order: 2
+  key: 27
+  key_prefix:
+  marker:
+  part_no: N 11 216 2
+  part_no_norm: N112162
+  description: Nut - Slotted M 20X 1.S DIN 937
+  quantity: '1'
+  applicability:
+  applicability_inline: false
+  chassis_from:
+  chassis_to:
+  chassis_ranges:
+  option_codes: []
+  type_and_model:
+  position: ill29-k27
+  position_status: suggested
+  bbox_px:
+  - 483
+  - 594
+  - 2422
+  - 704
+  bbox_source: tesseract
+  readings:
+    pdf_text:
+      key: 27
+      key_prefix:
+      marker:
+      part_no: N 11 2162
+      description: Nut - Slotted M 20X 1.S DIN 937
+      quantity: '1'
+      applicability:
+      applicability_inline: false
+      type_and_model:
+      text: 27 N 11 2162 Nut - Slotted M 20X 1.S DIN 937 ...•.......••. 1
+      continuation:
+      min_conf: 360
+    tesseract:
+      key:
+      key_prefix:
+      marker:
+      part_no: N 112162
+      description: Nut ~ Slotted M 20X1.5 DIN 937
+      quantity:
+      applicability:
+      applicability_inline: false
+      type_and_model:
+      text: N 112162 Nut ~ Slotted M 20X1.5 DIN 937 .....
+      continuation:
+      min_conf: 526
+  disagreements: []
+  confidence: readings agree
+  confidence_reasons: []
+  status: unverified
+  reviewed_by:
+  reviewed_at:
+  corrections: []
+  main_group: '4'
+  illustration: '29'
+  cross_edition: not_available
+- id: ill29-4-24-05
+  edition: vw-tpl-1963-08
+  printed_page: 4-24
+  pdf_page: 303
+  row_order: 5
+  key:
+  key_prefix:
+  marker:
+  part_no: N 12 232 1
+  part_no_norm: N122321
+  description: Spring washer B 12 DIN 137
+  quantity: '2'
+  applicability:
+  applicability_inline: false
+  chassis_from:
+  chassis_to:
+  chassis_ranges:
+  option_codes: []
+  type_and_model:
+  position: ill29-k79
+  position_status: suggested
+  bbox_px:
+  - 223
+  - 889
+  - 2418
+  - 1037
+  bbox_source: tesseract
+  readings:
+    pdf_text:
+      key:
+      key_prefix:
+      marker:
+      part_no: N 12 2321
+      description: Spring washer B 12 DIN 137
+      quantity: '2'
+      applicability:
+      applicability_inline: false
+      type_and_model:
+      text: N 12 2321 Spring washer B 12 DIN 137 ....... , ••••••••••• 2
+      continuation:
+      min_conf: 419
+    tesseract:
+      key:
+      key_prefix:
+      marker:
+      part_no: N 122321
+      description: Spring washer B {2 DIN 137 oes ccceyeeeeeeenens
+      quantity: '2'
+      applicability:
+      applicability_inline: false
+      type_and_model:
+      text: "- N 122321 Spring washer B {2 DIN 137 oes ccceyeeeeeeenens 2"
+      continuation:
+      min_conf: 275
+  disagreements: []
+  confidence: readings agree
+  confidence_reasons: []
+  status: unverified
+  reviewed_by:
+  reviewed_at:
+  corrections: []
+  main_group: '4'
+  illustration: '29'
+  cross_edition: not_available
+- id: ill30-5-7-18
+  edition: vw-tpl-1963-08
+  printed_page: 5-7
+  pdf_page: 317
+  row_order: 18
+  key:
+  key_prefix:
+  marker:
+  part_no: '216'
+  part_no_norm: '216'
+  description: end
+  quantity:
+  applicability: from Chassis No. 1 144 282,
+  applicability_inline: true
+  chassis_from:
+    printed: 1 144 282
+    seq: 1144282
+    format: 7-digit
+  chassis_to:
+  chassis_ranges:
+  option_codes: []
+  type_and_model:
+  position: ill30-k20
+  position_status: suggested
+  bbox_px:
+  - 679
+  - 3004
+  - 2422
+  - 3126
+  bbox_source: tesseract
+  readings:
+    pdf_text:
+    tesseract:
+      key:
+      key_prefix:
+      marker:
+      part_no: '216'
+      description: end
+      quantity:
+      applicability: from Chassis No. 1 144 282,
+      applicability_inline: true
+      type_and_model:
+      text: Mw 216 end from Chassis No. 1 144 282,
+      continuation:
+      min_conf: 739
+  disagreements:
+  - part_no
+  confidence: needs checking
+  confidence_reasons:
+  - only_tesseract
+  - bad_shape
+  status: unverified
+  reviewed_by:
+  reviewed_at:
+  corrections: []
+  main_group: '5'
+  illustration: '30'
+  cross_edition: not_available
+- id: ill30-5-10-11
+  edition: vw-tpl-1963-08
+  printed_page: 5-10
+  pdf_page: 321
+  row_order: 11
+  key:
+  key_prefix:
+  marker:
+  part_no: 211 501 615 D
+  part_no_norm: 211501615D
+  description: Brake drum, rear
+  quantity: '2'
+  applicability: up to Chassis No. 1 144 281
+  applicability_inline: false
+  chassis_from:
+  chassis_to:
+    printed: 1 144 281
+    seq: 1144281
+    format: 7-digit
+  chassis_ranges:
+  option_codes: []
+  type_and_model: '216'
+  position: ill30-k45
+  position_status: suggested
+  bbox_px:
+  - 254
+  - 1534
+  - 2422
+  - 1700
+  bbox_source: tesseract
+  readings:
+    pdf_text:
+      key:
+      key_prefix:
+      marker:
+      part_no: 211 501 615 D
+      description: Brake drum, rear
+      quantity: '2'
+      applicability: up to Chassis No. 1 144 281
+      applicability_inline: false
+      type_and_model: '216'
+      text: 211 501 615 D Brake drum, rear .............................. 2 M 216
+      continuation: up to Chassis No. 1 144 281
+      min_conf: 417
+    tesseract:
+      key:
+      key_prefix:
+      marker:
+      part_no: 211501615D
+      description: Brake drum, TOAD occ cece cence ee ateeeneaees
+      quantity: '2'
+      applicability: up to Chassis No. 1 144 281
+      applicability_inline: false
+      type_and_model: M216
+      text: "- 211501615D Brake drum, TOAD occ cece cence ee ateeeneaees 2 M216"
+      continuation: up to Chassis No. 1 144 281
+      min_conf: 294
+  disagreements: []
+  confidence: readings agree
+  confidence_reasons: []
+  status: unverified
+  reviewed_by:
+  reviewed_at:
+  corrections: []
+  main_group: '5'
+  illustration: '30'
+  cross_edition: not_available
+- id: ill30-5-1-19
+  edition: vw-tpl-1963-08
+  printed_page: 5-1
+  pdf_page: 322
+  row_order: 19
+  key:
+  key_prefix:
+  marker:
+  part_no: 211 513 038
+  part_no_norm: '211513038'
+  description: Shock absorber, right (lever type)
+  quantity: '1'
+  applicability: up to Chassis No. 20-117 901
+  applicability_inline: false
+  chassis_from:
+  chassis_to:
+    printed: 20-117 901
+    seq: 117901
+    format: 20-NNN NNN
+  chassis_ranges:
+  option_codes: []
+  type_and_model:
+  position: ill30-k61
+  position_status: suggested
+  bbox_px:
+  - 98
+  - 2952
+  - 2422
+  - 3184
+  bbox_source: tesseract
+  readings:
+    pdf_text:
+      key:
+      key_prefix:
+      marker:
+      part_no: 211 513 038
+      description: Shock absorber, right (lever type)
+      quantity: '1'
+      applicability: up to Chassis No. 20-117 901
+      applicability_inline: false
+      type_and_model:
+      text: 211 513 038 Shock absorber, right (lever type) ........•...... 1
+      continuation: up to Chassis No. 20-117 901
+      min_conf: 488
+    tesseract:
+      key:
+      key_prefix:
+      marker:
+      part_no: 211 513 038
+      description: Shock absorber, right (lever type)
+      quantity: '1'
+      applicability: |-
+        up to Chassis No, 20-117 901
+        ™~,
+      applicability_inline: false
+      type_and_model:
+      text: "- 211 513 038 Shock absorber, right (lever type) ............66. 1"
+      continuation: |-
+        up to Chassis No, 20-117 901
+        ™~,
+      min_conf: 364
+  disagreements: []
+  confidence: readings agree
+  confidence_reasons: []
+  status: unverified
+  reviewed_by:
+  reviewed_at:
+  corrections: []
+  main_group: '5'
+  illustration: '30'
+  cross_edition: not_available
+- id: ill33a33-6-15-07
+  edition: vw-tpl-1963-08
+  printed_page: 6-15
+  pdf_page: 354
+  row_order: 7
+  key: 3
+  key_prefix:
+  marker:
+  part_no: N 12 008 2
+  part_no_norm: N120082
+  description: Lock weshe~·s 8 DIN 127 galvanized
+  quantity: '2'
+  applicability:
+  applicability_inline: false
+  chassis_from:
+  chassis_to:
+  chassis_ranges:
+  option_codes: []
+  type_and_model:
+  position: ill33a33-k3
+  position_status: suggested
+  bbox_px:
+  - 303
+  - 1610
+  - 2413
+  - 1773
+  bbox_source: tesseract
+  readings:
+    pdf_text:
+      key: 3
+      key_prefix:
+      marker:
+      part_no: N 12008 2
+      description: Lock weshe~·s 8 DIN 127 galvanized
+      quantity: '2'
+      applicability:
+      applicability_inline: false
+      type_and_model:
+      text: 3 N 12008 2. Lock weshe~·s 8 DIN 127 galvanized ... - ...... •,• 2
+      continuation:
+      min_conf: 350
+    tesseract:
+      key: 32
+      key_prefix:
+      marker:
+      part_no: N 120082
+      description: "“Lead wah d's Bin 127 galvanized"
+      quantity: '2'
+      applicability:
+      applicability_inline: false
+      type_and_model:
+      text: 32 N 120082, “Lead wah d's Bin 127 galvanized ....0:.-4.. 2
+      continuation:
+      min_conf: 375
   disagreements:
   - key
   confidence: needs checking
@@ -1890,21 +1904,21 @@ rows:
   reviewed_by:
   reviewed_at:
   corrections: []
-  main_group: '4'
-  illustration: '28'
-  cross_edition: not_available
-- id: ill31-5-17-14
+  main_group: '6'
+  illustration: 33+A33
+  cross_edition: found_in_1958_67
+- id: ill33a33-6-17-21
   edition: vw-tpl-1963-08
-  printed_page: 5-17
-  pdf_page: 328
-  row_order: 14
-  key: 23
+  printed_page: 6-17
+  pdf_page: 356
+  row_order: 21
+  key: 16
   key_prefix:
   marker:
-  part_no: 113 517 199
-  part_no_norm: '113517199'
-  description: Shim 2.8 mm ~ Differential
-  quantity: "×"
+  part_no: 113 611 373
+  part_no_norm: '113611373'
+  description: ", Plug - Reservoir, 211 611 301 A"
+  quantity:
   applicability:
   applicability_inline: false
   chassis_from:
@@ -1912,305 +1926,167 @@ rows:
   chassis_ranges:
   option_codes: []
   type_and_model:
-  position: ill31-k23
+  position: ill33a33-k16
   position_status: suggested
   bbox_px:
-  - 332
-  - 2229
-  - 2422
-  - 2326
-  bbox_source: tesseract
+  - 298
+  - 2727
+  - 2430
+  - 2817
+  bbox_source: pdf_text
   readings:
     pdf_text:
-    tesseract:
-      key: 23
+      key: 16
       key_prefix:
       marker:
-      part_no: 113 517199
-      description: Shim 2.8 mm ~ Differential
-      quantity: "×"
+      part_no: 113 611 373
+      description: ", Plug - Reservoir, 211 611 301 A"
+      quantity:
       applicability:
       applicability_inline: false
       type_and_model:
-      text: 23 | "113 517199 Shim 2.8 mm ~ Differential .............00050- x
+      text: 16 113 611 373 , Plug - Reservoir, 211 611 301 A
       continuation:
-      min_conf: 379
+      min_conf: 348
+    tesseract:
   disagreements: []
   confidence: needs checking
   confidence_reasons:
-  - only_tesseract
-  status: unverified
-  reviewed_by:
-  reviewed_at:
-  corrections: []
-  main_group: '5'
-  illustration: '31'
-  cross_edition: not_available
-- id: ill32-6-7-16
-  edition: vw-tpl-1963-08
-  printed_page: 6-7
-  pdf_page: 344
-  row_order: 16
-  key:
-  key_prefix:
-  marker:
-  part_no: 211 698 073
-  part_no_norm: '211698073'
-  description: t. set of priike linings· 40 ior Tra'nsp~rfer (Energit)
-  quantity: "×"
-  applicability: up to Chassis No; ~ - 117 901 ~
-  applicability_inline: false
-  chassis_from:
-  chassis_to:
-  chassis_ranges:
-  option_codes: []
-  type_and_model:
-  position: ill32-k1
-  position_status: suggested
-  bbox_px:
-  - 451
-  - 2021
-  - 2430
-  - 2212
-  bbox_source: tesseract
-  readings:
-    pdf_text:
-      key:
-      key_prefix:
-      marker:
-      part_no: '211698073'
-      description: t. set of priike linings· 40 ior Tra'nsp~rfer (Energit)
-      quantity: "×"
-      applicability: up to Chassis No; ~ - 117 901 ~
-      applicability_inline: false
-      type_and_model:
-      text: 211698073 t. set of priike linings· 40 ior Tra'nsp~rfer (Energit) X
-      continuation: up to Chassis No; ~ - 117 901 ~
-      min_conf: 576
-    tesseract:
-      key:
-      key_prefix:
-      marker:
-      part_no: '211698'
-      description: 'aan O73 “up. |. set: to of Chassis brake linings No. 20 40 117 for 901 Transporter so (Energit)'
-      quantity:
-      applicability: "~"
-      applicability_inline: false
-      type_and_model:
-      text: '211698 aan O73 “up. |. set: to of Chassis brake linings No. 20 40 117 for 901 Transporter so (Energit) -'
-      continuation: "~"
-      min_conf: 520
-  disagreements:
-  - part_no
-  - applicability
-  confidence: needs checking
-  confidence_reasons:
-  - part_no_differs
-  - bad_shape
-  - applicability_differs
+  - only_text_layer
   status: unverified
   reviewed_by:
   reviewed_at:
   corrections: []
   main_group: '6'
-  illustration: '32'
-  cross_edition: not_found_in_1958_67
-- id: ill32-6-11-02
+  illustration: 33+A33
+  cross_edition: found_in_1958_67
+- id: ill33a33-6-19-17
   edition: vw-tpl-1963-08
-  printed_page: 6-11
-  pdf_page: 348
-  row_order: 2
-  key:
+  printed_page: 6-19
+  pdf_page: 358
+  row_order: 17
+  key: 34
   key_prefix:
   marker:
-  part_no: 111 609 632 B
-  part_no_norm: 111609632B
-  description: Push bar Brake shoe, right
+  part_no: 211 611 724 A
+  part_no_norm: 211611724A
+  description: Line, right - Front brake (LHD) (fengH:1 1240mm)
   quantity: '1'
-  applicability: from Chassis No. 20 117 902
-  applicability_inline: false
-  chassis_from:
-    printed: 20 117 902
-    seq:
-    format: 8-digit
-    note: outside the stated sequence rule (20-NNN NNN or 6/7 digits); not parsed
-  chassis_to:
-  chassis_ranges:
-  option_codes: []
-  type_and_model:
-  position: ill32-k28
-  position_status: suggested
-  bbox_px:
-  - 304
-  - 610
-  - 2413
-  - 742
-  bbox_source: tesseract
-  readings:
-    pdf_text:
-      key:
-      key_prefix:
-      marker:
-      part_no: 111 609 632 B
-      description: Push bar Brake shoe, right
-      quantity:
-      applicability: from Chassis No. 20 117 902
-      applicability_inline: false
-      type_and_model:
-      text: 111 609 632 B Push bar Brake shoe, right ................. .
-      continuation: from Chassis No. 20 117 902
-      min_conf: 468
-    tesseract:
-      key:
-      key_prefix:
-      marker:
-      part_no: 211 609632 B
-      description: "| Push bar — Brake shoe, right"
-      quantity: '1'
-      applicability: from Chassis No. 20 ~- 117 902
-      applicability_inline: false
-      type_and_model:
-      text: "- 211 609632 B | Push bar — Brake shoe, right ...............005 1"
-      continuation: from Chassis No. 20 ~- 117 902
-      min_conf: 343
-  disagreements:
-  - part_no
-  confidence: needs checking
-  confidence_reasons:
-  - part_no_differs
-  status: unverified
-  reviewed_by:
-  reviewed_at:
-  corrections: []
-  main_group: '6'
-  illustration: '32'
-  cross_edition: not_found_in_1958_67
-- id: ill35-7-14-08
-  edition: vw-tpl-1963-08
-  printed_page: 7-14
-  pdf_page: 383
-  row_order: 8
-  key:
-  key_prefix:
-  marker:
-  part_no: N 12 008 2
-  part_no_norm: N120082
-  description: Lock washer B 8 DIN 127 galvanized
-  quantity: '2'
   applicability:
   applicability_inline: false
   chassis_from:
-  chassis_to:
-  chassis_ranges:
-  option_codes:
-  - M 175
-  - M 176
-  type_and_model: M 175, M 176
-  position: ill35-k19
-  position_status: suggested
-  bbox_px:
-  - 198
-  - 1178
-  - 2413
-  - 1299
-  bbox_source: tesseract
-  readings:
-    pdf_text:
-      key:
-      key_prefix:
-      marker:
-      part_no: N120082
-      description: Lock washer B 8 DIN 127 galvanized
-      quantity: '2'
-      applicability:
-      applicability_inline: false
-      type_and_model: M 175, M 176
-      text: N120082 Lock washer B 8 DIN 127 galvanized .••..•....• 2 M 175, M 176
-      continuation:
-      min_conf: 512
-    tesseract:
-      key:
-      key_prefix:
-      marker:
-      part_no: 200 N120082
-      description: Lock washer B 8 DIN 127 galvanized
-      quantity: '2'
-      applicability:
-      applicability_inline: false
-      type_and_model: M175,M176
-      text: 200 N120082 Lock washer B 8 DIN 127 galvanized ............ 2 M175,M176
-      continuation:
-      min_conf: 300
-  disagreements:
-  - part_no
-  confidence: needs checking
-  confidence_reasons:
-  - part_no_differs
-  - bad_shape
-  status: unverified
-  reviewed_by:
-  reviewed_at:
-  corrections: []
-  main_group: '7'
-  illustration: '35'
-  cross_edition: not_available
-- id: ill37-7-29-11
-  edition: vw-tpl-1963-08
-  printed_page: 7-29
-  pdf_page: 398
-  row_order: 11
-  key: 11
-  key_prefix:
-  marker:
-  part_no: 211 721 141
-  part_no_norm: '211721141'
-  description: Lever - Brake pedal (LHD)
-  quantity: '1'
-  applicability: from Chassis No. 20 - 117 902
-  applicability_inline: false
-  chassis_from:
-    printed: 20 - 117 902
-    seq: 117902
-    format: 20-NNN NNN
   chassis_to:
   chassis_ranges:
   option_codes: []
   type_and_model: 211-273
-  position: ill37-k11
+  position: ill33a33-k34
   position_status: suggested
   bbox_px:
-  - 326
-  - 1991
+  - 435
+  - 2331
   - 2421
-  - 2119
+  - 2526
   bbox_source: tesseract
   readings:
     pdf_text:
-      key: 11
+      key: 34
       key_prefix:
       marker:
-      part_no: 211 721141
-      description: Lever - Brake pedal (LHD)
-      quantity:
-      applicability: from Chassis No. 20 - 117 902
-      applicability_inline: false
-      type_and_model: 211-273
-      text: 11 211 721141 Lever - Brake pedal (LHD) ................. .. 211-273
-      continuation: from Chassis No. 20 - 117 902
-      min_conf: 371
-    tesseract:
-      key: 11
-      key_prefix:
-      marker:
-      part_no: 211 721141
-      description: Lever — Brake pedal (LHD)
+      part_no: 211 611 724A
+      description: Line, right - Front brake (LHD) (fengH:1 1240mm)
       quantity: '1'
-      applicability: from Chassis No. 20 — 117 902
+      applicability:
       applicability_inline: false
       type_and_model: 211-273
-      text: 11 211 721141 Lever — Brake pedal (LHD) ................45. 1 211-273
-      continuation: from Chassis No. 20 — 117 902
-      min_conf: 371
+      text: 34 211 611 724.A Line, right - Front brake (LHD) (fengH:1 1240mm) 1 211-273
+      continuation:
+      min_conf: 358
+    tesseract:
+      key:
+      key_prefix:
+      marker:
+      part_no: 211 611 Tw A
+      description: "~ Line, from right Chassis — Front No. brake 20- 17 (LHD) 902 (length 1240 mm"
+      quantity:
+      applicability:
+      applicability_inline: false
+      type_and_model: 211-273
+      text: '211 611 Tw A* ~ Line, from right Chassis — Front No. brake 20- 17 (LHD) 902 (length 1240 mm me 211-273 :'
+      continuation:
+      min_conf: 491
+  disagreements:
+  - part_no
+  confidence: needs checking
+  confidence_reasons:
+  - part_no_differs
+  - bad_shape
+  status: unverified
+  reviewed_by:
+  reviewed_at:
+  corrections: []
+  main_group: '6'
+  illustration: 33+A33
+  cross_edition: found_in_1958_67
+- id: ill34-7-9-04
+  edition: vw-tpl-1963-08
+  printed_page: 7-9
+  pdf_page: 378
+  row_order: 4
+  key: 34
+  key_prefix:
+  marker:
+  part_no: 215 703 715
+  part_no_norm: '215703715'
+  description: Under floo·r plate, center
+  quantity:
+  applicability:
+  applicability_inline: false
+  chassis_from:
+  chassis_to:
+  chassis_ranges:
+  option_codes: []
+  type_and_model: |-
+    215,216,225,228,235,
+    237,238,241.244
+  position: ill34-k34
+  position_status: suggested
+  bbox_px:
+  - 503
+  - 870
+  - 2425
+  - 1001
+  bbox_source: tesseract
+  readings:
+    pdf_text:
+      key: 34
+      key_prefix:
+      marker:
+      part_no: 215 703 715
+      description: Under floo·r plate, center
+      quantity:
+      applicability:
+      applicability_inline: false
+      type_and_model: |-
+        215,216,225,228,235,
+        237,238,241.244
+      text: 34 215 703 715 Under floo·r plate, center ...•................•. 215,216,225,228,235,
+      continuation: '237,238,241.244'
+      min_conf: 550
+    tesseract:
+      key: 34
+      key_prefix:
+      marker:
+      part_no: 215 703 715
+      description: Under floor plate, center
+      quantity:
+      applicability:
+      applicability_inline: false
+      type_and_model: |-
+        1 215, 216, 225, 228, 235,
+        237, 238, 241, 244
+      text: 34 215 703 715 Under floor plate, center .........0......200008 1 215, 216, 225, 228, 235,
+      continuation: 237, 238, 241, 244
+      min_conf: 550
   disagreements: []
   confidence: readings agree
   confidence_reasons: []
@@ -2219,66 +2095,204 @@ rows:
   reviewed_at:
   corrections: []
   main_group: '7'
-  illustration: '37'
+  illustration: '34'
   cross_edition: not_available
-- id: ill38a38b38c38-8-35-10
+- id: ill36-7-23-03
   edition: vw-tpl-1963-08
-  printed_page: 8-35
-  pdf_page: 444
-  row_order: 10
-  key: A 67
-  key_prefix: A
-  marker:
-  part_no: 211 817 773 A
-  part_no_norm: 211817773A
-  description: Gasket -- Air duct
+  printed_page: 7-23
+  pdf_page: 392
+  row_order: 3
+  key: 31
+  key_prefix:
+  marker: "*"
+  part_no: 211 711 339
+  part_no_norm: '211711339'
+  description: Sector - Hand brake
   quantity: '1'
-  applicability: from Chassis No. 216 000 001
+  applicability: from Chassis No.20-041712
   applicability_inline: false
   chassis_from:
-    printed: 216 000 001
-    seq:
-    format: 9-digit
-    note: outside the stated sequence rule (20-NNN NNN or 6/7 digits); not parsed
+    printed: 20-041712
+    seq: 41712
+    format: 20-NNN NNN
   chassis_to:
   chassis_ranges:
   option_codes: []
   type_and_model:
-  position: ill38a38b38c38-ka67
+  position: ill36-k31
   position_status: suggested
   bbox_px:
-  - 314
-  - 1682
+  - 309
+  - 714
   - 2421
-  - 1812
+  - 852
   bbox_source: tesseract
   readings:
     pdf_text:
-      key: A 67
-      key_prefix: A
-      marker:
-      part_no: 211 817 773 A
-      description: Gasket -- Air duct
-      quantity: '1'
-      applicability: from Chassis No. 216 000 001
+      key: 31
+      key_prefix:
+      marker: "*"
+      part_no: 211 711 339
+      description: Sector - Hand brake
+      quantity:
+      applicability: from Chassis No.20-041712
       applicability_inline: false
       type_and_model:
-      text: A 67 211 817 773 A Gasket -- Air duct . • . .. . • . . . . . • . . . . . . • . • .. .. .. 1
-      continuation: from Chassis No. 216 000 001
-      min_conf: 358
+      text: 31 *211 711 339 Sector - Hand brake ..................•.••...
+      continuation: from Chassis No.20-041712
+      min_conf: 354
     tesseract:
-      key: A 67
-      key_prefix: A
+      key: 31
+      key_prefix:
       marker:
-      part_no: 211817773 A
-      description: Gasket ~ Air duct
+      part_no: '211711339'
+      description: Sector —- Hand brake
       quantity: '1'
-      applicability: from Chassis No. 216 000 001
+      applicability: from Chassis No. 20-041 712
       applicability_inline: false
       type_and_model:
-      text: A67 211817773 A Gasket ~ Air duct ....... 0... cence ener en eaus 1
-      continuation: from Chassis No. 216 000 001
-      min_conf: 380
+      text: '31. | #211711339 Sector —- Hand brake .............ecceeeeeeeee 1'
+      continuation: from Chassis No. 20-041 712
+      min_conf: 354
+  disagreements:
+  - marker
+  confidence: needs checking
+  confidence_reasons:
+  - marker_differs
+  status: unverified
+  reviewed_by:
+  reviewed_at:
+  corrections: []
+  main_group: '7'
+  illustration: '36'
+  cross_edition: not_available
+- id: ill37-7-32-17
+  edition: vw-tpl-1963-08
+  printed_page: 7-32
+  pdf_page: 401
+  row_order: 17
+  key:
+  key_prefix:
+  marker:
+  part_no: 211 721 395
+  part_no_norm: '211721395'
+  description: Seal for clutch pedal bearing (LHD)
+  quantity: '1'
+  applicability:
+  applicability_inline: false
+  chassis_from:
+  chassis_to:
+  chassis_ranges:
+  option_codes: []
+  type_and_model: 211-273
+  position: ill37-k37
+  position_status: suggested
+  bbox_px:
+  - 379
+  - 2477
+  - 2421
+  - 2606
+  bbox_source: tesseract
+  readings:
+    pdf_text:
+      key:
+      key_prefix:
+      marker:
+      part_no: 211 721 395
+      description: Seal for clutch pedal bearing (LHD)
+      quantity: '1'
+      applicability:
+      applicability_inline: false
+      type_and_model: 211-273
+      text: 211 721 395 Seal for clutch pedal bearing (LHD) ........... . 1 211-273
+      continuation:
+      min_conf: 434
+    tesseract:
+      key:
+      key_prefix:
+      marker:
+      part_no: 211 721 395
+      description: Seal for clutch pedal bearing (LHD) vee reese we
+      quantity: '4'
+      applicability:
+      applicability_inline: false
+      type_and_model: 211~273
+      text: 211 721 395 Seal for clutch pedal bearing (LHD) vee reese we 4 211~273
+      continuation:
+      min_conf: 436
+  disagreements:
+  - quantity
+  confidence: needs checking
+  confidence_reasons:
+  - qty_differs
+  status: unverified
+  reviewed_by:
+  reviewed_at:
+  corrections: []
+  main_group: '7'
+  illustration: '37'
+  cross_edition: not_available
+- id: ill38a38b38c38-8-25-12
+  edition: vw-tpl-1963-08
+  printed_page: 8-25
+  pdf_page: 434
+  row_order: 12
+  key:
+  key_prefix:
+  marker:
+  part_no: 211 837 296 C
+  part_no_norm: 211837296C
+  description: is additionally required,
+  quantity:
+  applicability: from Chassis No. 1 222 026 up to 216 190 000
+  applicability_inline: false
+  chassis_from:
+    printed: 1 222 026
+    seq: 1222026
+    format: 7-digit
+  chassis_to:
+    printed: 216 190 000
+    seq:
+    format: 9-digit
+    note: outside the stated sequence rule (20-NNN NNN or 6/7 digits); not parsed
+  chassis_ranges:
+  option_codes: []
+  type_and_model:
+  position: ill38a38b38c38-kb24
+  position_status: suggested
+  bbox_px:
+  - 804
+  - 1691
+  - 2422
+  - 1828
+  bbox_source: tesseract
+  readings:
+    pdf_text:
+      key:
+      key_prefix:
+      marker:
+      part_no: 211 837 296 C
+      description: is additionally required,
+      quantity:
+      applicability: from Chassis No. 1 222 026 up to 216 190 000
+      applicability_inline: false
+      type_and_model:
+      text: the part 211 837 296 C is additionally required,
+      continuation: from Chassis No. 1 222 026 up to 216 190 000
+      min_conf: 859
+    tesseract:
+      key:
+      key_prefix:
+      marker:
+      part_no: 211 837 296 C
+      description: is additionally required,
+      quantity:
+      applicability: from Chassis No. 1 222 026 up to 216 190 000
+      applicability_inline: false
+      type_and_model:
+      text: the part 211 837 296 C is additionally required,
+      continuation: from Chassis No. 1 222 026 up to 216 190 000
+      min_conf: 860
   disagreements: []
   confidence: readings agree
   confidence_reasons: []
@@ -2289,18 +2303,18 @@ rows:
   main_group: '8'
   illustration: 38+A38+B38+C38
   cross_edition: not_available
-- id: ill39-p452-08
+- id: ill40-8-53-07
   edition: vw-tpl-1963-08
-  printed_page:
-  pdf_page: 452
-  row_order: 8
-  key:
+  printed_page: 8-53
+  pdf_page: 466
+  row_order: 7
+  key: 3
   key_prefix:
   marker:
-  part_no: 215 190 000
-  part_no_norm: '215190000'
-  description:
-  quantity:
+  part_no: 211 831 411
+  part_no_norm: '211831411'
+  description: Hinge, left lower - Door
+  quantity: '1'
   applicability:
   applicability_inline: false
   chassis_from:
@@ -2308,99 +2322,44 @@ rows:
   chassis_ranges:
   option_codes: []
   type_and_model:
-  position: ill39-k38
+  position: ill40-k3
   position_status: suggested
   bbox_px:
-  - 678
-  - 1190
+  - 328
+  - 1451
   - 2422
-  - 1278
+  - 1549
   bbox_source: tesseract
   readings:
     pdf_text:
-    tesseract:
-      key:
+      key: 3
       key_prefix:
       marker:
-      part_no: 215 190 000
-      description:
-      quantity:
+      part_no: 211 831 411
+      description: Hinge, left lower - Door
+      quantity: '1'
       applicability:
       applicability_inline: false
       type_and_model:
-      text: __ up to Chassis No. 215 190 000
+      text: 3 211 831 411 Hinge, left lower - Door ....................... 1
       continuation:
-      min_conf: 709
+      min_conf: 367
+    tesseract:
+      key: 3
+      key_prefix:
+      marker:
+      part_no: 211 831 411
+      description: Hinge, left lower — Door
+      quantity: '1'
+      applicability:
+      applicability_inline: false
+      type_and_model:
+      text: 3 211 831 411 Hinge, left lower — Door ..............0. 00s eee 1
+      continuation:
+      min_conf: 367
   disagreements: []
-  confidence: needs checking
-  confidence_reasons:
-  - only_tesseract
-  status: unverified
-  reviewed_by:
-  reviewed_at:
-  corrections: []
-  main_group: '8'
-  illustration: '39'
-  cross_edition: not_available
-- id: ill40-8-72-10
-  edition: vw-tpl-1963-08
-  printed_page: 8-72
-  pdf_page: 487
-  row_order: 10
-  key:
-  key_prefix:
-  marker:
-  part_no: 211 845 251
-  part_no_norm: '211845251'
-  description: "· Glass - Vent wing"
-  quantity: '2'
-  applicability: up to Chassis No. 20 "- 041 711
-  applicability_inline: false
-  chassis_from:
-  chassis_to:
-  chassis_ranges:
-  option_codes: []
-  type_and_model:
-  position: ill40-k1
-  position_status: suggested
-  bbox_px:
-  - 299
-  - 1407
-  - 2418
-  - 1520
-  bbox_source: tesseract
-  readings:
-    pdf_text:
-      key:
-      key_prefix:
-      marker:
-      part_no: '211845251'
-      description: "· Glass - Vent wing"
-      quantity: '2'
-      applicability: up to Chassis No. 20 "- 041 711
-      applicability_inline: false
-      type_and_model:
-      text: 2.11845251 · Glass - Vent wing ............•..••.•..••....• 2
-      continuation: up to Chassis No. 20 "- 041 711
-      min_conf: 481
-    tesseract:
-      key:
-      key_prefix:
-      marker:
-      part_no: 241845251 A
-      description: "“Glass — Vont wing"
-      quantity:
-      applicability:
-      applicability_inline: false
-      type_and_model:
-      text: 241845251 A “Glass — Vont wing 0. ...sccecseceeeseeeeeaees
-      continuation:
-      min_conf: 472
-  disagreements:
-  - part_no
-  confidence: needs checking
-  confidence_reasons:
-  - part_no_differs
+  confidence: readings agree
+  confidence_reasons: []
   status: unverified
   reviewed_by:
   reviewed_at:
@@ -2408,81 +2367,17 @@ rows:
   main_group: '8'
   illustration: '40'
   cross_edition: not_available
-- id: ill41-8-74-15
+- id: ill40-8-55-21
   edition: vw-tpl-1963-08
-  printed_page: 8-74
-  pdf_page: 489
-  row_order: 15
-  key: 27
+  printed_page: 8-55
+  pdf_page: 468
+  row_order: 21
+  key: 20
   key_prefix:
   marker:
-  part_no: 221 809 179
-  part_no_norm: '221809179'
-  description: Hinge - Hinged side window
-  quantity: '2'
-  applicability:
-  applicability_inline: false
-  chassis_from:
-  chassis_to:
-  chassis_ranges:
-  option_codes: []
-  type_and_model: 221-244,271-274
-  position: ill41-k27
-  position_status: suggested
-  bbox_px:
-  - 238
-  - 2605
-  - 2421
-  - 2705
-  bbox_source: tesseract
-  readings:
-    pdf_text:
-      key: 27
-      key_prefix:
-      marker:
-      part_no: 221 809179
-      description: Hinge - Hinged side window
-      quantity: '2'
-      applicability:
-      applicability_inline: false
-      type_and_model: 221-244,271-274
-      text: 27 221 809179 Hinge - Hinged side window ................. 2 221-244,271-274
-      continuation:
-      min_conf: 286
-    tesseract:
-      key: 27
-      key_prefix:
-      marker:
-      part_no: 221 809 179
-      description: Hinge — Hinged side window
-      quantity: '2'
-      applicability:
-      applicability_inline: false
-      type_and_model: 221-244, 271~274
-      text: 27 221 809 179 Hinge — Hinged side window ............ veeee 2 = 221-244, 271~274
-      continuation:
-      min_conf: 286
-  disagreements: []
-  confidence: readings agree
-  confidence_reasons: []
-  status: unverified
-  reviewed_by:
-  reviewed_at:
-  corrections: []
-  main_group: '8'
-  illustration: '41'
-  cross_edition: not_available
-- id: ill41-8-79-16
-  edition: vw-tpl-1963-08
-  printed_page: 8-79
-  pdf_page: 494
-  row_order: 16
-  key:
-  key_prefix:
-  marker:
-  part_no: 221 867 023 A
-  part_no_norm: 221867023A
-  description:
+  part_no: '7988'
+  part_no_norm: '7988'
+  description: galvanized
   quantity:
   applicability:
   applicability_inline: false
@@ -2491,298 +2386,318 @@ rows:
   chassis_ranges:
   option_codes: []
   type_and_model:
-  position: ill41-k6
+  position: ill40-k20
   position_status: suggested
   bbox_px:
-  - 702
-  - 1754
-  - 2421
-  - 1848
+  - 792
+  - 3019
+  - 2422
+  - 3106
   bbox_source: tesseract
   readings:
     pdf_text:
-      key:
+      key: 20
       key_prefix:
       marker:
-      part_no: 221 867 023 A
-      description:
+      part_no: '7988'
+      description: galvanized
       quantity:
       applicability:
       applicability_inline: false
       type_and_model:
-      text: Door wing lining .221 867 02.3 A
+      text: AM 5 X 20 DIN 7988 galvanized
       continuation:
-      min_conf: 847
+      min_conf: 852
     tesseract:
       key:
       key_prefix:
       marker:
-      part_no: 221867 A
-      description:
+      part_no: '7988'
+      description: galvanized
       quantity:
       applicability:
       applicability_inline: false
       type_and_model:
-      text: "‘Door wing lining 221.867 A"
+      text: AM 5X20 DIN 7988 galvanized
       continuation:
-      min_conf: 810
+      min_conf: 853
   disagreements:
   - part_no
   confidence: needs checking
   confidence_reasons:
-  - part_no_differs
   - bad_shape
   status: unverified
   reviewed_by:
   reviewed_at:
   corrections: []
   main_group: '8'
-  illustration: '41'
+  illustration: '40'
   cross_edition: not_available
-- id: ill42-8-80-19
-  edition: vw-tpl-1963-08
-  printed_page: 8-80
-  pdf_page: 495
-  row_order: 19
-  key:
-  key_prefix:
-  marker:
-  part_no: N 11 460 1
-  part_no_norm: N114601
-  description: "· Tapping screw, ~ountersunk raised head"
-  quantity: '32'
-  applicability:
-  applicability_inline: false
-  chassis_from:
-  chassis_to:
-  chassis_ranges:
-  option_codes: []
-  type_and_model: 244, 271-274
-  position: ill42-k15
-  position_status: suggested
-  bbox_px:
-  - 404
-  - 2330
-  - 2413
-  - 2438
-  bbox_source: tesseract
-  readings:
-    pdf_text:
-      key:
-      key_prefix:
-      marker:
-      part_no: N 11 4601
-      description: "· Tapping screw, ~ountersunk raised head"
-      quantity: '32'
-      applicability:
-      applicability_inline: false
-      type_and_model: 244, 271-274
-      text: N 11 4601 · Tapping screw, ~ountersunk raised head , . . . . . . . 32 241. 244, 271-274
-      continuation:
-      min_conf: 450
-    tesseract:
-      key:
-      key_prefix:
-      marker:
-      part_no: N 114601
-      description: Tapping screw, countersunk raised head
-      quantity: '32'
-      applicability:
-      applicability_inline: false
-      type_and_model: 244, 271-274
-      text: N 114601 Tapping screw, countersunk raised head ........ 32 241, 244, 271-274
-      continuation:
-      min_conf: 447
-  disagreements: []
-  confidence: readings agree
-  confidence_reasons: []
-  status: unverified
-  reviewed_by:
-  reviewed_at:
-  corrections: []
-  main_group: '8'
-  illustration: '42'
-  cross_edition: not_available
-- id: ill42-8-81-01
-  edition: vw-tpl-1963-08
-  printed_page: 8-81
-  pdf_page: 496
-  row_order: 1
-  key: 24
-  key_prefix:
-  marker:
-  part_no: 241 853 501
-  part_no_norm: '241853501'
-  description: Molding left - Front panel
-  quantity: '1'
-  applicability:
-  applicability_inline: false
-  chassis_from:
-  chassis_to:
-  chassis_ranges:
-  option_codes: []
-  type_and_model: '241,244'
-  position: ill42-k24
-  position_status: suggested
-  bbox_px:
-  - 320
-  - 449
-  - 2422
-  - 553
-  bbox_source: tesseract
-  readings:
-    pdf_text:
-      key: 24
-      key_prefix:
-      marker:
-      part_no: 241 853 501
-      description: Molding left - Front panel
-      quantity: '1'
-      applicability:
-      applicability_inline: false
-      type_and_model: '241,244'
-      text: 24 241 853 501 Molding left - Front panel .................... 1 241,244
-      continuation:
-      min_conf: 372
-    tesseract:
-      key: 24
-      key_prefix:
-      marker:
-      part_no: 241 853 501
-      description: Molding left ~ Front panel
-      quantity: '1'
-      applicability:
-      applicability_inline: false
-      type_and_model: 241, 244
-      text: 24 241 853 501 Molding left ~ Front panel ............--..005. 1 241, 244
-      continuation:
-      min_conf: 371
-  disagreements: []
-  confidence: readings agree
-  confidence_reasons: []
-  status: unverified
-  reviewed_by:
-  reviewed_at:
-  corrections: []
-  main_group: '8'
-  illustration: '42'
-  cross_edition: not_available
-- id: ill42-8-85-22
+- id: ill42-8-85-10
   edition: vw-tpl-1963-08
   printed_page: 8-85
   pdf_page: 500
-  row_order: 22
-  key: 56
+  row_order: 10
+  key:
   key_prefix:
   marker:
-  part_no: 241 857 613 A
-  part_no_norm: 241857613A
-  description: Assist strap
+  part_no: 211 857 517 A
+  part_no_norm: 211857517A
+  description: Arm - Rear view mirror, out!3r
   quantity: '1'
-  applicability:
+  applicability: "(passenger's side)"
   applicability_inline: false
   chassis_from:
   chassis_to:
   chassis_ranges:
   option_codes: []
-  type_and_model: '241,244'
-  position: ill42-k56
+  type_and_model:
+  position: ill42-k49
   position_status: suggested
   bbox_px:
-  - 301
-  - 2539
+  - 430
+  - 1537
   - 2418
-  - 2668
-  bbox_source: pdf_text
-  readings:
-    pdf_text:
-      key: 56
-      key_prefix:
-      marker:
-      part_no: 241 857 613 A
-      description: Assist strap
-      quantity: '1'
-      applicability:
-      applicability_inline: false
-      type_and_model: '241,244'
-      text: 56 241 857 613 A Assist strap .......................... "' .......... 1 241,244
-      continuation:
-      min_conf: 349
-    tesseract:
-  disagreements: []
-  confidence: needs checking
-  confidence_reasons:
-  - only_text_layer
-  status: unverified
-  reviewed_by:
-  reviewed_at:
-  corrections: []
-  main_group: '8'
-  illustration: '42'
-  cross_edition: not_available
-- id: ill44-p519-06
-  edition: vw-tpl-1963-08
-  printed_page:
-  pdf_page: 519
-  row_order: 6
-  key: 21
-  key_prefix:
-  marker:
-  part_no: 221 867 501 G
-  part_no_norm: 221867501G
-  description: Lining - Roof (leatherette)
-  quantity: '1'
-  applicability: from Chassis No. 227 000 001
-  applicability_inline: false
-  chassis_from:
-    printed: 227 000 001
-    seq:
-    format: 9-digit
-    note: outside the stated sequence rule (20-NNN NNN or 6/7 digits); not parsed
-  chassis_to:
-  chassis_ranges:
-  option_codes: []
-  type_and_model: '221'
-  position: ill44-k21
-  position_status: suggested
-  bbox_px:
-  - 242
-  - 926
-  - 2421
-  - 1074
+  - 1674
   bbox_source: tesseract
   readings:
     pdf_text:
       key:
       key_prefix:
       marker:
-      part_no: 221 867501 G
-      description: Lining - Roof (leatherette)
+      part_no: 211 857 517 A
+      description: Arm - Rear view mirror, out!3r
       quantity: '1'
-      applicability: from Chassis No. 227 000 001
+      applicability: "(passenger's side)"
       applicability_inline: false
       type_and_model:
-      text: 221 867501 G Lining - Roof (leatherette)· ..•...••.........•.. 1 221
-      continuation: from Chassis No. 227 000 001
-      min_conf: 426
+      text: 211 857 517 A Arm - Rear view mirror, out!3r ...........•••••. 1
+      continuation: "(passenger's side)"
+      min_conf: 483
     tesseract:
-      key: 21
+      key:
       key_prefix:
       marker:
-      part_no: 224867501 G
-      description: Lining — Roof (leatherette) -. Le vecueuevauaenenes
-      quantity: '1'
-      applicability: ". from Chassis No, 227 000 001"
+      part_no: 211857527 A
+      description: "= Arm-- Rear view mirror, outer"
+      quantity:
+      applicability: "(passenger's side)"
       applicability_inline: false
-      type_and_model: '221'
-      text: 21 224867501 G Lining — Roof (leatherette) -. Le vecueuevauaenenes 1 221
-      continuation: ". from Chassis No, 227 000 001"
-      min_conf: 288
+      type_and_model:
+      text: 211857527 A = Arm-- Rear view mirror, outer ....
+      continuation: "(passenger's side)"
+      min_conf: 554
   disagreements:
   - part_no
   confidence: needs checking
   confidence_reasons:
   - part_no_differs
+  status: unverified
+  reviewed_by:
+  reviewed_at:
+  corrections: []
+  main_group: '8'
+  illustration: '42'
+  cross_edition: not_available
+- id: ill44-8-94-12
+  edition: vw-tpl-1963-08
+  printed_page: 8-94
+  pdf_page: 511
+  row_order: 12
+  key: 4
+  key_prefix:
+  marker:
+  part_no: 234 863 665
+  part_no_norm: '234863665'
+  description: Insulation - Wheel housing, front left
+  quantity: '1'
+  applicability: from Chassis No. 1 045 237
+  applicability_inline: false
+  chassis_from:
+    printed: 1 045 237
+    seq: 1045237
+    format: 7-digit
+  chassis_to:
+  chassis_ranges:
+  option_codes: []
+  type_and_model: 211-274
+  position: ill44-k4
+  position_status: suggested
+  bbox_px:
+  - 252
+  - 1893
+  - 2421
+  - 2072
+  bbox_source: tesseract
+  readings:
+    pdf_text:
+      key: 4
+      key_prefix:
+      marker:
+      part_no: 234 863 665
+      description: Insulation - Wheel housing, front left
+      quantity:
+      applicability: from Chassis No. 1 045 237
+      applicability_inline: false
+      type_and_model: 211-274
+      text: 4 234 863 665 Insulation - Wheel housing, front left 211-274
+      continuation: from Chassis No. 1 045 237
+      min_conf: 291
+    tesseract:
+      key: 4
+      key_prefix:
+      marker:
+      part_no: 234 863 665
+      description: Insulation — Wheel housing, front left
+      quantity: '1'
+      applicability: |-
+        from Chassis No. 1 045 237
+        12/62 ~ 325 mouse grey ~ 75, 76, 77, 80, 81, 83, 74
+      applicability_inline: false
+      type_and_model: 211-274
+      text: 4 234 863 665 Insulation — Wheel housing, front left ........... 1 211-274
+      continuation: |-
+        from Chassis No. 1 045 237
+        12/62 ~ 325 mouse grey ~ 75, 76, 77, 80, 81, 83, 74
+      min_conf: 291
+  disagreements:
+  - applicability
+  confidence: needs checking
+  confidence_reasons:
+  - applicability_differs
+  - colour_date_lines
+  status: unverified
+  reviewed_by:
+  reviewed_at:
+  corrections: []
+  main_group: '8'
+  illustration: '44'
+  cross_edition: not_available
+- id: ill44-8-95-28
+  edition: vw-tpl-1963-08
+  printed_page: 8-95
+  pdf_page: 512
+  row_order: 28
+  key: 8
+  key_prefix:
+  marker:
+  part_no: 221 867 012 B
+  part_no_norm: 221867012B
+  description: Trim panel - Door, right, leatherette
+  quantity: '1'
+  applicability: from Chanis No. 749 001
+  applicability_inline: false
+  chassis_from:
+  chassis_to:
+  chassis_ranges:
+  option_codes: []
+  type_and_model: 221-228,241,244
+  position: ill44-k8
+  position_status: suggested
+  bbox_px:
+  - 299
+  - 2761
+  - 2422
+  - 2892
+  bbox_source: tesseract
+  readings:
+    pdf_text:
+      key: 8
+      key_prefix:
+      marker:
+      part_no: 221 867 012 B
+      description: Trim panel - Door, right, leatherette
+      quantity:
+      applicability: from Chanis No. 749 001
+      applicability_inline: false
+      type_and_model: 221-228,241,244
+      text: ";f c 8 221 867 012 B Trim panel - Door, right, leatherette ........... . 221-228,241,244"
+      continuation: from Chanis No. 749 001
+      min_conf: 84
+    tesseract:
+      key: 8
+      key_prefix:
+      marker:
+      part_no: 221 867 012 B
+      description: Trim panel ~ Door, right, leatherette
+      quantity: '1'
+      applicability: from Chassis No. 749 001
+      applicability_inline: false
+      type_and_model: 221-228, 241, 244
+      text: 8 221 867 012 B Trim panel ~ Door, right, leatherette 1 221-228, 241, 244
+      continuation: from Chassis No. 749 001
+      min_conf: 338
+  disagreements: []
+  confidence: readings agree
+  confidence_reasons: []
+  status: unverified
+  reviewed_by:
+  reviewed_at:
+  corrections: []
+  main_group: '8'
+  illustration: '44'
+  cross_edition: not_available
+- id: ill44-8-96-17
+  edition: vw-tpl-1963-08
+  printed_page: 8-96
+  pdf_page: 513
+  row_order: 17
+  key:
+  key_prefix:
+  marker:
+  part_no: 8158 261 326
+  part_no_norm: '8158261326'
+  description: soft beige/caramel-brown -
+  quantity:
+  applicability: 3/61 ~ 7/éd 291 phosphor/como green - 41
+  applicability_inline: false
+  chassis_from:
+  chassis_to:
+  chassis_ranges:
+  option_codes: []
+  type_and_model:
+  position: ill44-k10
+  position_status: suggested
+  bbox_px:
+  - 410
+  - 1575
+  - 2421
+  - 1707
+  bbox_source: tesseract
+  readings:
+    pdf_text:
+      key:
+      key_prefix:
+      marker:
+      part_no: 8158 261 326
+      description: soft beige/caramel-brown -
+      quantity:
+      applicability:
+      applicability_inline: false
+      type_and_model:
+      text: 8158 2/61 326 soft beige/caramel-brown - 76
+      continuation:
+      min_conf: 465
+    tesseract:
+      key:
+      key_prefix:
+      marker:
+      part_no: '303'
+      description: blue-grey/dark grey -
+      quantity:
+      applicability: 3/61 ~ 7/éd 291 phosphor/como green - 41
+      applicability_inline: false
+      type_and_model:
+      text: 8/58 2/61 303 blue-grey/dark grey - 77
+      continuation: 3/61 ~ 7/éd 291 phosphor/como green - 41
+      min_conf: 464
+  disagreements:
+  - part_no
+  confidence: needs checking
+  confidence_reasons:
+  - part_no_differs
+  - bad_shape
+  - colour_date_lines
   status: unverified
   reviewed_by:
   reviewed_at:
@@ -2845,111 +2760,58 @@ rows:
   main_group: '8'
   illustration: '44'
   cross_edition: not_available
-- id: ill45-8-105-19
+- id: ill45-8-105-22
   edition: vw-tpl-1963-08
   printed_page: 8-105
   pdf_page: 526
-  row_order: 19
-  key: 17
+  row_order: 22
+  key: 20
   key_prefix:
   marker:
-  part_no: N 12 008 2
-  part_no_norm: N120082
-  description: Lock washer B 8 DIN 127 galvanized
-  quantity: '4'
-  applicability:
-  applicability_inline: false
-  chassis_from:
-  chassis_to:
-  chassis_ranges:
-  option_codes: []
-  type_and_model: 261-264
-  position: ill45-k17
-  position_status: suggested
-  bbox_px:
-  - 282
-  - 2422
-  - 2421
-  - 2519
-  bbox_source: tesseract
-  readings:
-    pdf_text:
-    tesseract:
-      key: 17
-      key_prefix:
-      marker:
-      part_no: N 12 008 2
-      description: Lock washer B 8 DIN 127 galvanized
-      quantity: '4'
-      applicability:
-      applicability_inline: false
-      type_and_model: 261-264
-      text: 17 N 12 008 2 Lock washer B 8 DIN 127 galvanized ........... 4 261-264
-      continuation:
-      min_conf: 329
-  disagreements: []
-  confidence: needs checking
-  confidence_reasons:
-  - only_tesseract
-  status: unverified
-  reviewed_by:
-  reviewed_at:
-  corrections: []
-  main_group: '8'
-  illustration: '45'
-  cross_edition: not_available
-- id: ill45-8-105-21
-  edition: vw-tpl-1963-08
-  printed_page: 8-105
-  pdf_page: 526
-  row_order: 21
-  key: 19
-  key_prefix:
-  marker:
-  part_no: 261 871 235
-  part_no_norm: '261871235'
-  description: Eyelet - Til.t
+  part_no: 261 871 239
+  part_no_norm: '261871239'
+  description: Plate Eyelet
   quantity: "×"
-  applicability: ".,, ."
+  applicability: 'ii:'
   applicability_inline: false
   chassis_from:
   chassis_to:
   chassis_ranges:
   option_codes: []
   type_and_model: 261-264
-  position: ill45-k19
+  position: ill45-k20
   position_status: suggested
   bbox_px:
   - 283
-  - 2630
+  - 2737
   - 2421
-  - 2728
+  - 2824
   bbox_source: tesseract
   readings:
     pdf_text:
-      key: 19
+      key: 20
       key_prefix:
       marker:
-      part_no: 261 871 235
-      description: Eyelet - Til.t
+      part_no: 261 871 239
+      description: Plate Eyelet
       quantity: "×"
-      applicability: ".,, ."
+      applicability: 'ii:'
       applicability_inline: false
       type_and_model: 261-264
-      text: "\" .5 19 261 871 235 Eyelet - Til.t ...•.....•.•.••.•.•.•••....•.••.• X 261-264"
-      continuation: ".,, ."
+      text: "~ 20 261 871 239 Plate Eyelet .................••............ X 261-264"
+      continuation: 'ii:'
       min_conf: 85
     tesseract:
-      key: 19
+      key: 20
       key_prefix:
       marker:
-      part_no: 261 871 235
-      description: Eyelet — Tilt 20.2
+      part_no: 261 871 239
+      description: Plate - Eyelet
       quantity: "×"
       applicability:
       applicability_inline: false
       type_and_model: 261-264
-      text: 19 261 871 235 Eyelet — Tilt 20.2... . 0... ese e eee eee ee eee ae eene x 261-264
+      text: 20 261 871 239 Plate - Eyelet ....... 0... ce cence ee cence eee x 261-264
       continuation:
       min_conf: 330
   disagreements: []
@@ -2962,130 +2824,60 @@ rows:
   main_group: '8'
   illustration: '45'
   cross_edition: not_available
-- id: ill47a47-8-118-06
+- id: ill46-8-109-09
   edition: vw-tpl-1963-08
-  printed_page: 8-118
-  pdf_page: 539
-  row_order: 6
-  key:
+  printed_page: 8-109
+  pdf_page: 530
+  row_order: 9
+  key: 2
   key_prefix:
   marker:
-  part_no: 3161  762 292
-  part_no_norm: '3161762292'
-  description: silver beige/basalt grey - 1s
-  quantity:
+  part_no: 225 875 105 A
+  part_no_norm: 225875105A
+  description: Locking hoop with lock and longitudinal guide
+  quantity: '1'
   applicability:
   applicability_inline: false
   chassis_from:
   chassis_to:
   chassis_ranges:
   option_codes: []
-  type_and_model: _
-  position: ill47a47-k1
+  type_and_model: 225. 228, 235-244
+  position: ill46-k2
   position_status: suggested
   bbox_px:
-  - 378
-  - 729
-  - 2489
-  - 822
+  - 333
+  - 1141
+  - 2421
+  - 1239
   bbox_source: tesseract
   readings:
     pdf_text:
-      key:
+      key: 2
       key_prefix:
       marker:
-      part_no: 3161  762 292
-      description: silver beige/basalt grey - 1s
+      part_no: 225 875 105 A
+      description: Locking hoop with lock and longitudinal guide
       quantity:
       applicability:
       applicability_inline: false
-      type_and_model:
-      text: 3161 - 7/62 292 silver beige/basalt grey - 1s
+      type_and_model: 225. 228, 235-244
+      text: 2 225 875 105 A Locking hoop with lock and longitudinal guide 225. 228, 235-244
       continuation:
-      min_conf: 429
+      min_conf: 372
     tesseract:
-      key:
+      key: 2
       key_prefix:
       marker:
-      part_no: '292'
-      description: silver beige/basalt gray ~
-      quantity:
+      part_no: 225 875105 A
+      description: "| Locking hoop with lock and longitudinal guide"
+      quantity: '1'
       applicability:
       applicability_inline: false
-      type_and_model: _
-      text: 'Vel. 7/82 292 silver beige/basalt gray ~ 75 : _'
+      type_and_model: 225, 228, 235-244
+      text: 2 225 875105 A | Locking hoop with lock and longitudinal guide 1 225, 228, 235-244
       continuation:
-      min_conf: 445
-  disagreements:
-  - part_no
-  confidence: needs checking
-  confidence_reasons:
-  - part_no_differs
-  - bad_shape
-  status: unverified
-  reviewed_by:
-  reviewed_at:
-  corrections: []
-  main_group: '8'
-  illustration: 47+A47
-  cross_edition: not_available
-- id: ill47a47-8-119-13
-  edition: vw-tpl-1963-08
-  printed_page: 8-119
-  pdf_page: 540
-  row_order: 13
-  key: A 4
-  key_prefix: A
-  marker:
-  part_no: 211 881 111 D
-  part_no_norm: 211881111D
-  description: Frame, - Driver's seat from Ch11ssis No. 971 550 ..
-  quantity:
-  applicability: from Chassis No. 971 550
-  applicability_inline: false
-  chassis_from:
-    printed: 971 550
-    seq: 971550
-    format: 6-digit
-  chassis_to:
-  chassis_ranges:
-  option_codes: []
-  type_and_model:
-  position: ill47a47-ka4
-  position_status: suggested
-  bbox_px:
-  - 321
-  - 1864
-  - 2422
-  - 1947
-  bbox_source: tesseract
-  readings:
-    pdf_text:
-      key: A 4
-      key_prefix: A
-      marker:
-      part_no: 211 881 111 D
-      description: Frame, - Driver's seat from Ch11ssis No. 971 550 ..
-      quantity:
-      applicability:
-      applicability_inline: false
-      type_and_model:
-      text: A 4 211 881 111 D Frame, - Driver's seat from Ch11ssis No. 971 550 ..
-      continuation:
-      min_conf: 363
-    tesseract:
-      key: A 4
-      key_prefix: A
-      marker:
-      part_no: 211 881111D
-      description: Frame.— Driver's seat
-      quantity:
-      applicability: from Chassis No. 971 550
-      applicability_inline: true
-      type_and_model:
-      text: A4 211 881111D Frame.— Driver's seat from Chassis No. 971 550 ..
-      continuation:
-      min_conf: 379
+      min_conf: 372
   disagreements: []
   confidence: readings agree
   confidence_reasons: []
@@ -3094,19 +2886,19 @@ rows:
   reviewed_at:
   corrections: []
   main_group: '8'
-  illustration: 47+A47
+  illustration: '46'
   cross_edition: not_available
-- id: ill-unknown-8-8-139-10
+- id: ill47a47-8-118-22
   edition: vw-tpl-1963-08
-  printed_page: 8-139
-  pdf_page: 564
-  row_order: 10
+  printed_page: 8-118
+  pdf_page: 539
+  row_order: 22
   key:
   key_prefix:
   marker:
-  part_no: N 12 225 1
-  part_no_norm: N122251
-  description: Spring washer B
+  part_no: '388'
+  part_no_norm: '388'
+  description: 'como green ~ #1'
   quantity:
   applicability:
   applicability_inline: false
@@ -3114,113 +2906,298 @@ rows:
   chassis_to:
   chassis_ranges:
   option_codes: []
-  type_and_model: ". . . . • • . 2"
-  position:
+  type_and_model:
+  position: ill47a47-k2
   position_status: suggested
   bbox_px:
-  - 35
-  - 1232
-  - 2421
-  - 1342
+  - 376
+  - 2227
+  - 2418
+  - 2314
+  bbox_source: tesseract
+  readings:
+    pdf_text:
+    tesseract:
+      key:
+      key_prefix:
+      marker:
+      part_no: '388'
+      description: 'como green ~ #1'
+      quantity:
+      applicability:
+      applicability_inline: false
+      type_and_model:
+      text: 'wel - 7/62 388 como green ~ #1'
+      continuation:
+      min_conf: 428
+  disagreements:
+  - part_no
+  confidence: needs checking
+  confidence_reasons:
+  - only_tesseract
+  - bad_shape
+  status: unverified
+  reviewed_by:
+  reviewed_at:
+  corrections: []
+  main_group: '8'
+  illustration: 47+A47
+  cross_edition: not_available
+- id: ill47a47-8-119-04
+  edition: vw-tpl-1963-08
+  printed_page: 8-119
+  pdf_page: 540
+  row_order: 4
+  key:
+  key_prefix:
+  marker:
+  part_no: 211 881 043
+  part_no_norm: '211881043'
+  description: Back.- Front se11t bench
+  quantity: '1'
+  applicability: |-
+    up fo Chassis No. 673 615
+    3/50 - 7/58 041 black
+  applicability_inline: false
+  chassis_from:
+  chassis_to:
+  chassis_ranges:
+  option_codes: []
+  type_and_model: |-
+    211-216, 231-238,
+    261-274
+  position: ill47a47-k65
+  position_status: suggested
+  bbox_px:
+  - 349
+  - 761
+  - 2422
+  - 988
   bbox_source: tesseract
   readings:
     pdf_text:
       key:
       key_prefix:
       marker:
-      part_no: N122251
-      description: Spring washer B
+      part_no: 211 881 043
+      description: Back.- Front se11t bench
       quantity:
-      applicability:
+      applicability: |-
+        up fo Chassis No. 673 615
+        3/50 - 7/58 041 black
       applicability_inline: false
-      type_and_model: ". . . . • • . 2"
-      text: "·'--- N122251 Spring washer B 5 . . . . . • . . • . . . . . . • . . . . . . • • • • • • • . . . • . . . . . . . • . . . . . • • . 2"
-      continuation:
-      min_conf: 99
+      type_and_model: |-
+        211-216, 231-238,
+        261-274
+      text: 211 881 043 Back.- Front se11t bench ..........••.•.••.....• 211-216, 231-238,
+      continuation: |-
+        up fo Chassis No. 673 615 261-274
+        3/50 - 7/58 041 black
+      min_conf: 513
     tesseract:
       key:
       key_prefix:
-      marker: "°"
-      part_no: N122251
-      description: Spring washer BS
-      quantity:
-      applicability:
+      marker:
+      part_no: 211 881 043
+      description: Back — Front seat bench
+      quantity: '1'
+      applicability: |-
+        up to Chassis No. 673 615
+        3/50 - 7/58 041 black
+        8/58 - 9/60 ' 009 grey 58
       applicability_inline: false
-      type_and_model: na teens 2
-      text: Nan . °N122251 Spring washer BS ..........ccececence renee eee rene estes ene na teens 2
-      continuation:
-      min_conf: 101
+      type_and_model: |-
+        211-216, 231-238,
+        261-274
+      text: "- 211 881 043 Back — Front seat bench ...............00eeeeee 1 211-216, 231-238,"
+      continuation: |-
+        up to Chassis No. 673 615 261-274
+        3/50 - 7/58 041 black
+        8/58 - 9/60 ' 009 grey 58
+      min_conf: 389
   disagreements:
-  - marker
+  - applicability
   confidence: needs checking
   confidence_reasons:
-  - marker_differs
+  - applicability_differs
+  - colour_date_lines
   status: unverified
   reviewed_by:
   reviewed_at:
   corrections: []
   main_group: '8'
-  illustration:
+  illustration: 47+A47
   cross_edition: not_available
-- id: ill-unknown-8-8-140-10
+- id: ill47a47-p543-12
   edition: vw-tpl-1963-08
-  printed_page: 8-140
-  pdf_page: 565
-  row_order: 10
-  key: 11
+  printed_page: 8-121
+  pdf_page: 543
+  row_order: 12
+  key: 63
   key_prefix:
   marker:
-  part_no: N 11 460 1
-  part_no_norm: N114601
-  description: Tapping screw,countersunk head B3.SX13
-  quantity: '28'
-  applicability:
+  part_no: '388'
+  part_no_norm: '388'
+  description: coma green -
+  quantity:
+  applicability: |-
+    8/62 ~ 8/63 467 basalt grey ~ 80
+    8/62 - 8/63 292 silver beige/basalt grey - 75
   applicability_inline: false
   chassis_from:
   chassis_to:
   chassis_ranges:
   option_codes: []
   type_and_model:
-  position: ill-unknown-8-k11
+  position: ill47a47-k63
   position_status: suggested
   bbox_px:
-  - 257
-  - 1506
-  - 2430
-  - 1606
+  - 387
+  - 1541
+  - 2422
+  - 1721
   bbox_source: tesseract
   readings:
     pdf_text:
       key:
       key_prefix:
       marker:
-      part_no: N114601
-      description: Tapping screw,countersunk head B3.SX13
-      quantity: '28'
+      part_no: '388'
+      description: coma green -
+      quantity:
       applicability:
       applicability_inline: false
       type_and_model:
-      text: N114601 Tapping screw,countersunk head B3.SX13 ........................... . 28
+      text: 8/62 8/63 388 coma green - 81
       continuation:
-      min_conf: 400
+      min_conf: 441
     tesseract:
-      key: 11
+      key: 63
       key_prefix:
       marker:
-      part_no: '4601'
-      description: Tapping screw, countersunk head B3.5X13 6.0
-      quantity: '28'
-      applicability:
+      part_no: '388'
+      description: como green ~
+      quantity:
+      applicability: |-
+        8/62 ~ 8/63 467 basalt grey ~ 80
+        8/62 - 8/63 292 silver beige/basalt grey - 75
       applicability_inline: false
       type_and_model:
-      text: "’ N11 4601 Tapping screw, countersunk head B3.5X13 6.0... . eee cece eee eee ees _ 28"
-      continuation:
-      min_conf: 289
+      text: 8/62. B63 388 como green ~ 31
+      continuation: |-
+        8/62 ~ 8/63 467 basalt grey ~ 80
+        8/62 - 8/63 292 silver beige/basalt grey - 75
+      min_conf: 454
   disagreements:
   - part_no
   confidence: needs checking
   confidence_reasons:
-  - part_no_differs
+  - bad_shape
+  - colour_date_lines
+  status: unverified
+  reviewed_by:
+  reviewed_at:
+  corrections: []
+  main_group: '8'
+  illustration: 47+A47
+  cross_edition: not_available
+- id: ill-unknown-8-8-138-04
+  edition: vw-tpl-1963-08
+  printed_page: 8-138
+  pdf_page: 563
+  row_order: 4
+  key:
+  key_prefix:
+  marker:
+  part_no: '261264'
+  part_no_norm: '261264'
+  description: ". ."
+  quantity:
+  - '2'
+  - '1'
+  - '1'
+  applicability: |-
+    from Chassis No·. 217 000 001
+    comprising:
+    Lock cylinder - Door {cab)
+    Ignition/starter lock ........•.•••...••.....•...•••..••.••..•.......
+    tock cylinder - Side panel lid .••.••....••••..••••.......•••.•......
+  applicability_inline: false
+  chassis_from:
+  chassis_to:
+  chassis_ranges:
+  option_codes: []
+  type_and_model: |-
+    —
+    2
+    1
+    nests 1 -
+  position:
+  position_status: suggested
+  bbox_px:
+  - 249
+  - 1814
+  - 2467
+  - 2261
+  bbox_source: tesseract
+  readings:
+    pdf_text:
+      key:
+      key_prefix:
+      marker:
+      part_no: '261264'
+      description:
+      quantity:
+      - '2'
+      - '1'
+      - '1'
+      applicability: |-
+        from Chassis No·. 217 000 001
+        comprising:
+        Lock cylinder - Door {cab)
+        Ignition/starter lock ........•.•••...••.....•...•••..••.••..•.......
+        tock cylinder - Side panel lid .••.••....••••..••••.......•••.•......
+      applicability_inline: false
+      type_and_model:
+      text: Types 261-264
+      continuation: |-
+        from Chassis No·. 217 000 001
+        comprising:
+        Lock cylinder - Door {cab) 2
+        Ignition/starter lock ........•.•••...••.....•...•••..••.••..•....... 1
+        tock cylinder - Side panel lid .••.••....••••..••••.......•••.•...... 1
+      min_conf: 631
+    tesseract:
+      key:
+      key_prefix:
+      marker:
+      part_no: '261264'
+      description: ". ."
+      quantity:
+      applicability: |-
+        from Chassis No. 217 000 001
+        ms comprising:
+        Lock cylinder —- Door (cab) Li veceeeaeeeueeeeaeeesneevuesetuaeenanes
+        Ignifion/starter lock ....... ccc ecee ces euceeueuatecteeseeuerenpersece
+        Lock cylinder — Side panel lid ........ ccc cee e esse erect
+      applicability_inline: false
+      type_and_model: |-
+        —
+        2
+        1
+        nests 1 -
+      text: Types 261-264 . . —
+      continuation: |-
+        from Chassis No. 217 000 001
+        ms comprising:
+        Lock cylinder —- Door (cab) Li veceeeaeeeueeeeaeeesneevuesetuaeenanes 2
+        Ignifion/starter lock ....... ccc ecee ces euceeueuatecteeseeuerenpersece 1
+        Lock cylinder — Side panel lid ........ ccc cee e esse erect eee e teen nests 1 -
+      min_conf: 629
+  disagreements:
+  - part_no
+  confidence: needs checking
+  confidence_reasons:
   - bad_shape
   status: unverified
   reviewed_by:
@@ -3229,18 +3206,71 @@ rows:
   main_group: '8'
   illustration:
   cross_edition: not_available
-- id: ill49-9-8-32
+- id: ill-unknown-8-8-139-29
+  edition: vw-tpl-1963-08
+  printed_page: 8-139
+  pdf_page: 564
+  row_order: 29
+  key:
+  key_prefix:
+  marker:
+  part_no: 211 837 833
+  part_no_norm: '211837833'
+  description: SCTEW oie eee eee eee e ence nee e teen ene e eee teeta
+  quantity:
+  applicability:
+  applicability_inline: false
+  chassis_from:
+  chassis_to:
+  chassis_ranges:
+  option_codes: []
+  type_and_model: eetetes 1
+  position: ill-unknown-8-k5
+  position_status: suggested
+  bbox_px:
+  - 292
+  - 3001
+  - 2421
+  - 3098
+  bbox_source: tesseract
+  readings:
+    pdf_text:
+    tesseract:
+      key:
+      key_prefix:
+      marker:
+      part_no: 211 837 833
+      description: SCTEW oie eee eee eee e ence nee e teen ene e eee teeta
+      quantity:
+      applicability:
+      applicability_inline: false
+      type_and_model: eetetes 1
+      text: 211 837 833 SCTEW oie eee eee eee e ence nee e teen ene e eee teeta eee ea eens eetetes 1
+      continuation:
+      min_conf: 347
+  disagreements: []
+  confidence: needs checking
+  confidence_reasons:
+  - only_tesseract
+  status: unverified
+  reviewed_by:
+  reviewed_at:
+  corrections: []
+  main_group: '8'
+  illustration:
+  cross_edition: not_available
+- id: ill49-9-8-19
   edition: vw-tpl-1963-08
   printed_page: 9-8
   pdf_page: 579
-  row_order: 32
-  key: 33
+  row_order: 19
+  key:
   key_prefix:
   marker:
-  part_no: N 10 703 2
-  part_no_norm: N107032
-  description: Screw, cheese head AM 4X8 DIN 84 galvanized
-  quantity: '3'
+  part_no: 211 903 021 B
+  part_no_norm: 211903021B
+  description:
+  quantity:
   applicability:
   applicability_inline: false
   chassis_from:
@@ -3248,41 +3278,41 @@ rows:
   chassis_ranges:
   option_codes: []
   type_and_model:
-  position: ill49-k33
+  position: ill49-k30
   position_status: suggested
   bbox_px:
-  - 214
-  - 2481
+  - 676
+  - 1585
   - 2430
-  - 2569
+  - 1663
   bbox_source: tesseract
   readings:
     pdf_text:
-      key: 33
+      key:
       key_prefix:
       marker:
-      part_no: N 10 703 2
-      description: Screw, cheese head AM 4X8 DIN 84 galvanized
-      quantity: '3'
+      part_no: 211 903 021 B
+      description:
+      quantity:
       applicability:
       applicability_inline: false
       type_and_model:
-      text: 33 N 10 703 2 Screw, cheese head AM 4X8 DIN 84 galvanized 3
+      text: 211 903 021 B
       continuation:
-      min_conf: 261
+      min_conf: 732
     tesseract:
-      key: 33
+      key:
       key_prefix:
       marker:
-      part_no: N 10 703 2
-      description: Screw, cheese head AM 4X8 DIN 84 galvanized
-      quantity: '3'
+      part_no: 211 903 021 B
+      description:
+      quantity:
       applicability:
       applicability_inline: false
       type_and_model:
-      text: 33 N 10 703 2 Screw, cheese head AM 4X8 DIN 84 galvanized 3
+      text: 211 903 021 B
       continuation:
-      min_conf: 260
+      min_conf: 732
   disagreements: []
   confidence: readings agree
   confidence_reasons: []
@@ -3293,17 +3323,17 @@ rows:
   main_group: '9'
   illustration: '49'
   cross_edition: not_available
-- id: ill50-9-13-30
+- id: ill49-9-10-37
   edition: vw-tpl-1963-08
-  printed_page: 9-13
-  pdf_page: 584
-  row_order: 30
-  key: 4
+  printed_page: 9-10
+  pdf_page: 581
+  row_order: 37
+  key:
   key_prefix:
   marker:
-  part_no: 383 ZVNJ 4 BR
-  part_no_norm: 383ZVNJ4BR
-  description: 8/1;
+  part_no: 113 903 031 D
+  part_no_norm: 113903031D
+  description:
   quantity:
   applicability:
   applicability_inline: false
@@ -3312,66 +3342,63 @@ rows:
   chassis_ranges:
   option_codes: []
   type_and_model:
-  position: ill50-k4
+  position: ill49-k57
   position_status: suggested
   bbox_px:
-  - 773
-  - 2955
-  - 2413
-  - 3041
+  - 693
+  - 2655
+  - 2421
+  - 2734
   bbox_source: tesseract
   readings:
     pdf_text:
-      key: 4
+      key:
       key_prefix:
       marker:
-      part_no: 383 ZVNJ 4 BR
-      description: 8/1;
+      part_no: 113 903 031 D
+      description:
       quantity:
       applicability:
       applicability_inline: false
       type_and_model:
-      text: VE 4 BRS 383; ZVNJ 4 BR 8/1;
+      text: 113 903 031 D
       continuation:
-      min_conf: 827
+      min_conf: 750
     tesseract:
-      key: 4
+      key:
       key_prefix:
       marker:
-      part_no: 383 ZVVJ 4 BR
-      description: 8/1;
+      part_no: 113 903 031 D
+      description:
       quantity:
       applicability:
       applicability_inline: false
       type_and_model:
-      text: VE 4 BRS 383; ZV/VJ 4 BR 8/1;
+      text: 113 903 031 D
       continuation:
-      min_conf: 827
-  disagreements:
-  - part_no
-  confidence: needs checking
-  confidence_reasons:
-  - part_no_differs
-  - bad_shape
+      min_conf: 750
+  disagreements: []
+  confidence: readings agree
+  confidence_reasons: []
   status: unverified
   reviewed_by:
   reviewed_at:
   corrections: []
   main_group: '9'
-  illustration: '50'
+  illustration: '49'
   cross_edition: not_available
-- id: ill50-9-17-03
+- id: ill50-9-16-12
   edition: vw-tpl-1963-08
-  printed_page: 9-17
-  pdf_page: 588
-  row_order: 3
-  key: 46
+  printed_page: 9-16
+  pdf_page: 587
+  row_order: 12
+  key: 38
   key_prefix:
   marker:
-  part_no: 111 905 429
-  part_no_norm: '111905429'
-  description: Cap (rubber) - Distributor
-  quantity: '5'
+  part_no: N 11 004 2
+  part_no_norm: N110042
+  description: Nut, hex. M 4 DIN 934 galvanized
+  quantity: '2'
   applicability:
   applicability_inline: false
   chassis_from:
@@ -3379,41 +3406,41 @@ rows:
   chassis_ranges:
   option_codes: []
   type_and_model:
-  position: ill50-k46
+  position: ill50-k38
   position_status: suggested
   bbox_px:
-  - 316
-  - 703
-  - 2413
-  - 806
+  - 215
+  - 1554
+  - 2421
+  - 1642
   bbox_source: tesseract
   readings:
     pdf_text:
-      key: 46
+      key: 38
       key_prefix:
       marker:
-      part_no: 111 905 429
-      description: Cap (rubber) - Distributor
-      quantity: '5'
+      part_no: N110042
+      description: Nut, hex. M 4 DIN 934 galvanized
+      quantity: '2'
       applicability:
       applicability_inline: false
       type_and_model:
-      text: 46 111 905 429 Cap (rubber) - Distributor . . . . . . . . . . • . • . • • . • . . · 5
+      text: 38 N110042 Nut, hex. M 4 DIN 934 galvanized ............. . 2
       continuation:
-      min_conf: 368
+      min_conf: 262
     tesseract:
-      key: 46
+      key: 38
       key_prefix:
       marker:
-      part_no: 111 905 429
-      description: Cap (rubber) — Distributor
-      quantity: '5'
+      part_no: N 11 004 2
+      description: Nut, hex. M 4 DIN 934 galvanized
+      quantity: '2'
       applicability:
       applicability_inline: false
       type_and_model:
-      text: 46 111 905 429 Cap (rubber) — Distributor .............000085 5
+      text: 38 N 11 004 2 Nut, hex. M 4 DIN 934 galvanized .............. 2
       continuation:
-      min_conf: 366
+      min_conf: 262
   disagreements: []
   confidence: readings agree
   confidence_reasons: []
@@ -3424,17 +3451,150 @@ rows:
   main_group: '9'
   illustration: '50'
   cross_edition: not_available
-- id: ill52-9-35-04
+- id: ill51-9-25-09
   edition: vw-tpl-1963-08
-  printed_page: 9-35
-  pdf_page: 606
-  row_order: 4
+  printed_page: 9-25
+  pdf_page: 596
+  row_order: 9
+  key: 76
+  key_prefix:
+  marker:
+  part_no: N 10 261 1
+  part_no_norm: N102611
+  description: Bolt, hex. head M 4X15 DIN 933 galvanized
+  quantity: '1'
+  applicability: "\\, __ _"
+  applicability_inline: false
+  chassis_from:
+  chassis_to:
+  chassis_ranges:
+  option_codes: []
+  type_and_model:
+  position: ill51-k76
+  position_status: suggested
+  bbox_px:
+  - 52
+  - 1224
+  - 2422
+  - 1339
+  bbox_source: tesseract
+  readings:
+    pdf_text:
+      key: 76
+      key_prefix:
+      marker:
+      part_no: N 10 2611
+      description: Bolt, hex. head M 4X15 DIN 933 galvanized
+      quantity:
+      applicability: "\\, __ _"
+      applicability_inline: false
+      type_and_model:
+      text: 76 N 10 2611 Bolt, hex. head M 4X15 DIN 933 galvanized .....
+      continuation: "\\, __ _"
+      min_conf: 367
+    tesseract:
+      key: 76
+      key_prefix:
+      marker:
+      part_no: N 10 261 1
+      description: Bolt, hex. head M 4X15 DIN 933 galvanized
+      quantity: '1'
+      applicability: VL =
+      applicability_inline: false
+      type_and_model:
+      text: 76 N 10 261 1 Bolt, hex. head M 4X15 DIN 933 galvanized ..... 1
+      continuation: VL =
+      min_conf: 368
+  disagreements: []
+  confidence: readings agree
+  confidence_reasons: []
+  status: unverified
+  reviewed_by:
+  reviewed_at:
+  corrections: []
+  main_group: '9'
+  illustration: '51'
+  cross_edition: not_available
+- id: ill51-9-26-18
+  edition: vw-tpl-1963-08
+  printed_page: 9-26
+  pdf_page: 597
+  row_order: 18
+  key:
+  key_prefix:
+  marker:
+  part_no: 211 905 851 E
+  part_no_norm: 211905851E
+  description: Steering/ignition lock less lock cylinder
+  quantity: '1'
+  applicability:
+  applicability_inline: false
+  chassis_from:
+  chassis_to:
+  chassis_ranges:
+  option_codes:
+  - M 56
+  type_and_model: M 56
+  position: ill51-k99
+  position_status: suggested
+  bbox_px:
+  - 229
+  - 2412
+  - 2422
+  - 2500
+  bbox_source: tesseract
+  readings:
+    pdf_text:
+      key:
+      key_prefix:
+      marker:
+      part_no: 211 905 851 E
+      description: Steering/ignition lock less lock cylinder
+      quantity: '1'
+      applicability:
+      applicability_inline: false
+      type_and_model: M 56
+      text: 211 905 851 E Steering/ignition lock less lock cylinder •........ 1 M 56
+      continuation:
+      min_conf: 394
+    tesseract:
+      key:
+      key_prefix:
+      marker:
+      part_no: 211905851E
+      description: Steering/ignition lock less lock cylinder
+      quantity:
+      - '1'
+      - '56'
+      applicability:
+      applicability_inline: false
+      type_and_model:
+      text: "- 211905851E Steering/ignition lock less lock cylinder ......... 1 M 56"
+      continuation:
+      min_conf: 269
+  disagreements:
+  - quantity
+  confidence: needs checking
+  confidence_reasons:
+  - qty_differs
+  status: unverified
+  reviewed_by:
+  reviewed_at:
+  corrections: []
+  main_group: '9'
+  illustration: '51'
+  cross_edition: not_available
+- id: ill52-9-34-20
+  edition: vw-tpl-1963-08
+  printed_page: 9-34
+  pdf_page: 605
+  row_order: 20
   key:
   key_prefix:
   marker:
   part_no: 211 911 021
   part_no_norm: '211911021'
-  description: 111 911 021 D
+  description: 111 911 021 D; 113 911021 A
   quantity:
   applicability:
   applicability_inline: false
@@ -3443,41 +3603,41 @@ rows:
   chassis_ranges:
   option_codes: []
   type_and_model:
-  position: ill52-k71
+  position: ill52-k63
   position_status: suggested
   bbox_px:
-  - 789
-  - 647
-  - 2421
-  - 732
+  - 675
+  - 1970
+  - 2413
+  - 2055
   bbox_source: tesseract
   readings:
     pdf_text:
       key:
       key_prefix:
       marker:
-      part_no: 211911 021
-      description: 111 911 021 D
+      part_no: '211911021'
+      description: 111 911 021 D; 113 911021 A
       quantity:
       applicability:
       applicability_inline: false
       type_and_model:
-      text: 211911 021; 111 911 021 D
+      text: 211911021; 111 911 021 D; 113 911021 A
       continuation:
-      min_conf: 881
+      min_conf: 811
     tesseract:
       key:
       key_prefix:
       marker:
-      part_no: 211911 021
-      description: 111 911021 D
+      part_no: 211 911 021
+      description: 111 911 021 D; 113 911 021A
       quantity:
       applicability:
       applicability_inline: false
       type_and_model:
-      text: 211911 021; 111 911021 D
+      text: 211 911 021; 111 911 021 D; 113 911 021A
       continuation:
-      min_conf: 881
+      min_conf: 731
   disagreements: []
   confidence: readings agree
   confidence_reasons: []
@@ -3488,81 +3648,17 @@ rows:
   main_group: '9'
   illustration: '52'
   cross_edition: not_available
-- id: ill53-9-45-21
+- id: ill54-9-55-08
   edition: vw-tpl-1963-08
-  printed_page: 9-45
-  pdf_page: 618
-  row_order: 21
-  key: 47
+  printed_page: 9-55
+  pdf_page: 628
+  row_order: 8
+  key: 44
   key_prefix:
   marker:
-  part_no: 111 941 153 B
-  part_no_norm: 111941153B
-  description: Retainer Headlamp reflectors
-  quantity: '2'
-  applicability:
-  applicability_inline: false
-  chassis_from:
-  chassis_to:
-  chassis_ranges:
-  option_codes: []
-  type_and_model:
-  position: ill53-k47
-  position_status: suggested
-  bbox_px:
-  - 300
-  - 2001
-  - 2413
-  - 2091
-  bbox_source: tesseract
-  readings:
-    pdf_text:
-      key: 47
-      key_prefix:
-      marker:
-      part_no: 111 941 153 B
-      description: Retainer Headlamp reflectors
-      quantity: '2'
-      applicability:
-      applicability_inline: false
-      type_and_model:
-      text: 47 111 941 153 B Retainer Headlamp reflectors •••••• 9 ......... 2
-      continuation:
-      min_conf: 349
-    tesseract:
-      key: 47
-      key_prefix:
-      marker:
-      part_no: 111 941153B
-      description: Retainer — Headlamp reflectors
-      quantity: '2'
-      applicability:
-      applicability_inline: false
-      type_and_model:
-      text: 47 111 941153B Retainer — Headlamp reflectors ............... 2
-      continuation:
-      min_conf: 349
-  disagreements: []
-  confidence: readings agree
-  confidence_reasons: []
-  status: unverified
-  reviewed_by:
-  reviewed_at:
-  corrections: []
-  main_group: '9'
-  illustration: '53'
-  cross_edition: not_available
-- id: ill54-9-52-09
-  edition: vw-tpl-1963-08
-  printed_page: 9-52
-  pdf_page: 625
-  row_order: 9
-  key:
-  key_prefix:
-  marker:
-  part_no: 271 943 337
-  part_no_norm: '271943337'
-  description: Bulb socket - Red cross light
+  part_no: 113 945 515 C
+  part_no_norm: 113945515C
+  description: Switch - Stop light
   quantity: '1'
   applicability:
   applicability_inline: false
@@ -3570,42 +3666,42 @@ rows:
   chassis_to:
   chassis_ranges:
   option_codes: []
-  type_and_model: 271-274
-  position: ill54-k21
+  type_and_model:
+  position: ill54-k44
   position_status: suggested
   bbox_px:
-  - 237
-  - 1553
-  - 2421
-  - 1640
+  - 318
+  - 1400
+  - 2418
+  - 1581
   bbox_source: tesseract
   readings:
     pdf_text:
-      key:
+      key: 44
       key_prefix:
       marker:
-      part_no: 271 943 337
-      description: Bulb socket - Red cross light
+      part_no: 113 945 515 C
+      description: Switch - Stop light
       quantity: '1'
       applicability:
       applicability_inline: false
-      type_and_model: 271-274
-      text: 271 943 337 Bulb socket - Red cross light .................. 1 271-274
+      type_and_model:
+      text: 44 113 945 515 C Switch - Stop light .........................•. 1
       continuation:
-      min_conf: 401
+      min_conf: 365
     tesseract:
       key:
       key_prefix:
       marker:
-      part_no: 271 943 337
-      description: Bulb socket -- Red cross light
+      part_no: 113 945515C
+      description: Switch — Sfop light
       quantity: '1'
       applicability:
       applicability_inline: false
-      type_and_model: 271~274
-      text: "~. 271 943 337 Bulb socket -- Red cross light ...........--0e0ee 1 271~274"
-      continuation:
-      min_conf: 286
+      type_and_model:
+      text: Ad 113 945515C Switch — Sfop light .............ccceereeeeeeee 1
+      continuation: "|"
+      min_conf: 373
   disagreements: []
   confidence: readings agree
   confidence_reasons: []
@@ -3616,92 +3712,21 @@ rows:
   main_group: '9'
   illustration: '54'
   cross_edition: not_available
-- id: ill56a56-9-67-03
+- id: ill56a56-9-67-10
   edition: vw-tpl-1963-08
   printed_page: 9-67
   pdf_page: 644
-  row_order: 3
-  key: 20
+  row_order: 10
+  key: 25
   key_prefix:
   marker:
-  part_no: 211 955 261 B
-  part_no_norm: 211955261B
-  description: Ferrule - Windshield wiper bearing
+  part_no: 211 955 323
+  part_no_norm: '211955323'
+  description: Ball joint with grub screw
   quantity: '2'
-  applicability: from Chassis No. 215 000 001
+  applicability: up to Chassis No. 1 328 871
   applicability_inline: false
   chassis_from:
-    printed: 215 000 001
-    seq:
-    format: 9-digit
-    note: outside the stated sequence rule (20-NNN NNN or 6/7 digits); not parsed
-  chassis_to:
-  chassis_ranges:
-  option_codes: []
-  type_and_model:
-  position: ill56a56-k20
-  position_status: suggested
-  bbox_px:
-  - 318
-  - 797
-  - 2422
-  - 927
-  bbox_source: tesseract
-  readings:
-    pdf_text:
-      key: 20
-      key_prefix:
-      marker:
-      part_no: 211 955 261 B
-      description: Ferrule - Windshield wiper bearing
-      quantity: '2'
-      applicability: from Chassis No. 215 000 001
-      applicability_inline: false
-      type_and_model:
-      text: 20 211 955 261 B Ferrule - Windshield wiper bearing 2
-      continuation: from Chassis No. 215 000 001
-      min_conf: 366
-    tesseract:
-      key: 20
-      key_prefix:
-      marker:
-      part_no: 211955 261B
-      description: "| Ferrule ~ Windshield wiper bearing"
-      quantity: '2'
-      applicability: from Chassis No. 215 000 001
-      applicability_inline: false
-      type_and_model:
-      text: 20 211955 261B | Ferrule ~ Windshield wiper bearing ........... 2
-      continuation: from Chassis No. 215 000 001
-      min_conf: 366
-  disagreements: []
-  confidence: readings agree
-  confidence_reasons: []
-  status: unverified
-  reviewed_by:
-  reviewed_at:
-  corrections: []
-  main_group: '9'
-  illustration: 56+A56
-  cross_edition: not_available
-- id: ill56a56-9-67-08
-  edition: vw-tpl-1963-08
-  printed_page: 9-67
-  pdf_page: 644
-  row_order: 8
-  key: 23
-  key_prefix:
-  marker:
-  part_no: 211 955 319 A
-  part_no_norm: 211955319A
-  description: Connecting rod Windshield wiper, left
-  quantity: '1'
-  applicability: from Chassis No. 20-117 902 up to 1 328 871
-  applicability_inline: false
-  chassis_from:
-    printed: 20-117 902
-    seq: 117902
-    format: 20-NNN NNN
   chassis_to:
     printed: 1 328 871
     seq: 1328871
@@ -3709,40 +3734,40 @@ rows:
   chassis_ranges:
   option_codes: []
   type_and_model:
-  position: ill56a56-k23
+  position: ill56a56-k25
   position_status: suggested
   bbox_px:
-  - 316
-  - 1585
+  - 315
+  - 1909
   - 2422
-  - 1721
+  - 2045
   bbox_source: tesseract
   readings:
     pdf_text:
-      key: 23
+      key: 25
       key_prefix:
       marker:
-      part_no: 211 955 319 A
-      description: Connecting rod Windshield wiper, left
-      quantity:
-      applicability: from Chassis No. 20-117 902 up to 1 328 871
+      part_no: 211 955 323
+      description: Ball joint with grub screw
+      quantity: '2'
+      applicability: up to Chassis No. 1 328 871
       applicability_inline: false
       type_and_model:
-      text: 23 211 955 319 A Connecting rod Windshield wiper, left ....... .
-      continuation: from Chassis No. 20-117 902 up to 1 328 871
-      min_conf: 363
+      text: 25 211 955 323 Ball joint with grub screw ..................... . 2
+      continuation: up to Chassis No. 1 328 871
+      min_conf: 362
     tesseract:
-      key: 23
+      key: 25
       key_prefix:
       marker:
-      part_no: 211955319 A
-      description: "| Connecting rod -- Windshield wiper, left"
-      quantity: '1'
-      applicability: from Chassis No. 20 — 117 902 up to 1 328 871
+      part_no: 211 955 323
+      description: Ball joint with grub screw
+      quantity: '2'
+      applicability: up to Chassis No. 1 328 871
       applicability_inline: false
       type_and_model:
-      text: 23 211955319 A | Connecting rod -- Windshield wiper, left ........ 1
-      continuation: from Chassis No. 20 — 117 902 up to 1 328 871
+      text: 25 211 955 323 Ball joint with grub screw ........... 0... e eee eee 2
+      continuation: up to Chassis No. 1 328 871
       min_conf: 363
   disagreements: []
   confidence: readings agree
@@ -3754,132 +3779,132 @@ rows:
   main_group: '9'
   illustration: 56+A56
   cross_edition: not_available
-- id: ill57-9-74-04
+- id: ill56a56-p650-06
   edition: vw-tpl-1963-08
-  printed_page: 9-74
-  pdf_page: 655
-  row_order: 4
-  key:
+  printed_page:
+  pdf_page: 650
+  row_order: 6
+  key: 58
   key_prefix:
   marker:
-  part_no: 214 971 015 C
-  part_no_norm: 214971015C
-  description: Main harness (RHD)
+  part_no: 211 957 801 D
+  part_no_norm: 211957801D
+  description: Cable, 2070 mm long - Speedometer (LHD)
   quantity: '1'
-  applicability: from Chassis No. 802 986 up to 1 285 220
+  applicability: from Chassis No. 20 - 117 902
   applicability_inline: false
   chassis_from:
-    printed: 802 986
-    seq: 802986
-    format: 6-digit
+    printed: 20 - 117 902
+    seq: 117902
+    format: 20-NNN NNN
   chassis_to:
-    printed: 1 285 220
-    seq: 1285220
-    format: 7-digit
   chassis_ranges:
   option_codes: []
-  type_and_model: "',~"
-  position: ill57-k1
+  type_and_model: 211-273
+  position: ill56a56-k58
   position_status: suggested
   bbox_px:
-  - 353
-  - 1044
-  - 2413
-  - 1327
+  - 450
+  - 1093
+  - 2421
+  - 1232
   bbox_source: tesseract
   readings:
     pdf_text:
-      key:
+      key: 58
       key_prefix:
       marker:
-      part_no: 214 971 015 C
-      description: Main harness (RHD)
+      part_no: 211 957 801 D
+      description: Cable, 2070 mm long - Speedometer (LHD)
       quantity: '1'
-      applicability: from Chassis No. 802 986 up to 1 285 220
+      applicability: from Chassis No. 20 - 117 902
       applicability_inline: false
-      type_and_model: "',~"
-      text: 214 971 015 C Main harness (RHD) ...•...................... 1 214,.274
-      continuation: |-
-        from Chassis No. 802 986 up to 1 285 220
-        ',~
-      min_conf: 411
+      type_and_model: 211-273
+      text: 58 211 957 801 D Cable, 2070 mm long - Speedometer (LHD) 1 211-273
+      continuation: from Chassis No. 20 - 117 902
+      min_conf: 372
     tesseract:
       key:
       key_prefix:
       marker:
-      part_no: 214971015C
-      description: Main harness (RHD) Le cueeeveceeeaeereaeeteees 986
-      quantity: '1'
-      applicability: SS from Chassis No. 802 up to 1 285 220 |
+      part_no: 211 957 801D
+      description: Cable, 2070 mm long — Speedometer (LHD) .
+      quantity:
+      applicability: ": from Chassis No. 20 ~ 117 902"
       applicability_inline: false
-      type_and_model: |-
-        2940276
-        N
-        .
-      text: 214971015C Main harness (RHD) Le cueeeveceeeaeereaeeteees 986 1 2940276
-      continuation: |-
-        SS from Chassis No. 802 up to 1 285 220 |
-        N
-        .
-      min_conf: 496
-  disagreements:
-  - applicability
-  confidence: needs checking
-  confidence_reasons:
-  - applicability_differs
+      type_and_model: 211-273
+      text: 211 957 801D Cable, 2070 mm long — Speedometer (LHD) . 211-273
+      continuation: ": from Chassis No. 20 ~ 117 902"
+      min_conf: 506
+  disagreements: []
+  confidence: readings agree
+  confidence_reasons: []
   status: unverified
   reviewed_by:
   reviewed_at:
   corrections: []
   main_group: '9'
-  illustration: '57'
+  illustration: 56+A56
   cross_edition: not_available
-- id: ill61-S-16-14
+- id: ill61-S-22a-05
   edition: vw-tpl-1963-08
-  printed_page: S-16
-  pdf_page: 723
-  row_order: 14
+  printed_page: S-22a
+  pdf_page: 730
+  row_order: 5
   key:
   key_prefix:
   marker:
-  part_no: 231 235 241
-  part_no_norm: '231235241'
-  description: ": |"
-  quantity:
+  part_no: 211 853 611 A
+  part_no_norm: 211853611A
+  description: Rubber Cover
+  quantity: '6'
   applicability:
   applicability_inline: false
   chassis_from:
   chassis_to:
   chassis_ranges:
   option_codes: []
-  type_and_model: 235, 241
-  position: ill61-k11
+  type_and_model:
+  position: ill61-k96
   position_status: suggested
   bbox_px:
-  - 374
-  - 2079
-  - 2430
-  - 2161
+  - 331
+  - 897
+  - 2422
+  - 992
   bbox_source: tesseract
   readings:
     pdf_text:
+      key:
+      key_prefix:
+      marker:
+      part_no: 211 853 611 A
+      description: Rubber Cover
+      quantity: '6'
+      applicability:
+      applicability_inline: false
+      type_and_model:
+      text: 211 853 611 A Rubber Cover ............................. . 6
+      continuation:
+      min_conf: 496
     tesseract:
       key:
       key_prefix:
       marker:
-      part_no: 231 235 241
-      description: ": |"
-      quantity:
+      part_no: 211 853611
+      description: A} Rubber — Cover
+      quantity: '6'
       applicability:
       applicability_inline: false
-      type_and_model: 235, 241
-      text: ": | 231, 235, 241"
+      type_and_model:
+      text: "- 211 853611 A} Rubber — Cover... 2.0.0... ccc cee eee ee 6"
       continuation:
-      min_conf: 409
-  disagreements: []
+      min_conf: 371
+  disagreements:
+  - part_no
   confidence: needs checking
   confidence_reasons:
-  - only_tesseract
+  - part_no_differs
   status: unverified
   reviewed_by:
   reviewed_at:
