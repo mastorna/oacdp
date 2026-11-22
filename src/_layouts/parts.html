@@ -1,0 +1,91 @@
+<!doctype html>
+{%- comment -%}
+  Parts preview layout (local only; used by src/_plugins/parts_preview.rb).
+  Follows the design "OACDP brake diagram concept" (header, "Your bus"
+  band, main-group tabs, footer). Everything shown is an unverified reading.
+{%- endcomment -%}
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>{{ page.title | escape }} · OACDP parts (preview)</title>
+<link rel="preload" href="assets/jost-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/parts.css">
+</head>
+<body class="pp pp-kind-{{ page.parts_kind }}">
+<a class="pp-skip" href="#pp-main">Skip to content</a>
+<header class="pp-header">
+  <div class="pp-wrap pp-header-in">
+    <a class="pp-brand" href="index.html">
+      <span class="pp-logo" aria-hidden="true"></span>
+      <span class="pp-brand-text">
+        <span class="pp-brand-name">OACDP</span>
+        <span class="pp-brand-sub">Obsolete Air-Cooled Documentation Project</span>
+      </span>
+    </a>
+    <nav class="pp-nav" aria-label="Main">
+      <a href="../index.html">Manuals</a>
+      <a href="index.html"{% if page.parts_kind == "home" %} aria-current="page"{% endif %}>Parts</a>
+      <a href="../aboutdoc.html">About the archive</a>
+      <form class="pp-search-form" action="search.html" method="get" role="search">
+        <label class="pp-vh" for="pp-q-top">Search parts</label>
+        <input id="pp-q-top" class="pp-search" type="search" name="q" placeholder="Part number or part name">
+      </form>
+    </nav>
+  </div>
+</header>
+
+<div class="pp-preview-note" role="note">
+  <div class="pp-wrap">
+    <strong>Preview.</strong> Parts data read by machine from the scans of the
+    {{ page.edition }}. Not yet checked by a person: confirm against the original page before ordering.
+  </div>
+</div>
+
+<section class="pp-band" aria-label="Your bus">
+  <div class="pp-wrap pp-band-in">
+    <div class="pp-band-text">
+      <span class="pp-eyebrow">Your bus</span>
+      <span class="pp-band-title">{{ page.edition }}</span>
+      <span class="pp-band-help">The chassis number is on the M-plate in the cab and stamped in the engine bay.</span>
+    </div>
+    <label class="pp-field">
+      <span>Chassis number</span>
+      <input id="pp-chassis" class="pp-num" type="text" inputmode="numeric" autocomplete="off" placeholder="e.g. 20-100 000">
+    </label>
+    <span id="pp-chassis-msg" class="pp-fit pp-fit-info" aria-live="polite">Enter a chassis number to see which parts fit</span>
+  </div>
+</section>
+
+<nav class="pp-wrap pp-gnav-wrap" aria-label="Main groups">
+  <div class="pp-gnav">
+    {%- for g in page.groups %}
+    <a href="index.html#g-{{ g.id }}" class="pp-grp{% if page.ill.group == g.id %} pp-on{% endif %}"{% if page.ill.group == g.id %} aria-current="true"{% endif %}><span class="pp-gnum pp-num">{{ g.id }}</span><span class="pp-gname">{{ g.title }}</span></a>
+    {%- endfor %}
+  </div>
+</nav>
+
+<main id="pp-main" class="pp-wrap pp-main">
+{%- case page.parts_kind -%}
+{%- when "home" -%}{% include parts-home.html %}
+{%- when "illustration" -%}{% include parts-illustration.html %}
+{%- when "search" -%}{% include parts-search.html %}
+{%- endcase %}
+</main>
+
+<footer class="pp-footer">
+  <div class="pp-wrap pp-footer-in">
+    <span>Local preview. Part data read by machine (Illustration 32: read by AI) from the {{ page.edition }}; not yet verified by a person.</span>
+    <span>Not affiliated with Volkswagen AG. Names are used for identification only.</span>
+  </div>
+</footer>
+{%- if page.parts_json %}
+<script type="application/json" id="pp-data">{{ page.parts_json }}</script>
+{%- endif %}
+{%- if page.slug_of %}
+<script type="application/json" id="pp-slugs">{{ page.slug_of }}</script>
+{%- endif %}
+<script src="assets/parts.js"></script>
+</body>
+</html>

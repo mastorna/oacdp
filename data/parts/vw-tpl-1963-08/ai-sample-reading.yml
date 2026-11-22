@@ -1,0 +1,601 @@
+# Claude's (AI) sample reading for the whole-book smoke test, VW Transporter Parts List 1960-1967 (August 1963).
+# Read from 150 dpi half-page views (views/NNN-top.png, NNN-bottom.png), 2026-11-21.
+# Sample: Illustration 3 (PDF 63-67), Illustration 46 (PDF 530-533), Illustration 60 (PDF 718, 719, 721),
+# and 20 random list pages (seed 1963, 2 per group 1-9 and S): see sample-random-pages.txt.
+# Illustration 32 is measured with the earlier reading (data-ill32/claude-reading.yml).
+# key: null = the key column shows a dash. Continuation lines (applicability, notes in brackets) go in appl, one line each.
+# "[?]" marks a character that could not be read with certainty. Nothing here is verified by a person.
+read_on: 2026-11-21
+reader: claude (AI)
+sample_note: "AI sample: Illustrations 3, 46, 60 and 20 random list pages (seed 1963)"
+pages:
+  - { pdf_page: 63, printed_page: "1-49", illustration: "3", page_type: parts_list, revision_stamp: "Typ 2 31/68" }
+  - { pdf_page: 64, printed_page: "1-50", illustration: "3", page_type: parts_list, revision_stamp: null }
+  - { pdf_page: 65, printed_page: "1-50a", illustration: "6", page_type: parts_list, revision_stamp: "Typ 2 30/68" }
+  - { pdf_page: 66, printed_page: "1-50b", illustration: "6", page_type: parts_list, revision_stamp: null }
+  - { pdf_page: 67, printed_page: "1-51", illustration: "3", page_type: parts_list, revision_stamp: "Typ 2 31/68" }
+  - { pdf_page: 530, printed_page: "8-109", illustration: "46", page_type: parts_list, revision_stamp: "Typ 2 23/66" }
+  - { pdf_page: 531, printed_page: "8-110", illustration: "46", page_type: parts_list, revision_stamp: null }
+  - { pdf_page: 532, printed_page: "8-111", illustration: "46", page_type: parts_list, revision_stamp: "Typ 2 23/66" }
+  - { pdf_page: 533, printed_page: "8-112", illustration: "46", page_type: parts_list, revision_stamp: null }
+  - { pdf_page: 718, printed_page: "S-11", illustration: "60", page_type: parts_list, revision_stamp: "Typ 2 25/66" }
+  - { pdf_page: 719, printed_page: "S-12", illustration: "60", page_type: parts_list, revision_stamp: null }
+  - { pdf_page: 721, printed_page: null, illustration: "61", page_type: drawing, revision_stamp: null, note: "fold-out drawing, printed sideways; page map said parts_list of Illustration 60" }
+  - { pdf_page: 33, printed_page: "1-19", illustration: "1+A1", page_type: parts_list, revision_stamp: "Typ 2 31/68" }
+  - { pdf_page: 153, printed_page: "1-124a", illustration: "19", page_type: parts_list, revision_stamp: "Typ 2 27/67" }
+  - { pdf_page: 196, printed_page: "2-16", illustration: "22", page_type: parts_list, revision_stamp: null }
+  - { pdf_page: 203, printed_page: "2-21", illustration: "22a", page_type: parts_list, revision_stamp: "Typ 2 29/67" }
+  - { pdf_page: 216, printed_page: "3-7", illustration: "23", page_type: parts_list, revision_stamp: "Typ 2 2[?]/67" }
+  - { pdf_page: 245, printed_page: "3-34", illustration: "27", page_type: parts_list, revision_stamp: null }
+  - { pdf_page: 289, printed_page: "4-10", illustration: "28", page_type: parts_list, revision_stamp: null }
+  - { pdf_page: 302, printed_page: "4-23", illustration: "29", page_type: parts_list, revision_stamp: "Typ 2 28/67" }
+  - { pdf_page: 327, printed_page: "5-16", illustration: "31", page_type: parts_list, revision_stamp: null }
+  - { pdf_page: 329, printed_page: "5-18", illustration: "31", page_type: parts_list, revision_stamp: null }
+  - { pdf_page: 357, printed_page: "6-18", illustration: "33+A33", page_type: parts_list, revision_stamp: null }
+  - { pdf_page: 359, printed_page: "6-20", illustration: "33+A33", page_type: parts_list, revision_stamp: null }
+  - { pdf_page: 390, printed_page: "7-21", illustration: "36", page_type: parts_list, revision_stamp: "Typ 2 23/66" }
+  - { pdf_page: 404, printed_page: "7-35", illustration: null, page_type: parts_list, revision_stamp: "Typ 2 27/67", note: "SP set layout: no key column, no Type and model column, no illustration footer" }
+  - { pdf_page: 433, printed_page: "8-24", illustration: "38+A38+B38+C38", page_type: parts_list, revision_stamp: null }
+  - { pdf_page: 463, printed_page: "8-50", illustration: "39a", page_type: parts_list, revision_stamp: null }
+  - { pdf_page: 585, printed_page: "9-14", illustration: "50", page_type: parts_list, revision_stamp: null }
+  - { pdf_page: 633, printed_page: "9-60", illustration: "55", page_type: parts_list, revision_stamp: null }
+  - { pdf_page: 729, printed_page: "S-[?]", illustration: "61", page_type: parts_list, revision_stamp: null, note: "very dark speckled left edge; keys and printed page partly unreadable" }
+  - { pdf_page: 730, printed_page: "S-22a", illustration: "61", page_type: parts_list, revision_stamp: "Typ 2 23/66" }
+rows:
+  # ---- PDF 63 (1-49)
+  - { page: 63, key: 7, part: "111 109 335", desc: "Tube – Push rod", qty: "8", appl: "up to Engine No. 3 399 999", tm: "25-, 30 bhp" }
+  - { page: 63, key: null, part: "113 109 335", desc: "Tube – Push rod", qty: "8", appl: "from Engine No. 3 400 000", tm: "30-, 34 bhp" }
+  - { page: 63, key: 8, part: "311 109 335", desc: "Tube – Push rod", qty: "8", tm: "42-, 44 bhp" }
+  - { page: 63, key: 9, part: "111 109 345", desc: "Sealing washer – Push rod tube", qty: "16", appl: "up to Engine No. 3 399 999", tm: "25-, 30 bhp" }
+  - { page: 63, key: 10, part: "113 109 345 A", desc: "Sealing washer – Push rod tube", qty: "16", appl: "from Engine No. 3 400 000", tm: "30-, 34-, 42-, 44 bhp" }
+  - { page: 63, key: 11, part: "111 109 407", desc: "Rocker shaft", qty: "2", appl: "up to Engine No. 3 399 999", tm: "25-, 30 bhp" }
+  - { page: 63, key: 12, part: "113 109 407", desc: "Rocker shaft", qty: "2", appl: "from Engine No. 3 400 000", tm: "30-, 34-, 42-, 44 bhp" }
+  - { page: 63, key: 13, part: "111 109 415", desc: "Spring – Rocker shaft", qty: "2", appl: "up to Engine No. 3 399 999", tm: "25-, 30 bhp" }
+  - { page: 63, key: 14, part: "111 109 419", desc: "Spacer – Rocker arm", qty: "4", appl: "up to Engine No. 3 399 999", tm: "25-, 30 bhp" }
+  - { page: 63, key: 15, part: "111 109 425", desc: "Spring clip – Rocker shaft", qty: "4", appl: "up to Engine No. 3 399 999", tm: "25-, 30 bhp" }
+  - { page: 63, key: null, part: "113 109 427", desc: "Bearing support – Rocker shaft", qty: ["4", "4"], appl: "up to Engine No. 7 816 340\nup to Engine No. 243 325", tm: "34 bhp\n42 bhp" }
+  - { page: 63, key: null, part: "113 109 427 A", desc: "Bearing support – Rocker shaft", qty: ["4", "4"], appl: "(stud holes 8/8 mm dia.)\nfrom Engine No. 7 816 341\nfrom Engine No. 243 326 up to 710 799", tm: "34 bhp\n42 bhp" }
+  - { page: 63, key: 16, part: "113 109 427 C", desc: "Bearing support – Rocker shaft", qty: "4", appl: "(stud holes 8/9 mm dia.)\nfrom Engine No. 710 800", tm: "42-, 44 bhp" }
+  - { page: 63, key: null, part: "113 109 429", desc: "Bearing support – Rocker shaft", qty: "4", appl: "from Engine No. 3 400 000", tm: "30 bhp" }
+  - { page: 63, key: 17, part: "111 109 431", desc: "Collar – Rocker shaft", qty: "4", appl: "up to Engine No. 3 399 999", tm: "25-, 30 bhp" }
+  - { page: 63, key: 18, part: "111 105 235 A", desc: "Washer 0.6 mm – Rocker arm", qty: "8", appl: "up to Engine No. 3 399 999", tm: "25-, 30 bhp" }
+  # ---- PDF 64 (1-50)
+  - { page: 64, key: 19, part: "113 109 435", desc: "Thrust washer – Rocker arm", qty: "16", appl: "from Engine No. 3 400 000", tm: "30-, 34-, 42-, 44 bhp" }
+  - { page: 64, key: 20, part: "113 109 437", desc: "Spring washer – Rocker arm", qty: "8", appl: "from Engine No. 3 400 000", tm: "30-, 34-, 42-, 44 bhp" }
+  - { page: 64, key: 21, part: "113 109 439", desc: "Spring clip – Rocker shaft", qty: "8", appl: "from Engine No. 3 400 000", tm: "30-, 34-, 42-, 44 bhp" }
+  - { page: 64, key: 22, part: "111 109 443", desc: "Rocker arm", qty: "8", appl: "up to Engine No. 3 399 999", tm: "25-, 30 bhp" }
+  - { page: 64, key: null, part: "113 109 443 A", desc: "Rocker arm", qty: "8", appl: "from Engine No. 3 400 000 up to 8 339 390", tm: "30-, 34 bhp" }
+  - { page: 64, key: null, part: "113 109 443 B", desc: "Rocker arm", qty: "8", appl: "from Engine No. 8 339 391", tm: "34 bhp" }
+  - { page: 64, key: null, part: "311 109 443", desc: "Rocker arm (marked with a rib)", qty: "8", appl: "up to Engine No. 243 325", tm: "42 bhp" }
+  - { page: 64, key: 23, part: "311 109 443 B", desc: "Rocker arm (with two ribs)", qty: "8", appl: "from Engine No. 243 326", tm: "42-, 44 bhp" }
+  - { page: 64, key: null, part: "113 109 449", desc: "Sealing washer – Stud 113 101 397", qty: "4", appl: "up to Engine No. 5 979 933", tm: "34 bhp" }
+  - { page: 64, key: null, part: "113 109 449 A", desc: "Sealing washer – Stud 113 101 397 A/B/399 A", qty: ["4", "4"], appl: "from Engine No. 5 979 934\nup to Engine No. 710 799", tm: "34 bhp\n42 bhp" }
+  - { page: 64, key: 24, part: "113 109 449 B", desc: "Sealing washer – Stud 113 101 399 B", qty: "4", appl: "from Engine No. 710 800", tm: "42-, 44 bhp" }
+  - { page: 64, key: 25, part: "111 109 451", desc: "Adjusting screw – Valve", qty: "8" }
+  - { page: 64, key: 26, part: "N 11 152 1", desc: "Nut, hex. M 8×1 DIN 936", qty: "8" }
+  - { page: 64, key: null, part: "111 109 601", desc: "Intake valve 28 mm dia. (marked \"S\")", qty: "4", tm: "25 bhp" }
+  - { page: 64, key: 27, part: "111 109 601 A", desc: "Intake valve 30 mm dia.", qty: "4", appl: "up to Engine No. 3 399 999", tm: "30 bhp" }
+  - { page: 64, key: null, part: "113 109 601 B", desc: "Intake valve 31.5 mm dia.", qty: "4", appl: "from Engine No. 3 400 000", tm: "30-, 34-, 42 bhp" }
+  - { page: 64, key: 28, part: "311 109 601", desc: "Intake valve 35.6 mm dia.", qty: "4", tm: "44 bhp" }
+  # ---- PDF 65 (1-50a, Illustration 6: page map said 3)
+  - { page: 65, key: 35, part: "311 107 101 M", desc: "Piston 83 mm dia.", qty: "4", appl: "001 blue\n003 pink\n002 green\n(use piston ring 311 107 301 C/311\nup to Engine No. 164 420)" }
+  - { page: 65, key: null, part: "311 107 101 Q", desc: "Piston 83 mm dia. (recessed piston)", qty: "4", appl: "001 blue\n003 pink\n002 green", tm: "M 240" }
+  - { page: 65, key: null, part: "311 107 105 M", desc: "Piston 83.5 mm dia.", qty: "4", appl: "001 blue\n003 pink\n002 green\n(use piston ring 311 107 305 C/315\nup to Engine No. 164 420)" }
+  - { page: 65, key: null, part: "311 107 109 M", desc: "Piston 84 mm dia.", qty: "4", appl: "001 blue\n003 pink\n002 green\n(use piston ring 311 107 309 C/319\nup to Engine No. 164 420)" }
+  - { page: 65, key: 36, part: "311 107 301 A", desc: "Piston ring 83 mm dia.", qty: "8", appl: "up to Engine No. 1 100 000" }
+  - { page: 65, key: 37, part: "311 107 301 C", desc: "Ring – Piston (upper, 83 mm dia.)", qty: "4", appl: "from Engine No. H 0 000 001" }
+  - { page: 65, key: null, part: "341 107 305", desc: "Piston ring 83.5 mm dia.", qty: "8", appl: "up to Engine No. 1 100 000" }
+  - { page: 65, key: null, part: "311 107 305 C", desc: "Ring – Piston (upper, 83.5 mm dia.)", qty: "4", appl: "from Engine No. H 0 000 001" }
+  - { page: 65, key: null, part: "341 107 309", desc: "Piston ring 84 mm dia.", qty: "8", appl: "up to Engine No. 1 100 000" }
+  - { page: 65, key: null, part: "311 107 309 C", desc: "Ring – Piston (upper, 84 mm dia.)", qty: "4", appl: "from Engine No. H 0 000 001" }
+  - { page: 65, key: null, part: "311 107 311", desc: "Ring – Piston (lower, 83 mm dia.)", qty: "4", appl: "from Engine No. H 0 000 001 up to H 0 703 230" }
+  - { page: 65, key: null, part: "311 107 315", desc: "Ring – piston (lower, 83.5 mm dia.)", qty: "4", appl: "from Engine No. H 0 000 001 up to H 0 703 230" }
+  - { page: 65, key: null, part: "311 107 319", desc: "Ring – Piston (lower, 84 mm dia.)", qty: "4", appl: "from Engine No. H 0 000 001 up to H 0 703 230" }
+  - { page: 65, key: 38, part: "311 107 331 A", desc: "Scraper ring 83 mm dia.", qty: "4", appl: "up to Engine No. H 0 703 230" }
+  # ---- PDF 66 (1-50b, Illustration 6)
+  - { page: 66, key: 39, part: "311 107 333 A", desc: "Expander spring", qty: "4", appl: "up to Engine No. H 0 703 230" }
+  - { page: 66, key: null, part: "311 107 335", desc: "Scraper ring 83.5 mm dia.", qty: "4", appl: "up to Engine No. H 0 703 230" }
+  - { page: 66, key: null, part: "311 107 339", desc: "Scraper ring 84 mm dia.", qty: "4", appl: "up to Engine No. H 0 703 230" }
+  - { page: 66, key: 40, part: "311 107 361 A", desc: "Ring – Piston", qty: "4", appl: "(lower, 83 mm dia., narrow-face contact)\nfrom Engine No. H 0 703 231" }
+  - { page: 66, key: null, part: "311 107 365 A", desc: "Ring – Piston", qty: "4", appl: "(lower, 83.5 mm dia., narrow-face contact)\nfrom Engine No. H 0 703 231" }
+  - { page: 66, key: null, part: "311 107 369 A", desc: "Ring – Piston", qty: "4", appl: "(lower, 84 mm dia., narrow-face contact)\nfrom Engine No. H 0 703 231" }
+  - { page: 66, key: 41, part: "311 107 371", desc: "Scraper ring 83 mm dia. with coil spring", qty: "4", appl: "from Engine No. H 0 703 231" }
+  - { page: 66, key: null, part: "311 107 375", desc: "Scraper ring 83.5 mm dia. with coil spring", qty: "4", appl: "from Engine No. H 0 703 231" }
+  - { page: 66, key: null, part: "311 107 379", desc: "Scraper ring 84 mm dia. with coil spring", qty: "4", appl: "from Engine No. H 0 703 231" }
+  - { page: 66, key: 42, part: "311 107 411", desc: "Piston pin", qty: "4", appl: "041 black\n084 white" }
+  - { page: 66, key: null, part: "311 107 431", desc: "Piston pin (oversize, marked green)", qty: "×" }
+  - { page: 66, key: 43, part: "N 12 276 1", desc: "Lockring A 22 DIN 73 123 – Piston pin", qty: "8" }
+  # ---- PDF 67 (1-51, Illustration 3)
+  - { page: 67, key: 29, part: "111 109 611 A", desc: "Exhaust valve 28.6 mm dia.", qty: "4", appl: "up to Engine No. 3 399 999", tm: "25-, 30 bhp" }
+  - { page: 67, key: null, part: "113 109 612", desc: "Exhaust valve 30 mm dia.", qty: "4", appl: "from Engine No. 3 400 000", tm: "30-, 34-, 42 bhp" }
+  - { page: 67, key: 30, part: "311 109 612", desc: "Exhaust valve 32 mm dia.", qty: "4", tm: "44 bhp" }
+  - { page: 67, key: 31, part: "113 109 619", desc: "Ring – Oil deflection", qty: "8", appl: "from Engine No. 8 339 391", tm: "34-, 42-, 44 bhp" }
+  - { page: 67, key: null, part: "111 109 621", desc: "Cap – Valve", qty: "×", appl: "up to Engine No. 3 399 999", tm: "25-, 30 bhp" }
+  - { page: 67, key: 32, part: "113 109 621", desc: "Cap – Valve", qty: "×", appl: "from Engine No. 3 400 000", tm: "30-, 34-, 42-, 44 bhp" }
+  - { page: 67, key: 33, part: "111 109 623", desc: "Spring – Valve", qty: "8", appl: "up to Engine No. 3 399 999", tm: "25-, 30 bhp" }
+  - { page: 67, key: null, part: "113 109 623 A", desc: "Spring – Valve", qty: "8", appl: "from Engine No. 3 400 000", tm: "30-, 34 bhp" }
+  - { page: 67, key: 34, part: "113 109 623 C", desc: "Spring – Valve", qty: "8", tm: "42-, 44 bhp" }
+  - { page: 67, key: 35, part: "111 109 641", desc: "Seat – Valve spring", qty: "8", appl: "up to Engine No. 3 399 999", tm: "25-, 30 bhp" }
+  - { page: 67, key: 36, part: "113 109 641 B", desc: "Seat – Valve spring", qty: "8", appl: "from Engine No. 3 400 000", tm: "30-, 34-, 42-, 44 bhp" }
+  - { page: 67, key: 37, part: "111 109 651", desc: "Cotter, split – Valve", qty: "16", appl: "up to Engine No. 3 399 999", tm: "25-, 30 bhp" }
+  - { page: 67, key: 38, part: "113 109 651 A", desc: "Cotter, split – Valve", qty: "16", appl: "from Engine No. 3 400 000", tm: "30-, 34-, 42-, 44 bhp" }
+  # ---- PDF 530 (8-109, Illustration 46). Ruled table layout. Date ranges printed in the part-number column before colour lines.
+  - { page: 530, key: null, part: "225 875 025 A", desc: "Hoops with roof lining, leatherette", qty: "1", appl: "from Chassis No. 1 144 282\n8/63 – 7/64 395 ice blue – 81\n8/63 – 7/64 466 silver beige – 75, 80\n8/64 – 581 cloud white – 70, 71, 83\n8/65 – 680 cumulus white – 72", tm: "225, 228, 235-244", note: "printed in bold" }
+  - { page: 530, key: 1, part: "225 875 025 B", desc: "Hoops with roof lining, under lining", qty: "1", appl: "up to Chassis No. 1 328 871\n8/58 – 7/64 395 ice blue – 80a, 81\n6/51 – 7/64 466 silver beige – 75, 76, 77, 80, 83", tm: "225, 228, 235-244" }
+  - { page: 530, key: 2, part: "225 875 105 A", desc: "Locking hoop with lock and longitudinal guide", qty: "1", tm: "225, 228, 235-244" }
+  - { page: 530, key: null, part: "225 875 151 A", desc: "Lock – Sliding roof", qty: "1", appl: "up to Chassis No. 1 260 106", tm: "225, 228, 235-244" }
+  - { page: 530, key: 3, part: "225 875 151 B", desc: "Lock – Sliding roof", qty: "1", appl: "from Chassis No. 1 260 107", tm: "225, 228, 235-244" }
+  - { page: 530, key: 4, part: "N 14 264 1", desc: "Screw,", qty: "2", appl: "countersunk raised head AM 5×10 DIN 7988", tm: "225, 228, 235-244" }
+  - { page: 530, key: 5, part: "N 12 225 1", desc: "Lock washer B 5 DIN 137 galvanized", qty: "2", tm: "225, 228, 235-244" }
+  - { page: 530, key: 6, part: "N 10 704 2", desc: "Screw, cheese head AM 5×10 DIN 84", qty: "2", tm: "225, 228, 235-244" }
+  - { page: 530, key: 7, part: "*115 875 199", desc: "Spring – Roof lock", qty: "1", tm: "225, 228, 235-244" }
+  - { page: 530, key: 8, part: "*115 875 219", desc: "Locking handle", qty: "1", appl: "from Chassis No. 1 260 107", tm: "225, 228, 235-244" }
+  - { page: 530, key: 9, part: "*115 875 221 A", desc: "Locking handle, chromium plated", qty: "1", appl: "up to Chassis No. 1 260 106", tm: "225, 228, 235-244" }
+  - { page: 530, key: 10, part: "*115 875 223", desc: "Spring – Locking handle 115 875 219", qty: "1", tm: "225, 228, 235-244" }
+  - { page: 530, key: 11, part: "*115 875 225 A", desc: "Escutcheon – Locking handle (lower)", qty: "1", appl: "from Chassis No. 1 260 107\n(enlarge hole up to Chassis No. 1 260 106)", tm: "225, 228, 235-244" }
+  - { page: 530, key: 12, part: "*115 875 227", desc: "Escutcheon – Locking handle (upper)", qty: "1", appl: "up to Chassis No. 1 260 106", tm: "225, 228, 235-244" }
+  - { page: 530, key: 13, part: "*115 875 227 A", desc: "Escutcheon – Locking handle (upper)", qty: "1", appl: "from Chassis No. 1 260 107", tm: "225, 228, 235-244" }
+  - { page: 530, key: 14, part: "*115 875 231", desc: "Stud – Locking handle 115 875 219", qty: "1", tm: "225, 228, 235-244" }
+  - { page: 530, key: 15, part: "*115 875 235", desc: "Spring – Escutcheon", qty: "1", tm: "225, 228, 235-244" }
+  - { page: 530, key: 16, part: "*111 837 231", desc: "Rubber insert – Locking handle", qty: "1", tm: "225, 228, 235-244" }
+  # ---- PDF 531 (8-110, Illustration 46)
+  - { page: 531, key: 17, part: "N 12 810 1", desc: "Dowel pin, grooved 3×10 DIN 1473", qty: "1", tm: "225, 228, 235-244" }
+  - { page: 531, key: 18, part: "*225 875 255 A", desc: "Tensioner – Sliding roof", qty: "2", tm: "225, 228, 235-244" }
+  - { page: 531, key: 19, part: "N 14 264 1", desc: "Screw,", qty: "6", appl: "countersunk raised head AM 5×10 DIN 7988", tm: "225, 228, 235-244" }
+  - { page: 531, key: 20, part: "N 13 241 1", desc: "Bolt 6×22×17.5 DIN 1434 – Sliding roof tensioner", qty: "2", tm: "225, 228, 235-244" }
+  - { page: 531, key: 21, part: "N 11 524 1", desc: "Washer A 6.4 DIN 125", qty: "6", tm: "225, 228, 235-244" }
+  - { page: 531, key: 22, part: "N 12 226 2", desc: "Lock washer B 6 DIN 137 galvanized", qty: "2", tm: "225, 228, 235-244" }
+  - { page: 531, key: 23, part: "N 12 507 1", desc: "Cotter pin 1.5×15 DIN 94", qty: "2", tm: "225, 228, 235-244" }
+  - { page: 531, key: 24, part: "225 875 305", desc: "Plate – Longitudinal guide, left", qty: "1", tm: "225, 228, 235-244" }
+  - { page: 531, key: null, part: "225 875 306", desc: "Plate – Longitudinal guide, right", qty: "1", tm: "225, 228, 235-244" }
+  - { page: 531, key: 25, part: "N 11 652 1", desc: "Washer 7 galvanized", qty: "4", tm: "225, 228, 235-244" }
+  - { page: 531, key: 26, part: "N 12 226 2", desc: "Lock washer B 6 DIN 137 galvanized", qty: "4", tm: "225, 228, 235-244" }
+  - { page: 531, key: 27, part: "N 10 215 4", desc: "Bolt, hex. head M 6×15 DIN 933 galvanized", qty: "4", tm: "225, 228, 235-244" }
+  - { page: 531, key: 28, part: "225 875 321", desc: "Guide piece, front", qty: "2", tm: "225, 228, 235-244" }
+  - { page: 531, key: 29, part: "N 14 270 1", desc: "Screw, countersunk raised head", qty: "6", appl: "AM 5×13 DIN 7988 galvanized", tm: "225, 228, 235-244" }
+  - { page: 531, key: 30, part: "*115 875 335 B", desc: "Locking plunger", qty: "2", tm: "225, 228, 235-244" }
+  - { page: 531, key: 31, part: "N 13 680 1", desc: "Rivet B 4×15 DIN 7338 galvanized", qty: "4", tm: "225, 228, 235-244" }
+  - { page: 531, key: 32, part: "225 875 357", desc: "Guide hoop", qty: "3", tm: "225, 228, 235-244" }
+  - { page: 531, key: 33, part: "*115 875 361 A", desc: "Guide plate", qty: "6", tm: "225, 228, 235-244" }
+  - { page: 531, key: 34, part: "*115 875 365", desc: "Anti-rattle packing – Guide plate", qty: "6", tm: "225, 228, 235-244" }
+  - { page: 531, key: 35, part: "225 875 381", desc: "Spring bar, left", qty: "3", tm: "225, 228, 235-244" }
+  - { page: 531, key: null, part: "225 875 382", desc: "Spring bar, right", qty: "3", tm: "225, 228, 235-244" }
+  - { page: 531, key: 36, part: "*115 875 395", desc: "Threaded sleeve", qty: "12", tm: "225, 228, 235-244" }
+  # ---- PDF 532 (8-111, Illustration 46)
+  - { page: 532, key: null, part: "N 10 820 1", desc: "Screw, fillister head BM 5×20 DIN 85", qty: "12", tm: "225, 228, 235-244" }
+  - { page: 532, key: 37, part: "N 14 218 1", desc: "Screw, countersunk head, AM 5×20 DIN 7987", qty: "12", appl: "galvanized", tm: "225, 228, 235-244" }
+  - { page: 532, key: null, part: "225 875 505", desc: "Lining – Roof, center, under lining", qty: "1", appl: "up to Chassis No. 1 328 871\n8/58 – 7/64 395 ice blue – 80a, 81\n6/51 – 7/64 466 silver beige – 75, 76, 77, 80, 81, 83", tm: "225, 228, 235-244" }
+  - { page: 532, key: 38, part: "225 875 505 A", desc: "Lining – Roof, center, leatherette", qty: "1", appl: "from Chassis No. 1 144 282\n8/63 – 7/64 395 ice blue – 81\n8/63 – 7/64 466 silver beige – 75, 80\n8/64 – 581 cloud white – 70, 71, 83\n8/65 – 680 cumulus white – 72", tm: "225, 228, 235-244" }
+  - { page: 532, key: 39, part: "225 875 513", desc: "Tensioning hoop, front", qty: "1", tm: "225, 228, 235-244" }
+  - { page: 532, key: 40, part: "225 875 515", desc: "Tensioning hoop, center and rear", qty: "3", tm: "225, 228, 235-244" }
+  - { page: 532, key: 41, part: "N 13 667 2", desc: "Rivet B 5×6 DIN 7338 galvanized", qty: "8", tm: "225, 228, 235-244" }
+  - { page: 532, key: 42, part: "*115 875 519", desc: "Rubber sleeve", qty: "8", tm: "225, 228, 235-244" }
+  - { page: 532, key: 43, part: "225 875 531 A", desc: "Locking channel – Roof cover", qty: "1", tm: "225, 228, 235-244" }
+  - { page: 532, key: null, part: "*225 875 549", desc: "Weatherstrip", qty: "1", tm: "225, 228, 235-244" }
+  - { page: 532, key: 44, part: "N 13 506 1", desc: "Tubular rivet, lower part AN 4×8×6 DIN 7331", qty: "14", tm: "225, 228, 235-244" }
+  - { page: 532, key: null, part: "N 13 516 1", desc: "Tubular rivet, upper part 4×8 DIN 7331", qty: "14", tm: "225, 228, 235-244" }
+  - { page: 532, key: 45, part: "225 875 555", desc: "Tensioning strip", qty: "1", tm: "225, 228, 235-244" }
+  - { page: 532, key: 46, part: "*115 875 561", desc: "Screw, countersunk head", qty: "13", tm: "225, 228, 235-244" }
+  - { page: 532, key: 47, part: "*115 875 565", desc: "Mounting pin – Locking channel to locking hoop", qty: "2", tm: "225, 228, 235-244" }
+  - { page: 532, key: 48, part: "225 875 575", desc: "Cover – Sliding roof", qty: "1", appl: "073 chestnut brown\n036 azure\n225 Jupiter grey\n213 Iceland green\n573 light grey\n002 green\n456 ruby red\n380 turquoise\n087 pearl white\n289 white blue\n512 velvet green\n282 lotos white\n680 cumulus white", tm: "225, 228, 235-244" }
+  # ---- PDF 533 (8-112, Illustration 46)
+  - { page: 533, key: 49, part: "225 875 581", desc: "Strap", qty: "2", tm: "225, 228, 235–244" }
+  - { page: 533, key: 50, part: "N 11 701 1", desc: "Cone washer A 4.4", qty: "14", tm: "225, 228, 235–244" }
+  - { page: 533, key: 51, part: "N 10 907 1", desc: "Screw, countersunk head AM 4×5 DIN 63", qty: "14", tm: "225, 228, 235–244" }
+  - { page: 533, key: 52, part: "*115 875 571", desc: "Cover plate – Spring guide", qty: "6", tm: "225, 228, 235–244" }
+  - { page: 533, key: null, part: "N 11 960 1", desc: "Screw, countersunk head AM 5×15 DIN 91", qty: "2", appl: "high-polish galvanized – Sliding roof cover\nmounting", tm: "225, 228, 235–244" }
+  - { page: 533, key: null, part: "225 875 589", desc: "Washer", qty: "2", tm: "225, 228, 235–244" }
+  - { page: 533, key: 53, part: "N 11 951 1", desc: "Screw, countersunk raised head", qty: "6", appl: "AM 4×7 DIN 91 high-polish galvanized", tm: "225, 228, 235–244" }
+  - { page: 533, key: 54, part: "N 11 701 1", desc: "Cone washer A 4.4", qty: "6", tm: "225, 228, 235–244" }
+  - { page: 533, key: 55, part: "225 875 709 B", desc: "Guide bar, front, left", qty: "1", tm: "225, 228, 235–244" }
+  - { page: 533, key: null, part: "225 875 710 B", desc: "Guide bar, front, right", qty: "1", tm: "225, 228, 235–244" }
+  - { page: 533, key: null, part: "N 60 310 2", desc: "Beading 1690 mm – Guide bar", qty: "*", tm: "225, 228, 235–244", note: "quantity column shows an asterisk" }
+  - { page: 533, key: 56, part: "225 875 725 B", desc: "Guide bar, rear, left", qty: "1", tm: "225, 228, 235–244" }
+  - { page: 533, key: null, part: "225 875 726 B", desc: "Guide bar, rear, right", qty: "1", tm: "225, 228, 235–244" }
+  - { page: 533, key: 57, part: "N 10 980 1", desc: "Screw, countersunk head AM 5×10 DIN 63", qty: "36", appl: "high-polish galvanized", tm: "225, 228, 235–244" }
+  - { page: 533, key: 58, part: "N 11 051 1", desc: "Nut, square M 5 DIN 557", qty: "36", appl: "in sliding roof guide bar", tm: "225, 228, 235–244" }
+  # ---- PDF 718 (S-11, Illustration 60)
+  - { page: 718, key: null, part: "221 841 081 A", desc: "Door – Double cab, right", qty: "1", appl: "from Chassis No. 397 347 up to 705 619", tm: "265, 267, 268" }
+  - { page: 718, key: null, part: "221 841 081 C", desc: "Door – Double cab, right", qty: "1", appl: "from Chassis No. 705 620 up to 1 019 924", tm: "265, 267, 268" }
+  - { page: 718, key: 1, part: "221 841 081 E", desc: "Door – Double cab, right", qty: "1", appl: "from Chassis No. 1 019 925", tm: "265, 267, 268" }
+  - { page: 718, key: 2, part: "221 809 179", desc: "Hinge – Hinged side window", qty: "2" }
+  - { page: 718, key: 3, part: "265 841 771", desc: "Striker plate – Cab door", qty: "1" }
+  - { page: 718, key: null, part: "221 847 081", desc: "Fastener – Side window, left and right", qty: "2", appl: "up to Chassis No. 832 732" }
+  - { page: 718, key: 4, part: "221 847 081 D", desc: "Fastener – Side window, left and right", qty: "2", appl: "from Chassis No. 832 733" }
+  - { page: 718, key: null, part: "265 847 105", desc: "Frame – Window (hinged), left and right", qty: "2", appl: "up to Chassis No. 832 732" }
+  - { page: 718, key: 5, part: "221 847 105 A", desc: "Frame – Window (hinged), left and right", qty: "2", appl: "from Chassis No. 832 733" }
+  - { page: 718, key: 6, part: "221 847 219", desc: "Threaded plate – Fastener", qty: "2" }
+  - { page: 718, key: 7, part: "265 863 731", desc: "Floor covering – Passenger compartment", qty: "1" }
+  - { page: 718, key: 8, part: "265 867 203", desc: "Lining for cab door", qty: "1" }
+  - { page: 718, key: 9, part: "265 867 405", desc: "Lining for side panel", qty: "1" }
+  - { page: 718, key: 10, part: "261 867 517", desc: "Roof lining – Cab, center", qty: "1" }
+  - { page: 718, key: 11, part: "265 867 521 A", desc: "Lining – Roof (rear)", qty: "1" }
+  - { page: 718, key: 12, part: "261 871 061", desc: "Hoop – Tilt, front", qty: "1" }
+  - { page: 718, key: 13, part: "261 871 065", desc: "Hoop – Tilt, rear", qty: "1" }
+  - { page: 718, key: 14, part: "265 871 071", desc: "Tilt", qty: "1" }
+  - { page: 718, key: 15, part: "261 871 141", desc: "Auxiliary tilt hoop, front and rear", qty: "2" }
+  - { page: 718, key: 16, part: "265 871 151", desc: "Slat, tilt hoop connecting", qty: "6" }
+  # ---- PDF 719 (S-12, Illustration 60)
+  - { page: 719, key: null, part: "211 881 031 A", desc: "Seat bench in passenger compartment", qty: "1", appl: "up to Chassis No. 1 270 002\n11/58 – 3/64 009 grey 58 – 80" }
+  - { page: 719, key: 17, part: "265 881 031", desc: "Seat bench in passenger compartment", qty: "1", appl: "from Chassis No. 1 270 003\n4/64 – 7/64 009 grey 58 – 80\n8/64 – 307 mesh grey/grey – 83" }
+  - { page: 719, key: 18, part: "211 881 043", desc: "Back – Seat bench in passenger compartment", qty: "1", appl: "11/58 – 7/64 009 grey 58 – 80\n8/64 – 307 mesh grey/grey – 83" }
+  - { page: 719, key: null, part: "211 881 895 A", desc: "Rubber buffer – Seat and seat back in passenger", qty: "1", appl: "compartment" }
+  - { page: 719, key: null, part: "265 881 305 A", desc: "Spring cushion – Seat bench 265 881 031", qty: "1" }
+  - { page: 719, key: null, part: "211 881 405 A", desc: "Cover – Seat bench in passenger compartment", qty: "1", appl: "up to Chassis No. 1 270 002\n11/58 – 3/64 009 grey 58 – 80" }
+  - { page: 719, key: null, part: "211 881 405 B", desc: "Cover – Seat bench in passenger compartment", qty: "1", appl: "from Chassis No. 1 270 003 up to 1 328 871\n4/64 – 7/64 009 grey 58 – 80" }
+  - { page: 719, key: null, part: "265 881 405", desc: "Cover – Seat bench in passenger compartment", qty: "1", appl: "from Chassis No. 265 000 001\n8/64 – 307 mesh grey/grey – 83" }
+  - { page: 719, key: null, part: "211 881 805", desc: "Cover – Seat bench back in passenger compartment", qty: "1", appl: "up to Chassis No. 1 328 871\n11/58 – 7/64 009 grey 58 – 80" }
+  - { page: 719, key: null, part: "265 881 805 A", desc: "Cover – Seat bench back in passenger compartment", qty: "1", appl: "from Chassis No. 265 000 001\n8/64 – 307 mesh grey/grey – 83" }
+  - { page: 719, key: null, part: "265 885 253", desc: "Reinforcement for seat bench in passenger", qty: "1", appl: "compartment\nup to Chassis No. 1 270 002" }
+  - { page: 719, key: 19, part: "265 885 253 A", desc: "Reinforcement for seat bench in passenger", qty: "1", appl: "compartment\nfrom Chassis No. 1 270 003" }
+  # ---- PDF 33 (1-19, Illustration 1+A1). Keys "A 66" refer to drawing A1.
+  - { page: 33, key: null, part: "111 101 301", desc: "Cylinder 75 mm dia.", qty: "4", appl: "001 blue\n003 pink\n002 green", tm: "25 bhp" }
+  - { page: 33, key: "A 66", part: "311 101 301 D", desc: "Cylinder 83 mm dia.", qty: "4", appl: "001 blue\n003 pink\n002 green", tm: "42-, 44 bhp" }
+  - { page: 33, key: 54, part: "111 101 311", desc: "Cylinder 77 mm dia.", qty: "4", appl: "up to Engine No. 3 399 999\n001 blue\n003 pink\n002 green", tm: "30 bhp" }
+  - { page: 33, key: null, part: "113 101 311", desc: "Cylinder 77 mm dia.", qty: "4", appl: "from Chassis No. 3 400 000\n001 blue\n003 pink\n002 green", tm: "30 bhp" }
+  - { page: 33, key: null, part: "113 101 311 C", desc: "Cylinder 77 mm dia.", qty: "4", appl: "001 blue\n003 pink\n002 green", tm: "34 bhp" }
+  - { page: 33, key: null, part: "111 101 341", desc: "Gasket 80×88.5 between crankcase and cylinder", qty: "4", tm: "25 bhp" }
+  - { page: 33, key: 55, part: "111 101 341 A", desc: "Gasket 82×90 between crankcase and cylinder", qty: "4", appl: "up to Engine No. 3 399 999", tm: "30 bhp" }
+  - { page: 33, key: null, part: "113 101 341", desc: "Gasket 87×96 between crankcase and cylinder", qty: "4", appl: "from Chassis No. 3 400 000", tm: "30-, 34 bhp" }
+  - { page: 33, key: "A 67", part: "311 101 341", desc: "Gasket 90×99 between crankcase and cylinder", qty: "4", tm: "42-, 44 bhp" }
+  - { page: 33, key: null, part: "111 101 343", desc: "Gasket 82×88.2", qty: "4", appl: "between cylinder and cylinder head", tm: "25 bhp" }
+  - { page: 33, key: 56, part: "111 101 343 A", desc: "Gasket 84×88.2", qty: "4", appl: "between cylinder and cylinder head\nup to Engine No. 3 399 999", tm: "30 bhp" }
+  - { page: 33, key: null, part: "113 101 343", desc: "Gasket 87×91.2", qty: "4", appl: "between cylinder and cylinder head\nfrom Engine No. 3 400 000", tm: "30 bhp" }
+  - { page: 33, key: null, part: "113 101 343 A", desc: "Gasket 90×94.2", qty: "4", appl: "between cylinder and cylinder head", tm: "34 bhp" }
+  # ---- PDF 153 (1-124a, Illustration 19)
+  - { page: 153, key: 30, part: "111 141 177 A", desc: "Retaining spring –", qty: "2", appl: "Clutch release bearing 111 141 167 A" }
+  - { page: 153, key: null, part: "111 198 651", desc: "1 set of linings – Clutch plates 111 141 031/A", qty: "1" }
+  - { page: 153, key: 31, part: "111 198 651 A", desc: "1 set of linings – Clutch plates 111 141 031 B/C/E", qty: "1" }
+  - { page: 153, key: 32, part: "311 141 195", desc: "Tubular rivet – Clutch plate lining", qty: "16" }
+  - { page: 153, key: 33, part: "*111 141 701 B", desc: "Operating shaft", qty: "1", appl: "up to Chassis No. 469 505", inline: true }
+  - { page: 153, key: 34, part: "*113 141 701 C", desc: "Operating shaft", qty: "1", appl: "from Chassis No. 469 506" }
+  - { page: 153, key: 35, part: "*111 141 711", desc: "Bush – Operating shaft", qty: "2", appl: "up to Chassis No. 469 505" }
+  - { page: 153, key: 36, part: "*113 141 711", desc: "Bush right – Operating shaft", qty: "1", appl: "from Chassis No. 469 506" }
+  - { page: 153, key: 37, part: "*113 141 713", desc: "Bush left – Operating shaft", qty: "1", appl: "from Chassis No. 469 506" }
+  - { page: 153, key: 38, part: "*113 141 717", desc: "Washer – Operating shaft", qty: "1", appl: "from Chassis No. 469 506" }
+  - { page: 153, key: 39, part: "*113 311 141", desc: "Lock bolt", qty: "1", appl: "from Chassis No. 469 506", inline: true }
+  - { page: 153, key: 40, part: "*111 141 719 B", desc: "Clutch operating lever", qty: "1" }
+  - { page: 153, key: 41, part: "N 12 416 1", desc: "Lock ring 16×1 DIN 471", qty: "2" }
+  - { page: 153, key: 42, part: "N 10 247 3", desc: "Bolt, hex. head M 8×35 DIN 933 galvanized", qty: "1" }
+  - { page: 153, key: 43, part: "N 12 228 2", desc: "Spring washer B 8 DIN 137 galvanized", qty: "1" }
+  - { page: 153, key: 44, part: "N 11 008 3", desc: "Nut, hex. M 8 DIN 934 galvanized", qty: "1" }
+  # ---- PDF 196 (2-16, Illustration 22)
+  - { page: 196, key: 44, part: "*113 255 291 A", desc: "Hose, left – Fan housing to heat exchanger", qty: "1", appl: "from Engine No. 7 336 420" }
+  - { page: 196, key: null, part: "*113 255 292 A", desc: "Hose, right – Fan housing to heat exchanger", qty: "1", appl: "from Engine No. 7 336 420" }
+  - { page: 196, key: 45, part: "*111 501 159 B", desc: "Strip 9 mm – Heater pipe", qty: "4" }
+  - { page: 196, key: 46, part: "*113 255 341 A", desc: "Clip 25 mm – Connection pipe", qty: "2" }
+  - { page: 196, key: 47, part: "111 255 309 B", desc: "Link – Heating control cable", qty: "2" }
+  - { page: 196, key: 48, part: "*111 255 311", desc: "Link pin", qty: "2" }
+  - { page: 196, key: 49, part: "N 12 434 1", desc: "Lock washer 4 DIN 6799", qty: "4" }
+  - { page: 196, key: null, part: "*113 255 359", desc: "Pre-heating connecting pipe 570 mm", qty: ["1", "1"], appl: "from Engine No. 5 000 001 up to 8 150 869\nup to Engine No. 328 904", tm: "Engine – 1.2 Liter\nEngine – 1.5 Liter" }
+  - { page: 196, key: 50, part: "211 255 359", desc: "Pre-heating connecting pipe 900 mm", qty: ["1", "1"], appl: "from Engine No. 8 150 870 up to 8 964 971\nfrom Engine No. 328 905 up to 1 100 000", tm: "Engine – 1.2 Liter\nEngine – 1.5 Liter" }
+  - { page: 196, key: null, part: "211 255 359 A", desc: "Pre-heating connecting pipe 420 mm", qty: "1", appl: "from Engine No. H 0 000 001 up to H 0 150 202" }
+  - { page: 196, key: null, part: "113 255 355 F", desc: "Pre-heating connecting pipe 630 mm", qty: "1", appl: "from Engine No. H 0 150 203" }
+  - { page: 196, key: 51, part: "*113 255 737", desc: "Clip for connecting pipe", qty: "2" }
+  - { page: 196, key: null, part: "211 255 427", desc: "Adapter 60 to 50 mm dia. – Heat exchanger", qty: "×" }
+  - { page: 196, key: null, part: "211 255 429", desc: "Adapter ring – Heater pipe, rear", qty: "2" }
+  - { page: 196, key: null, part: "211 255 431 D", desc: "Muffler – Heater", qty: "2", appl: "up to Chassis No. 215 036 650" }
+  - { page: 196, key: 52, part: "211 255 431 B", desc: "Muffler – Heater", qty: "2", appl: "from Chassis No. 215 036 651" }
+  # ---- PDF 203 (2-21, Illustration 22a)
+  - { page: 203, key: 39, part: "211 261 453", desc: "Sealing ring – Combustion air blower", qty: "1" }
+  - { page: 203, key: null, part: "311 261 465", desc: "Fuel pump 6 V", qty: "1", appl: "up to Chassis No. 216 190 000" }
+  - { page: 203, key: 40, part: "311 261 467", desc: "Fuel pump 12 V", qty: "1", appl: "from Chassis No. 217 000 001" }
+  - { page: 203, key: 41, part: "211 261 469", desc: "Union – Fuel pump", qty: "1" }
+  - { page: 203, key: 42, part: "211 261 471", desc: "Sealing washer – Union", qty: "1" }
+  - { page: 203, key: 43, part: "311 261 473", desc: "Bakelite cap – Fuel pump", qty: "1" }
+  - { page: 203, key: 44, part: "211 261 491", desc: "Fuel line", qty: "1" }
+  - { page: 203, key: 45, part: "311 261 495", desc: "Fuel filter", qty: "1" }
+  - { page: 203, key: 46, part: "111 209 129", desc: "Sealing washer", qty: "1" }
+  - { page: 203, key: 47, part: "341 127 561 A", desc: "T piece – Fuel line", qty: "1" }
+  - { page: 203, key: 48, part: "211 261 513", desc: "Suction pipe from filter to pump", qty: "1" }
+  - { page: 203, key: 49, part: "211 261 517", desc: "Pump pressure pipe", qty: "1" }
+  - { page: 203, key: 50, part: "211 261 519", desc: "Pressure regulator – Solenoid valve", qty: "1" }
+  - { page: 203, key: null, part: "211 261 521", desc: "Coil 6 V – Pressure regulator", qty: "1", appl: "up to Chassis No. 216 190 000" }
+  - { page: 203, key: 51, part: "211 261 523", desc: "Coil 12 V – Pressure regulator", qty: "1", appl: "from Chassis No. 217 000 001" }
+  - { page: 203, key: 52, part: "211 261 543", desc: "Hose from pressure regulator to fuel jet", qty: "1" }
+  - { page: 203, key: 53, part: "311 261 533", desc: "Strainer", qty: "1" }
+  - { page: 203, key: 54, part: "211 261 545", desc: "Fuel jet", qty: "1" }
+  - { page: 203, key: 55, part: "N 13 830 2", desc: "Washer A 8×12 DIN 7603", qty: "×" }
+  - { page: 203, key: null, part: "211 261 551", desc: "Heater plug 6 V", qty: "1", appl: "up to Chassis No. 216 190 000" }
+  # ---- PDF 216 (3-7, Illustration 23). Speckled scan.
+  - { page: 216, key: 21, part: "N 10 351 1", desc: "Bolt, hex. head BM 8×52 DIN 931", qty: "2" }
+  - { page: 216, key: 22, part: "N 10 375 1", desc: "Bolt, hex. head BM 8×75 DIN 931", qty: "10" }
+  - { page: 216, key: 23, part: "N 10 380 1", desc: "Bolt, hex. head BM 8×80 DIN 931", qty: "2" }
+  - { page: 216, key: 24, part: "N 10 390 1", desc: "Bolt, hex. head BM 8×95 DIN 931", qty: "6" }
+  - { page: 216, key: 25, part: "N 12 228 2", desc: "Spring washer B 8 DIN 137 galvanized", qty: "13" }
+  - { page: 216, key: 26, part: "N 11 008 5", desc: "Nut, hex. M 8 DIN 934", qty: "13" }
+  - { page: 216, key: 27, part: "211 301 205 A", desc: "Gearshift housing", qty: "1", appl: "(use 113 301 249 up to Rear Axle No. 2 – 477 714)" }
+  - { page: 216, key: 28, part: "111 301 207", desc: "Bush – Gearshift housing", qty: "2" }
+  - { page: 216, key: null, part: "111 301 207 A", desc: "Bush – Gearshift housing (oversize length 75 mm.)", qty: "×" }
+  - { page: 216, key: null, part: "111 301 215", desc: "Gasket 0.1 mm. – Gearshift housing", qty: "×" }
+  - { page: 216, key: 29, part: "113 301 215", desc: "Gasket 0.1 mm. – Gearshift housing", qty: "×" }
+  - { page: 216, key: null, part: "111 301 217", desc: "Gasket 0.15 mm. – Gearshift housing", qty: "×" }
+  - { page: 216, key: null, part: "113 301 217", desc: "Gasket 0.15 mm. – Gearshift housing", qty: "×" }
+  - { page: 216, key: null, part: "111 301 219", desc: "Gasket 0.2 mm. – Gearshift housing", qty: "×" }
+  - { page: 216, key: null, part: "113 301 219", desc: "Gasket 0.2 mm. – Gearshift housing", qty: "×" }
+  - { page: 216, key: 30, part: "113 301 235", desc: "Gasket 0.1 mm. between transmission and", qty: "×", appl: "gearshift housing" }
+  - { page: 216, key: null, part: "113 301 237", desc: "Gasket 0.2 mm. between transmission and", qty: "×", appl: "gearshift housing" }
+  - { page: 216, key: null, part: "113 301 239", desc: "Gasket 0.3 mm. between transmission and", qty: "×", appl: "gearshift housing" }
+  - { page: 216, key: null, part: "113 301 249", desc: "Shim 7 mm – Gearshift housing", qty: "×" }
+  # ---- PDF 245 (3-34, Illustration 27)
+  - { page: 245, key: null, part: "*113 311 396", desc: "Shim 0.60 mm for drive pinion", qty: "×" }
+  - { page: 245, key: null, part: "*113 311 397", desc: "Shim 0.70 mm for drive pinion", qty: "×" }
+  - { page: 245, key: null, part: "*113 311 398", desc: "Shim 0.80 mm for drive pinion", qty: "×" }
+  - { page: 245, key: null, part: "*113 311 399", desc: "Shim 0.90 mm for drive pinion", qty: "×" }
+  - { page: 245, key: null, part: "*113 311 400", desc: "Shim 1.00 mm for drive pinion", qty: "×" }
+  - { page: 245, key: null, part: "*113 311 401", desc: "Shim 1.20 mm for drive pinion", qty: "×" }
+  - { page: 245, key: 48, part: "*113 311 507", desc: "Reverse drive gear", qty: "1" }
+  - { page: 245, key: 49, part: "N 12 419 1", desc: "Lockring 19×1.2 DIN 471", qty: "1" }
+  - { page: 245, key: 50, part: "*113 311 515", desc: "Reverse gear shaft", qty: "1" }
+  - { page: 245, key: 51, part: "*113 311 517", desc: "Thrust washer for reverse gear shaft", qty: "1" }
+  - { page: 245, key: 52, part: "*113 311 523", desc: "Needle bearing for reverse gear shaft", qty: "2" }
+  - { page: 245, key: 53, part: "113 311 531 B", desc: "Reverse sliding gear", qty: "1", appl: "(for use with 113 311 255 A only)" }
+  - { page: 245, key: 54, part: "*113 311 537", desc: "Spacer sleeve for reverse gear shaft", qty: "1" }
+  - { page: 245, key: 55, part: "*113 311 141", desc: "Lock bolt – Spacer sleeve", qty: "1" }
+  - { page: 245, key: 56, part: "113 311 541", desc: "Transmission shift lever, inner", qty: "1" }
+  - { page: 245, key: 57, part: "*113 311 551", desc: "Selector fork (1st and 2nd speed)", qty: "1" }
+  - { page: 245, key: null, part: "*113 311 557", desc: "Selector shaft (1st and 2nd speed)", qty: "1", appl: "up to Chassis No. 216 023 527" }
+  - { page: 245, key: null, part: "*113 311 557 A", desc: "Selector shaft (1st and 2nd speed)", qty: "1", appl: "from Chassis No. 216 023 528\nup to September 1966" }
+  - { page: 245, key: 58, part: "113 311 557 B", desc: "Selector shaft (1st and 2nd speed)", qty: "1", appl: "from Chassis No. October 1966" }
+  - { page: 245, key: 59, part: "*113 311 561", desc: "Selector fork (3rd and 4th speed)", qty: "1" }
+  - { page: 245, key: 60, part: "*113 311 567", desc: "Selector shaft (3rd and 4th speed)", qty: "1" }
+  # ---- PDF 289 (4-10, Illustration 28)
+  - { page: 289, key: null, part: "211 405 451", desc: "Steering damper", qty: "2", appl: "up to Chassis No. 20 – 117 901" }
+  - { page: 289, key: null, part: "211 405 471", desc: "Distance piece 28.6 mm – Steering knuckle", qty: "2", appl: "up to Chassis No. 999 304" }
+  - { page: 289, key: 39, part: "211 405 471 A", desc: "Distance piece 28.6 mm – Steering knuckle", qty: "2", appl: "from Chassis No. 999 305" }
+  - { page: 289, key: null, part: "211 405 473", desc: "Distance piece 28.4 mm – Steering knuckle", qty: "2", appl: "up to Chassis No. 999 304" }
+  - { page: 289, key: null, part: "211 405 473 A", desc: "Distance piece 28.4 mm – Steering knuckle", qty: "2", appl: "from Chassis No. 999 305" }
+  - { page: 289, key: null, part: "211 405 475", desc: "Distance piece 28.25 mm – Steering knuckle", qty: "2", appl: "up to Chassis No. 999 304" }
+  - { page: 289, key: null, part: "211 405 475 A", desc: "Distance piece 28.25 mm – Steering knuckle", qty: "2", appl: "from Chassis No. 999 305" }
+  - { page: 289, key: null, part: "211 405 477", desc: "Distance piece 28.1 mm – Steering knuckle", qty: "2", appl: "up to Chassis No. 999 304" }
+  - { page: 289, key: null, part: "211 405 477 A", desc: "Distance piece 28.1 mm – Steering knuckle", qty: "2", appl: "from Chassis No. 999 305" }
+  - { page: 289, key: 40, part: "211 405 517", desc: "Sealing ring – Pin", qty: "4", appl: "from Chassis No. 1 144 282", inline: true }
+  - { page: 289, key: 41, part: "211 405 519", desc: "Washer – Sealing ring", qty: "4" }
+  - { page: 289, key: null, part: "211 405 521", desc: "Pin 20 mm dia. – Torsion arm link", qty: "4", appl: "up to Chassis No. 1 144 281" }
+  - { page: 289, key: 42, part: "211 405 521 A", desc: "Pin 22 mm dia. – Torsion arm link", qty: "4", appl: "from Chassis No. 1 144 282" }
+  - { page: 289, key: null, part: "211 405 527", desc: "Shim 21.5 mm dia. – Torsion arm link pin", qty: "32", appl: "up to Chassis No. 1 144 281" }
+  - { page: 289, key: 43, part: "211 405 527 A", desc: "Shim 23.5 mm dia. – Torsion arm link", qty: "32", appl: "from Chassis No. 1 144 282" }
+  - { page: 289, key: 44, part: "211 405 533", desc: "Protection cap", qty: "4" }
+  - { page: 289, key: null, part: "211 405 537", desc: "Protection plate – Link pin gasket", qty: "4", appl: "up to Chassis No. 1 144 281" }
+  # ---- PDF 302 (4-23, Illustration 29)
+  - { page: 302, key: 70, part: "N 10 171 1", desc: "Bolt, hex. head M 8×1×32 DIN 960", qty: "3" }
+  - { page: 302, key: 71, part: "N 12 009 1", desc: "Lock washer A 8 DIN 127", qty: "3" }
+  - { page: 302, key: 72, part: "N 11 018 2", desc: "Nut, hex. M 8×1 DIN 934", qty: "3" }
+  - { page: 302, key: null, part: "N 11 165 3", desc: "Nut, hex. – Tie rod M 18×1.5 DIN 936", qty: "2", appl: "(with left-hand thread)" }
+  - { page: 302, key: null, part: "N 11 165 2", desc: "Nut, hex. – Tie rod M 18×1.5 DIN 936", qty: "1", appl: "(with right-hand thread)" }
+  - { page: 302, key: null, part: "111 415 835 A", desc: "Dust seal", qty: "6" }
+  - { page: 302, key: 73, part: "113 415 835", desc: "Dust seal for maintenance-free tie rod ends", qty: "6" }
+  - { page: 302, key: 74, part: "111 415 837", desc: "Retaining ring 27 mm dia. – Dust seal 113 415 835", qty: "6" }
+  - { page: 302, key: null, part: "113 415 837", desc: "Retaining ring 8.2 mm dia. – Dust seal", qty: "6" }
+  - { page: 302, key: null, part: "211 415 841", desc: "Taper ring – Tie rod 211 415 802", qty: "3", appl: "up to Chassis No. 20 – 117 901" }
+  - { page: 302, key: null, part: "211 415 851", desc: "Lock plate", qty: "3", appl: "up to Chassis No. 20 – 117 901" }
+  - { page: 302, key: null, part: "N 18 515 1", desc: "Grease nipple A 6", qty: "6" }
+  - { page: 302, key: null, part: "N 18 516 1", desc: "Grease nipple A 8", qty: "5" }
+  - { page: 302, key: null, part: "N 18 511 2", desc: "Grease nipple C 8", qty: "2" }
+  - { page: 302, key: 75, part: "N 11 210 1", desc: "Nut, slotted, M 10×1 DIN 937", qty: "6" }
+  - { page: 302, key: 76, part: "N 12 522 1", desc: "Cotter pin 2×22 DIN 94", qty: "6" }
+  - { page: 302, key: 77, part: "211 415 901 F", desc: "Steering damper", qty: "1" }
+  - { page: 302, key: 78, part: "211 415 907 B", desc: "Grommet – Steering damper 211 415 901/B/F", qty: "2" }
+  - { page: 302, key: null, part: "211 415 907 C", desc: "Grommet – Steering damper 211 415 901 A/C", qty: "2" }
+  - { page: 302, key: 79, part: "211 415 909", desc: "Bush – Grommet", qty: "2" }
+  # ---- PDF 327 (5-16, Illustration 31). Sub-heading "DIFFERENTIAL from Chassis No. 469 506" mid-page.
+  - { page: 327, key: null, part: "*111 517 219", desc: "Shim 3.8 mm – Differential", qty: "×" }
+  - { page: 327, key: null, part: "*111 517 221", desc: "Shim 3.9 mm – Differential", qty: "×" }
+  - { page: 327, key: null, part: "*111 517 223", desc: "Shim 4.0 mm – Differential", qty: "×" }
+  - { page: 327, key: null, part: "*111 517 225", desc: "Shim 4.1 mm – Differential", qty: "×" }
+  - { page: 327, key: null, part: "*111 517 227", desc: "Shim 4.2 mm – Differential", qty: "×" }
+  - { page: 327, key: null, part: "*111 517 229", desc: "Shim 4.3 mm – Differential", qty: "×" }
+  - { page: 327, key: null, part: "*111 517 231", desc: "Shim 4.4 mm – Differential", qty: "×" }
+  - { page: 327, key: null, part: "*111 517 233", desc: "Shim 4.5 mm – Differential", qty: "×" }
+  - { page: 327, key: 11, part: "*111 517 245", desc: "Shim 0.25 mm – Differential", qty: "×" }
+  - { page: 327, key: null, part: "113 517 121 C", desc: "Differential housing", qty: "1", appl: "up to Chassis No. 819 555\n(for use with 113 517 145 B only)", note: "printed in bold" }
+  - { page: 327, key: 12, part: "113 517 121 D", desc: "Differential housing", qty: "1", appl: "from Chassis No. 819 556\n(for installation in vehicles\nup to Chassis No. 216 028 431\nthe hex. head bolt, 113 517 145 B\nis additionally required)" }
+  - { page: 327, key: null, part: "113 517 143", desc: "Ring gear and drive pinion unit 8 : 33", qty: "1", appl: "up to Chassis No. 819 555" }
+  - { page: 327, key: null, part: "311 517 143", desc: "Ring gear and drive pinion unit 8 : 33", qty: "1", appl: "(8 mounting bolts)\nfrom Chassis No. 819 556 up to 215 036 650" }
+  - { page: 327, key: 13, part: "211 517 143 A", desc: "Ring gear and drive pinion unit 8 : 35", qty: "1", appl: "M 215 and from Chassis No. 215 036 651" }
+  - { page: 327, key: null, part: "211 517 143 A", desc: "Ring gear and drive pinion unit 8 : 35", qty: ["1", "1"], appl: "from Chassis No. 1 219 511 up to 215 036 650\nfrom Chassis No. 215 036 651", tm: "M 92/M 216\nM 92" }
+  - { page: 327, key: 14, part: "113 517 145", desc: "Bolt, hex. head M 10×18 – Ring gear", qty: "8", appl: "up to Chassis No. 216 028 431" }
+  - { page: 327, key: null, part: "N 12 231 1", desc: "Spring washer A 10 DIN 137", qty: "8" }
+  - { page: 327, key: null, part: "113 517 145 B", desc: "Bolt, hex. head – Ring gear", qty: "8", appl: "from Chassis No. 216 028 432" }
+  # ---- PDF 329 (5-18, Illustration 31)
+  - { page: 329, key: null, part: "*113 517 213", desc: "Shim 3.5 mm – Differential", qty: "×" }
+  - { page: 329, key: null, part: "*113 517 215", desc: "Shim 3.6 mm – Differential", qty: "×" }
+  - { page: 329, key: null, part: "*113 517 217", desc: "Shim 3.7 mm – Differential", qty: "×" }
+  - { page: 329, key: null, part: "*113 517 219", desc: "Shim 3.8 mm – Differential", qty: "×" }
+  - { page: 329, key: null, part: "*113 517 221", desc: "Shim 3.9 mm – Differential", qty: "×" }
+  - { page: 329, key: 24, part: "*113 517 245", desc: "Shim 0.25 mm – Differential", qty: "×" }
+  # ---- PDF 357 (6-18, Illustration 33+A33)
+  - { page: 357, key: 19, part: "211 611 459 C", desc: "Boot – Brake cylinder 25.4", qty: "4" }
+  - { page: 357, key: 20, part: "211 611 461", desc: "Boot – Brake cylinder 22.2", qty: "4" }
+  - { page: 357, key: null, part: "113 611 475", desc: "Bleeder screw with rubber cap –", qty: "4", appl: "Brake cylinder 22/19" }
+  - { page: 357, key: 21, part: "211 611 475 A", desc: "Bleeder screw M 10 – Brake cylinder 25.4, front", qty: "2" }
+  - { page: 357, key: 22, part: "211 611 477 A", desc: "Bleeder screw M 6 – Brake cylinder 22.2, rear", qty: "2" }
+  - { page: 357, key: 23, part: "211 611 483", desc: "Dust cap", qty: "4" }
+  - { page: 357, key: null, part: "211 611 505", desc: "Overflow tube, front, left", qty: "1", appl: "up to Chassis No. 1 144 281" }
+  - { page: 357, key: 24, part: "211 611 505 B", desc: "Overflow tube, front, left", qty: "1", appl: "M 216 and from Chassis No. 1 144 282" }
+  - { page: 357, key: null, part: "211 611 506", desc: "Overflow tube, front, right", qty: "1", appl: "up to Chassis No. 1 144 281" }
+  - { page: 357, key: 25, part: "211 611 506 B", desc: "Overflow tube, front, right", qty: "1", appl: "M 216 and from Chassis No. 1 144 282" }
+  - { page: 357, key: null, part: "113 611 605", desc: "Center piece half – Brake cylinder 19", qty: "4" }
+  - { page: 357, key: null, part: "211 611 607", desc: "Center piece half – Brake cylinder 22", qty: "4" }
+  - { page: 357, key: null, part: "113 611 615", desc: "Pressure spring – Center piece halves", qty: "4" }
+  - { page: 357, key: null, part: "113 611 625", desc: "Cup – Brake cylinder 19", qty: "4" }
+  - { page: 357, key: null, part: "211 611 627", desc: "Cup – Brake cylinder 22", qty: "4" }
+  - { page: 357, key: 26, part: "211 611 637 A", desc: "Cup – Brake cylinder 22.2", qty: "4" }
+  - { page: 357, key: 27, part: "211 611 639", desc: "Cup – Brake cylinder 25.4", qty: "4" }
+  - { page: 357, key: 28, part: "211 611 657 B", desc: "Piston – Brake cylinder 22.2", qty: "4" }
+  - { page: 357, key: 29, part: "N 12 464 3", desc: "Circlip 22 DIN 9045 galvanized", qty: "4" }
+  # ---- PDF 359 (6-20, Illustration 33+A33)
+  - { page: 359, key: null, part: "211 611 741", desc: "Brake line from master cylinder to T-piece", qty: "1", appl: "(length 2460 mm) (LHD)\nup to Chassis No. 20 – 117 901", tm: "211-273" }
+  - { page: 359, key: null, part: "214 611 741", desc: "Brake line from master cylinder to T-piece", qty: "1", appl: "(length 2990 mm) (RHD)\nup to Chassis No. 20 – 117 901", tm: "214-274" }
+  - { page: 359, key: "A 18/36", part: "211 611 741 B", desc: "Brake line from master cylinder to T-piece", qty: "1", appl: "(length 2815 mm) (LHD)\nfrom Chassis No. 20 – 117 902", tm: "211-273" }
+  - { page: 359, key: null, part: "214 611 741 B", desc: "Brake line from master cylinder to T-piece", qty: "1", appl: "(length 3413 mm) (RHD)\nfrom Chassis No. 20 – 117 902", tm: "214-274" }
+  - { page: 359, key: 37, part: "211 611 751", desc: "Grommet – Brake line (rubber)", qty: "8" }
+  - { page: 359, key: 38, part: "113 611 755", desc: "T-piece – Brake lines", qty: "1" }
+  - { page: 359, key: 39, part: "N 10 343 1", desc: "Bolt, hex. head BM 6×25 DIN 931", qty: "1" }
+  - { page: 359, key: 40, part: "N 12 226 2", desc: "Spring washer B 6 DIN 137 galvanized", qty: "1" }
+  - { page: 359, key: null, part: "211 611 763", desc: "Brake line between T-piece and brake hose, rear,", qty: "1", appl: "left (length 720 mm)\nup to Chassis No. 20 – 117 901" }
+  - { page: 359, key: null, part: "211 611 763 A", desc: "Brake line between T-piece and brake hose, rear,", qty: "1", appl: "left (length 218 mm)\nfrom Chassis No. 20 – 117 902 up to 170 000" }
+  - { page: 359, key: 41, part: "211 611 763 B", desc: "Brake line between T-piece and brake hose, rear,", qty: "1", appl: "left (length 160 mm)\nfrom Chassis No. 170 001" }
+  - { page: 359, key: null, part: "211 611 764", desc: "Brake line between T-piece and brake hose, rear,", qty: "1", appl: "right (length 1040 mm)\nup to Chassis No. 20 – 117 901" }
+  - { page: 359, key: null, part: "211 611 764 A", desc: "Brake line between T-piece and brake hose, rear,", qty: "1", appl: "right (length 680 mm)\nfrom Chassis No. 20 – 117 902 up to 170 000" }
+  - { page: 359, key: 42, part: "211 611 764 B", desc: "Brake line between T-piece and brake hose, rear,", qty: "1", appl: "right (length 573 mm)\nfrom Chassis No. 170 001" }
+  # ---- PDF 390 (7-21, Illustration 36)
+  - { page: 390, key: 1, part: "*211 711 105", desc: "Ball housing – Gearshift lever", qty: "1", note: "printed in bold" }
+  - { page: 390, key: 2, part: "*111 711 115 A", desc: "Rubber boot – Gearshift lever", qty: "1", appl: "3/50 – 469 anthracite – 75, 76, 77, 80, 81, 83, 94\n8/65 – 043 grey black – 70, 71, 72" }
+  - { page: 390, key: null, part: "211 711 121", desc: "Gearshift lever", qty: "1", appl: "up to Chassis No. 501 706" }
+  - { page: 390, key: 3, part: "211 711 121 A", desc: "Gearshift lever", qty: "1", appl: "from Chassis No. 501 707 up to 216 028 111" }
+  - { page: 390, key: 4, part: "211 711 121 B", desc: "Gearshift lever", qty: "1", appl: "from Chassis No. 216 028 112" }
+  - { page: 390, key: 5, part: "*113 711 141", desc: "Knob – Gearshift lever", qty: "1", appl: "3/50 – 7/66 466 silver beige\n8/66 – 043 grey black" }
+  - { page: 390, key: 6, part: "*211 711 145 A", desc: "Spring – Gearshift lever", qty: "1" }
+  - { page: 390, key: 7, part: "*211 711 149", desc: "Stop – Gearshift lever", qty: "1" }
+  - { page: 390, key: 8, part: "N 10 242 5", desc: "Bolt, hex. head, M 8×25 DIN 933 galvanized", qty: "2" }
+  - { page: 390, key: 9, part: "N 12 241 2", desc: "Spring washer B 8×15 DIN 137 galvanized", qty: "2" }
+  - { page: 390, key: 10, part: "N 11 654 2", desc: "Washer 9.5 galvanized", qty: "2" }
+  - { page: 390, key: null, part: "211 711 155", desc: "Rod – Gearshift, front", qty: "1", appl: "up to Chassis No. 501 706" }
+  - { page: 390, key: null, part: "214 711 155", desc: "Rod – Gearshift, front", qty: "1", appl: "from Chassis No. 501 707 up to 835 087" }
+  - { page: 390, key: 11, part: "211 711 155 B", desc: "Rod – Gearshift, front", qty: "1", appl: "from Chassis No. 835 088 up to 216 028 111" }
+  - { page: 390, key: 12, part: "211 711 155 C", desc: "Rod – Gearshift, front", qty: "1", appl: "from Chassis No. 216 028 112" }
+  - { page: 390, key: 13, part: "211 711 167 A", desc: "Sealing sleeve for transmission shift rod, rear", qty: "1", appl: "from Chassis No. 306 726" }
+  - { page: 390, key: null, part: "211 711 169", desc: "Coupling, front – Gearshift rod", qty: "1", appl: "up to Chassis No. 835 087" }
+  - { page: 390, key: 14, part: "211 711 169 A", desc: "Coupling – Gearshift rod", qty: "1", appl: "from Chassis No. 835 088" }
+  - { page: 390, key: null, part: "214 711 171", desc: "Rod – Gearshift, rear", qty: "1", appl: "up to Chassis No. 835 087", inline: true }
+  # ---- PDF 404 (7-35, SP set, no illustration, no key column)
+  - { page: 404, key: null, part: "211 798 041", desc: "1 set of bumper guards for subsequent installation in VW Transporters", appl: "comprising:", note: "printed in bold; no quantity" }
+  - { page: 404, key: null, part: "213 707 155 A", desc: "Overrider – Bumper, front", qty: "2" }
+  - { page: 404, key: null, part: "213 707 177", desc: "Guard – Bumper", qty: "1" }
+  - { page: 404, key: null, part: "213 707 195", desc: "Packing", qty: "4" }
+  - { page: 404, key: null, part: "213 707 225", desc: "Distance tube, front (length: 55 mm)", qty: "2" }
+  - { page: 404, key: null, part: "213 707 355 A", desc: "Overrider, rear, left", qty: "1" }
+  - { page: 404, key: null, part: "213 707 356 A", desc: "Overrider, rear, right", qty: "1" }
+  - { page: 404, key: null, part: "263 707 385", desc: "Guard, rear, left", qty: "1" }
+  - { page: 404, key: null, part: "263 707 386", desc: "Guard, rear, right", qty: "1" }
+  - { page: 404, key: null, part: "213 707 425", desc: "Distance tube, rear (length: 50 mm)", qty: "2" }
+  - { page: 404, key: null, part: "N 10 241 3", desc: "Bolt, hex. head M 8×22", qty: "4" }
+  - { page: 404, key: null, part: "N 10 350 3", desc: "Bolt, hex. head M 8×50", qty: "2" }
+  - { page: 404, key: null, part: "N 10 360 2", desc: "Bolt, hex. head BM 8×60", qty: "2" }
+  - { page: 404, key: null, part: "N 10 370 1", desc: "Bolt, hex. head BM 8×70", qty: "4" }
+  - { page: 404, key: null, part: "N 12 008 2", desc: "Lock washer B 8", qty: "12" }
+  # ---- PDF 433 (8-24, Illustration 38+A38+B38+C38). Dense Type and model column.
+  - { page: 433, key: "A 33", part: "211 809 187", desc: "Reinforcement, lower – Side panel, lower, left", qty: "1", appl: "from Chassis No. 20 – 117 902", tm: "211, 215, 216, 221, 225,\n231, 235, 241, 271" }
+  - { page: 433, key: null, part: "214 809 187", desc: "Reinforcement, lower – Side panel, lower, left", qty: "1", appl: "from Chassis No. 20 – 117 902", tm: "213,214,223,224,228,233,\n234,237,238,244,273,274" }
+  - { page: 433, key: "A 34", part: "211 809 188", desc: "Reinforcement, lower – Side panel, lower, right", qty: "1", appl: "from Chassis No. 20 – 117 902", tm: "211, 215, 216, 221, 225,\n231, 235, 241, 271" }
+  - { page: 433, key: null, part: "214 809 188", desc: "Reinforcement, lower – Side panel, lower, right", qty: "1", appl: "from Chassis No. 20 – 117 902", tm: "213,214,223,224,228,233,\n234,237,238,244,273,274" }
+  - { page: 433, key: "A 35", part: "211 809 189", desc: "Reinforcement, center – Side panel, lower, left", qty: "1", appl: "from Chassis No. 20 – 117 902", tm: "211-244, 271-274" }
+  - { page: 433, key: "A 36", part: "211 809 190", desc: "Reinforcement, center – Side panel, lower, right", qty: "1", appl: "from Chassis No. 20 – 117 902", tm: "211-244, 271-274" }
+  - { page: 433, key: 23, part: "211 809 201 B", desc: "Hinge pillar, left", qty: "1" }
+  - { page: 433, key: null, part: "211 809 202 B", desc: "Hinge pillar, right", qty: "1" }
+  - { page: 433, key: null, part: "211 809 251 C", desc: "Lock pillar, left", qty: "1", appl: "up to Chassis No. 216 190 000\n(up to Chassis No. 1 222 025\nthe part 211 837 295 E is additionally required,\nfrom Chassis No. 1 222 026 up to 216 190 000\nthe part 211 837 295 D is additionally required)", tm: "211, 221, 225, 231, 235,\n241, 271" }
+  - { page: 433, key: 24, part: "211 809 251 D", desc: "Lock pillar, left", qty: "1", appl: "from Chassis No. 217 000 001", tm: "211, 221, 225, 231, 235,\n241, 271" }
+  - { page: 433, key: null, part: "214 809 251", desc: "Lock pillar, left", qty: "1", appl: "(for direction indicators)", tm: "213-216,223,224,228,233,\n234,237,238,244,273,274" }
+  - { page: 433, key: null, part: "214 809 251 H", desc: "Lock pillar, left (flashing indicators)", qty: ["1", "1"], appl: "(up to Chassis No. 1 222 025\nthe part 211 837 295 E is additionally required,\nfrom Chassis No. 1 222 026 up to 216 190 000\nthe part 211 837 295 D is additionally required)", tm: "213-216, 223, 224, 228,\n233, 234, 237, 238, 244,\n273, 274" }
+  - { page: 433, key: null, part: "261 809 251 B", desc: "Lock pillar, left", qty: "1", appl: "(with slot, lower, for direction indicators)", tm: "261-264" }
+  - { page: 433, key: "B 23", part: "261 809 251 D", desc: "Lock pillar, left (flashing indicators)", qty: "1", appl: "(up to Chassis No. 1 222 025\nthe part 211 837 295 E is additionally required,\nfrom Chassis No. 1 222 026 up to 216 190 000\nthe part 211 837 295 D is additionally required)", tm: "261" }
+  - { page: 433, key: null, part: "264 809 251 D", desc: "Lock pillar, left (flashing indicators)", qty: "1", appl: "(up to Chassis No. 1 222 025\nthe part 211 837 295 E is additionally required,\nfrom Chassis No. 1 222 026 up to 216 190 000\nthe part 211 837 295 D is additionally required)", tm: "263, 264" }
+  # ---- PDF 463 (8-50, Illustration 39a)
+  - { page: 463, key: 113, part: "N 11 651 1", desc: "Washer 5.8 galvanized", qty: "8", tm: "261-264" }
+  - { page: 463, key: 114, part: "N 10 698 1", desc: "Screw, cheese head AM 4×12 DIN 84 galvanized", qty: "4", tm: "261-264" }
+  - { page: 463, key: null, part: "N 11 004 2", desc: "Nut, hex. M 4 DIN 934 galvanized", qty: "2", tm: "261-264" }
+  - { page: 463, key: null, part: "261 829 577", desc: "Rubber buffer 28×24 – Dropside", qty: "4", tm: "261-264" }
+  - { page: 463, key: 115, part: "261 829 577", desc: "Rubber buffer 28×24 – Tailboard", qty: "2", tm: "261-264" }
+  - { page: 463, key: 116, part: "N 10 723 1", desc: "Screw, cheese head AM 5×25 DIN 84 galvanized", qty: "×", tm: "261-264" }
+  - { page: 463, key: null, part: "261 829 577 A", desc: "Rubber buffer – Tailboard (for home market only)", qty: "2", tm: "261-264" }
+  - { page: 463, key: null, part: "N 10 724 1", desc: "Screw, cheese head AM 5×40 DIN 84 galvanized", qty: "2", appl: "(for home market only)", tm: "261-264" }
+  - { page: 463, key: null, part: "N 11 651 1", desc: "Washer 5.8 galvanized", qty: "×", tm: "261-264" }
+  - { page: 463, key: null, part: "N 11 005 2", desc: "Nut, hex. M 5 DIN 934 galvanized", qty: "×", tm: "261-264" }
+  - { page: 463, key: 117, part: "211 829 605", desc: "Cover – Tank filler", qty: "1", appl: "from Chassis No. 217 000 001" }
+  - { page: 463, key: 118, part: "211 829 639", desc: "Spring – Cover 211 829 605", qty: "1" }
+  - { page: 463, key: 119, part: "N 14 138 1", desc: "Screw, fillister head AM 6×10 DIN 7985 galvanized", qty: "2" }
+  - { page: 463, key: 120, part: "*111 857 145", desc: "Rubber buffer – Tank filler cover", qty: "2" }
+  - { page: 463, key: 121, part: "261 829 605", desc: "Cover – Tank filler", qty: "1", appl: "up to Chassis No. 216 190 000" }
+  - { page: 463, key: 122, part: "N 11 664 1", desc: "Washer 4.1", qty: "2" }
+  - { page: 463, key: 123, part: "N 12 004 1", desc: "Lock washer B 4 DIN 127", qty: "2" }
+  - { page: 463, key: 124, part: "N 10 201 1", desc: "Bolt, hex. head M 4×8 DIN 933", qty: "2" }
+  - { page: 463, key: null, part: "261 829 615", desc: "Gasket – Tank filler cover", qty: "1", appl: "up to Chassis No. 20 – 117 901" }
+  - { page: 463, key: 125, part: "261 829 651", desc: "Lock – Fuel filler cover", qty: "1", appl: "up to Chassis No. 216 190 000" }
+  - { page: 463, key: 126, part: "261 829 661", desc: "Packing – Lock 261 829 651", qty: "1" }
+  - { page: 463, key: null, part: "271 829 747", desc: "Retaining bolt for extension – Rear panel lid", qty: "2", appl: "up to Chassis No. 1 218 058", tm: "M 152: 271-274" }
+  # ---- PDF 585 (9-14, Illustration 50)
+  - { page: 585, key: 12, part: "111 905 223", desc: "Safety screen – Distributors", qty: "1", appl: "VE 4 BRS 383; ZV/VJ 4 BR 8/1;\nZV/VJR 4 BR 8/1; ZV/VJR 4 BR 25/1" }
+  - { page: 585, key: null, part: "111 905 225", desc: "Rotor – Distributor VE 4 BRS 383", qty: "1" }
+  - { page: 585, key: null, part: "111 905 225 A", desc: "Rotor (screened) – Distributor VE 4 BRS 383", qty: "1", appl: "(for use with 111 905 207 A only)" }
+  - { page: 585, key: null, part: "111 905 225 B", desc: "Rotor – Distributors", qty: "1", appl: "ZV/VJ 4 BR 8/1; ZV/VJR 4 BR 8/1;\nZV/VJR 4 BR 25/1" }
+  - { page: 585, key: 13, part: "111 905 225 C", desc: "Rotor (screened) for distributors", qty: "1", appl: "ZV/VJR 4 BR 8/1; ZV/VJR 4 BR 25/1" }
+  - { page: 585, key: null, part: "211 905 225", desc: "Rotor – Distributor 211 905 205 B", qty: "1" }
+  - { page: 585, key: 14, part: "111 905 227", desc: "Contact breaker plate with distributor contacts", qty: "1", appl: "for distributors\nVE 4 BRS 383; ZV/VJ 4 BR 8/1;\nZV/VJR 4 BR 8/1; ZV/VJR 4 BR 25/1" }
+  - { page: 585, key: 15, part: "111 905 231", desc: "Shim 0.2 mm for contact breaker arm – Distributors", qty: "×", appl: "VE 4 BRS 383; ZV/VJ 4 BR 8/1;\nZV/VJR 4 BR 8/1; ZV/VJR 4 BR 25/1" }
+  - { page: 585, key: null, part: "211 905 231", desc: "Insulating disc – Contact breaker arm", qty: "1", appl: "for distributor 211 905 205 B" }
+  - { page: 585, key: 16, part: "111 998 051", desc: "1 set of breaker points for distributors", qty: "1", appl: "VE 4 BRS 383; ZV/VJ 4 BR 8/1;\nZV/VJR 4 BR 8/1; ZV/VJR 4 BR 25/1" }
+  - { page: 585, key: 17, part: "111 905 237 A", desc: "Tension spring for distributors", qty: "2", appl: "ZV/VJ 4 BR 8/1; ZV/VJR 4 BR 8/1" }
+  - { page: 585, key: 18, part: "111 905 241 C", desc: "Sealing disc – Distributors", qty: "1", appl: "ZV/VJ 4 BR 8/1; ZV/VJR 4 BR 8/1;\nZV/VJR 4 BR 25/1" }
+  - { page: 585, key: null, part: "211 905 241", desc: "Sealing disc – Distributor 211 905 205 B", qty: "1" }
+  - { page: 585, key: 19, part: "111 905 243", desc: "Lockring for dog – Distributors", qty: "1", appl: "VE 4 BRS 383; ZV/VJ 4 BR 8/1;\nZV/VJR 4 BR 8/1; ZV/VJR 4 BR 25/1" }
+  # ---- PDF 633 (9-60, Illustration 55)
+  - { page: 633, key: null, part: "N 17 717 2", desc: "Bulb HL 12 V 4 W DIN 72 601", qty: "2" }
+  - { page: 633, key: null, part: "N 14 085 1", desc: "Tapping screw, button head B 3.5×9.5 DIN 7974", qty: "4", appl: "chromium plated" }
+  - { page: 633, key: 6, part: "141 953 153", desc: "Gasket – Bulb holder 211 953 051", qty: "2" }
+  - { page: 633, key: 7, part: "N 12 135 1", desc: "Shake-proof washer J 21 DIN 6797", qty: "2" }
+  - { page: 633, key: 8, part: "141 953 159", desc: "Nut, hex. M 20×1", qty: "2" }
+  - { page: 633, key: null, part: "111 953 161", desc: "Lens – Flashing indicator, front (white)", qty: "2", appl: "up to Chassis No. 1 144 281" }
+  - { page: 633, key: 9, part: "211 953 161", desc: "Lens – Flashing indicator, front (yellow)", qty: "2", appl: "up to Chassis No. 1 144 281" }
+  - { page: 633, key: null, part: "211 953 161 A", desc: "Lens – Flashing indicator, front, left", qty: "1", appl: "(for USA only) up to Chassis No. 1 144 281\n(for Italy only) from Chassis No. 1 144 282", tm: "M 24" }
+  - { page: 633, key: null, part: "211 953 161 B", desc: "Lens – Flashing indicator, front, left (yellow)", qty: "1", appl: "from Chassis No. 1 144 282" }
+  - { page: 633, key: null, part: "211 953 162 A", desc: "Lens – Flashing indicator, front, right", qty: "1", appl: "(for USA only) up to Chassis No. 1 144 281\n(for Italy only) from Chassis No. 1 144 282", tm: "M 24" }
+  - { page: 633, key: 10, part: "211 953 162 B", desc: "Lens – Flashing indicator, front, right (yellow)", qty: "1", appl: "from Chassis No. 1 144 282" }
+  - { page: 633, key: 11, part: "N 14 118 1", desc: "Screw, fillister head AM 4×28 DIN 7985", qty: "4" }
+  - { page: 633, key: null, part: "211 953 163", desc: "Housing – Flashing indicator, front, left", qty: "1", appl: "up to Chassis No. 1 144 281" }
+  - { page: 633, key: 12, part: "211 953 164", desc: "Housing – Flashing indicator, front, right", qty: "1", appl: "up to Chassis No. 1 144 281" }
+  - { page: 633, key: 13, part: "111 953 165", desc: "Packing – Housing", qty: "2", appl: "up to Chassis No. 1 144 281" }
+  - { page: 633, key: 14, part: "N 10 866 1", desc: "Screw, countersunk raised head M 4×10×2.5", qty: "4", appl: "DIN 924, chromium plated" }
+  - { page: 633, key: 15, part: "211 953 165 A", desc: "Packing (rubber) – Flashing indicator, front", qty: "2" }
+  - { page: 633, key: null, part: "113 953 183 B", desc: "Relay – Flashing indicator 12 V 2×18 W", qty: "1", appl: "up to Chassis No. 216 190 000\n(use 211 971 119 A ground strap\nup to Chassis No. 215 190 000)", tm: "M 620" }
+  # ---- PDF 729 (S-?, Illustration 61). Left edge heavily speckled: keys and part numbers read with care.
+  - { page: 729, key: 74, part: "211 843 719 A", desc: "Pull rod – Remote control", qty: "2" }
+  - { page: 729, key: 75, part: "211 843 727", desc: "Threaded sleeve – Pull rod", qty: "2" }
+  - { page: 729, key: 76, part: "211 843 737", desc: "Nut, hex. M 5.5×0.75", qty: "2" }
+  - { page: 729, key: 77, part: "N 12 436 2", desc: "Lock washer 6 DIN 6799 galvanized", qty: "2" }
+  - { page: 729, key: 78, part: "211 843 735", desc: "Lever – Sliding door", qty: "1", tm: "211-216" }
+  - { page: 729, key: null, part: "221 841 641 A", desc: "Door handle, inner", qty: "1", tm: "221-244" }
+  - { page: 729, key: 79, part: "N 14 130 1", desc: "Screw, fillister head AM 5×11 DIN 7985", qty: "1", appl: "galvanized" }
+  - { page: 729, key: 80, part: "N 12 126 1", desc: "Shake-proof washer I 5.3 DIN 6797", qty: "1" }
+  - { page: 729, key: null, part: "214 843 741 A", desc: "Retainer", qty: "1", appl: "up to Chassis No. 217 073 696", inline: true, tm: "213-216, 223, 224, 228,\n233, 234, 237, 238, 244" }
+  - { page: 729, key: null, part: "214 843 741 C", desc: "Retainer", qty: "1", appl: "from Chassis No. 217 073 697", inline: true, tm: "213-216, 223, 224, 228,\n233, 234, 237, 238, 244" }
+  - { page: 729, key: null, part: "211 843 74[?] A", desc: "Retainer", qty: "1", appl: "up to Chassis No. 217 073 696", inline: true, tm: "211, 215, 216, 221, 225,\n231, 235, 241" }
+  - { page: 729, key: 81, part: "211 843 74[?] C", desc: "Retainer", qty: "1", appl: "from Chassis No. 217 073 697", inline: true, tm: "211, 215, 216, 221, 225,\n231, 235, 241" }
+  - { page: 729, key: 82, part: "211 843 747", desc: "Clip – Retainer", qty: "1", appl: "up to Chassis No. 215 052 000" }
+  - { page: 729, key: 83, part: "N 14 140 1", desc: "Screw, fillister head AM 6×15 DIN 7985 galvanized", qty: "1" }
+  - { page: 729, key: 84, part: "N 12 226 2", desc: "Spring washer B 6 DIN 137 galvanized", qty: "1" }
+  - { page: 729, key: null, part: "N 14 277 1", desc: "Screw, countersunk raised head AM 6×15", qty: "2", appl: "DIN 7988 galvanized" }
+  - { page: 729, key: 85, part: "N 10 240 2", desc: "Bolt, hex. head M 8×20 DIN 933 galvanized", qty: "2" }
+  - { page: 729, key: null, part: "N 12 128 2", desc: "Shake-proof washer V 6.4 DIN 6797 galvanized", qty: "2" }
+  - { page: 729, key: 86, part: "N 12 241 2", desc: "Spring washer B 8×15 DIN 137 galvanized", qty: "2" }
+  - { page: 729, key: 87, part: "211 843 749", desc: "Rubber buffer – Retainer", qty: "1" }
+  - { page: 729, key: 88, part: "221 843 781", desc: "Cover – Central lock striker plate", qty: "1", tm: "221-228, 241, 244" }
+  - { page: 729, key: 89, part: "211 843 791", desc: "Weatherstrip – Sliding door", qty: "1" }
+  - { page: 729, key: null, part: "214 843 795", desc: "Cover – Center runner", qty: "1", tm: "213-216, 223, 224, 228,\n233, 234, 237, 238, 244" }
+  - { page: 729, key: 90, part: "211 843 796", desc: "Cover – Center runner", qty: "1", tm: "211, 215, 216, 221 225,\n231, 235, 241" }
+  - { page: 729, key: 91, part: "211 843 799 A", desc: "Seal – Cover", qty: "1" }
+  - { page: 729, key: 92, part: "N 14 130 1", desc: "Screw, fillister head AM 5×11 DIN 7985", qty: "6", appl: "galvanized", tm: "211-216, 231-238" }
+  - { page: 729, key: 93, part: "N 14 272 1", desc: "Screw, countersunk raised head BM 5×60 DIN 7988", qty: "1", appl: "galvanized" }
+  # ---- PDF 730 (S-22a, Illustration 61)
+  - { page: 730, key: 94, part: "N 12 104 2", desc: "Lock washer A 5.3 DIN 6798 galvanized", qty: "1" }
+  - { page: 730, key: 95, part: "N 11 005 2", desc: "Nut, hex. M 5 DIN 934 galvanized", qty: "1" }
+  - { page: 730, key: 96, part: "221 843 815", desc: "Screw (shouldered) – Cover", qty: "5", tm: "221-228, 241, 244" }
+  - { page: 730, key: null, part: "221 809 441", desc: "Cap – Side panel", qty: "×", appl: "4/63 – 501 cloud white", tm: "221-228, 241, 244" }
+  - { page: 730, key: null, part: "211 853 611 A", desc: "Rubber – Cover", qty: "6" }
+  - { page: 730, key: null, part: "N 11 523 3", desc: "Washer A 5.3 DIN 125 galvanized", qty: "6" }
+  - { page: 730, key: null, part: "221 845 305 C", desc: "Glass – Window in sliding door", qty: "1", tm: "221-244" }
+  - { page: 730, key: null, part: "221 847 105 B", desc: "Frame for hinged window in sliding door", qty: "1", tm: "221-244" }
+  - { page: 730, key: null, part: "224 847 085", desc: "Fastener – Sliding door window", qty: "1", tm: "223, 224, 228, 233, 234,\n237, 238, 244" }
+  - { page: 730, key: null, part: "221 847 086 B", desc: "Fastener – Sliding door window", qty: "1", tm: "221, 225, 231, 235, 241" }
+  - { page: 730, key: null, part: "221 847 277", desc: "Rubber packing – Sliding door window fastener", qty: "2", tm: "221-244" }
+  - { page: 730, key: null, part: "221 853 073 A", desc: "Molding, upper – Sliding door trim panel", qty: "1", tm: "221-228, 241, 244" }
+  - { page: 730, key: null, part: "221 853 077 A", desc: "Molding, lower – Sliding door trim panel", qty: "1", tm: "221-228, 241, 244" }
+  - { page: 730, key: null, part: "244 853 531", desc: "Molding – Sliding door", qty: "1", tm: "244" }
+  - { page: 730, key: null, part: "241 853 532", desc: "Molding – Sliding door", qty: "1", tm: "241" }
+  - { page: 730, key: null, part: "244 853 535", desc: "Molding – Side panel part, left", qty: "1", tm: "244" }
+  - { page: 730, key: null, part: "241 853 536", desc: "Molding – Side panel part, right", qty: "1", tm: "241" }
+  - { page: 730, key: null, part: "241 853 545", desc: "Molding – Corner panel (sliding door side)", qty: "1", tm: "241, 244" }
+  - { page: 730, key: null, part: "N 13 792 3", desc: "Tubular rivet 4×0.4×7 DIN 7339", qty: "×", tm: "241, 244" }
+  - { page: 730, key: null, part: "*111 837 637", desc: "Washer", qty: "×", tm: "241, 244" }
+  - { page: 730, key: null, part: "241 853 579", desc: "End piece for molding", qty: "×", tm: "241, 244" }
+  - { page: 730, key: null, part: "224 867 027", desc: "Trim panel, lower – Sliding door", qty: "1", appl: "4/63 – 7/64 291 phosphor/como green – 81\n4/63 – 7/64 292 silver beige/basalt grey – 75, 80\n8/64 – 307 mesh grey/grey – 83\n8/65 – 492 aero papyrus white/steel – 72\n8/65 – 493 aero balearic/sienna beige – 71\n8/65 – 494 mesh platinum/platinum silver – 70", tm: "223, 224, 228, 244" }

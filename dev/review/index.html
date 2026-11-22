@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Parts review (dev only)</title>
+<style>
+  :root {
+    --ink: #111; --muted: #555; --line: #c8c8c8; --bg: #f4f4f2; --card: #fff;
+    --blue: #1f4e79; --ok: #1b6e3a; --warn: #8a5a00; --bad: #a32020; --mark: #ffe58a;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; font: 15px/1.45 system-ui, sans-serif; color: var(--ink); background: var(--bg); }
+  header { position: sticky; top: 0; z-index: 5; background: var(--card); border-bottom: 1px solid var(--line); padding: 10px 16px; display: flex; flex-wrap: wrap; gap: 10px 18px; align-items: center; }
+  header h1 { font-size: 16px; margin: 0; }
+  .tabs button { font: inherit; padding: 6px 12px; border: 1px solid var(--line); background: #fff; cursor: pointer; }
+  .tabs button[aria-pressed="true"] { background: var(--blue); color: #fff; border-color: var(--blue); }
+  .progress { min-width: 220px; }
+  .bar { height: 8px; background: #e5e5e5; border-radius: 4px; overflow: hidden; }
+  .bar > span { display: block; height: 100%; background: var(--ok); }
+  label.inline { display: inline-flex; gap: 6px; align-items: center; }
+  select, input, textarea, button { font: inherit; }
+  main { padding: 16px; }
+  .grid { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: 16px; align-items: start; }
+  @media (max-width: 1100px) { .grid { grid-template-columns: 1fr; } }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 6px; padding: 12px 14px; }
+  .meta { color: var(--muted); font-size: 14px; margin: 0 0 8px; }
+  .stamp { font-weight: 600; color: var(--ink); }
+  section[aria-label="Scan"] { position: sticky; top: 76px; }
+  .crop-wrap { overflow: auto; max-height: 70vh; border: 1px solid var(--line); background: #fafafa; }
+  .crop { background-repeat: no-repeat; }
+  .tools { display: flex; gap: 14px; align-items: center; margin: 8px 0 0; flex-wrap: wrap; }
+  .field { margin: 0 0 12px; }
+  .field > label { display: block; font-weight: 600; font-size: 13px; margin-bottom: 3px; }
+  .field input, .field textarea { width: 100%; padding: 6px 8px; border: 1px solid #999; border-radius: 4px; }
+  .field textarea { min-height: 3.2em; resize: vertical; }
+  .field.disagree > label::after { content: "  readings disagree"; color: var(--bad); font-weight: 600; }
+  .field.disagree input, .field.disagree textarea { border: 2px solid var(--bad); background: #fff6f6; }
+  .readings { display: grid; grid-template-columns: 7.5em 1fr; gap: 1px 8px; font: 13px/1.35 ui-monospace, Menlo, monospace; color: var(--muted); margin-top: 4px; white-space: pre-wrap; }
+  .readings .src { color: #777; }
+  mark { background: var(--mark); color: var(--ink); }
+  .missed { font-style: italic; color: #999; }
+  .buttons { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+  .buttons button { padding: 8px 14px; border-radius: 4px; border: 1px solid var(--blue); background: #fff; color: var(--blue); cursor: pointer; min-height: 40px; }
+  .buttons button.primary { background: var(--blue); color: #fff; }
+  .buttons button.correct { border-color: var(--warn); color: var(--warn); }
+  button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible { outline: 3px solid #000; outline-offset: 2px; }
+  .badge { display: inline-block; padding: 1px 8px; border-radius: 10px; font-size: 12px; font-weight: 600; border: 1px solid; }
+  .badge.unverified { color: var(--muted); }
+  .badge.verified { color: var(--ok); }
+  .badge.corrected { color: var(--warn); }
+  .msg { min-height: 1.4em; font-weight: 600; }
+  .msg.err { color: var(--bad); }
+  .msg.ok { color: var(--ok); }
+  .siblings { font-size: 13px; color: var(--muted); margin: 4px 0 0; padding-left: 18px; }
+  .drawing { position: relative; display: inline-block; border: 1px solid var(--line); }
+  .drawing img { display: block; width: 900px; max-width: 100%; height: auto; }
+  /* see-through ring, so the printed label stays visible inside it; number on a tag beside it */
+  .pin { position: absolute; transform: translate(-50%, -50%); width: 30px; height: 30px; border-radius: 50%; border: 2px solid var(--bad); background: transparent; cursor: grab; padding: 0; }
+  .pin .tag { position: absolute; left: 26px; top: -12px; font: 700 11px/1 system-ui; color: var(--bad); background: rgba(255,255,255,.9); padding: 1px 3px; border-radius: 3px; pointer-events: none; }
+  .pin.verified { border-color: var(--ok); } .pin.verified .tag { color: var(--ok); }
+  .pin.corrected { border-color: var(--warn); } .pin.corrected .tag { color: var(--warn); }
+  .pin.sel { outline: 3px solid #000; }
+  .pages { display: grid; grid-template-columns: repeat(auto-fill, minmax(360px, 1fr)); gap: 14px; }
+  kbd { border: 1px solid #aaa; border-bottom-width: 2px; border-radius: 3px; padding: 0 4px; font-size: 12px; }
+  .hint { color: var(--muted); font-size: 13px; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Parts review <span class="hint">(dev only, reviewer: <strong id="reviewer">__REVIEWER__</strong>)</span></h1>
+  <div class="tabs" role="group" aria-label="Mode">
+    <button type="button" data-mode="rows" aria-pressed="true">Rows</button>
+    <button type="button" data-mode="callouts" aria-pressed="false">Callouts</button>
+    <button type="button" data-mode="pages" aria-pressed="false">Pages</button>
+  </div>
+  <div class="progress"><div id="progress-text" class="hint">loading…</div><div class="bar"><span id="progress-bar" style="width:0"></span></div></div>
+  <label class="inline">Show
+    <select id="filter">
+      <option value="disagree">rows where readings disagree</option>
+      <option value="unverified">unverified rows</option>
+      <option value="all">all rows</option>
+    </select>
+  </label>
+  <label class="inline">Page <select id="page-filter"><option value="">all</option></select></label>
+</header>
+<main id="main"></main>
+<script>window.REVIEW_TOKEN = "__REVIEW_TOKEN__";</script>
+<script src="review.js"></script>
+</body>
+</html>

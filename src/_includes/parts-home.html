@@ -1,0 +1,59 @@
+{%- comment -%} Parts preview: table of contents (page.toc from the page map). {%- endcomment -%}
+<div class="pp-title">
+  <span class="pp-kicker">{{ page.edition }}</span>
+  <h1>Parts</h1>
+  <p class="pp-lede">{{ page.totals.ills }} illustrations and {{ page.totals.rows }} part rows, read by machine from the scanned book.
+    {{ page.totals.agree }} rows were read the same way by two independent readings; the rest need checking.</p>
+</div>
+
+<section class="pp-card pp-about" aria-label="About this data">
+  <h2>About this data</h2>
+  <ul>
+    <li>Every row was read from the scans by two machine readings (the PDF's text layer and tesseract). <strong>Machine-read, readings agree</strong> means both read it the same way; <strong>Machine-read, needs checking</strong> means they differ or the layout is unusual. Rows a person has confirmed say <strong>Checked by a person</strong>.</li>
+    <li>Illustration 32 (Hydraulic brakes) was read by AI from the pages (<strong>Read by AI, not yet checked</strong>), with key numbers placed on the drawing.</li>
+    <li>Titles come from the book's own contents pages. Page numbers that could not be read are shown as PDF page numbers.</li>
+    <li>Always confirm against the original page, which every part links to.</li>
+  </ul>
+</section>
+
+{%- for g in page.toc %}
+{%- if g.ills.size > 0 or g.unmatched.size > 0 %}
+<section class="pp-group" id="g-{{ g.id }}" aria-labelledby="g-{{ g.id }}-h">
+  <h2 id="g-{{ g.id }}-h"><span class="pp-gnum pp-num">{{ g.id }}</span> {{ g.title }}</h2>
+  <ul class="pp-ill-list">
+    {%- for s in g.ills %}
+    <li>
+      <a class="pp-ill-link" href="{{ s.slug }}.html">
+        <span class="pp-ill-num pp-num">{{ s.number }}</span>
+        <span class="pp-ill-body">
+          <span class="pp-ill-title">{{ s.title | default: "Untitled illustration" }}</span>
+          <span class="pp-ill-meta pp-num">{{ s.rows }} rows{% if s.rows > 0 %} · {{ s.agree | times: 100 | divided_by: s.rows }}% readings agree{% endif %} · {% if s.drawings > 0 %}{{ s.drawings }} drawing page{% if s.drawings > 1 %}s{% endif %}{% if s.fold_out %} (fold-out){% endif %}{% else %}no drawing page found{% endif %}{% if s.source == "ai" %} · read by AI, not yet checked{% endif %}</span>
+        </span>
+      </a>
+    </li>
+    {%- endfor %}
+    {%- for u in g.unmatched %}
+    <li>
+      <a class="pp-ill-link pp-ill-unmatched" href="{{ u.slug }}.html">
+        <span class="pp-ill-num">?</span>
+        <span class="pp-ill-body">
+          <span class="pp-ill-title">{{ u.title }}</span>
+          <span class="pp-ill-meta pp-num">{{ u.rows }} rows on {{ u.lists }} pages</span>
+        </span>
+      </a>
+    </li>
+    {%- endfor %}
+  </ul>
+</section>
+{%- endif %}
+{%- endfor %}
+{%- if page.unmatched_nogroup.size > 0 %}
+<section class="pp-group" id="g-unknown">
+  <h2>Pages without a main group</h2>
+  <ul class="pp-ill-list">
+    {%- for u in page.unmatched_nogroup %}
+    <li><a class="pp-ill-link pp-ill-unmatched" href="{{ u.slug }}.html"><span class="pp-ill-num">?</span><span class="pp-ill-body"><span class="pp-ill-title">{{ u.title }}</span><span class="pp-ill-meta pp-num">{{ u.rows }} rows on {{ u.lists }} pages</span></span></a></li>
+    {%- endfor %}
+  </ul>
+</section>
+{%- endif %}
