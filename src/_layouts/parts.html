@@ -10,9 +10,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex">
 <title>{{ page.title | escape }} · OACDP parts (preview)</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
-<link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link rel="preload" href="assets/jost-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="assets/parts.css">
 </head>
 <body class="pp pp-kind-{{ page.parts_kind }}">
@@ -78,7 +76,7 @@
 
 <footer class="pp-footer">
   <div class="pp-wrap pp-footer-in">
-    <span>Local preview. Part data read by machine (Illustration 32: AI reading) from the {{ page.edition }}; not yet verified by a person.</span>
+    <span>Local preview. Part data read by machine (Illustration 32: read by AI) from the {{ page.edition }}; not yet verified by a person.</span>
     <span>Not affiliated with Volkswagen AG. Names are used for identification only.</span>
   </div>
 </footer>

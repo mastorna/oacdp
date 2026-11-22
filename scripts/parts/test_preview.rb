@@ -32,6 +32,9 @@ r = PartsPreview.row_for_page(row("up to Chassis No. 1 219 510\nfrom Chassis No.
 eq "one range per printed line", r["ranges"].map { |x| [x["f"], x["t"]] }, [[nil, 1_219_510], [1_219_511, nil]]
 eq "quantities joined", r["q"], "5 / 5"
 eq "AI source labelled", r["conf"], "ai"
+eq "AI row checked by a person", PartsPreview.row_for_page(row(nil, extra: { "status" => "verified" }), :ai)["conf"], "person"
+eq "machine row corrected by a person", PartsPreview.row_for_page(row(nil, extra: { "status" => "corrected" }), :machine)["conf"], "person"
+eq "suggested is not checked", PartsPreview.row_for_page(row(nil, extra: { "status" => "suggested" }), :ai)["conf"], "ai"
 
 r = PartsPreview.row_for_page(row("up to Chassis No. 216 190 000"), :machine)
 eq "9-digit chassis is flagged as not compared", r["unparsed"], true

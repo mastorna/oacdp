@@ -36,7 +36,8 @@ def short(v, max)
 end
 
 server = WEBrick::HTTPServer.new(BindAddress: "127.0.0.1", Port: opts[:port], DocumentRoot: opts[:root],
-                                 AccessLog: [], Logger: WEBrick::Log.new($stderr, WEBrick::Log::WARN))
+                                 AccessLog: [], Logger: WEBrick::Log.new($stderr, WEBrick::Log::WARN),
+                                 MimeTypes: WEBrick::HTTPUtils::DefaultMimeTypes.merge("woff2" => "font/woff2"))
 send_json = lambda do |res, obj, status = 200|
   res.status = status
   res["Content-Type"] = "application/json; charset=utf-8"

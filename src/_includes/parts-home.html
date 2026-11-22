@@ -9,8 +9,8 @@
 <section class="pp-card pp-about" aria-label="About this data">
   <h2>About this data</h2>
   <ul>
-    <li>Every row was read from the scans by two machine readings (the PDF's text layer and tesseract). <strong>Readings agree</strong> means both read it the same way; <strong>Needs checking</strong> means they differ or the layout is unusual.</li>
-    <li>Illustration 32 (Hydraulic brakes) uses an AI reading of the pages, with key numbers placed on the drawing.</li>
+    <li>Every row was read from the scans by two machine readings (the PDF's text layer and tesseract). <strong>Machine-read, readings agree</strong> means both read it the same way; <strong>Machine-read, needs checking</strong> means they differ or the layout is unusual. Rows a person has confirmed say <strong>Checked by a person</strong>.</li>
+    <li>Illustration 32 (Hydraulic brakes) was read by AI from the pages (<strong>Read by AI, not yet checked</strong>), with key numbers placed on the drawing.</li>
     <li>Titles come from the book's own contents pages. Page numbers that could not be read are shown as PDF page numbers.</li>
     <li>Always confirm against the original page, which every part links to.</li>
   </ul>
@@ -27,7 +27,7 @@
         <span class="pp-ill-num pp-num">{{ s.number }}</span>
         <span class="pp-ill-body">
           <span class="pp-ill-title">{{ s.title | default: "Untitled illustration" }}</span>
-          <span class="pp-ill-meta pp-num">{{ s.rows }} rows{% if s.rows > 0 %} · {{ s.agree | times: 100 | divided_by: s.rows }}% readings agree{% endif %} · {% if s.drawings > 0 %}{{ s.drawings }} drawing page{% if s.drawings > 1 %}s{% endif %}{% if s.fold_out %} (fold-out){% endif %}{% else %}no drawing page found{% endif %}{% if s.source == "ai" %} · AI reading{% endif %}</span>
+          <span class="pp-ill-meta pp-num">{{ s.rows }} rows{% if s.rows > 0 %} · {{ s.agree | times: 100 | divided_by: s.rows }}% readings agree{% endif %} · {% if s.drawings > 0 %}{{ s.drawings }} drawing page{% if s.drawings > 1 %}s{% endif %}{% if s.fold_out %} (fold-out){% endif %}{% else %}no drawing page found{% endif %}{% if s.source == "ai" %} · read by AI, not yet checked{% endif %}</span>
         </span>
       </a>
     </li>

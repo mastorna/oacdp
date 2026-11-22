@@ -94,7 +94,7 @@
   <section class="pp-card pp-table" aria-labelledby="pp-table-h">
     <div class="pp-table-head">
       <h2 id="pp-table-h">Parts on this illustration</h2>
-      <span class="pp-muted pp-num">{{ page.rows.size }} rows{% if ill.source == "ai" %}, AI reading{% elsif ill.rows > 0 %}, {{ ill.agree }} readings agree{% endif %}</span>
+      <span class="pp-muted pp-num">{{ page.rows.size }} rows{% if ill.source == "ai" %}, read by AI, not yet checked{% elsif ill.rows > 0 %}, {{ ill.agree }} readings agree{% endif %}</span>
     </div>
     <div class="pp-table-scroll">
       <div class="pp-row pp-row-h" aria-hidden="true">
@@ -104,7 +104,7 @@
       <button type="button" class="pp-row" id="row-{{ r.id }}" data-i="{{ forloop.index0 }}" aria-pressed="false">
         <span><span class="pp-keydot pp-num{% if r.key == nil %} pp-keydot-none{% endif %}">{% if r.key == nil %}–{% else %}{{ r.key }}{% endif %}</span></span>
         <span class="pp-num pp-c-pn">{% if r.mk %}{{ r.mk }}{% endif %}{{ r.pn }}</span>
-        <span class="pp-c-d">{{ r.d | default: "(description not read)" | escape }}{% if r.a %}<span class="pp-c-a">{{ r.a | escape | newline_to_br }}</span>{% endif %}<span class="pp-conf pp-conf-{{ r.conf }}">{% case r.conf %}{% when "agree" %}Readings agree{% when "ai" %}AI reading{% else %}Needs checking{% endcase %}</span></span>
+        <span class="pp-c-d">{{ r.d | default: "(description not read)" | escape }}{% if r.a %}<span class="pp-c-a">{{ r.a | escape | newline_to_br }}</span>{% endif %}<span class="pp-conf pp-conf-{{ r.conf }}">{% case r.conf %}{% when "person" %}Checked by a person{% when "agree" %}Machine-read, readings agree{% when "ai" %}Read by AI, not yet checked{% else %}Machine-read, needs checking{% endcase %}</span></span>
         <span class="pp-num">{{ r.q | default: "–" }}</span>
         <span class="pp-c-fit"><span class="pp-fit pp-fit-none" data-fit>–</span></span>
       </button>

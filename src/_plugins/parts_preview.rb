@@ -55,6 +55,19 @@ module PartsPreview
     v.is_a?(Hash) ? v["seq"] : nil
   end
 
+  # Status label key (the wording is in the guide, docs/design/):
+  #   person = "Checked by a person"            (status verified or corrected)
+  #   agree  = "Machine-read, readings agree"
+  #   check  = "Machine-read, needs checking"
+  #   ai     = "Read by AI, not yet checked"
+  CHECKED = %w[verified corrected].freeze
+
+  def conf_of(r, source)
+    return "person" if CHECKED.include?(r["status"])
+    return "ai" if source == :ai
+    r["confidence"] == "readings agree" ? "agree" : "check"
+  end
+
   # The compact row the page script uses (and Liquid renders without JS).
   def row_for_page(r, source)
     ranges = if r["chassis_ranges"]
@@ -74,7 +87,7 @@ module PartsPreview
       "unparsed" => (appl.match?(/Chassis/i) && ranges.all? { |x| x["f"].nil? && x["t"].nil? }) ||
                     [r["chassis_from"], r["chassis_to"]].compact.any? { |v| v["seq"].nil? },
       "engine" => appl.match?(/Engine\s*No/i),
-      "conf" => source == :ai ? "ai" : (r["confidence"] == "readings agree" ? "agree" : "check"),
+      "conf" => PartsPreview.conf_of(r, source),
       "why" => r["confidence_reasons"] || []
     }
   end

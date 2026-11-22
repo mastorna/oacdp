@@ -242,7 +242,10 @@
     qty_differs: "the quantity was read differently", applicability_differs: "the chassis/engine range was read differently",
     sp_set_layout: "SP-set page layout", colour_date_lines: "colour or date lines that need a person"
   };
+  var CONF_LABELS = { person: "Checked by a person", agree: "Machine-read, readings agree",
+    check: "Machine-read, needs checking", ai: "Read by AI, not yet checked" };
   function confText(r) {
+    if (r.conf === "person") return "A person has checked this row against the page.";
     if (r.conf === "ai") return "AI reading of the page; not yet checked by a person.";
     if (r.conf === "agree") return "Both machine readings agree; not yet checked by a person.";
     var why = (r.why || []).map(function (w) { return REASONS[w] || w; });
@@ -264,7 +267,7 @@
     var f = fitOf(r, chassis);
     if (f) { var fb = el("span"); setBadge(fb, f); badges.appendChild(fb); }
     (r.oc || []).forEach(function (o) { badges.appendChild(el("span", "pp-fit pp-fit-info", "Option " + o)); });
-    badges.appendChild(el("span", "pp-conf pp-conf-" + r.conf, r.conf === "agree" ? "Readings agree" : (r.conf === "ai" ? "AI reading" : "Needs checking")));
+    badges.appendChild(el("span", "pp-conf pp-conf-" + r.conf, CONF_LABELS[r.conf] || CONF_LABELS.check));
     $("pp-part-q").textContent = r.q || "–";
     $("pp-part-tm").textContent = r.tm || "–";
     $("pp-part-a").textContent = r.a || "No limit printed";
@@ -479,7 +482,7 @@
             a.href = ill.slug + ".html#row-" + r.id;
             li.appendChild(a);
           } else { li.appendChild(document.createTextNode("Not matched to an illustration")); }
-          li.appendChild(document.createTextNode(", page " + (r.pp || "PDF " + r.pdf) + (r.c === "a" ? "" : " (needs checking)")));
+          li.appendChild(document.createTextNode(", page " + (r.pp || "PDF " + r.pdf) + (r.c === "a" ? " (machine-read, readings agree)" : " (machine-read, needs checking)")));
           ul.appendChild(li);
         });
         box.appendChild(el("div", "pp-muted", "Found in " + Object.keys(seen).length + " place" + (Object.keys(seen).length > 1 ? "s" : "") + ":"));
