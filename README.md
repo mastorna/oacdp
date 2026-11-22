@@ -149,6 +149,21 @@ page. Every row is `unverified` and labelled `readings agree` or
 
 `catalog.db` is built with the `sqlite3` command, so no gem is needed.
 
+### Parts preview (local only)
+
+A local preview of a parts section in the new OACDP design: a table of
+contents, one page per illustration (scan with zoom/rotate, part card,
+parts table, chassis-number fit check) and a part-number search. It is
+built from the whole-book machine data and the scans in the notes folder,
+into a folder outside the repository, and is never published:
+
+	scripts/parts/preview.sh          # build and serve http://127.0.0.1:4002/parts/
+	scripts/parts/preview.sh --build  # build only
+	bundle exec ruby scripts/parts/test_preview.rb
+
+The plugin (`src/_plugins/parts_preview.rb`) does nothing unless
+`_config.preview.yml` is layered on, so the normal site build is unchanged.
+
 ## Deploying
 
 If you wish to deploy from source you can execute the publish.sh

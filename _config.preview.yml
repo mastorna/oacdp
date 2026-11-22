@@ -1,0 +1,17 @@
+# Local parts preview: layered on top of _config.yml, never on its own.
+#   scripts/parts/preview.sh       (builds and serves on 127.0.0.1:4002)
+# Builds the whole site PLUS the parts pages (src/_plugins/parts_preview.rb)
+# into a folder OUTSIDE the repository. The scans and the whole-book data
+# are read from the notes folder and never enter git. A normal build
+# (without this file) does not include any of it.
+
+parts_preview: true
+destination: /workspaces/oacdp-notes/parts-preview/site
+
+# Paths are relative to the repository root.
+parts_preview_paths:
+  page_map: src/_data/parts/vw-tpl-1963-08/page-map.yml
+  ill32: src/_data/parts/vw-tpl-1963-08/ill32.yml
+  yaml_dir: ../oacdp-notes/data-catalog/yaml
+  work_dir: ../oacdp-notes/data-catalog/work
+  search_index: ../oacdp-notes/data-catalog/search-index.json

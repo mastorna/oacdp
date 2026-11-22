@@ -1,0 +1,119 @@
+{%- comment -%}
+  Parts preview: one illustration (page.ill, page.rows, page.stage_pages,
+  page.markers). Laid out like the design: drawing stage, selected-part card,
+  "Parts on this drawing" table. Works without JavaScript as a plain list.
+{%- endcomment -%}
+{%- assign ill = page.ill -%}
+<div class="pp-title pp-title-row">
+  <div>
+    <span class="pp-kicker">{% if ill.group %}Main group {{ ill.group }}, {{ ill.group_title }}{% else %}Main group not read{% endif %}{% if ill.number %}. Illustration {{ ill.number }}{% endif %}</span>
+    <h1>{{ ill.title | default: "Untitled illustration" }}</h1>
+  </div>
+  <p class="pp-lede">Drag to move the page, scroll or use the buttons to zoom. Pick a part to see it in focus.</p>
+</div>
+
+{%- if page.notes.size > 0 or page.footer_pages.size > 0 %}
+<aside class="pp-card pp-notes" aria-label="Notes about this illustration">
+  {%- for n in page.notes %}<p>{{ n | escape }}</p>{% endfor %}
+  {%- if page.footer_pages.size > 0 %}
+  <p><strong>Pages whose footer says Illustration {{ ill.number }}:</strong>
+    {% for f in page.footer_pages %}{{ f.label }} (PDF {{ f.pdf }}{% if f.filed_slug %}, filed under <a href="{{ f.filed_slug }}.html">Illustration {{ f.filed_under }}</a>{% endif %}){% unless forloop.last %}; {% endunless %}{% endfor %}</p>
+  {%- endif %}
+</aside>
+{%- endif %}
+
+<section class="pp-stage-sec" aria-label="Pages of this illustration">
+  <div class="pp-stage" id="pp-stage" tabindex="0" aria-label="Scan of the selected page. Drag to move; use the buttons to zoom or rotate.">
+    <div class="pp-tool pp-tool-tr">
+      <button type="button" class="pp-ibtn" data-act="zoomin" aria-label="Zoom in"><svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><path d="M10 4v12M4 10h12" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/></svg></button>
+      <button type="button" class="pp-ibtn" data-act="zoomout" aria-label="Zoom out"><svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h12" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/></svg></button>
+      <button type="button" class="pp-ibtn" data-act="fit" aria-label="Show the whole page"><svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><path d="M3 8V3h5M12 3h5v5M17 12v5h-5M8 17H3v-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></button>
+      <button type="button" class="pp-ibtn" data-act="rotate" aria-label="Rotate the page a quarter turn"><svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><path d="M15.5 8.5A6 6 0 1 0 16 12M16 3.5v5h-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></button>
+    </div>
+    <div class="pp-cam" id="pp-cam">
+      {%- assign first = page.stage_pages.first %}
+      <img id="pp-stage-img" src="{{ first.img }}" width="{{ first.w }}" height="{{ first.h }}" alt="Page {{ first.label }} of the parts list" draggable="false">
+      <div id="pp-markers" class="pp-markers"></div>
+    </div>
+    <div class="pp-tool pp-tool-bl">
+      <div class="pp-chip" aria-live="polite">
+        <span class="pp-chip-k" id="pp-chip-k">{{ page.stage_pages.size }} page{% if page.stage_pages.size > 1 %}s{% endif %}</span>
+        <span class="pp-chip-t" id="pp-chip-t">Page {{ first.label }}</span>
+        <span class="pp-chip-pn pp-num" id="pp-chip-pn"></span>
+      </div>
+    </div>
+  </div>
+  <div class="pp-stage-foot">
+    <div class="pp-tabs" role="group" aria-label="Pages for this illustration">
+      <span class="pp-muted">Pages</span>
+      {%- for p in page.stage_pages %}
+      <button type="button" class="pp-tab pp-num{% if forloop.first %} pp-on{% endif %}" data-page="{{ forloop.index0 }}" aria-pressed="{% if forloop.first %}true{% else %}false{% endif %}" title="{% if p.type == 'drawing' %}Drawing{% else %}Parts list{% endif %}, PDF page {{ p.pdf }}{% if p.fold_out %}, fold-out{% endif %}">{% if p.type == "drawing" %}<span class="pp-tab-d" aria-hidden="true">▣</span>{% endif %}{{ p.label }}</button>
+      {%- endfor %}
+    </div>
+    <span class="pp-muted" id="pp-stage-cap">{% if first.type == "drawing" %}Drawing{% else %}Parts list{% endif %}, PDF page {{ first.pdf }}</span>
+  </div>
+</section>
+
+<div class="pp-split">
+  <section class="pp-card pp-part" aria-label="Selected part" id="pp-part">
+    <div class="pp-part-bar"></div>
+    <div class="pp-part-in">
+      <p class="pp-muted" id="pp-part-empty">Pick a part in the list to see it here.</p>
+      <div id="pp-part-body" hidden>
+        <span class="pp-muted" id="pp-part-k"></span>
+        <h2 id="pp-part-d"></h2>
+        <span class="pp-part-pn pp-num" id="pp-part-pn"></span>
+        <div class="pp-badges" id="pp-part-badges"></div>
+        <dl class="pp-dl">
+          <div><dt>Quantity per vehicle</dt><dd class="pp-num" id="pp-part-q"></dd></div>
+          <div><dt>Type and model</dt><dd class="pp-num" id="pp-part-tm"></dd></div>
+          <div class="pp-dl-wide"><dt>Applies to (as printed)</dt><dd class="pp-num" id="pp-part-a"></dd></div>
+        </dl>
+        <div id="pp-part-vars" hidden>
+          <h3>Earlier and later versions</h3>
+          <div id="pp-part-varlist"></div>
+        </div>
+        <div class="pp-source">
+          <button type="button" class="pp-thumb" id="pp-part-thumb" aria-label="Open the original page full size"><img id="pp-part-img" alt=""></button>
+          <div class="pp-source-text">
+            <span class="pp-source-h" id="pp-part-src"></span>
+            <span class="pp-muted" id="pp-part-conf"></span>
+            <button type="button" class="pp-linkbtn" id="pp-part-open">Open the original page</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pp-card pp-table" aria-labelledby="pp-table-h">
+    <div class="pp-table-head">
+      <h2 id="pp-table-h">Parts on this illustration</h2>
+      <span class="pp-muted pp-num">{{ page.rows.size }} rows{% if ill.source == "ai" %}, AI reading{% elsif ill.rows > 0 %}, {{ ill.agree }} readings agree{% endif %}</span>
+    </div>
+    <div class="pp-table-scroll">
+      <div class="pp-row pp-row-h" aria-hidden="true">
+        <span>Key</span><span class="pp-c-pn">Part no.</span><span>Description</span><span>Qty</span><span class="pp-c-fit">For your bus</span>
+      </div>
+      {%- for r in page.rows %}
+      <button type="button" class="pp-row" id="row-{{ r.id }}" data-i="{{ forloop.index0 }}" aria-pressed="false">
+        <span><span class="pp-keydot pp-num{% if r.key == nil %} pp-keydot-none{% endif %}">{% if r.key == nil %}–{% else %}{{ r.key }}{% endif %}</span></span>
+        <span class="pp-num pp-c-pn">{% if r.mk %}{{ r.mk }}{% endif %}{{ r.pn }}</span>
+        <span class="pp-c-d">{{ r.d | default: "(description not read)" | escape }}{% if r.a %}<span class="pp-c-a">{{ r.a | escape | newline_to_br }}</span>{% endif %}<span class="pp-conf pp-conf-{{ r.conf }}">{% case r.conf %}{% when "agree" %}Readings agree{% when "ai" %}AI reading{% else %}Needs checking{% endcase %}</span></span>
+        <span class="pp-num">{{ r.q | default: "–" }}</span>
+        <span class="pp-c-fit"><span class="pp-fit pp-fit-none" data-fit>–</span></span>
+      </button>
+      {%- endfor %}
+      {%- if page.rows.size == 0 %}<p class="pp-muted pp-pad">No list rows were read for this illustration.</p>{% endif %}
+    </div>
+  </section>
+</div>
+
+<div class="pp-lightbox" id="pp-lightbox" role="dialog" aria-modal="true" aria-label="Original page" hidden>
+  <div class="pp-lightbox-in">
+    <div class="pp-lightbox-head">
+      <span id="pp-lightbox-t">Original page</span>
+      <button type="button" class="pp-ibtn" id="pp-lightbox-close" aria-label="Close"><svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path d="M4 4l10 10M14 4L4 14" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/></svg></button>
+    </div>
+    <img id="pp-lightbox-img" alt="">
+  </div>
+</div>

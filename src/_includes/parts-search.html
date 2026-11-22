@@ -1,0 +1,15 @@
+{%- comment -%} Parts preview: part-number / description search over parts/search-index.json. {%- endcomment -%}
+<div class="pp-title">
+  <span class="pp-kicker">{{ page.edition }}</span>
+  <h1>Search parts</h1>
+  <p class="pp-lede">Type a part number (spaces don't matter, e.g. <span class="pp-num">N 11 008 3</span> or <span class="pp-num">211609</span>) or words from the description.</p>
+</div>
+<form class="pp-card pp-search-big" action="search.html" method="get" role="search" id="pp-search-form">
+  <label for="pp-q">Part number or name</label>
+  <div class="pp-search-row">
+    <input id="pp-q" class="pp-search pp-num" type="search" name="q" autocomplete="off">
+    <button type="submit" class="pp-btn">Search</button>
+  </div>
+</form>
+<p class="pp-muted" id="pp-search-status" aria-live="polite">Search needs JavaScript; it loads the index of all part rows.</p>
+<div id="pp-results" class="pp-results"></div>
