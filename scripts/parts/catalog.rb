@@ -11,7 +11,8 @@
 #   ruby scripts/parts/catalog.rb --pdf ORIGINAL.pdf --work WORK \
 #        --page-map page-map.yml --out OUTDIR [--cross-edition parts-5867.txt]
 #
-# OUTDIR and WORK must be outside the repository. Ruby standard library only.
+# OUTDIR is data/parts/vw-tpl-1963-08/catalog/ (committed, text only; never
+# under src/). WORK (page images, raw readings) must be outside the repository. Ruby standard library only.
 
 require "optparse"
 require "digest"
@@ -31,9 +32,9 @@ OptionParser.new do |o|
 end.parse!
 %i[pdf work map out].each { |k| abort "missing --#{k}" unless opts[k] }
 REPO = File.expand_path("../..", __dir__)
-[opts[:work], opts[:out]].each do |d|
-  abort "#{d} must be outside the repository" if File.expand_path(d).start_with?(REPO + "/")
-end
+abort "--work must be outside the repository" if File.expand_path(opts[:work]).start_with?(REPO + "/")
+# the YAML (text only) may go in the repository's data/ folder, never in src/ (Jekyll would load it)
+abort "--out must not be inside src/" if File.expand_path(opts[:out]).start_with?(File.join(REPO, "src") + "/")
 
 pm = Parts.load(opts[:map])
 sha = Digest::SHA256.file(opts[:pdf]).hexdigest

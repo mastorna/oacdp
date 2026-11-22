@@ -208,3 +208,17 @@ body.pp { margin: 0; background: var(--pp-ground); color: var(--pp-ink);
   .pp-stage { height: 60vh; }
   .pp-band-title { font-size: 22px; }
 }
+
+/* "report a problem" */
+.pp-title-side { display: flex; flex-direction: column; gap: 6px; max-width: 60ch; }
+.pp-report-line { margin: 0; display: flex; flex-wrap: wrap; gap: 6px 14px; align-items: baseline; }
+.pp-report-btn { color: var(--pp-red); }
+.pp-report-in { max-width: 560px; display: flex; flex-direction: column; gap: 10px; }
+.pp-choices { border: 0; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 2px; }
+.pp-choices legend { font-weight: 600; margin-bottom: 4px; padding: 0; }
+.pp-choices label { display: flex; gap: 10px; align-items: center; min-height: 40px; cursor: pointer; }
+.pp-choices input { width: 20px; height: 20px; accent-color: var(--pp-red); }
+.pp-note-label { font-weight: 600; }
+.pp-report-in textarea { font: inherit; font-size: 16px; padding: 10px 12px; border: 1.5px solid #000; border-radius: 12px; resize: vertical; }
+.pp-report-actions { display: flex; flex-wrap: wrap; gap: 10px 16px; align-items: center; }
+.pp-reported { align-self: flex-start; font-size: 12px; font-weight: 600; padding: 1px 8px; border-radius: 999px; margin-top: 2px; background: var(--pp-red); color: #fff; }

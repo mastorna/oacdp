@@ -347,6 +347,97 @@
     document.addEventListener("keydown", function (ev) { if (ev.key === "Escape") closeLightbox(); });
   }
 
+  /* ---- "report a problem" (needs scripts/parts/preview-server.rb) ------------------- */
+  var rep = $("pp-report");
+  if (rep && data) {
+    var slug = rep.getAttribute("data-illustration"), token = null, scope = "row", lastFocusR = null;
+    var reported = {}; // row id -> count
+    var getToken = function () {
+      if (token) return Promise.resolve(token);
+      return fetch("/api/token", { cache: "no-store" }).then(function (r) {
+        if (!r.ok) throw new Error("no server");
+        return r.json();
+      }).then(function (j) { token = j.token; return token; });
+    };
+    var markReported = function () {
+      document.querySelectorAll(".pp-row[data-i]").forEach(function (b) {
+        var r = data.rows[+b.getAttribute("data-i")], old = b.querySelector(".pp-reported");
+        if (old) old.remove();
+        if (reported[r.id]) b.querySelector(".pp-c-d").appendChild(el("span", "pp-reported", "Reported"));
+      });
+      var n = Object.keys(reported).reduce(function (a, k) { return a + reported[k]; }, 0); // rows + "__page"
+      var cnt = $("pp-report-count");
+      if (cnt) cnt.textContent = n ? n + " report" + (n > 1 ? "s" : "") + " on this page so far" : "";
+      if (selected !== null) {
+        var rid = data.rows[selected].id, note = $("pp-row-reported");
+        note.hidden = !reported[rid];
+        note.textContent = reported[rid] ? "You reported this part (" + reported[rid] + ")" : "";
+      }
+    };
+    fetch("/api/reports?illustration=" + encodeURIComponent(slug), { cache: "no-store" }).then(function (r) {
+      return r.ok ? r.json() : { reports: [] };
+    }).then(function (j) {
+      (j.reports || []).forEach(function (x) { var k = x.row_id || "__page"; reported[k] = (reported[k] || 0) + 1; });
+      markReported();
+    }).catch(function () { /* plain static server: no reports */ });
+
+    var openReport = function (sc) {
+      scope = sc;
+      $("pp-report-row-choices").hidden = sc !== "row";
+      $("pp-report-row-choices").disabled = sc !== "row";
+      $("pp-report-page-choices").hidden = sc !== "page";
+      $("pp-report-page-choices").disabled = sc !== "page";
+      rep.querySelectorAll("input[name=problem]").forEach(function (i) { i.checked = false; });
+      $("pp-report-note").value = "";
+      $("pp-report-status").textContent = "";
+      var p = pageOf(view.page);
+      if (sc === "row") {
+        var r = data.rows[selected];
+        $("pp-report-h").textContent = "Report a problem with this part";
+        $("pp-report-what").textContent = ((r.mk || "") + (r.pn || "(no part number)")) + ", " + (r.d || "") + " (page " + (r.pp || "PDF " + r.pdf) + ")";
+      } else {
+        $("pp-report-h").textContent = "Report a problem with this page";
+        $("pp-report-what").textContent = "Page " + p.label + " (PDF " + p.pdf + ") of " + document.querySelector("h1").textContent;
+      }
+      lastFocusR = document.activeElement;
+      rep.hidden = false;
+      rep.querySelector("input[name=problem]:not(:disabled)").focus();
+    };
+    var closeReport = function () { if (rep.hidden) return; rep.hidden = true; if (lastFocusR) lastFocusR.focus(); };
+    $("pp-report-row").addEventListener("click", function () { if (selected !== null) openReport("row"); });
+    $("pp-report-page").addEventListener("click", function () { openReport("page"); });
+    $("pp-report-close").addEventListener("click", closeReport);
+    rep.addEventListener("click", function (ev) { if (ev.target === rep) closeReport(); });
+    document.addEventListener("keydown", function (ev) { if (ev.key === "Escape") closeReport(); });
+    $("pp-report-form").addEventListener("submit", function (ev) {
+      ev.preventDefault();
+      var choice = rep.querySelector("input[name=problem]:checked:not(:disabled)");
+      var st = $("pp-report-status");
+      if (!choice) { st.textContent = "Pick what's wrong first."; return; }
+      var p = pageOf(view.page), body = { scope: scope, problem: choice.value, illustration: slug,
+        illustration_number: rep.getAttribute("data-number"), note: $("pp-report-note").value };
+      if (scope === "row") {
+        var r = data.rows[selected];
+        body.row_id = r.id; body.part_no = (r.mk || "") + (r.pn || ""); body.pdf_page = r.pdf; body.printed_page = r.pp;
+      } else { body.pdf_page = p.pdf; body.printed_page = p.label; }
+      st.textContent = "Saving…";
+      getToken().then(function (t) {
+        return fetch("/api/report", { method: "POST", headers: { "Content-Type": "application/json", "X-Report-Token": t }, body: JSON.stringify(body) });
+      }).then(function (r) { return r.json().then(function (j) { if (!r.ok) throw new Error(j.error || "not saved"); return j; }); })
+        .then(function () {
+          if (scope === "row") reported[body.row_id] = (reported[body.row_id] || 0) + 1;
+          else reported.__page = (reported.__page || 0) + 1;
+          markReported();
+          st.textContent = "Saved. Thank you.";
+          setTimeout(closeReport, 900);
+        }).catch(function (e) {
+          st.textContent = e.message === "no server" ? "Not saved: start the preview with scripts/parts/preview.sh to save reports." : "Not saved: " + e.message;
+        });
+    });
+    var origRender = renderCard;
+    renderCard = function (i) { origRender(i); markReported(); };
+  }
+
   /* ---- search page ------------------------------------------------------------------ */
   var results = $("pp-results");
   if (results) {

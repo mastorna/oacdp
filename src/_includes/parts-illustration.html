@@ -9,7 +9,11 @@
     <span class="pp-kicker">{% if ill.group %}Main group {{ ill.group }}, {{ ill.group_title }}{% else %}Main group not read{% endif %}{% if ill.number %}. Illustration {{ ill.number }}{% endif %}</span>
     <h1>{{ ill.title | default: "Untitled illustration" }}</h1>
   </div>
-  <p class="pp-lede">Drag to move the page, scroll or use the buttons to zoom. Pick a part to see it in focus.</p>
+  <div class="pp-title-side">
+    <p class="pp-lede">Drag to move the page, scroll or use the buttons to zoom. Pick a part to see it in focus.</p>
+    <p class="pp-report-line"><button type="button" class="pp-linkbtn pp-report-btn" id="pp-report-page">Report a problem with this page</button>
+      <span class="pp-muted" id="pp-report-count"></span></p>
+  </div>
 </div>
 
 {%- if page.notes.size > 0 or page.footer_pages.size > 0 %}
@@ -79,6 +83,8 @@
             <span class="pp-source-h" id="pp-part-src"></span>
             <span class="pp-muted" id="pp-part-conf"></span>
             <button type="button" class="pp-linkbtn" id="pp-part-open">Open the original page</button>
+            <button type="button" class="pp-linkbtn pp-report-btn" id="pp-report-row">Report a problem with this part</button>
+            <span class="pp-muted" id="pp-row-reported" hidden></span>
           </div>
         </div>
       </div>
@@ -116,4 +122,39 @@
     </div>
     <img id="pp-lightbox-img" alt="">
   </div>
+</div>
+
+<div class="pp-lightbox" id="pp-report" role="dialog" aria-modal="true" aria-labelledby="pp-report-h" hidden
+     data-illustration="{{ ill.slug }}" data-number="{{ ill.number }}">
+  <form class="pp-lightbox-in pp-report-in" id="pp-report-form">
+    <div class="pp-lightbox-head">
+      <span id="pp-report-h">Report a problem</span>
+      <button type="button" class="pp-ibtn" id="pp-report-close" aria-label="Close"><svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path d="M4 4l10 10M14 4L4 14" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/></svg></button>
+    </div>
+    <p class="pp-muted" id="pp-report-what"></p>
+    <fieldset class="pp-choices" id="pp-report-row-choices">
+      <legend>What's wrong?</legend>
+      <label><input type="radio" name="problem" value="part_no"> The part number</label>
+      <label><input type="radio" name="problem" value="description"> The description</label>
+      <label><input type="radio" name="problem" value="quantity"> The quantity</label>
+      <label><input type="radio" name="problem" value="applicability"> "Applies to" (chassis or engine range)</label>
+      <label><input type="radio" name="problem" value="key"> The key number</label>
+      <label><input type="radio" name="problem" value="extra_or_split"> This row shouldn't be here, or is split / joined</label>
+      <label><input type="radio" name="problem" value="other"> Something else</label>
+    </fieldset>
+    <fieldset class="pp-choices" id="pp-report-page-choices" hidden>
+      <legend>What's wrong?</legend>
+      <label><input type="radio" name="problem" value="rows_missing"> Parts on the page are missing from the list</label>
+      <label><input type="radio" name="problem" value="wrong_illustration"> This page belongs to another illustration</label>
+      <label><input type="radio" name="problem" value="wrong_page_number"> The page number is wrong</label>
+      <label><input type="radio" name="problem" value="scan_problem"> The scan is missing, unreadable or the wrong page</label>
+      <label><input type="radio" name="problem" value="other"> Something else</label>
+    </fieldset>
+    <label class="pp-note-label" for="pp-report-note">What should it say? (optional)</label>
+    <textarea id="pp-report-note" rows="3" maxlength="2000"></textarea>
+    <div class="pp-report-actions">
+      <button type="submit" class="pp-btn">Save report</button>
+      <span class="pp-muted" id="pp-report-status" aria-live="polite"></span>
+    </div>
+  </form>
 </div>

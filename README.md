@@ -126,12 +126,12 @@ that were already reviewed are kept as they are:
 ### Whole-book machine catalog (smoke test)
 
 The whole August 1963 book can be machine-read into the same row format
-using only the two machine readings (no AI or person reading). The output
-is **not committed**: the YAML files (the source of truth), a SQLite file and
-a JSON search index all go to a folder outside the repository. Only the
-page map (`src/_data/parts/vw-tpl-1963-08/page-map.yml`) and a 50-row
-spot-check file (`spot-check-50.yml`) are committed. Neither is used by any
-page. Every row is `unverified` and labelled `readings agree` or
+using the machine readings (no AI or person reading). The YAML files, the
+source of truth, are committed in `data/parts/vw-tpl-1963-08/catalog/`
+(outside `src/`, so the site build doesn't load them), with the page map
+(`src/_data/parts/vw-tpl-1963-08/page-map.yml`) and the person's decisions
+(`page-decisions.yml`). The SQLite file and the JSON search index are
+rebuilt from them and are not committed; nor are page images or raw OCR. Every row is `unverified` and labelled `readings agree` or
 `needs checking`.
 
 	scripts/parts/run-readings.sh ORIGINAL.pdf WORK              # images + both readings, restartable (~25 min)
@@ -140,10 +140,10 @@ page. Every row is `unverified` and labelled `readings agree` or
 	  --decisions src/_data/parts/vw-tpl-1963-08/page-decisions.yml
 	ruby scripts/parts/cross-edition.rb --scans out/5867part --work WORK --out WORK/parts-5867.txt
 	ruby scripts/parts/catalog.rb --pdf ORIGINAL.pdf --work WORK \
-	  --page-map src/_data/parts/vw-tpl-1963-08/page-map.yml --out OUT/yaml --cross-edition WORK/parts-5867.txt
-	ruby scripts/check-parts.rb --catalog OUT/yaml
-	ruby scripts/parts/build-db.rb --yaml OUT/yaml --page-map src/_data/parts/vw-tpl-1963-08/page-map.yml --out OUT
-	ruby scripts/parts/smoke-report.rb --yaml OUT/yaml --page-map src/_data/parts/vw-tpl-1963-08/page-map.yml \
+	  --page-map src/_data/parts/vw-tpl-1963-08/page-map.yml --out data/parts/vw-tpl-1963-08/catalog --cross-edition WORK/parts-5867.txt
+	ruby scripts/check-parts.rb --catalog data/parts/vw-tpl-1963-08/catalog
+	ruby scripts/parts/build-db.rb --yaml data/parts/vw-tpl-1963-08/catalog --page-map src/_data/parts/vw-tpl-1963-08/page-map.yml --out OUT
+	ruby scripts/parts/smoke-report.rb --yaml data/parts/vw-tpl-1963-08/catalog --page-map src/_data/parts/vw-tpl-1963-08/page-map.yml \
 	  --work WORK --report OUT/report.md --spot-yml src/_data/parts/vw-tpl-1963-08/spot-check-50.yml \
 	  --spot-md OUT/spot-check.md [--sample AI-READING.yml ...]
 
@@ -160,6 +160,12 @@ into a folder outside the repository, and is never published:
 	scripts/parts/preview.sh          # build and serve http://127.0.0.1:4002/parts/
 	scripts/parts/preview.sh --build  # build only
 	bundle exec ruby scripts/parts/test_preview.rb
+
+Each illustration page has "Report a problem" buttons (for a part and for
+the page). Reports are saved by the preview server
+(`scripts/parts/preview-server.rb`, 127.0.0.1 only) to
+`data/parts/vw-tpl-1963-08/qa-reports.jsonl`, one line each, so they can be
+committed and worked through. Set your name with `PP_REVIEWER=yourname`.
 
 The plugin (`src/_plugins/parts_preview.rb`) does nothing unless
 `_config.preview.yml` is layered on, so the normal site build is unchanged.
